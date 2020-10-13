@@ -8,56 +8,60 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideHome"><img src="http://placehold.it/1920x800" alt="" /></li>
+								<li class="slideHome"><img src="https://www.ecpinvestments.com/wp-content/uploads/2019/11/zt0a0681.jpg" alt="" /></li>
 								<li class="slideHome"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideHome"><img src="http://placehold.it/1920x800" alt="" /></li>
 							</ul>
 							<div class="job-search-sec">
 								<div class="job-search style2">
-									<h3>The Easiest Way to Get Your New Job</h3>
-									<span>Find Jobs, Employment & Career Opportunities</span>
+									<h3>La meilleure façon de trouver un emplois</h3>
+									{{-- <span>Find Jobs, Employment & Career Opportunities</span> --}}
 									<div class="search-job2">	
 										<form>
 											<div class="row no-gape">
 												<div class="col-lg-4 col-md-3 col-sm-4">
 													<div class="job-field">
-														<input type="text" placeholder="Keywords" />
+														<input type="text" placeholder="Mots clés" />
 													</div>
 												</div>
 												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="job-field">
-														<select data-placeholder="All Regions" class="chosen-city">
-															<option>Istanbul</option>
-															<option>New York</option>
-															<option>London</option>
-															<option>Russia</option>
+														<select data-placeholder="Tous les pays" class="chosen-city">
+															<option></option>
+															<option>Gabon</option>
+															<option>Mali</option>
+															<option>Côte d'ivoire</option>
+															<option>Sénégal</option>
 														</select>
 													</div>
 												</div>
 												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="job-field">
-														<select data-placeholder="Any category" class="chosen-city">
-															<option>Mechanic</option>
-															<option>Web Development</option>
-															<option>Car Install</option>
-															<option>Shoes Slippers</option>
+														<select data-placeholder="Toutes les catégories" class="chosen-city">
+															<option></option>
+															<option>Informatique</option>
+															<option>Communication</option>
+															<option>Finance/Comptabilité</option>
+															
 														</select>
 													</div>
 												</div>
 												<div class="col-lg-2  col-md-3 col-sm-12">
-													<button type="submit">FIND JOB <i class="la la-search"></i></button>
+													<button type="submit"> Rechercher<i class="la la-search"></i></button>
 												</div>
 											</div>
 										</form>
 									</div><!-- Job Search 2 -->
+
+
 									<div class="quick-select-sec">
 										<div class="row">
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-bullhorn"></i>
-														<span>Design, Art & Multimedia</span>
-														<p>(22 open positions)</p>
+														<span>Art & Multimédia</span>
+														<p>(22 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
@@ -65,8 +69,8 @@
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-graduation-cap"></i>
-														<span>Education Training</span>
-														<p>(06 open positions)</p>
+														<span>Informatique</span>
+														<p>(06 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
@@ -74,8 +78,8 @@
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-line-chart "></i>
-														<span>Accounting / Finance</span>
-														<p>(03 open positions)</p>
+														<span>Finance & Comptabilité</span>
+														<p>(03 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
@@ -83,14 +87,26 @@
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-users"></i>
-														<span>Human Resource</span>
-														<p>(03 open positions)</p>
+														<span>Ressources humaines</span>
+														<p>(03 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
 										</div>
 									</div>
+									
+
 								</div>
+							
+								<div class="row">
+										<div class="col-lg col-md col-sm col-xs" >
+										{{-- <div class="col-lg-12"> --}}
+											<div class="browse-all-cat">
+												<a href="#" title="" class="style2">Voir toutes les catégories</a>
+											</div>
+										{{-- </div> --}}
+										</div>
+									</div>
 							</div>
 						</div>
 					</div>
@@ -105,89 +121,92 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>Recent Jobs</h2>
-							<span>Leading Employers already using job and talent.</span>
+							<h2>Offres récentes</h2>
+							{{-- <span>Leading Employers already using job and talent.</span> --}}
 						</div><!-- Heading -->
 						<div class="job-grid-sec">
 							<div class="row">
+							
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Web Designer / Developer</a></h3>
-											<span>Massimo Artemisis</span>
+											<h3><a href="#" title="">Directeur Marketing</a></h3>
+											<span>Société générale</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Sacramento, California</span>
-										<a  href="#" title="">APPLY NOW</a>
+										<span class="job-lctn">Libreville, Gabon</span>
+										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Marketing Director</a></h3>
-											<span>Massimo Artemisis</span>
+											<h3><a href="#" title="">Directeur Marketing</a></h3>
+											<span>Société générale</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Sacramento, California</span>
-										<a  href="#" title="">APPLY NOW</a>
+										<span class="job-lctn">Libreville, Gabon</span>
+										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Application Developer For Android</a></h3>
-											<span>Altes Bank</span>
+											<h3><a href="#" title="">Directeur Marketing</a></h3>
+											<span>Société générale</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Sacramento, California</span>
-										<a  href="#" title="">APPLY NOW</a>
+										<span class="job-lctn">Libreville, Gabon</span>
+										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Web Designer / Developer</a></h3>
-											<span>Massimo Artemisis</span>
+											<h3><a href="#" title="">Directeur Marketing</a></h3>
+											<span>Société générale</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Sacramento, California</span>
-										<a  href="#" title="">APPLY NOW</a>
+										<span class="job-lctn">Libreville, Gabon</span>
+										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Web Designer / Developer</a></h3>
-											<span>MediaLab</span>
+											<h3><a href="#" title="">Directeur Marketing</a></h3>
+											<span>Société générale</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Sacramento, California</span>
-										<a  href="#" title="">APPLY NOW</a>
+										<span class="job-lctn">Libreville, Gabon</span>
+										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Web Designer / Developer</a></h3>
-											<span>StarHealth</span>
+											<h3><a href="#" title="">Directeur Marketing</a></h3>
+											<span>Société générale</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Sacramento, California</span>
-										<a  href="#" title="">APPLY NOW</a>
+										<span class="job-lctn">Libreville, Gabon</span>
+										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
+								
+							
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-12">
 						<div class="browse-all-cat">
-							<a href="#" title="" class="style2">Load more listings</a>
+							<a href="#" title="" class="style2">Voir toutes les offres</a>
 						</div>
 					</div>
 				</div>
@@ -201,25 +220,25 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>How It Works</h2>
-							<span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day.
+							<h2>Comment ça marche ?</h2>
+							{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day. --}}
 							</span>
 						</div><!-- Heading -->
 						<div class="how-to-sec">
 							<div class="how-to">
 								<span class="how-icon"><i class="la la-user"></i></span>
-								<h3>Register an account</h3>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+								<h3>Creéz votre compte</h3>
+								{{-- <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p> --}}
 							</div>
 							<div class="how-to">
 								<span class="how-icon"><i class="la la-file-archive-o"></i></span>
-								<h3>Specify & search your job</h3>
-								<p>Browse profiles, reviews, and proposals then interview top candidates. </p>
+								<h3>Recherchez un emplois selon vos critères</h3>
+								{{-- <p>Browse profiles, reviews, and proposals then interview top candidates. </p> --}}
 							</div>
 							<div class="how-to">
 								<span class="how-icon"><i class="la la-list"></i></span>
-								<h3>Apply for job</h3>
-								<p>Use the Upwork platform to chat, share files, and collaborate from your desktop or on the go.</p>
+								<h3>Postulez</h3>
+								{{-- <p>Use the Upwork platform to chat, share files, and collaborate from your desktop or on the go.</p> --}}
 							</div>
 						</div>
 					</div>
@@ -234,51 +253,52 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>Top Company Registered</h2>
-							<span>Some of the companies we've helped recruit excellent applicants over the years.</span>
+							<h2>Top entreprises qui nous font confiance</h2>
+							{{-- <span>Some of the companies we've helped recruit excellent applicants over the years.</span> --}}
 						</div><!-- Heading -->
 						<div class="top-company-sec">
 							<div class="row" id="companies-carousel">
 								<div class="col-lg-3">
 									<div class="top-compnay">
-										<img src="http://placehold.it/180x180" alt="" />
-										<h3><a href="#" title="">Symtech</a></h3>
-										<span>United States, Los Angeles</span>
-										<a href="#" title="">4 Open Positon</a>
+										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
+										<h3><a href="#" title="">Société générale</a></h3>
+										<span>Libreville, GABON</span>
+										<a href="#" title="">5 offres</a>
 									</div><!-- Top Company -->
 								</div>
 								<div class="col-lg-3">
 									<div class="top-compnay">
-										<img src="http://placehold.it/180x180" alt="" />
-										<h3><a href="#" title="">Symtech</a></h3>
-										<span>United States, Los Angeles</span>
-										<a href="#" title="">4 Open Positon</a>
+										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
+										<h3><a href="#" title="">Société générale</a></h3>
+										<span>Libreville, GABON</span>
+										<a href="#" title="">5 offres</a>
 									</div><!-- Top Company -->
 								</div>
 								<div class="col-lg-3">
 									<div class="top-compnay">
-										<img src="http://placehold.it/180x180" alt="" />
-										<h3><a href="#" title="">Symtech</a></h3>
-										<span>United States, Los Angeles</span>
-										<a href="#" title="">4 Open Positon</a>
+										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
+										<h3><a href="#" title="">Société générale</a></h3>
+										<span>Libreville, GABON</span>
+										<a href="#" title="">5 offres</a>
 									</div><!-- Top Company -->
 								</div>
 								<div class="col-lg-3">
 									<div class="top-compnay">
-										<img src="http://placehold.it/180x180" alt="" />
-										<h3><a href="#" title="">Symtech</a></h3>
-										<span>United States, Los Angeles</span>
-										<a href="#" title="">4 Open Positon</a>
+										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
+										<h3><a href="#" title="">Société générale</a></h3>
+										<span>Libreville, GABON</span>
+										<a href="#" title="">5 offres</a>
 									</div><!-- Top Company -->
 								</div>
 								<div class="col-lg-3">
 									<div class="top-compnay">
-										<img src="http://placehold.it/180x180" alt="" />
-										<h3><a href="#" title="">Symtech</a></h3>
-										<span>United States, Los Angeles</span>
-										<a href="#" title="">4 Open Positon</a>
+										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
+										<h3><a href="#" title="">Société générale</a></h3>
+										<span>Libreville, GABON</span>
+										<a href="#" title="">5 offres</a>
 									</div><!-- Top Company -->
 								</div>
+						
 							</div>
 						</div>
 					</div>
@@ -294,33 +314,33 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading light">
-							<h2>Projob Site Stats</h2>
-							<span>Here we list our site stats and how many people we’ve helped find a job and companies have found <br />recruits. It's a pretty awesome stats area!</span>
+							<h2>Nos Statistiques</h2>
+							{{-- <span>Here we list our site stats and how many people we’ve helped find a job and companies have found <br />recruits. It's a pretty awesome stats area!</span> --}}
 						</div><!-- Heading -->
 						<div class="stats-sec">
 							<div class="row">
 								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 									<div class="stats">
-										<span>18</span>
-										<h5>Jobs Posted</h5>
+										<span>300</span>
+										<h5>Offres postées</h5>
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 									<div class="stats">
-										<span>38</span>
-										<h5>Jobs Filled</h5>
+										<span>700</span>
+										<h5>Candidatures</h5>
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 									<div class="stats">
 										<span>67</span>
-										<h5>Companies</h5>
+										<h5>Entreprises</h5>
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 									<div class="stats">
 										<span>92</span>
-										<h5>Members</h5>
+										<h5>Membres</h5>
 									</div>
 								</div>
 							</div>
@@ -337,38 +357,40 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>Kind Words From Happy Candidates</h2>
-							<span>What other people thought about the service provided by JobHunt</span>
+							<h2>Témoignages</h2>
+							{{-- <span>What other people thought about the service provided by JobHunt</span> --}}
 						</div><!-- Heading -->
 						<div class="reviews-sec" id="reviews">
 							<div class="col-lg-12">
 								<div class="reviews style2">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Augusta Silva <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
+									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
+									<h3>Thomas PONS <span>Web designer</span></h3>
+									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
+								</div><!-- Reviews -->
+							</div>
+
+							<div class="col-lg-12">
+								<div class="reviews style2">
+									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
+									<h3>Thomas PONS <span>Web designer</span></h3>
+									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
 								</div><!-- Reviews -->
 							</div>
 							<div class="col-lg-12">
 								<div class="reviews style2">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Ali Tufan <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
+									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
+									<h3>Thomas PONS <span>Web designer</span></h3>
+									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
 								</div><!-- Reviews -->
 							</div>
 							<div class="col-lg-12">
 								<div class="reviews style2">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Augusta Silva <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
+									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
+									<h3>Thomas PONS <span>Web designer</span></h3>
+									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
 								</div><!-- Reviews -->
 							</div>
-							<div class="col-lg-12">
-								<div class="reviews style2">
-									<img src="http://placehold.it/101x101" alt="" />
-									<h3>Ali Tufan <span>Web designer</span></h3>
-									<p>Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything!  Can’t quite believe the service level that they offer!</p>
-								</div><!-- Reviews -->
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -382,8 +404,8 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>Quick Career Tips</h2>
-							<span>Found by employers communicate directly with hiring managers and recruiters.</span>
+							<h2>Nos derniers articles</h2>
+							{{-- <span>Found by employers communicate directly with hiring managers and recruiters.</span> --}}
 						</div><!-- Heading -->
 						<div class="blog-sec">
 							<div class="row">
@@ -392,13 +414,13 @@
 										<div class="blog-thumb">
 											<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
 											<div class="blog-date">
-												<a href="#" title="">2017 <i>March 29</i></a>
+												<a href="#" title="">2020 <i>14 Octobre</i></a>
 											</div>
 										</div>
 										<div class="blog-details">
-											<h3><a href="#" title="">Attract More Attention Sales And Profits</a></h3>
-											<p>A job is a regular activity performed in exchange becoming an employee, volunteering, </p>
-											<a href="#" title="">Read More <i class="la la-long-arrow-right"></i></a>
+											<h3><a href="#" title="">Comment faire son CV</a></h3>
+											<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+											<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -407,13 +429,13 @@
 										<div class="blog-thumb">
 											<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
 											<div class="blog-date">
-												<a href="#" title="">2017 <i>March 29</i></a>
+												<a href="#" title="">2020 <i>14 Octobre</i></a>
 											</div>
 										</div>
 										<div class="blog-details">
-											<h3><a href="#" title="">11 Tips to Help You Get New Clients</a></h3>
-											<p>A job is a regular activity performed in exchange becoming an employee, volunteering, </p>
-											<a href="#" title="">Read More <i class="la la-long-arrow-right"></i></a>
+											<h3><a href="#" title="">Comment faire son CV</a></h3>
+											<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+											<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -422,16 +444,18 @@
 										<div class="blog-thumb">
 											<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
 											<div class="blog-date">
-												<a href="#" title="">2017 <i>March 29</i></a>
+												<a href="#" title="">2020 <i>14 Octobre</i></a>
 											</div>
 										</div>
 										<div class="blog-details">
-											<h3><a href="#" title="">An Overworked Newspaper Editor</a></h3>
-											<p>A job is a regular activity performed in exchange becoming an employee, volunteering, </p>
-											<a href="#" title="">Read More <i class="la la-long-arrow-right"></i></a>
+											<h3><a href="#" title="">Comment faire son CV</a></h3>
+											<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+											<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>
+								
+	
 							</div>
 						</div>
 					</div>
@@ -440,72 +464,6 @@
 		</div>
 	</section>
 
-	<section>
-		<div class="block">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading">
-							<h2>Buy Our Plans And Packeges</h2>
-							<span>One of our jobs has some kind of flexibility option - such as telecommuting, a part-time schedule or a flexible or flextime schedule.</span>
-						</div><!-- Heading -->
-						<div class="plans-sec">
-							<div class="row">
-								<div class="col-lg-4">
-									<div class="pricetable">
-										<div class="pricetable-head">
-											<h3>Basic Jobs</h3>
-											<h2><i>$</i>10</h2>
-											<span>15 Days</span>
-										</div><!-- Price Table -->
-										<ul>
-											<li>1 job posting</li>
-											<li>0 featured job</li>
-											<li>Job displayed for 20 days</li>
-											<li>Premium Support 24/7</li>
-										</ul>
-										<a href="#" title="">BUY NOW</a>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<div class="pricetable active">
-										<div class="pricetable-head">
-											<h3>Standard Jobs</h3>
-											<h2><i>$</i>45</h2>
-											<span>20 Days</span>
-										</div><!-- Price Table -->
-										<ul>
-											<li>11 job posting</li>
-											<li>12 featured job</li>
-											<li>Job displayed for 30 days</li>
-											<li>Premium Support 24/7</li>
-										</ul>
-										<a href="#" title="">BUY NOW</a>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<div class="pricetable">
-										<div class="pricetable-head">
-											<h3>Golden Jobs</h3>
-											<h2><i>$</i>80</h2>
-											<span>2 Month</span>
-										</div><!-- Price Table -->
-										<ul>
-											<li>44 job posting</li>
-											<li>56 featured job</li>
-											<li>Job displayed for 80 days</li>
-											<li>Premium Support 24/7</li>
-										</ul>
-										<a href="#" title="">BUY NOW</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<section>
 		<div class="block gray">
@@ -515,12 +473,12 @@
 						<div class="subscription-sec">
 							<div class="row">
 								<div class="col-lg-6">
-									<h3>Still Need Help ?</h3>
-									<span>Let us now about your issue and a Professional will reach you out.</span>
+									<h3>Souscrivez à notre Newsletter</h3>
+									<span>Laissez nous votre adresse mail</span>
 								</div>
 								<div class="col-lg-6">
 									<form>
-										<input type="text" placeholder="Enter Valid Email Address" />
+										<input type="text" placeholder="Entrez votre email" />
 										<button type="submit"><i class="la la-paper-plane"></i></button>
 									</form>
 								</div>
@@ -541,9 +499,8 @@
 							<a href="#" title="" class="fb-color"><i class="fa fa-facebook"></i> Facebook</a>
 							<a href="#" title="" class="tw-color"><i class="fa fa-twitter"></i> Twitter</a>
 							<a href="#" title="" class="in-color"><i class="la la-instagram"></i> Instagram</a>
-							<a href="#" title="" class="pt-color"><i class="la la-pinterest"></i> Pinterest</a>
-							<a href="#" title="" class="dr-color"><i class="la la-dribbble"></i> Dribbble</a>
-							<a href="#" title="" class="gl-color"><i class="la la-google"></i> Google</a>
+							<a href="#" title="" class="lk-color"><i class="la la-linkedin"></i> Linkedin</a>
+
 						</div>
 					</div>
 				</div>

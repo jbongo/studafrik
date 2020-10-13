@@ -49,10 +49,10 @@
 					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Se connecter</a></li>
 				</ul>
 			</div><!-- Btn Extras -->
-			<form class="res-search">
+			{{-- <form class="res-search">
 				<input type="text" placeholder="Job title, keywords or company name" />
 				<button type="submit"><i class="la la-search"></i></button>
-			</form>
+			</form> --}}
 			<div class="responsivemenu">
 				<ul>
 						<li class="menu-item-has-children">
@@ -62,7 +62,7 @@
 							<a href="#" title="">Offres d'emplois</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Qui sommes nous</a>
+							<a href="#" title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
 							<a href="#" title="">Blog</a>
@@ -98,7 +98,7 @@
 							<a href="#" title="">Offres d'emplois</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Qui sommes nous</a>
+							<a href="#" title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
 							<a href="#" title="">Blog</a>

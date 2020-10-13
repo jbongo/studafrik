@@ -601,7 +601,7 @@ label::after {
     width: 100%;
     height: 100%;
     content: "";
-    background-image: url('../images/lines.png');
+    background-image: url('https://www.ecpinvestments.com/wp-content/uploads/2019/11/zt0a0681.jpg');
     z-index: 3;
     opacity: 0.1;
 }
@@ -2389,7 +2389,7 @@ header.style2 nav {
     top: 60px;
     width: 270px;
     height: 36px;
-    background-image: url('../images/line1.png');
+    background-image: url('../images/line1.png');  
     content: "";
     z-index: 1;
     margin-left: 61px;
@@ -2874,6 +2874,10 @@ header.style2 nav {
 .social-links a.gl-color i {
     background: #d42525;
 }
+.social-links a.lk-color i {
+    background: #0077B5;
+}
+
 .mega-widget {
     float: left;
     width: 100%;
@@ -3089,7 +3093,7 @@ header.style3 .menu-sec nav {
     background-image: url('../images/line3.png');
 }
 .how-to-sec.style2 .how-to:nth-child(n+2)::before {
-    background-image: url(../images/line4.png);
+    background-image: url('../images/line4.png');
 }
 .how-to-sec.style2 .how-icon {
     background: #7dc246;
