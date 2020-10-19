@@ -17,7 +17,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    //  ############# AJOUT JP
+     protected $namespace = 'App\Http\Controllers';
+
+    public const HOME = '/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -47,6 +50,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+        
+    //  ############# AJOUT JP
+
+        $this ->namespace($this->namespace) ;
+
     }
 
     /**

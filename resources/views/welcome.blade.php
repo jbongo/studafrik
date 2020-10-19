@@ -8,9 +8,9 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideHome"><img src="https://www.ecpinvestments.com/wp-content/uploads/2019/11/zt0a0681.jpg" alt="" /></li>
-								<li class="slideHome"><img src="http://placehold.it/1920x800" alt="" /></li>
-								<li class="slideHome"><img src="http://placehold.it/1920x800" alt="" /></li>
+								<li class="slideDashboard"><img src="https://www.ecpinvestments.com/wp-content/uploads/2019/11/zt0a0681.jpg" alt="" /></li>
+								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
+								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 							</ul>
 							<div class="job-search-sec">
 								<div class="job-search style2">

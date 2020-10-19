@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
+	<title>Studafrik</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -85,8 +85,8 @@
 				<div class="btn-extars">
 					<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
 					<ul class="account-btns">
-						<li class="signup-popup"><a title=""><i class="la la-key"></i> S'inscrire</a></li>
-						<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Se connecter</a></li>
+					<li >	<a title="" href="{{route('register')}}"><i class="la la-key"></i> S'inscrire</a></li>
+						<li ><a title="" href="{{route('login')}}"><i class="la la-external-link-square"></i> Se connecter</a></li>
 					</ul>
 				</div><!-- Btn Extras -->
 				<nav>
