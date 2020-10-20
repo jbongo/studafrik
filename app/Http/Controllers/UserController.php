@@ -50,17 +50,12 @@ class UserController extends Controller
                 'nom' => 'required|string|max:255',
                 'prenom' => 'required|string|max:255',
                 'poste' => 'required|string|max:255',
-                'experience' => 'required|string|max:255',
+               
                 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
-                'ville' => 'string|max:255',
-                'description' => 'string',
-                'facebook' => 'string|max:255',
-                'twitter' => 'string|max:255',
-                'instagram' => 'string|max:255',
-                'linkedin' => 'string|max:255',
-                'contact1' => 'string|max:255',
-                'contact2' => 'string|max:255',
+                
+             
+             
               
             ]);
 
@@ -97,13 +92,7 @@ class UserController extends Controller
                 // 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
                 'ville' => 'string|max:255',
-                'description' => 'string',
-                'facebook' => 'string|max:255',
-                'twitter' => 'string|max:255',
-                'instagram' => 'string|max:255',
-                'linkedin' => 'string|max:255',
-                'contact1' => 'string|max:255',
-                'contact2' => 'string|max:255',
+                
               
             ]);
 

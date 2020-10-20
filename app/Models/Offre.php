@@ -11,4 +11,9 @@ class Offre extends Model
 
     protected $guarded =[];
     protected $dates = ['date_expiration'];
+
+
+    public function  user(){
+        return $this->belongsTo('App\Models\user');
+    }
 }

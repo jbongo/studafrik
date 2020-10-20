@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/chosen.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/colors/colors.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert2.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	
@@ -56,13 +57,13 @@
 			<div class="responsivemenu">
 				<ul>
 						<li class="menu-item-has-children">
-							<a href="#" title="">Accueil</a>							
+						<a href="{{route('welcome')}}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Offres d'emplois</a>
+							<a  title="">Offres d'emplois</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Qui sommes nous ?</a>
+							<a  title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
 							<a href="#" title="">Blog</a>
@@ -85,8 +86,15 @@
 				<div class="btn-extars">
 					<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
 					<ul class="account-btns">
+					
+					@if(Auth::check())
+					<li >	<a title="" href="{{route('dashboard')}}"><i class="la la-user"></i> Mon compte</a></li>
+					
+					@else
 					<li >	<a title="" href="{{route('register')}}"><i class="la la-key"></i> S'inscrire</a></li>
-						<li ><a title="" href="{{route('login')}}"><i class="la la-external-link-square"></i> Se connecter</a></li>
+					<li ><a title="" href="{{route('login')}}"><i class="la la-external-link-square"></i> Se connecter</a></li>
+					@endif
+
 					</ul>
 				</div><!-- Btn Extras -->
 				<nav>

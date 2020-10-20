@@ -1,4 +1,7 @@
-{{-- 
+
+ @include('layouts.topmenuhome')
+
+
 	<section class="overlape">
 		<div class="block no-padding">
 			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -6,13 +9,13 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="inner-header">
-							<h3>Welcome Ali TUFAN</h3>
+                        <h3>{{Auth::user()->nom }} </h3>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section> --}}
+	</section>
 
 	<section>
 		<div class="block remove-top">
@@ -32,7 +35,8 @@
                             <div class="profile-form-edit">
 
                                 
-                                <form onSubmit={handleSubmit} >
+                            <form method="POST" action="{{route('mes_offres.store')}}" >
+                                @csrf
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <span class="pf-title">Titre de l'offre</span>
@@ -58,9 +62,9 @@
                                             <span class="pf-title">Catégorie de l'emploi</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism"  name="categorie_offre_id" class="form-control chosen">
-                                                   <option>Marketing</option>
-                                                   <option>Informatique</option>
-                                                   <option>Art & Culture</option>
+                                                   <option value="1">Marketing</option>
+                                                   <option value="2">Informatique</option>
+                                                   <option value="3">Art & Culture</option>
                                                    
                                                </select>
                                             </div>
@@ -69,26 +73,26 @@
                                         <div class="col-lg-3">
                                             <span  htmlFor="customRange1" class="pf-title">Salaire Min </span>
                                             <div class="pf-field">
-                                               <input type="number"  name="salaire_min" class="custom-range" ></input>
+                                               <input type="number"  name="salaire_min" class="custom-range" />
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <span  htmlFor="customRange1" class="pf-title">Salaire Max </span>
                                             <div class="pf-field">
-                                               <input type="number"  name="salaire_max" class="custom-range" ></input>
+                                               <input type="number"  name="salaire_max" class="custom-range" />
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <span class="pf-title"  htmlFor="customRange2">Expérience réquise Min (mois)</span>
                                             <div class="pf-field">
-                                               <input type="number"  name="experience_min" class="custom-range" ></input>
+                                               <input type="number"  name="experience_min" class="custom-range" />
                                                 
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <span class="pf-title"  htmlFor="customRange2">Expérience réquise Max (mois)</span>
                                             <div class="pf-field">
-                                               <input type="number"  name="experience_max" class="custom-range" ></input>
+                                               <input type="number"  name="experience_max" class="custom-range" />
                                                 
                                             </div>
                                         </div>
@@ -97,9 +101,9 @@
                                             <span class="pf-title">Sexe</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism"    name="sexe" class="form-control chosen">
-                                                   <option>H/F</option>
-                                                   <option>H</option>
-                                                   <option>F</option>
+                                                   <option value="h/f">H/F</option>
+                                                   <option value="h">H</option>
+                                                   <option value="f">F</option>
                                                
                                                </select>
                                             </div>
@@ -159,3 +163,5 @@
 	
 
 </div>
+
+@include('layouts.footer')

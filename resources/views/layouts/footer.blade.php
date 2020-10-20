@@ -103,6 +103,7 @@
 <script src="{{asset('js/parallax.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/select-chosen.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/counter.js')}}" type="text/javascript"></script>
-
+<script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
+@yield('js-content')
 </body>
 </html>

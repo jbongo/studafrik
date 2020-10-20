@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Offre;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Crypt;
 
 class OffreController extends Controller
 {
@@ -44,26 +45,11 @@ class OffreController extends Controller
     {
         
 
-        $table->integer('user_id')->nullable();
-        $table->integer('categorie_offre_id')->nullable();
-        $table->string('titre')->nullable();
-        $table->text('description')->nullable();
-        $table->string('type_contrat')->nullable();
-        $table->text('description_profil')->nullable();
-        $table->string('sexe')->nullable();
-        $table->integer('salaire_min')->nullable();
-        $table->integer('salaire_max')->nullable();
-        $table->integer('experience_min')->nullable();
-        $table->integer('experience_max')->nullable();
-        $table->text('competence_requise')->nullable();
-        $table->string('pays')->nullable();
-        $table->string('ville')->nullable();
-        $table->date('date_expiration')->nullable();
-
+    //    dd($request);
 
         Offre::create([
 
-            "user_id" => $request->user_id,
+            "user_id" => Auth::user()->id,
             "categorie_offre_id" => $request->categorie_offre_id,
             "titre" => $request->titre,
             "description" => $request->description,
@@ -96,7 +82,10 @@ class OffreController extends Controller
      */
     public function show($id)
     {
-        //
+    
+        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+
+        return view('offre.show', compact('offre'));
     }
 
     /**
@@ -107,7 +96,9 @@ class OffreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+
+        return view('offre.edit', compact('offre'));
     }
 
     /**
@@ -119,7 +110,32 @@ class OffreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+
+
+    
+        $offre->categorie_offre_id = $request->categorie_offre_id ;
+        $offre->titre = $request->titre ;
+        $offre->description = $request->description ;
+        $offre->type_contrat = $request->type_contrat ;
+        $offre->description_profil = $request->description_profil ;
+        $offre->sexe = $request->sexe ;
+        $offre->salaire_min = $request->salaire_min ;
+        $offre->salaire_max = $request->salaire_max ;
+        $offre->experience_min = $request->experience_min ;
+        $offre->experience_max = $request->experience_max ;
+        $offre->competence_requise = $request->competence_requise ;
+        $offre->pays = $request->pays ;
+        $offre->ville = $request->ville ;
+        $offre->date_expiration = $request->date_expiration ;
+
+
+        $offre->update();
+        return redirect()->route('mes_offres.index')->with('ok', __("Votre offre a été mise à jour ")  );
+
+
+
     }
 
     /**
@@ -131,5 +147,9 @@ class OffreController extends Controller
     public function destroy($id)
     {
         //
+        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+
+      return   $offre->delete();
+        
     }
 }
