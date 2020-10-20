@@ -13,7 +13,7 @@ class CreateCandidatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('candidature', function (Blueprint $table) {
+        Schema::create('candidatures', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->integer('offre_id')->nullable();
@@ -31,6 +31,6 @@ class CreateCandidatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('candidature');
+        Schema::dropIfExists('candidatures');
     }
 }

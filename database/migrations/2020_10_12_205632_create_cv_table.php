@@ -13,7 +13,7 @@ class CreateCvTable extends Migration
      */
     public function up()
     {
-        Schema::create('cv', function (Blueprint $table) {
+        Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateCvTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cv');
+        Schema::dropIfExists('cvs');
     }
 }

@@ -25,13 +25,24 @@
 
 
                     <div class="col-lg-9 column">
+                        @if (session('ok'))
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong> {{ session('ok') }}</strong>
+                        </div>
+                        @endif
                         <div class="padding-left">
 
                             <form method="POST" action="{{ route('user.store') }}">
 
                                 @csrf
                             <div class="profile-title">
-                                <h3>Mon profile</h3>
+                                @if(Auth::user()->profile_complete == true)
+                                    <h3>Mon profile</h3>
+                                @else 
+                                <h2>Veuillez compléter votre profile pour continuer</h2>
+
+                                @endif
                                 <div class="upload-img-bar">
                                     <span class="round"><img src="http://placehold.it/140x140" alt="" /><i>x</i></span>
                                     <div class="upload-info">
@@ -55,7 +66,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Nom</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder=" TUFAN" name="nom" value="{{old('nom')}}"  class="form-control"/>
+                                                <input type="text" placeholder=" TUFAN" name="nom" value="{{old('nom') ? old('nom') : Auth::user()->nom}}"  class="form-control"/>
                                                 @if ($errors->has('nom'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -67,7 +78,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Prénom (s)</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="Ali" name="prenom" value="{{old('prenom')}}"  class="form-control"/>
+                                                <input type="text" placeholder="Ali" name="prenom" value="{{old('prenom') ? old('prenom') : Auth::user()->prenom}}"  class="form-control"/>
                                                 @if ($errors->has('prenom'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -79,7 +90,7 @@
                                         <div class="col-lg-12">
                                             <span class="pf-title">Poste</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="UX / UI Designer" value="{{old('poste')}}" name="poste"class="form-control" />
+                                                <input type="text" placeholder="UX / UI Designer" value="{{old('poste') ? old('poste') : Auth::user()->poste}}" name="poste"class="form-control" />
                                                 @if ($errors->has('poste'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -93,7 +104,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Expérience</span>
                                             <div class="pf-field">
-                                                <select data-placeholder="Allow In Search" class="chosen form-control" value="{{old('experience')}}" name="experience">
+                                                <select data-placeholder="Allow In Search" class="chosen form-control" value="{{old('experience') ? old('experience') : Auth::user()->experience}}" name="experience">
                                                    <option>0-2 ans</option>
                                                    <option>2-4 ans</option>
                                                    <option> Sup à 4 ans</option>
@@ -109,9 +120,9 @@
                                         </div>
                                         
                                         <div class="col-lg-6">
-                                            <span class="pf-title">Âge</span>
+                                            <span class="pf-title">Date de naissance</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="25" class="form-control" value="{{old('date_naissance')}}" name="date_naissance"/>
+                                                <input type="date" placeholder="25" class="form-control" value="{{old('date_naissance') ? old('date_naissance') : Auth::user()->date_naissance}}" name="date_naissance"/>
                                                 @if ($errors->has('date_naissance'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -125,7 +136,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Pays</span>
                                             <div class="pf-field">
-                                                <select data-placeholder="Please Select Specialism" class="chosen form-control" value="{{old('pays')}}" name="pays">
+                                                <select data-placeholder="Please Select Specialism" class="chosen form-control" value="{{old('pays') ? old('pays') : Auth::user()->pays}}" name="pays">
                                                    <option>Gabon</option>
                                                    <option>Mali</option>
                                                </select>
@@ -140,7 +151,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Ville</span>
                                             <div class="pf-field">
-                                            <input type="text" placeholder="" value="{{old('ville')}}" name="ville" class="form-control"/>
+                                            <input type="text" placeholder="" value="{{old('ville') ? old('ville') : Auth::user()->ville}}" name="ville" class="form-control"/>
                                             @if ($errors->has('ville'))
                                                 <br>
                                                 <div class="alert alert-warning ">
@@ -153,7 +164,7 @@
                                         <div class="col-lg-12">
                                             <span class="pf-title">Description</span>
                                             <div class="pf-field">
-                                                <textarea class="form-control" value="{{old('description')}}" name="description"></textarea>
+                                                <textarea class="form-control" value="{{old('description') ? old('description') : Auth::user()->description}}" name="description"></textarea>
                                                 @if ($errors->has('description'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -172,7 +183,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Facebook</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="www.facebook.com/SG" value="{{old('facebook')}}" name="facebook" class="form-control"/>
+                                                <input type="text" placeholder="www.facebook.com/SG" value="{{old('facebook') ? old('facebook') : Auth::user()->facebook}}" name="facebook" class="form-control"/>
                                                 <i class="la la-facebook"></i>
                                                 @if ($errors->has('facebook'))
                                                     <br>
@@ -185,7 +196,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Twitter</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="www.twitter.com/SG" value="{{old('twitter')}}" name="twitter" class="form-control"/>
+                                                <input type="text" placeholder="www.twitter.com/SG" value="{{old('twitter') ? old('twitter') : Auth::user()->twitter}}" name="twitter" class="form-control"/>
                                                 <i class="la la-twitter"></i>
                                                 @if ($errors->has('twitter'))
                                                     <br>
@@ -198,7 +209,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Instagram</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="www.insta.com/SG" value="{{old('instagram')}}" name="instagram" class="form-control"/>
+                                                <input type="text" placeholder="www.insta.com/SG" value="{{old('instagram') ? old('instagram') : Auth::user()->instagram}}" name="instagram" class="form-control"/>
                                                 <i class="la la-instagram"></i>
                                                 @if ($errors->has('instagram'))
                                                     <br>
@@ -211,7 +222,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Linkedin</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="www.Linkedin.com/SG" value="{{old('linkedin')}}" name="linkedin" class="form-control"/>
+                                                <input type="text" placeholder="www.Linkedin.com/SG" value="{{old('linkedin') ? old('linkedin') : Auth::user()->linkedin}}" name="linkedin" class="form-control"/>
                                                 <i class="la la-linkedin"></i>
                                                 @if ($errors->has('linkedin'))
                                                     <br>
@@ -231,7 +242,7 @@
                                         <div class="col-lg-4">
                                             <span class="pf-title">Numéro de téléphone</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="+290 538 963 " value="{{old('contact1')}}" name="contact1" class="form-control"/>
+                                                <input type="text" placeholder="+290 538 963 " value="{{old('contact1') ? old('contact1') : Auth::user()->contact1}}" name="contact1" class="form-control"/>
                                                 @if ($errors->has('contact1'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -243,7 +254,7 @@
                                         <div class="col-lg-4">
                                             <span class="pf-title">Email</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="demo@jobhunt.com" value="{{old('contact2')}}" name="contact2" class="form-control"/>
+                                                <input type="text" placeholder="demo@jobhunt.com" value="{{old('contact2') ? old('contact2') : Auth::user()->contact2}}" name="contact2" class="form-control"/>
                                                 @if ($errors->has('contact2'))
                                                     <br>
                                                     <div class="alert alert-warning ">

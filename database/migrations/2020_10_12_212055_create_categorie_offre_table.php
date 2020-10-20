@@ -13,7 +13,7 @@ class CreateCategorieOffreTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorie_offre', function (Blueprint $table) {
+        Schema::create('categorie_offres', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->nullable();
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateCategorieOffreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorie_offre');
+        Schema::dropIfExists('categorie_offres');
     }
 }

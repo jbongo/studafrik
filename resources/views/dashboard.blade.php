@@ -13,13 +13,13 @@
         </div>
     </div>
 </x-app-layout> --}}
-
+{{-- {{ dd(Auth::user()->role) }} --}}
 
 @include('layouts.topmenupage')
 
 @if(Auth::user()->role == "candidat")
 
-    @include('recruteur.profile')
+    @include('candidat.profile')
 @elseif(Auth::user()->role == "recruteur")
     @include('recruteur.profile')
 @endif

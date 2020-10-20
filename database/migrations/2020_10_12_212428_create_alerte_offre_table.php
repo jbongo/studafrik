@@ -13,7 +13,7 @@ class CreateAlerteOffreTable extends Migration
      */
     public function up()
     {
-        Schema::create('alerte_offre', function (Blueprint $table) {
+        Schema::create('alerte_offres', function (Blueprint $table) {
             $table->id();
             $table->integer('categorie_offre_id')->nullable();
             $table->string('titre')->nullable();
@@ -34,6 +34,6 @@ class CreateAlerteOffreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alerte_offre');
+        Schema::dropIfExists('alerte_offres');
     }
 }

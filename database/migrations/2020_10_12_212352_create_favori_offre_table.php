@@ -13,7 +13,7 @@ class CreateFavoriOffreTable extends Migration
      */
     public function up()
     {
-        Schema::create('favori_offre', function (Blueprint $table) {
+        Schema::create('favori_offres', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->integer('offre_id')->nullable();
@@ -29,6 +29,6 @@ class CreateFavoriOffreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favori_offre');
+        Schema::dropIfExists('favori_offres');
     }
 }

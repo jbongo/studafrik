@@ -13,7 +13,7 @@ class CreateCvCompetenceTable extends Migration
      */
     public function up()
     {
-        Schema::create('cv_competence', function (Blueprint $table) {
+        Schema::create('cv_competences', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->string('libelle')->nullable();
@@ -29,6 +29,6 @@ class CreateCvCompetenceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cv_competence');
+        Schema::dropIfExists('cv_competences');
     }
 }

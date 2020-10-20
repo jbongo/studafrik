@@ -24,7 +24,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 // ##USER
-Route::post('user/store','UserController@store')->name('user.store');
-Route::post('user/update','UserController@update')->name('user.update');
+Route::post('user/store','UserController@store')->name('user.store')->middleware('auth');
+Route::post('user/update','UserController@update')->name('user.update')->middleware('auth');
 Route::post('user/change_password','UserController@change_password')->name('user.change_password');
+
+// offres
+
+Route::get('mes-offres','OffreController@index')->name('mes_offres.index')->middleware('auth');
+Route::get('ajout-offre','OffreController@create')->name('mes_offres.create')->middleware('auth');
+Route::post('ajout-offre','OffreController@store')->name('mes_offres.store')->middleware('auth');
+Route::post('update-offre','OffreController@update')->name('mes_offres.update')->middleware('auth');
+Route::post('delete-offre','OffreController@delete')->name('mes_offres.delete')->middleware('auth');
 

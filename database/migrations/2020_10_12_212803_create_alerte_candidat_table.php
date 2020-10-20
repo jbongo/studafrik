@@ -13,7 +13,7 @@ class CreateAlerteCandidatTable extends Migration
      */
     public function up()
     {
-        Schema::create('alerte_candidat', function (Blueprint $table) {
+        Schema::create('alerte_candidats', function (Blueprint $table) {
             $table->id();
             $table->string('titre')->nullable();
             $table->string('poste')->nullable();
@@ -33,6 +33,6 @@ class CreateAlerteCandidatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alerte_candidat');
+        Schema::dropIfExists('alerte_candidats');
     }
 }

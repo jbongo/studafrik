@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use Illuminate\Support\Facades\Auth;
+
+
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -35,9 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+       
 
-        if(Auth::user()->role == "candidat"){
+        $user = User::where('id', Auth::user()->id)->first();
+        if($user->role == "candidat"){
 
             // 'photo' => 'mimes:jpeg,bmp,png'
 
@@ -59,16 +63,38 @@ class UserController extends Controller
                 'contact2' => 'string|max:255',
               
             ]);
-    
-        }elseif(Auth::user()->role == "recruteur"){
+
+   
+          
+                $user->nom = $request->nom  ;
+                $user->prenom = $request->prenom  ;
+                $user->poste = $request->poste  ;
+                $user->experience = $request->experience  ;
+                $user->date_naissance = $request->date_naissance  ;
+                $user->pays = $request->pays  ;
+                $user->ville = $request->ville ;
+                $user->description = $request->description ;
+                $user->facebook = $request->facebook ;
+                $user->twitter = $request->twitter ;
+                $user->instagram = $request->instagram ;
+                $user->linkedin = $request->linkedin ;
+                $user->contact1 = $request->contact1 ;
+                $user->contact2 = $request->contact2 ;
+                $user->profile_complete = true ;
+
+          
+                $user->update();
+
+
+        }elseif($user->role == "recruteur"){
 
             $request->validate([
 
-                'nom' => 'required|string|max:255',
-                'prenom' => 'required|string|max:255',
-                'poste' => 'required|string|max:255',
-                'experience' => 'required|string|max:255',
-                'date_naissance' => 'required|date|max:255',
+                'nom_entreprise' => 'required|string|max:255',
+                'date_creation_entreprise' => 'date|max:255',
+                'nb_salarie' => 'required|integer|max:255',
+                'catégorie' => 'required|string|max:255',
+                // 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
                 'ville' => 'string|max:255',
                 'description' => 'string',
@@ -80,13 +106,35 @@ class UserController extends Controller
                 'contact2' => 'string|max:255',
               
             ]);
+
+                         
+                $user->nom = $request->nom_entreprise  ;
+                $user->date_creation_entreprise = $request->date_creation_entreprise  ;
+                $user->nb_salarie = $request->nb_salarie  ;
+                $user->categorie = $request->catégorie  ;
+                // 'date_naissance' => $request->date_naissance  ,
+                $user->pays = $request->pays  ;
+                $user->ville = $request->ville ;
+                $user->description = $request->description ;
+                $user->facebook = $request->facebook ;
+                $user->twitter = $request->twitter ;
+                $user->instagram = $request->instagram ;
+                $user->linkedin = $request->linkedin ;
+                $user->contact1 = $request->contact1 ;
+                $user->contact2 = $request->contact2 ;
+
+                $user->profile_complete = true ;
+          
+                $user->update();
+
         }
        
 
-        $user = 
+
+        
+        return redirect()->route('dashboard')->with('ok', __("Votre profile a été mis à jour ")  );
 
 
-        dd($request);
     }
 
     /**

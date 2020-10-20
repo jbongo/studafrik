@@ -13,7 +13,7 @@ class CreateCvExperienceTable extends Migration
      */
     public function up()
     {
-        Schema::create('cv_experience', function (Blueprint $table) {
+        Schema::create('cv_experiences', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->string('titre')->nullable();
@@ -32,6 +32,6 @@ class CreateCvExperienceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cv_experience');
+        Schema::dropIfExists('cv_experiences');
     }
 }

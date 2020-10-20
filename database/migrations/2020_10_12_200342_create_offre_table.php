@@ -13,7 +13,7 @@ class CreateOffreTable extends Migration
      */
     public function up()
     {
-        Schema::create('offre', function (Blueprint $table) {
+        Schema::create('offres', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->integer('categorie_offre_id')->nullable();
@@ -44,6 +44,6 @@ class CreateOffreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offre');
+        Schema::dropIfExists('offres');
     }
 }

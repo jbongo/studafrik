@@ -13,7 +13,7 @@ class CreateCvFormationTable extends Migration
      */
     public function up()
     {
-        Schema::create('cv_formation', function (Blueprint $table) {
+        Schema::create('cv_formations', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
             $table->string('libelle')->nullable();
@@ -34,6 +34,6 @@ class CreateCvFormationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cv_formation');
+        Schema::dropIfExists('cv_formations');
     }
 }
