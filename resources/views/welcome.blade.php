@@ -14,7 +14,7 @@
 							</ul>
 							<div class="job-search-sec">
 								<div class="job-search style2">
-									<h3>La meilleure façon de trouver un emplois</h3>
+									<h3>La meilleure façon de trouver un emploi</h3>
 									{{-- <span>Find Jobs, Employment & Career Opportunities</span> --}}
 									<div class="search-job2">	
 										<form>
@@ -247,14 +247,13 @@
 		</div>
 	</section>
 
-	<section>
+	{{-- <section>
 		<div class="block gray">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
 							<h2>Top entreprises qui nous font confiance</h2>
-							{{-- <span>Some of the companies we've helped recruit excellent applicants over the years.</span> --}}
 						</div><!-- Heading -->
 						<div class="top-company-sec">
 							<div class="row" id="companies-carousel">
@@ -305,9 +304,9 @@
 				</div>
 			</div>	
 		</div>
-	</section>
+	</section> --}}
 
-	<section>
+	{{-- <section>
 		<div class="block">
 			<div data-velocity="-.1" style="background: url(http://placehold.it/1920x1000) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color red"></div><!-- PARALLAX BACKGROUND IMAGE -->
 			<div class="container">
@@ -315,7 +314,6 @@
 					<div class="col-lg-12">
 						<div class="heading light">
 							<h2>Nos Statistiques</h2>
-							{{-- <span>Here we list our site stats and how many people we’ve helped find a job and companies have found <br />recruits. It's a pretty awesome stats area!</span> --}}
 						</div><!-- Heading -->
 						<div class="stats-sec">
 							<div class="row">
@@ -349,16 +347,15 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
-	<section>
+	{{-- <section>
 		<div class="block">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
 							<h2>Témoignages</h2>
-							{{-- <span>What other people thought about the service provided by JobHunt</span> --}}
 						</div><!-- Heading -->
 						<div class="reviews-sec" id="reviews">
 							<div class="col-lg-12">
@@ -396,7 +393,7 @@
 				</div>
 			</div>	
 		</div>
-	</section>
+	</section> --}}
 
 	<section>
 		<div class="block gray">

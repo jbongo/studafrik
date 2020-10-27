@@ -32,7 +32,7 @@
 	
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+			<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="120px" height="80px" alt="" /></a>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="images/icon.png" alt="" /> Menu
@@ -60,16 +60,16 @@
 						<a href="{{route('welcome')}}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
-							<a  title="">Offres d'emplois</a>
+							<a  title="{{ route('offres_emplois') }}">Offres d'emplois</a>
 						</li>
 						<li class="menu-item">
-							<a  title="">Qui sommes nous ?</a>
+							<a href="{{ route('qui_sommes_nous') }}"  title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Blog</a>
+							<a href="{{ route('blog.index') }}" title="">Blog</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Nous contacter</a>
+							<a href="{{ route('nous_contacter') }}" title="">Nous contacter</a>
 						</li>
 					
 					</ul>
@@ -81,7 +81,7 @@
 		<div class="menu-sec">
 			<div class="container fluid">
 				<div class="logo">
-					<a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a>
+					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="120px" height="80px" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
@@ -100,19 +100,19 @@
 				<nav>
 					<ul>
 						<li class="menu-item">
-							<a href="#" title="">Accueil</a>							
+							<a href="{{ route('welcome') }}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Offres d'emplois</a>
+							<a href="{{ route('offres_emplois') }}" title="">Offres d'emplois</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Qui sommes nous ?</a>
+							<a href="{{ route('qui_sommes_nous') }}" title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Blog</a>
+							<a href="{{ route('blog.index') }}" title="">Blog</a>
 						</li>
 						<li class="menu-item">
-							<a href="#" title="">Nous contacter</a>
+							<a href="{{ route('nous_contacter') }}" title="">Nous contacter</a>
 						</li>
 						
 					</ul>

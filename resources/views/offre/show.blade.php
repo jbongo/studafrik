@@ -32,11 +32,21 @@
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
 				 					<li><i class="la la-money"></i> Salaire mensuel : <span>{{$offre->salaire_min}} - {{$offre->salaire_max}}</span></li>
 									 <li><i class="la la-calendar-o"></i> Posté le : {{$offre->created_at->format('d/m/Y')}} </li>
-					 				<li><i class="la la-mars-double"></i>Sexe : <span>{{$offre->sexe}}</span></li>
 									 
 				 				</ul>
 				 				{{-- <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span> --}}
-				 			</div><!-- Job Head -->
+							 </div><!-- Job Head -->
+							 
+							 @if (session('ok'))
+								<div class="alert alert-success">
+									<ul>
+										<li>{{ session('ok') }}</li>
+										xxxxxxxxxxxxx
+									</ul>
+								</div>
+							@endif
+
+
 				 			<div class="job-details">
 				 				<h3>Description de l'offre</h3>
 								 
@@ -69,8 +79,8 @@
 			 					<p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
 			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p>
 			 				</div>
-			 				<a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
-			 				<a href="#" title="" class="viewall-jobs">Consulter les offres</a>
+			 				<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>

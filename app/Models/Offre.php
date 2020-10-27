@@ -16,4 +16,9 @@ class Offre extends Model
     public function  user(){
         return $this->belongsTo('App\Models\user');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
 }

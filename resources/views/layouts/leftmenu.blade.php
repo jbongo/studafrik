@@ -7,7 +7,7 @@
                     @if(Auth::user()->profile_complete == true)
                         <p><a href="/candidat/cv" title="">CV</a></p>
                         <p><a href="/candidat/favoris" title="">Mes favoris</a></p>
-                        <p><a href="/candidat/candidatures" title="">Mes candidatures</a></p>
+                        <p><a href="{{ route('candidatures.index') }}" title="">Mes candidatures</a></p>
                         <p><a href="/candidat/alertes" title="">Mes alertes</a></p>               
                     @endif
 

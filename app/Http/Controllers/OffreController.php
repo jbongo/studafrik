@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Offre;
+use App\Models\Candidature;
+use App\Models\OffreUser;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Crypt;
+
+use Illuminate\Support\Facades\File ;
+use Illuminate\Support\Facades\Storage;
+
+use App\Mail\CandidatureNotif;
+use Illuminate\Support\Facades\Mail;
+
 
 class OffreController extends Controller
 {
@@ -22,6 +31,18 @@ class OffreController extends Controller
         $offres = Offre::where('id', Auth::user()->id)->get();
 
         return view('offre.index', compact('offres'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function offres_emplois()
+    {
+        $offres = Offre::where('active', true)->get();
+
+        return view('offre.offres_emplois', compact('offres'));
     }
 
     /**
@@ -151,5 +172,69 @@ class OffreController extends Controller
 
       return   $offre->delete();
         
+    }
+
+
+    
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $offre_id
+     * @return \Illuminate\Http\Response
+     */
+    public function create_postuler($offre_id)
+    {
+    
+        $offre = Offre::where('id', Crypt::decrypt($offre_id))->first();
+
+        return view('candidature.postuler', compact('offre'));
+    }
+
+    
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $offre_id
+     * @return \Illuminate\Http\Response
+     */
+    public function store_postuler( Request $request, $offre_id)
+    {
+    
+    
+        $offre = Offre::where('id', $offre_id)->first();
+
+        // dd($request);
+
+        // $request->validate([
+        //     'numero_mandat' => 'unique:compromis',
+        //     'pdf_compromis' => 'file:pdf'
+        // ]);
+
+
+        // if($request->hasFile('cv_fichier')){
+
+            $request->validate([
+                'cv_fichier' => 'mimes:pdf,doc,docx',
+            ]);
+
+            $filename = 'cv-'.$offre_id.'-'.Auth::user()->id.'.pdf';
+           
+            // return response()->download(storage_path('app/pdf_compromis/pdf_compro.pdf'));
+            $request->cv_fichier->storeAs('public/cv',$filename);
+        // }
+
+
+
+        OffreUser::create([
+            "user_id" => Auth::user()->id,
+            "offre_id" => $offre_id,
+            "cv" => $filename,
+            "lettre_motivation" => $request->lettre_motivation,
+        ]);
+
+        Mail::to($offre->user->email)->send(new CandidatureNotif($offre));
+        // return Redirect::back()->withErrors(['ok', 'Votre  candidature a été envoyé au recruteur ']);
+        return view('offre.show', compact('offre'))->with('ok', 'Votre  candidature a été envoyé au recruteur ');;
     }
 }

@@ -33,10 +33,35 @@ Route::post('user/change_password','UserController@change_password')->name('user
 // offres
 
 Route::get('mes-offres','OffreController@index')->name('mes_offres.index')->middleware('auth');
+Route::get('offres-emplois','OffreController@offres_emplois')->name('offres_emplois');
+
 Route::get('ajout-offre','OffreController@create')->name('mes_offres.create')->middleware('auth');
 Route::post('ajout-offre','OffreController@store')->name('mes_offres.store')->middleware('auth');
 Route::get('edit-offre/{offre_id}','OffreController@edit')->name('mes_offres.edit')->middleware('auth');
 Route::post('update-offre/{offre_id}','OffreController@update')->name('mes_offres.update')->middleware('auth');
 Route::get('delete-offre/{offre_id}','OffreController@destroy')->name('mes_offres.delete')->middleware('auth');
-Route::get('offre/{offre_id}','OffreController@show')->name('mes_offres.show')->middleware('auth');
+Route::get('offre/{offre_id}','OffreController@show')->name('mes_offres.show');
 
+// Candidature
+Route::get('postuler/{offre_id}','OffreController@create_postuler')->name('postuler.create')->middleware('auth');
+Route::post('postuler/{offre_id}','OffreController@store_postuler')->name('postuler.store')->middleware('auth');
+
+Route::get('candidatures','CandidatureController@index')->name('candidatures.index')->middleware('auth');
+
+
+// Blog
+Route::get('blog','BlogController@index')->name('blog.index');
+Route::get('article/{article_id}','BlogController@article_show')->name('article.show');
+
+
+// Qui sommes nous
+
+Route::get('/qui-sommes-nous', function () {
+    return view('qui_sommes_nous');
+})->name('qui_sommes_nous');
+
+//  Nous contacter
+
+Route::get('/nous-contacter', function () {
+    return view('nous_contacter');
+})->name('nous_contacter');

@@ -97,17 +97,7 @@
                                          </div>
                                      </div>
                          
-                                     <div class="col-lg-6">
-                                         <span class="pf-title">Sexe</span>
-                                         <div class="pf-field">
-                                             <select data-placeholder="Please Select Specialism"    value="{{old('sexe') ? old('sexe') : $offre->sexe}}" name="sexe" class="form-control chosen">
-                                                <option value="h/f">H/F</option>
-                                                <option value="h">H</option>
-                                                <option value="f">F</option>
-                                            
-                                            </select>
-                                         </div>
-                                     </div>
+                                    
                                      
                                      
                                      <div class="col-lg-12">
