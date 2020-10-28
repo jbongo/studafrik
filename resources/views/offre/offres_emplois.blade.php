@@ -137,12 +137,12 @@
                             <div class="job-listing wtabs">
                                 <div class="job-title-sec">
                                     <div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-                                    <h3><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">Expert comptable</a></h3>
-                                    <span>Société Générale</span>
-                                    <div class="job-lctn"><i class="la la-map-marker"></i>Libreville, Gabon</div>
+                                    <h3><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">{{ $offre->titre }}</a></h3>
+                                    <span>{{ $offre->user->nom }}</span>
+                                    <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
                                 </div>
                                 <div class="job-style-bx">
-                                    <span class="job-is ft">CDI</span>
+                                    <span class="job-is ft">CDI {{ $offre->type_contrat }}</span>
                                     <span class="fav-job"><i class="la la-heart-o"></i></span>
                                     <i>Il y'a 1 heure</i>
                                 </div>
