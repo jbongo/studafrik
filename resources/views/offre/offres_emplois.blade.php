@@ -138,8 +138,7 @@
                                 <div class="job-title-sec">
                                     <div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
                                     <h3><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">{{ $offre->titre }}</a></h3>
-                                    {{-- <span>{{ $offre->user->nom }}</span> --}}
-                                    <span>TOTAL</span>
+                                    <span>{{ $offre->user->nom }}</span>
                                     <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
                                 </div>
                                 <div class="job-style-bx">
