@@ -50,8 +50,8 @@ Route::get('candidatures','CandidatureController@index')->name('candidatures.ind
 
 
 // Blog
-Route::get('blog','BlogController@index')->name('blog.index');
-Route::get('article/{article_id}','BlogController@article_show')->name('article.show');
+Route::get('blog','ArticleController@index')->name('blog.index');
+Route::get('article/{article_id}','ArticleController@article_show')->name('article.show');
 
 
 // Qui sommes nous

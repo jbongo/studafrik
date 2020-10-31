@@ -19,6 +19,8 @@ class CreateArticleTable extends Migration
             $table->text('titre')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
+            $table->boolean('archive')->default(false);
+            $table->boolean('actif')->default(true);
             $table->timestamps();
         });
     }

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
-class BlogController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::where([['archive', false], ['actif', true]])->get();
+
+
+        return view('blog.index', compact('articles'));
     }
 
     /**
@@ -43,9 +47,14 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function article_show($id)
     {
-        //
+        
+        $article = Article::where('id',$id)->first();
+        $num = $id;
+
+
+        return view('blog.article',compact('article','num'));
     }
 
     /**
