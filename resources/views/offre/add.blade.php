@@ -154,4 +154,22 @@
 
 </div>
 
+
+@section('js-content')
+
+<script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+
+
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'autolink lists  media  table  ',
+      toolbar: '  showcomments casechange checklist code  pageembed  table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
+@endsection
 @include('layouts.footer')
+
