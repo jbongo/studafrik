@@ -44,7 +44,11 @@
 		</div>
 		<div class="responsive-opensec">
 			<div class="btn-extars">
-				<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
+				@if(Auth::check())
+					@if(Auth::user()->role == "recruteur")
+					<a href="{{ route('mes_offres.create') }}" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
+					@endif
+				@endif
 				<ul class="account-btns">
 					<li class="signup-popup"><a title=""><i class="la la-key"></i> S'inscrire</a></li>
 					<li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Se connecter</a></li>

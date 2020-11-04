@@ -77,8 +77,8 @@
 							 <h4> {{$offre->user->nom}}</h4>
 			 					{{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
 			 					<p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
-			 					<p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
-			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p>
+			 					{{-- <p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
+			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p> --}}
 			 				</div>
 			 				<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
 			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
