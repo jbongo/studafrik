@@ -161,14 +161,13 @@
 <script>
 
 
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'autolink lists  media  table  ',
-      toolbar: '  showcomments casechange checklist code  pageembed  table',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-    });
+tinymce.init({
+    selector: 'textarea',
+    skin: 'bootstrap',
+    plugins: 'lists, link, image, media',
+    toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+    menubar: false
+  });
   </script>
 @endsection
 @include('layouts.footer')
