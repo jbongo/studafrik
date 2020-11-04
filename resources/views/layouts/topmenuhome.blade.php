@@ -88,7 +88,12 @@
 					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="120px" height="80px" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
-					<a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
+					@if(Auth::check())
+						@if(Auth::user()->role == "recruteur")
+						<a href="{{ route('mes_offres.create') }}" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a>
+						@endif
+					@endif
+					
 					<ul class="account-btns">
 					
 					@if(Auth::check())
