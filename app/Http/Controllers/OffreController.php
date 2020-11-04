@@ -56,7 +56,7 @@ class OffreController extends Controller
      */
     public function recherche_emplois(Request $request)
     {
-     dd($request->categories);
+    //  dd($request->categories);
 
         $poste = $request->poste;
         $pays = $request->pays;
