@@ -40,10 +40,59 @@ class OffreController extends Controller
      */
     public function offres_emplois()
     {
+        
         $offres = Offre::where('active', true)->get();
+        $nb_offres = sizeof($offres) ;
 
-        return view('offre.offres_emplois', compact('offres'));
+        return view('offre.offres_emplois', compact('offres','nb_offres'));
     }
+
+
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function recherche_emplois(Request $request)
+    {
+     dd($request->categories);
+
+        $poste = $request->poste;
+        $pays = $request->pays;
+        
+        if($request->poste != null && $request->pays != null){
+            $offres = Offre::where([['pays', $pays], ['active', true]])->where(function($query) use ($poste){
+                $query->where('titre', 'like', '%'.$poste.'%')
+                      ->orWhere('description', 'like', '%'.$poste.'%');
+            })->get();
+
+            // dd(111);
+        }elseif($request->poste != null && $request->pays == null){
+            $offres = Offre::where([ ['active', true]])->where(function($query) use ($poste){
+                $query->where('titre', 'like', '%'.$poste.'%')
+                      ->orWhere('description', 'like', '%'.$poste.'%');
+            })->get();
+            // dd(222);
+
+
+        }elseif($request->poste == null && $request->pays != null){
+            $offres = Offre::where([ ['pays', $pays], ['active', true] ])->get();
+            // dd(333);
+
+        }
+        elseif($request->poste == null && $request->pays == null){
+            $offres = Offre::where([ ['active', true] ])->get();
+            // dd(444);
+
+        }
+
+       $nb_offres = sizeof($offres) ;
+
+        return view('offre.offres_emplois', compact('offres', 'nb_offres'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

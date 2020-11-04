@@ -34,6 +34,7 @@ Route::post('user/change_password','UserController@change_password')->name('user
 
 Route::get('mes-offres','OffreController@index')->name('mes_offres.index')->middleware('auth');
 Route::get('offres-emplois','OffreController@offres_emplois')->name('offres_emplois');
+Route::get('recherche-emplois','OffreController@recherche_emplois')->name('recherche_emplois');
 
 Route::get('ajout-offre','OffreController@create')->name('mes_offres.create')->middleware('auth');
 Route::post('ajout-offre','OffreController@store')->name('mes_offres.store')->middleware('auth');
