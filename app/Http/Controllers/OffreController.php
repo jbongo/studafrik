@@ -87,6 +87,12 @@ class OffreController extends Controller
 
         }
 
+        if($request->categorie != ""){
+            
+            $offres = $offres->where('categorie', $request->categorie );
+        }
+
+
        $nb_offres = sizeof($offres) ;
 
         return view('offre.offres_emplois', compact('offres', 'nb_offres'));
@@ -286,4 +292,9 @@ class OffreController extends Controller
         // return Redirect::back()->withErrors(['ok', 'Votre  candidature a été envoyé au recruteur ']);
         return view('offre.show', compact('offre'))->with('ok', 'Votre  candidature a été envoyé au recruteur ');;
     }
+
+
+
+
+    
 }

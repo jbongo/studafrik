@@ -15,10 +15,22 @@
                                 <form action="{{ route('recherche_emplois') }}" method="get" >
                                     @csrf
                                     <div class="row">
-                                        <div class="col-lg-7">
+                                        <div class="col-lg-5">
                                             <div class="job-field">
                                                 <input type="text" name="poste" className="form-control" placeholder="Quel poste recherchez-vous ?" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
                                                 <i class="la la-keyboard-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="job-field">
+                                                <select name="categorie" class="chosen-city form-control">
+                                                    <option value="">Toutes les catégories</option>
+                                                    <option>Informatique</option>
+                                                    <option>Marketing</option>
+                                                    <option>Finance</option>
+                                                    
+                                                </select>
+                                                <i class="la la-briefcase"></i>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -137,7 +149,8 @@
                                         <h3>{{ $offre->titre }}</h3>
                                         <span>{{ substr($offre->description, 0 , 250) }}...</span>
                                     
-                                        <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
+                                        <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }},</div>
+                                        <span class="job-is fl"> {{ $offre->categorie }}</span>
                                 </div>
                             </a>
                                 <div class="job-style-bx">

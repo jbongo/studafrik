@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use Image;
+// use Image;
 use App\Models\User;
 
 class UserController extends Controller
@@ -54,7 +54,9 @@ class UserController extends Controller
                 $avatar = $request->file('photo_profil');
                 $filename = time() . '.' . $avatar->getClientOriginalExtension();
                 $filename = $user->id.'_'.$filename;
-                Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
+                $avatar->move(public_path().'\images\photo_profil\\',$user->id.'.jpg');
+
+                // Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
                 
                 
                 // on supprime l'ancienne photo si elle existe
@@ -68,7 +70,7 @@ class UserController extends Controller
                    
                 }
         
-                $user->photo_profile_path = $filename;
+                $user->profile_photo_path = $filename;
                 $user->update();
             }
         }
@@ -86,8 +88,10 @@ class UserController extends Controller
             if($request->hasFile('photo_couverture')){
                 $avatar = $request->file('photo_couverture');
                 $filename = time() . '.' . $avatar->getClientOriginalExtension();
-                $filename = $user->id.'_'.$filename;
-                Image::make($avatar)->save( public_path('\images\photo_couverture\\' . $filename ) );
+                $filename = $user->id.'_'.$filename;$
+
+                $avatar->move(public_path().'\images\\',$user->id.'.jpg');
+                // Image::make($avatar)->save( public_path('\images\photo_couverture\\' . $filename ) );
                 
                 
                 // on supprime l'ancienne photo si elle existe
@@ -281,6 +285,22 @@ return 444;
 
     return back()->with('ok', __("La photo a bien été enregistrée"));
 }
+
+
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $offre_id
+     * @return \Illuminate\Http\Response
+     */
+    public function profilRecruteur()
+    {
+    
+       $user = Auth::user();
+
+        return view('recruteur.profil', compact('user'));
+    }
 
 
 }

@@ -31,6 +31,9 @@ Route::post('user/update','UserController@update')->name('user.update')->middlew
 Route::post('user/change_password','UserController@change_password')->name('user.change_password');
 Route::post('user/photo_profil','UserController@photoProfile')->name('user.photo_profil');
 
+
+Route::get('recruteur/profile','UserController@profilRecruteur')->name('user.profil_recruteur');
+
 // offres
 
 Route::get('mes-offres','OffreController@index')->name('mes_offres.index')->middleware('auth');
