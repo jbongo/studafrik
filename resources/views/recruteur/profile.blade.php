@@ -34,29 +34,59 @@
                         @endif
                         <div class="padding-left">
 
-                            <form method="POST" action="{{ route('user.store') }}">
+                            <form method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
                                 @csrf
                             <div class="profile-title">
                                 @if(Auth::user()->profile_complete == true)
-                                    <h3>Mon profile</h3>
+                                    <h3>Mon profil</h3>
                                 @else 
-                                <h2>Veuillez compléter votre profile pour continuer</h2>
+                                <h2>Veuillez compléter votre profil pour continuer</h2>
 
                                 @endif
                                 <div class="upload-img-bar">
-                                    <span class="round"><img src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                    <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #8ba2ad; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ asset('images/profil/profil.png') }}" alt="@lang('Photo de profil')">
+
                                     <div class="upload-info">
-                                        <a href="#" title="">Téléverser</a>
-					 					<span>Photo de couverture .jpg & .png</span>
-                                    </div>
+                                        <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
+                                         <span>Photo de profil .jpg & .png</span>
+                                         
+                                         <form action="{{ route('user.photo_profil') }}" method="post" enctype="multipart/form-data">
+                                            @csrf  
+                                          <input class="form-control" id="photobtn" type="hidden" name="photo_profil">
+                                          @if ($errors->has('photo_profil'))
+                                            <br>
+                                            <div class="alert alert-warning ">
+                                                <strong>{{$errors->first('photo_profil')}}</strong> 
+                                            </div>
+                                        @endif
+                                          <input class="form-control btn-danger"  id="valider" value="Enregistrer" type="hidden" name="submit">
+                                      </form>
+                                    </div>  
                                 </div>
+
                                 <div class="upload-img-bar">
-                                    <span class="round"><img src="http://placehold.it/140x140" alt="" /><i>x</i></span>
+                                    <img class="img-responsive" id="photodisplay2" style="object-fit: cover; width: 525px; height: 225px; border: 5px solid #8ba2ad; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ asset('images/couverture/couverture.jpg') }}" alt="@lang('Photo de couverture')">
+
                                     <div class="upload-info">
-                                        <a href="#" title="">Téléverser</a>
-					 					<span>Photo de couverture .jpg & .png</span>
-                                    </div>
+                                        <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto2">Téléverser</a> </div>
+                                         <span>Photo de couverture .jpg & .png</span>
+                                         
+                                         <form action="" method="get" enctype="multipart/form-data">
+                                            @csrf  
+                                          <input class="form-control" id="photobtn2" type="hidden" name="photo_couverture">
+                                          @if ($errors->has('photo_couverture'))
+                                            <br>
+                                            <div class="alert alert-warning ">
+                                                <strong>{{$errors->first('photo_couverture')}}</strong> 
+                                            </div>
+                                        @endif
+                                          <input class="form-control btn-danger"  id="valider2" value="Enregistrer" type="hidden" name="submit">
+                                      </form>
+                                    </div>  
                                 </div>
+
+
+
                             </div>
 
                           
@@ -211,3 +241,146 @@
 	
 
 </div>
+
+
+@section('js-content')
+
+<script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#photodisplay').fadeIn();
+                $('#photodisplay').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('#modifPhoto').click(function(){
+        $('#modifPhoto').fadeOut(500);
+        $("#photobtn").attr('type','file');
+    });
+    $("#photobtn").change(function () {
+        readURL(this);
+        $('#valider').attr('type','submit');
+    });
+
+    
+    
+
+        // $.ajaxSetup({
+        //     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        // })
+
+        
+
+    // $('#valider').click(function(e){
+    //     e.preventDefault()
+
+    //    datda = _token:'{{csrf_token()}}',
+    //             $.ajax({                        
+    //                 url: 'user/photo_profil',
+    //                 type: 'POST',
+    //                 data: 
+    //                 success: function(data){
+    //                document.location.reload();
+    //              },
+    //              error : function(data){
+    //                 console.log(data);
+    //              }
+    //             })
+    // })
+   
+  
+
+
+</script>
+
+
+<script>
+    function readURL2(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#photodisplay2').fadeIn();
+              $('#photodisplay2').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+$('#modifPhoto2').click(function(){
+$('#modifPhoto2').fadeOut(500);
+$("#photobtn2").attr('type','file');
+});
+  $("#photobtn2").change(function () {
+      readURL2(this);
+      $('#valider2').attr('type','submit');
+  });
+</script>
+
+
+<script>
+    // ######### supprimer une offre
+    $(function() {
+        $.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        })
+        $('[data-toggle="tooltip"]').tooltip()
+        $('body').on('click','a.supprimer',function(e) {
+            let that = $(this)
+            e.preventDefault()
+            const swalWithBootstrapButtons = swal.mixin({
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false,
+})
+    swalWithBootstrapButtons({
+        title: 'Confirmez-vous la suppression de cette offre ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#DD6B55',
+        confirmButtonText: '@lang('Oui')',
+        cancelButtonText: '@lang('Non')',
+        
+    }).then((result) => {
+        if (result.value) {
+            $('[data-toggle="tooltip"]').tooltip('hide')
+                $.ajax({                        
+                    url: that.attr('href'),
+                    type: 'GET',
+                    success: function(data){
+                   document.location.reload();
+                 },
+                 error : function(data){
+                    console.log(data);
+                 }
+                })
+                .done(function () {
+                        that.parents('tr').remove()
+                })
+            swalWithBootstrapButtons(
+            'Supprimée!',
+            'L\'offre a bien été supprimée.',
+            'success'
+            )
+            
+            
+        } else if (
+            // Read more about handling dismissals
+            result.dismiss === swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons(
+            'Annulé',
+            'L\'offre n\'a pas été supprimée.',
+          
+            'error'
+            )
+        }
+    })
+        })
+    })
+</script>
+
+
+@endsection

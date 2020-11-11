@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
+use Image;
 use App\Models\User;
 
 class UserController extends Controller
@@ -39,6 +39,73 @@ class UserController extends Controller
     public function store(Request $request)
     {
        
+
+        // dd($request);
+
+        if($request->photo_profil != null){
+            $request->validate([
+                "photo_profil" => "required|image|max:5000",
+            ]);
+            // dd($request);
+        
+            $user = User::where('id',Auth()->id())->first();
+           
+            if($request->hasFile('photo_profil')){
+                $avatar = $request->file('photo_profil');
+                $filename = time() . '.' . $avatar->getClientOriginalExtension();
+                $filename = $user->id.'_'.$filename;
+                Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
+                
+                
+                // on supprime l'ancienne photo si elle existe
+                if($user->photo_profile) {
+                    
+                    $img = public_path('images/photo_profil/'.$user->photo_profile);
+                  
+                    if(File::exists($img) ){
+                       File::delete($img);
+                   }
+                   
+                }
+        
+                $user->photo_profile_path = $filename;
+                $user->update();
+            }
+        }
+
+
+
+        if($request->photo_couverture != null){
+            $request->validate([
+                "photo_couverture" => "required|image|max:5000",
+            ]);
+            // dd($request);
+        
+            $user = User::where('id',Auth()->id())->first();
+           
+            if($request->hasFile('photo_couverture')){
+                $avatar = $request->file('photo_couverture');
+                $filename = time() . '.' . $avatar->getClientOriginalExtension();
+                $filename = $user->id.'_'.$filename;
+                Image::make($avatar)->save( public_path('\images\photo_couverture\\' . $filename ) );
+                
+                
+                // on supprime l'ancienne photo si elle existe
+                if($user->photo_couverture) {
+                    
+                    $img = public_path('images/photo_couverture/'.$user->photo_couverture);
+                  
+                    if(File::exists($img) ){
+                       File::delete($img);
+                   }
+                   
+                }
+        
+                $user->photo_couverture_path = $filename;
+                $user->update();
+            }
+        }
+
 
         $user = User::where('id', Auth::user()->id)->first();
         if($user->role == "candidat"){
@@ -170,4 +237,50 @@ class UserController extends Controller
     {
         //
     }
+
+
+
+/** 
+ * Modifier la photo de profile
+ * 
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+*/
+public function photoProfile(){
+
+return 444;
+    dd("dedede");
+
+    $request->validate([
+        "photo_profil" => "required|image|max:5000",
+    ]);
+
+    $user = User::where('id',Auth()->id())->first();
+   
+    if($request->hasFile('photo_profil')){
+        $avatar = $request->file('photo_profil');
+        $filename = time() . '.' . $avatar->getClientOriginalExtension();
+        $filename = $user->id.'_'.$filename;
+        Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
+        
+        
+        // on supprime l'ancienne photo si elle existe
+        if($user->photo_profile) {
+            
+            $img = public_path('images/photo_profil/'.$user->photo_profile);
+          
+            if(File::exists($img) ){
+               File::delete($img);
+           }
+           
+        }
+
+        $user->photo_profile_path = $filename;
+        $user->update();
+    }
+
+    return back()->with('ok', __("La photo a bien été enregistrée"));
+}
+
+
 }

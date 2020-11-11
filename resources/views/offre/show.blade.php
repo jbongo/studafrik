@@ -50,15 +50,15 @@
 				 			<div class="job-details">
 				 				<h3>Description de l'offre</h3>
 								 
-								<p>{{$offre->description}}</p>
+								<p>{!! $offre->description !!}</p>
 								
 								 <h3>Compétences et connaissances requises</h3>
-				 					<p>{{$offre->competence_requise}}</p>
+				 					<p>{!! $offre->competence_requise!!}</p>
 								 
 
 
 				 				<h3>Profil recherché</h3>
-				 				<p>{{$offre->description_profil}}</p>
+				 				<p>{!! $offre->description_profil!!}</p>
 				 			</div>
 				 			
 				 			<div class="share-bar">

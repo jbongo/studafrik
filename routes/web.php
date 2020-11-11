@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::post('user/store','UserController@store')->name('user.store')->middleware('auth');
 Route::post('user/update','UserController@update')->name('user.update')->middleware('auth');
 Route::post('user/change_password','UserController@change_password')->name('user.change_password');
+Route::post('user/photo_profil','UserController@photoProfile')->name('user.photo_profil');
 
 // offres
 
