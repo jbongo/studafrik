@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
+Route::get('/','HomeController@index')->name('welcome');
 
 Route::post('user/store','UserController@store')->name('user.store')->middleware('auth');
 

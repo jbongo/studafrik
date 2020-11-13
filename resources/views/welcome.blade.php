@@ -17,16 +17,18 @@
 									<h3>La meilleure façon de trouver un emploi</h3>
 									{{-- <span>Find Jobs, Employment & Career Opportunities</span> --}}
 									<div class="search-job2">	
-										<form>
+										<form action="{{ route('recherche_emplois') }}" method="get">
+
+											@csrf
 											<div class="row no-gape">
 												<div class="col-lg-4 col-md-3 col-sm-4">
 													<div class="job-field">
-														<input type="text" placeholder="Mots clés" />
+														<input type="text" name="poste" placeholder="Mots clés" />
 													</div>
 												</div>
 												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="job-field">
-														<select data-placeholder="Tous les pays" class="chosen-city">
+														<select data-placeholder="Tous les pays" name="pays" class="chosen-city">
 															<option></option>
 															<option>Gabon</option>
 															<option>Mali</option>
@@ -37,7 +39,7 @@
 												</div>
 												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="job-field">
-														<select data-placeholder="Toutes les catégories" class="chosen-city">
+														<select data-placeholder="Toutes les catégories" name="categorie" class="chosen-city">
 															<option></option>
 															<option>Informatique</option>
 															<option>Communication</option>
@@ -102,7 +104,7 @@
 										<div class="col-lg col-md col-sm col-xs" >
 										{{-- <div class="col-lg-12"> --}}
 											<div class="browse-all-cat">
-												<a href="#" title="" class="style2">Voir toutes les catégories</a>
+												{{-- <a href="#" title="" class="style2">Voir toutes les catégories</a> --}}
 											</div>
 										{{-- </div> --}}
 										</div>
@@ -126,79 +128,22 @@
 						</div><!-- Heading -->
 						<div class="job-grid-sec">
 							<div class="row">
-							
+							@foreach ($offres as $offre )
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Directeur Marketing</a></h3>
-											<span>Société générale</span>
+											<h3><a href="#" title="">{{$offre->poste}}</a></h3>
+											<span>{{$offre->user->nom}}</span>
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
-										<span class="job-lctn">Libreville, Gabon</span>
+										<span class="job-lctn">{{$offre->ville}}, {{$offre->pays}}</span>
 										<a  href="#" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
-								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-									<div class="job-grid">
-										<div class="job-title-sec">
-											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Directeur Marketing</a></h3>
-											<span>Société générale</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
-										</div>
-										<span class="job-lctn">Libreville, Gabon</span>
-										<a  href="#" title="">POSTULER</a>
-									</div><!-- JOB Grid -->
-								</div>
-								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-									<div class="job-grid">
-										<div class="job-title-sec">
-											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Directeur Marketing</a></h3>
-											<span>Société générale</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
-										</div>
-										<span class="job-lctn">Libreville, Gabon</span>
-										<a  href="#" title="">POSTULER</a>
-									</div><!-- JOB Grid -->
-								</div>
-								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-									<div class="job-grid">
-										<div class="job-title-sec">
-											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Directeur Marketing</a></h3>
-											<span>Société générale</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
-										</div>
-										<span class="job-lctn">Libreville, Gabon</span>
-										<a  href="#" title="">POSTULER</a>
-									</div><!-- JOB Grid -->
-								</div>
-								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-									<div class="job-grid">
-										<div class="job-title-sec">
-											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Directeur Marketing</a></h3>
-											<span>Société générale</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
-										</div>
-										<span class="job-lctn">Libreville, Gabon</span>
-										<a  href="#" title="">POSTULER</a>
-									</div><!-- JOB Grid -->
-								</div>
-								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-									<div class="job-grid">
-										<div class="job-title-sec">
-											<div class="c-logo"> <img src="http://placehold.it/235x115" alt="" /> </div>
-											<h3><a href="#" title="">Directeur Marketing</a></h3>
-											<span>Société générale</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
-										</div>
-										<span class="job-lctn">Libreville, Gabon</span>
-										<a  href="#" title="">POSTULER</a>
-									</div><!-- JOB Grid -->
-								</div>
+							@endforeach
+								
+								
 								
 							
 							</div>
@@ -206,7 +151,7 @@
 					</div>
 					<div class="col-lg-12">
 						<div class="browse-all-cat">
-							<a href="#" title="" class="style2">Voir toutes les offres</a>
+						<a href="{{route('offres_emplois')}}" title="" class="style2">Voir toutes les offres</a>
 						</div>
 					</div>
 				</div>
