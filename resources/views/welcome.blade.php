@@ -138,7 +138,7 @@
 											<span class="fav-job"><i class="la la-heart-o"></i></span>
 										</div>
 										<span class="job-lctn">{{$offre->ville}}, {{$offre->pays}}</span>
-										<a  href="#" title="">POSTULER</a>
+									<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 							@endforeach
