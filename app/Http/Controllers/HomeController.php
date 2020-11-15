@@ -85,4 +85,19 @@ class HomeController extends Controller
     {
         //
     }
+
+// ##################### ADMIN
+
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_dashboard()
+    {
+       return view('admin.dashboard');
+    }
+
+
+
+
 }

@@ -21,7 +21,6 @@ Route::get('/','HomeController@index')->name('welcome');
 
 Route::post('user/store','UserController@store')->name('user.store')->middleware('auth');
 
-// Route::post('/login','LoginController@authenticate')->name('login');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -71,3 +70,10 @@ Route::get('/qui-sommes-nous', function () {
 Route::get('/nous-contacter', function () {
     return view('nous_contacter');
 })->name('nous_contacter');
+
+
+// ROUTES ADMIN
+
+Route::get('adminlog/','UserController@admin_login')->name('admin.login');
+Route::post('/admin/login','LoginController@authenticate')->name('admin.login_store');
+Route::get('admin/dashboard','HomeController@admin_dashboard')->name('admin.dashboard');

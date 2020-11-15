@@ -40,7 +40,7 @@ class UserController extends Controller
     {
        
 
-        // dd($request);
+        dd($request);
 
         if($request->photo_profil != null){
             $request->validate([
@@ -303,4 +303,19 @@ return 444;
     }
 
 
+
+
+    //################### ADMIN
+
+
+   /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_login()
+    {
+
+        return view('admin.login');
+    }
 }

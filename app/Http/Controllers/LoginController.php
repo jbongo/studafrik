@@ -16,11 +16,18 @@ class LoginController extends Controller
      */
      public function authenticate(Request $request)
      {
+         
          $credentials = $request->only('email', 'password');
  
          if (Auth::attempt($credentials)) {
              // Authentication passed...
-             return redirect()->intended('welcome');
+             return redirect()->intended('admin/dashboard');
          }
+
+         return back()->withErrors([
+            'password' => ['Login ou Mot de passe incorrect']
+        ]);
+
+       
      }
 }
