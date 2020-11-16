@@ -72,8 +72,17 @@ Route::get('/nous-contacter', function () {
 })->name('nous_contacter');
 
 
-// ROUTES ADMIN
+// ############################# ROUTES ADMIN ##################################
 
 Route::get('adminlog/','UserController@admin_login')->name('admin.login');
 Route::post('/admin/login','LoginController@authenticate')->name('admin.login_store');
 Route::get('admin/dashboard','HomeController@admin_dashboard')->name('admin.dashboard');
+
+
+// Catégories
+Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
+Route::get('admin/categorie-offre-add','CategorieOffreController@create')->name('admin.categorie_offre.create');
+Route::get('admin/categorie-offre-edit','CategorieOffreController@edit')->name('admin.categorie_offre.edit');
+Route::post('admin/categorie-offre-store','CategorieOffreController@store')->name('admin.categorie_offre.store');
+Route::post('admin/categorie-offre-update','CategorieOffreController@update')->name('admin.categorie_offre.update');
+Route::post('admin/categorie-offre-delete','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
