@@ -3,22 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\CategorieOffre;
+use App\Models\Pays;
 use Illuminate\Support\Facades\Crypt;
-class CategorieOffreController extends Controller
+
+
+class PaysController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $categories = CategorieOffre::all();
+        $pays = Pays::all();
 
 
-        return view('admin.configuration.categorie_offre.index',compact('categories'));
+        return view('admin.configuration.pays.index',compact('pays'));
 
     }
 
@@ -43,16 +44,16 @@ class CategorieOffreController extends Controller
 
         $request->validate([
             
-            'nom' => 'required|string|unique:categorie_offres',
+            'nom' => 'required|string|unique:pays',
           
         ]);
 
-        CategorieOffre::create([
+        Pays::create([
             "nom"=>$request->nom
         ]);
 
         // return redirect::back()->with('_ok', "");
-        return redirect()->route('admin.categorie_offre.index')->with('ok', __("Nouvelle catégorie ajoutée ")  );
+        return redirect()->route('admin.pays.index')->with('ok', __("Nouveau Pays ajouté")  );
 
     }
 
@@ -85,23 +86,23 @@ class CategorieOffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $offre)
+    public function update(Request $request, $pays)
     {
-        $categorie = CategorieOffre::where('id',Crypt::decrypt($offre))->first();
+        $pays = Pays::where('id',Crypt::decrypt($pays))->first();
 
-        if($categorie->nom != $request->nom){
+        if($pays->nom != $request->nom){
             $request->validate([
             
-                'nom' => 'required|string|unique:categorie_offres',
+                'nom' => 'required|string|unique:pays',
               
             ]);
         }
 
-        $categorie->nom = $request->nom ;
+        $pays->nom = $request->nom ;
 
-        $categorie->update();
+        $pays->update();
 
-        return redirect()->route('admin.categorie_offre.index')->with('ok', "Catégorie modifiée");
+        return redirect()->route('admin.pays.index')->with('ok', "Nom du Pays modifié");
     }
 
     /**
@@ -110,13 +111,12 @@ class CategorieOffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($offre)
+    public function delete($pays)
     {
 
 
-        CategorieOffre::destroy(Crypt::decrypt($offre));
+        Pays::destroy(Crypt::decrypt($pays));
 
         return "ok";
-        // return redirectroute('admin.categorie_offre.index')->with('ok', "Catégorie supprimée");
     }
 }

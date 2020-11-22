@@ -50,7 +50,7 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('admin.article.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Blog</span></a>
     </li>
@@ -65,8 +65,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"></h6>
-                <a class="collapse-item" href="#">Catégories offres</a>
-                <a class="collapse-item" href="#">Pays offres</a>
+                <a class="collapse-item" href="{{route('admin.categorie_offre.index')}}">Catégories offres</a>
+                <a class="collapse-item" href="{{route('admin.pays.index')}}">Pays offres</a>
             </div>
         </div>
     </li>

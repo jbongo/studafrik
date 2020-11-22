@@ -40,7 +40,7 @@ class UserController extends Controller
     {
        
 
-        dd($request);
+        // dd($request);
 
         if($request->photo_profil != null){
             $request->validate([

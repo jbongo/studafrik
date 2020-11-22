@@ -90,4 +90,103 @@ class ArticleController extends Controller
     {
         //
     }
+
+    // ############# ADMINISTRATION ###############
+
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_admin()
+    {
+        $articles = Article::all();
+
+
+        return view('admin.blog.article.index', compact('articles'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create_admin()
+    {
+        return view('admin.blog.article.add');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store_admin(Request $request)
+    {
+        
+
+    
+    $request->validate([
+            
+        'titre' => 'required|string|unique:articles',
+        'description' => 'required',
+        "image" => "required|image|max:5000",
+      
+    ]);
+
+    dd($request->all());
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_admin($id)
+    {
+        
+        $article = Article::where('id',$id)->first();
+        $num = $id;
+
+
+        return view('blog.article',compact('article','num'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_admin($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_admin(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_admin($id)
+    {
+        //
+    }
 }

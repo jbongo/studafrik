@@ -2,7 +2,7 @@
 use App\Http\Controllers\LoginController;
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,13 +76,33 @@ Route::get('/nous-contacter', function () {
 
 Route::get('adminlog/','UserController@admin_login')->name('admin.login');
 Route::post('/admin/login','LoginController@authenticate')->name('admin.login_store');
-Route::get('admin/dashboard','HomeController@admin_dashboard')->name('admin.dashboard');
 
 
-// Catégories
-Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
-Route::get('admin/categorie-offre-add','CategorieOffreController@create')->name('admin.categorie_offre.create');
-Route::get('admin/categorie-offre-edit','CategorieOffreController@edit')->name('admin.categorie_offre.edit');
-Route::post('admin/categorie-offre-store','CategorieOffreController@store')->name('admin.categorie_offre.store');
-Route::post('admin/categorie-offre-update','CategorieOffreController@update')->name('admin.categorie_offre.update');
-Route::post('admin/categorie-offre-delete','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
+
+Route::middleware([Admin::class])->group(function () {
+    Route::get('admin/dashboard','HomeController@admin_dashboard')->name('admin.dashboard');
+
+
+    // Catégories
+    Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
+    Route::post('admin/categorie-offre/store','CategorieOffreController@store')->name('admin.categorie_offre.store');
+    Route::post('admin/categorie-offre/update/{offre}','CategorieOffreController@update')->name('admin.categorie_offre.update');
+    Route::post('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
+
+    
+    // Pays
+    Route::get('admin/pays','PaysController@index')->name('admin.pays.index');
+    Route::post('admin/pays/store','PaysController@store')->name('admin.pays.store');
+    Route::post('admin/pays/update/{offre}','PaysController@update')->name('admin.pays.update');
+    Route::post('admin/pays/delete/{offre}','PaysController@delete')->name('admin.pays.delete');
+
+
+    // Blog -> articles
+
+    Route::get('admin/articles','ArticleController@index_admin')->name('admin.article.index');
+    Route::get('admin/articles/add','ArticleController@create_admin')->name('admin.article.create');
+    Route::get('admin/articles/edit','ArticleController@edit_admin')->name('admin.article.edit');
+    Route::post('admin/articles/store','ArticleController@store_admin')->name('admin.article.store');
+    Route::post('admin/articles/update/{offre}','ArticleController@update_admin')->name('admin.article.update');
+    Route::post('admin/articles/delete/{offre}','ArticleController@delete_admin')->name('admin.article.delete');
+});
