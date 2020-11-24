@@ -33,13 +33,13 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Ajouter un article</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Modifier l'article </h6>
         </div>
         <div class="card-body">
             
 
 
-        <form method="POST"  action="{{route('admin.article.store')}}" enctype="multipart/form-data">
+        <form method="POST"  action="{{route('admin.article.update', Crypt::encrypt($article->id))}}" enctype="multipart/form-data">
                     
                     @csrf
                    
@@ -48,7 +48,7 @@
                         <div class="col-lg-6">
                             <span class="pf-title">Titre de l'article</span>
                             <div class="pf-field">
-                                <input type="text" placeholder="Votre titre" value="{{ old('titre') ? old('titre') : Auth::user()->titre  }}" required name="titre" class="form-control"/>
+                                <input type="text" placeholder="Votre titre" value="{{ old('titre') ? old('titre') : $article->titre  }}" name="titre" required class="form-control"/>
                             </div>
                             @if ($errors->has('titre'))
                                 <br>
@@ -59,8 +59,16 @@
                         </div>
                         <div class="col-lg-6">
                             <span class="pf-title">Image couverture</span>
-                            <div class="pf-field">
-                                <input type="file"  value="{{ old('image') ? old('image') : Auth::user()->image  }}" name="image" required class="form-control"/>
+                            <div class="pf-field" id="div_inputimage">
+                                <input type="file"  value="{{ old('image') ? old('image') : Auth::user()->image  }}" name="image"  class="form-control"/>
+                            </div>
+
+                            <div id="div_updateimage">
+                                <img src="{{asset($article->image)}}" width="150px" height="150px" alt="">
+                                <a href="#" id="updateimage" class="btn btn-danger btn-icon-split" >
+                                    <span class="icon text-white-50"><i class="fas fa-edit"></i></span>
+                                    <span class="text">Modifier l'image</span>
+                                </a>
                             </div>
                             @if ($errors->has('image'))
                                 <br>
@@ -77,7 +85,7 @@
                         <div class="col-lg-12">
                             <span class="pf-title">Contenu de l'article</span>
                             <div class="pf-field">
-                                <textarea rows="25" type="description" class="form-control"  value="{{ old('description') ? old('description') : Auth::user()->description  }}" name="description"></textarea>
+                                <textarea rows="25" type="description" class="form-control"  required name="description">{{ old('description') ? old('description') : $article->description  }}</textarea>
                             </div>
                             @if ($errors->has('description'))
                                 <br>
@@ -91,8 +99,7 @@
                 
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <input type="submit" class="btn btn-primary" id="Ajouter" value="Ajouter">
+                <input type="submit" class="btn btn-success" id="Ajouter" value="Modifier">
                 </div>
                 </form>
         </div>
@@ -128,5 +135,14 @@
   });
 </script>
 
+<script>
+    $('#div_inputimage').hide();
 
+    $('#updateimage').click(function(){
+
+    $('#div_inputimage').show();
+    $('#div_updateimage').hide();
+
+    })
+</script>
 @endsection

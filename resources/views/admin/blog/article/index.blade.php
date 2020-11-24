@@ -61,11 +61,11 @@
                                     <tbody>
                                         @foreach ($articles as $article )
                                         <tr>
-                                            <td><img src="" alt=""></td>
+                                            <td><img src="{{asset($article->image)}}" width="150px" height="150px" alt=""></td>
                                             <td>{{$article->titre}}</td>
-                                            <td>{!!$article->decription!!}</td>
+                                            <td>{!!$article->description!!}</td>
                                             <td>    
-                                                <a data-toggle="modal" data-target="#exampleModalCenter2" href="#" url="{{route('admin.article.update', Crypt::encrypt($article->id))}}" class="btn btn-success btn-circle btn-sm  update" nom="{{$article->nom}}"><i class="fas fa-edit"></i></a>     
+                                                <a href="{{route('admin.article.edit', Crypt::encrypt($article->id))}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
                                             <a href="{{route('admin.article.delete', Crypt::encrypt($article->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
                                             

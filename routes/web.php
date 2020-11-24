@@ -101,7 +101,7 @@ Route::middleware([Admin::class])->group(function () {
 
     Route::get('admin/articles','ArticleController@index_admin')->name('admin.article.index');
     Route::get('admin/articles/add','ArticleController@create_admin')->name('admin.article.create');
-    Route::get('admin/articles/edit','ArticleController@edit_admin')->name('admin.article.edit');
+    Route::get('admin/articles/edit/{offre}','ArticleController@edit_admin')->name('admin.article.edit');
     Route::post('admin/articles/store','ArticleController@store_admin')->name('admin.article.store');
     Route::post('admin/articles/update/{offre}','ArticleController@update_admin')->name('admin.article.update');
     Route::post('admin/articles/delete/{offre}','ArticleController@delete_admin')->name('admin.article.delete');
