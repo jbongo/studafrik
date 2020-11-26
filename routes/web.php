@@ -110,4 +110,19 @@ Route::middleware([Admin::class])->group(function () {
     Route::post('admin/articles/store','ArticleController@store_admin')->name('admin.article.store');
     Route::post('admin/articles/update/{offre}','ArticleController@update_admin')->name('admin.article.update');
     Route::post('admin/articles/delete/{offre}','ArticleController@delete_admin')->name('admin.article.delete');
+    
+    
+    // offres
+
+    Route::get('admin/offres','OffreController@index_admin')->name('admin.offres.index');    
+    Route::get('admin/ajout-offre','OffreController@create_admin')->name('admin.offre.create');
+    Route::post('admin/ajout-offre','OffreController@store_admin')->name('admin.offre.store');
+    Route::get('admin/edit-offre/{offre_id}','OffreController@edit_admin')->name('admin.offre.edit');
+    Route::post('admin/update-offre/{offre_id}','OffreController@update_admin')->name('admin.offre.update');
+    Route::get('admin/delete-offre/{offre_id}','OffreController@destroy_admin')->name('admin.offre.delete');
+    
+    
+    
+    
+    
 });

@@ -5,13 +5,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Articles</h1>
+                    <h1 class="h3 mb-2 text-gray-800">offres</h1>
                   <hr>
-                      <a href="{{route('admin.article.create')}}" class="btn btn-success btn-icon-split" >
+                      <a href="{{route('admin.offre.create')}}" class="btn btn-success btn-icon-split" >
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Ajouter un article</span>
+                        <span class="text">Ajouter une offre</span>
                     </a>
                   <hr>
                   @if (session('ok'))
@@ -22,35 +22,38 @@
                   @endif 
 
                   
-                  @if ($errors->has('nom'))
-                  <br>
-                  <div class="alert alert-warning ">
-                     <strong>{{$errors->first('nom')}}</strong> 
-                  </div>
-                  @endif
+    
                   <br>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Liste des article</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Liste des offres</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Image</th>
+                                            <th>Secteur d'activité</th>
                                             <th>Titre</th>
-                                            <th>Contenu</th>
+                                            <th>Description</th>
+                                            <th>Type Contrat</th>
+                                            <th>Pays</th>
+                                            <th>Ville</th>
+                                            <th>Date d'expiration</th>
                                             <th>Actions</th>
                                             
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Image</th>
+                                            <th>Secteur d'activité</th>
                                             <th>Titre</th>
-                                            <th>Contenu</th>
+                                            <th>Description</th>
+                                            <th>Type Contrat</th>
+                                            <th>Pays</th>
+                                            <th>Ville</th>
+                                            <th>Date d'expiration</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -59,15 +62,20 @@
                                         
                                     </tfoot>
                                     <tbody>
-                                        @foreach ($articles as $article )
+                                        @foreach ($offres as $offre )
                                         <tr>
-                                            <td><img src="{{asset($article->image)}}" width="150px" height="150px" alt=""></td>
-                                            <td>{{$article->titre}}</td>
-                                            <td>{!!$article->description!!}</td>
+                                          
+                                            <td>{{$offre->categorie}}</td>
+                                            <td>{{$offre->titre}}</td>
+                                            <td>{!! substr($offre->description, 0, 50) !!}...</td>
+                                            <td>{{$offre->type_contrat}}</td>
+                                            <td>{{$offre->pays}}</td>
+                                            <td>{{$offre->ville}}</td>
+                                            <td>{{$offre->date_expiration->format('d/m/Y')}}</td>
                                             <td>    
-                                                <a href="{{route('admin.article.edit', Crypt::encrypt($article->id))}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
+                                                <a href="{{route('admin.offre.edit', Crypt::encrypt($offre->id))}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
-                                            <a href="{{route('admin.article.delete', Crypt::encrypt($article->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
+                                            <a href="{{route('admin.offre.delete', Crypt::encrypt($offre->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
                                             
                                         </tr>
                                         @endforeach
@@ -92,7 +100,7 @@
 <script>
 
 
-    // ######### supprimer un article
+    // ######### supprimer un offre
     $(function() {
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
@@ -105,7 +113,7 @@
            
            
             swal({
-                title: "Voulez-vous supprimer cet article ?",
+                title: "Voulez-vous supprimer cet offre ?",
                 // text: "Once deleted, you will not be able to recover this imaginary file!",
                 icon: "warning",
                 //     showCancelButton: true,
@@ -135,7 +143,7 @@
 
 
 
-                    swal("Le article a été supprimé !", {
+                    swal("Le offre a été supprimé !", {
                     icon: "success",
                     });
 

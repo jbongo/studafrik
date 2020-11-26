@@ -30,6 +30,9 @@ class CreateOffreTable extends Migration
             $table->string('pays')->nullable();
             $table->string('ville')->nullable();
             $table->date('date_expiration')->nullable();
+            $table->text('message_candidature')->nullable();
+            
+            
             $table->boolean('active')->default(true);
 
             $table->timestamps();

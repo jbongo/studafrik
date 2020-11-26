@@ -17,6 +17,9 @@ class Offre extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function  categorie(){
+        return $this->belongsTo(CategorieOffre::class);
+    }
     public function users()
     {
         return $this->belongsToMany(User::class);
