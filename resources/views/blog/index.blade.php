@@ -21,45 +21,41 @@
     </div>
 </section>
 
-
-
 <section>
     <div class="block">
         <div class="container">
              <div class="row">
                  <div class="col-lg-9 column">
                      <div class="bloglist-sec">
+
+
+
+                        @foreach ($articles as $article )
+                            
+                        
                          <div class="blogpost style2">
-                             <div class="blog-posthumb"> <a href="{{ route('article.show',1) }}" title=""><img src="https://www.jobboom.com/carriere/wp-content/uploads/2006/10/JBM_Illust-blogue_CV-770x433.png" alt="" /></a> </div>
+                             <div class="blog-posthumb"> <a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""><img src="{{asset($article->image)}}" alt="" width="70px" height="150px" /></a> </div>
                              <div class="blog-postdetail">
-                                 <ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i>30 octobre, 2020</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>0 commentaires</a></li></ul>
-                                 <h3><a href="{{ route('article.show',1) }}" title="">Comment faire un CV (Curriculum Vitae)</a></h3>
+                                 <ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i>{{$article->created_at->format('d-m-Y')}}</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>0 commentaires</a></li></ul>
+                                 <h3><a href="{{ route('article.show',Crypt::encrypt($article->id)) }}" title="">{{$article->titre}}</a></h3>
                                  <p>
-                                    Beaucoup de personnes se lancent dans la réalisation de leur CV sans même avoir pris le temps de prendre un peu de recul sur leur projet professionnel. Ainsi que de se demander « comment faire un CV de qualité ». Attention, précipitation n’est bien souvent pas synonyme de réussite.</p>
-                                 <a class="bbutton" href="{{ route('article.show',1) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
+                                   {!! substr($article->description, 0, 100) !!}</p>
+                                 <a class="bbutton" href="{{ route('article.show',Crypt::encrypt($article->id)) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
                              </div>
                          </div><!-- Blog Post -->
 
-                         <div class="blogpost style2">
-                            <div class="blog-posthumb"> <a href="{{ route('article.show',2) }}" title=""><img src="https://www.jobillico.com/blog/wp-content/uploads/2019/12/Trouver-un-emploi-700x465.jpg" alt="" /></a> </div>
-                            <div class="blog-postdetail">
-                                <ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i>30 octobre, 2020</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>0 commentaires</a></li></ul>
-                                <h3><a href="{{ route('article.show',2) }}" title="">10 choses à faire pour trouver un emploi</a></h3>
-                                <p>
-                                    En cherchant sur Internet, vous trouverez des centaines de méthodes vous promettant de trouver un emploi en 30 jours, parfois 15 jours ou moins! . L’important n’est pas de trouver un emploi très vite, mais de trouver un emploi qui vous rend heureux.
-                                </p>
-                                <a class="bbutton" href="{{ route('article.show',2) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
-                            </div>
-                        </div><!-- Blog Post -->
+                         @endforeach
+
+                        
                         
                          <div class="pagination">
                             <ul>
                                 <li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Précédent</a></li>
                                 <li><a href="">1</a></li>
-                                <li class="active"><a href="">2</a></li>
+                                {{-- <li class="active"><a href="">2</a></li>
                                 <li><a href="">3</a></li>
                                 <li><span class="delimeter">...</span></li>
-                                <li><a href="">14</a></li>
+                                <li><a href="">14</a></li> --}}
                                 <li class="next"><a href="">Suivant <i class="la la-long-arrow-right"></i></a></li>
                             </ul>
                         </div><!-- Pagination -->
@@ -99,6 +95,8 @@
            
                     
                 </aside>
+
+                
              </div>
         </div>
     </div>

@@ -56,11 +56,11 @@ class ArticleController extends Controller
     public function article_show($id)
     {
         
-        $article = Article::where('id',$id)->first();
-        $num = $id;
+        $article = Article::where('id', Crypt::decrypt($id))->first();
+       
 
 
-        return view('blog.article',compact('article','num'));
+        return view('blog.article',compact('article'));
     }
 
     /**

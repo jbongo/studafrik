@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Offre;
 use App\Models\Candidature;
 use App\Models\OffreUser;
+use App\Models\Pays;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Crypt;
@@ -107,7 +108,9 @@ class OffreController extends Controller
      */
     public function create()
     {
-        return view('offre.add');
+
+        $pays = Pays::all();
+        return view('offre.add', compact('pays'));
         
     }
 

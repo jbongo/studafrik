@@ -58,13 +58,26 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-3">
                                             <span class="pf-title">Catégorie de l'emploi</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism"  name="categorie_offre_id" class="form-control chosen">
                                                    <option value="1">Marketing</option>
                                                    <option value="2">Informatique</option>
                                                    <option value="3">Art & Culture</option>
+                                                   
+                                               </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <span class="pf-title">Type de contrat</span>
+                                            <div class="pf-field">
+                                                <select data-placeholder="Please Select Specialism"  name="type_contrat" class="form-control chosen">
+                                                   <option value="CDI">CDI</option>
+                                                   <option value="CDD">CDD</option>
+                                                   <option value="INTERIM">INTERIM</option>
+                                                 
                                                    
                                                </select>
                                             </div>
@@ -116,8 +129,12 @@
                                             <span class="pf-title">Pays de l'offre</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism"  name="pays" class=" form-control chosen">
-                                                   <option>Gabon</option>
-                                                   <option>Benin</option>
+                                                   
+                                                    @foreach ($pays as $pay )
+                                                        <option value="{{$pay->nom}}">{{$pay->nom}}</option>
+                                                        
+                                                    @endforeach
+
                                                    
                                                </select>
                                             </div>

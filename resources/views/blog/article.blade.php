@@ -9,13 +9,15 @@
                 <div className="col-lg-12">
                     <div className="inner2">
                         <div className="inner-title2">
-                            @if($num == 1)
-                            <h2>Comment faire un CV (Curriculum Vitae)</h2>
+                            <br>
+                            <div class="row">
+                                <div class="col-5 mx-auto">
+                                    <h2>{{$article->titre}}</h2>
 
-                            @else 
-                            <h2>10 choses à faire pour trouver un emploi</h2>
+                                </div>
+                            </div>
+                           <hr>
 
-                            @endif
                             
                            
                         </div>
@@ -33,57 +35,16 @@
              <div class="row">
                  <div class="col-lg-9 column">
                      <div class="blog-single">
-                        @if($num == 1)
-                         <div class="bs-thumb"><img src="https://www.jobboom.com/carriere/wp-content/uploads/2006/10/JBM_Illust-blogue_CV-770x433.png" alt="" /></div>
-                        @else 
-                            <div class="bs-thumb"><img src="https://www.jobillico.com/blog/wp-content/uploads/2019/12/Trouver-un-emploi-700x465.jpg" alt="" /></div>
-
-                        @endif
+                       
+                         <div class="bs-thumbxxx"><img src="{{asset($article->image)}}" width="650px" height="330px" alt="" /></div>
+                      
                          <ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i>30 Novembre 2020</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>0 commentaires</a></li><li><a href="#" title=""><i class="la la-file-text"></i>Emploi</a></li></ul>
                       
                       
-                         @if($num == 1)
-                         <h2>Comment faire un CV (Curriculum Vitae)</h2>
+                       
+                         <h2>Comment faire un CV (Curriculum Vitae)</h2> 
                          
-                         <p>
-
-                            Beaucoup de personnes se lancent dans la réalisation de leur CV sans même avoir pris le temps de prendre un peu de recul sur leur projet professionnel. Ainsi que de se demander « comment faire un CV de qualité ». Attention, précipitation n’est bien souvent pas synonyme de réussite.
-
-La réalisation d’un CV nécessite un certain travail de réflexion sur soit-même, de qui nous sommes et de ce que l’on recherche. Faire un CV demande du temps. Celui-ci devra être clair et attirer l’attention du recruteur. C’est pourquoi nous te proposons sur notre site web de nombreux modèles de CV à télécharger gratuit au format Word.
-
-Tu trouveras ci-dessous les principaux points clés et astuces pour faire de ton CV une arme affutée pour attaquer ta recherche d’emploi.
-<br> <br>
-Qu’est-ce qu’un Curriculum Vitae
-Quand tu te poses la question de « Comment faire un CV« , il est tout d’abord important de comprendre ce qu’est le CV. Le CV est un document qui présente les grandes étapes de ta vie professionnelle et personnelle. Il est composé de différentes parties : « Informations personnelles (contact) », « Compétences », « Expériences professionnelles », « Formations (Etudes) » et « Centres d’intérêts ».
-
-Un CV de qualité doit refléter ta personnalité et attirer l’attention du recruteur. Il faut savoir qu’un recruteur passe environ entre 5 et 15 secondes sur chaque CV avant de faire une première sélection. Tu dois donc dans ce laps de temps réussir à le convaincre, afin d’espérer être convoqué au fameux entretien. Ton Curriculum Vitae doit te « vendre ». Il doit respecter certaines règles de présentation, être clair et transmettre le message que tu souhaites faire passer aux recruteurs.
-                         </p>
-                         @else 
-                         <h2>10 choses à faire pour trouver un emploi</h2>
-
-                         En cherchant sur Internet, vous trouverez des centaines de méthodes vous promettant de trouver un emploi en 30 jours, parfois 15 jours ou moins!
-
-                         L’important n’est pas de trouver un emploi très vite, mais de trouver un emploi qui vous rend heureux.
-                         
-                         De la volonté, quelques modifications sur votre CV, sur votre lettre de présentation et sur vos réseaux sociaux ainsi qu’une bonne organisation peuvent faire la différence aux yeux des recruteurs et vous faire tirer du lot des candidats qui postulent aux mêmes offres d’emploi que vous.
-                         
-                         Avant de passer ces conseils en revue, nous vous proposons un sommaire des choses à faire pour trouver un emploi rapidement:
-                         
-                         <br>
-                         <p> 
-                         Mettez à jour votre CV
-                         Trouvez le temps nécessaire pour votre recherche d’emploi
-                         Faites le tri dans ce que vous voulez et ne voulez pas faire
-                         Remettez-vous en question et passez en revue vos compétences
-                         Vendez vos talents de la meilleure façon possible
-                         Soignez votre e-réputation
-                         Établissez une stratégie de recherche
-                         Restez à l’affût des nouveautés du marché du travail
-                         Affinez votre recherche et classez les offres d’emploi
-                         Essayez la candidature spontanée
-                        </p>
-                         Voici donc en détail nos conseils pour savoir comment trouver un emploi qui vous correspond rapidement:
-                         @endif
+                         {!!$article->description!!}
                         
                          <div class="tags-share">
                                

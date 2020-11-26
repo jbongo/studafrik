@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 // use Image;
 use App\Models\User;
+use App\Models\Categorie;
 
 class UserController extends Controller
 {
@@ -252,8 +253,8 @@ class UserController extends Controller
 */
 public function photoProfile(){
 
-return 444;
-    dd("dedede");
+// return 444;
+//     dd("dedede");
 
     $request->validate([
         "photo_profil" => "required|image|max:5000",
@@ -291,15 +292,15 @@ return 444;
     /**
      * Display the specified resource.
      *
-     * @param  int  $offre_id
      * @return \Illuminate\Http\Response
      */
     public function profilRecruteur()
     {
     
        $user = Auth::user();
+       $categories = Categorie::all();
 
-        return view('recruteur.profil', compact('user'));
+        return view('recruteur.profil', compact('user','categories'));
     }
 
 

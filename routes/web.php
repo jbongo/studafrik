@@ -3,6 +3,9 @@ use App\Http\Controllers\LoginController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Admin;
+Use App\Models\CategorieOffre;
+Use App\Models\Pays;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +25,9 @@ Route::get('/','HomeController@index')->name('welcome');
 Route::post('user/store','UserController@store')->name('user.store')->middleware('auth');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    $categories = CategorieOffre::all();
+    $pays = Pays::all();
+    return view('dashboard', compact('categories','pays'));
 })->name('dashboard');
 
 // ##USER

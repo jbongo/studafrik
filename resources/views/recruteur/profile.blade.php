@@ -43,7 +43,7 @@
                                 <h2>Veuillez compléter votre profil pour continuer</h2>
 
                                 @endif
-                                <div class="upload-img-bar">
+                                {{-- <div class="upload-img-bar">
                                     <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #8ba2ad; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ asset('images/profil/profil.png') }}" alt="@lang('Photo de profil')">
 
                                     <div class="upload-info">
@@ -83,7 +83,7 @@
                                           <input class="form-control btn-danger"  id="valider2" value="Enregistrer" type="hidden" name="submit">
                                       </form>
                                     </div>  
-                                </div>
+                                </div> --}}
 
 
 
@@ -109,20 +109,48 @@
                                     <div class="col-lg-3">
                                         <span class="pf-title">Nombre de salariés</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="100 - 201" value="{{ old('nb_salarie') ? old('nb_salarie') : Auth::user()->nb_salarie  }}" name="nb_salarie" class="form-control"/>
+
+                                            <select name="nb_salarie" id="nb_salarie" class="form-control">
+                                              
+                                                @if(Auth::user()->nb_salarie != null)
+                                                    <option value="{{Auth::user()->nb_salarie}}">{{Auth::user()->nb_salarie}}</option>
+                                                @endif
+
+                                                <option value="0-50">0-50</option>
+                                                <option value="51-100">51-100</option>
+                                                <option value="101-500">101-500</option>
+                                                <option value="501-1000">501-1000</option>
+                                                <option value="+1000">+1000</option>
+
+                                            </select>
+
                                         </div>
                                     </div>
                                     
                                     <div class="col-lg-12">
-                                        <span class="pf-title">Categories</span>
+                                        <span class="pf-title">Secteur d'activité</span>
                                         <div class="pf-field">
-                                            <textarea type="catégorie" class="form-control" value="{{ old('catégorie') ? old('catégorie') : Auth::user()->catégorie  }}" name="catégorie"></textarea>
+                                            {{-- <textarea type="catégorie" class="form-control"  name="catégorie">{{ old('catégorie') ? old('catégorie') : Auth::user()->categorie  }}</textarea> --}}
+                                            <select name="nb_salarie" id="nb_salarie" class="form-control">
+                                              
+                                                @if(Auth::user()->categorie != null)
+                                                    <option value="{{Auth::user()->categorie}}">{{Auth::user()->categorie}}</option>
+                                                @endif
+
+                                                @foreach ($categories as $categorie )
+                                                <option value="{{$categorie->nom}}">{{$categorie->nom}}</option>
+                                                    
+                                                @endforeach
+                                               
+
+                                            </select>
+                                        
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Description</span>
                                         <div class="pf-field">
-                                            <textarea type="description" class="form-control" value="{{ old('description') ? old('description') : Auth::user()->description  }}" name="description"></textarea>
+                                            <textarea type="description" class="form-control" value="" name="description">{{ old('description') ? old('description') : Auth::user()->description  }}</textarea>
                                         </div>
                                     </div>
                                     
@@ -173,12 +201,12 @@
                                                 <input type="text" placeholder="+290 538 963 " value="{{ old('contact1') ? old('contact1') : Auth::user()->contact1  }}" name="contact1" class="form-control"/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        {{-- <div class="col-lg-6">
                                             <span class="pf-title">Email</span>
                                             <div class="pf-field">
                                                 <input type="text" placeholder="demo@total.com" value="{{ old('contact2') ? old('contact2') : Auth::user()->contact2  }}" name="contact2" class="form-control"/>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="col-lg-6">
                                             <span class="pf-title">Site web</span>
@@ -190,9 +218,13 @@
                                             <span class="pf-title">Pays</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="" class="chosen form-control" value="{{ old('pays') ? old('pays') : Auth::user()->pays  }}" name="pays">
-                                                   <option>Gabon</option>
-                                                   <option>Côte d'Ivoire</option>
-                                                   <option>Ghana</option>
+                                                   
+                                                    @foreach ($pays as $pay )
+                                                        <option value="{{$pay->nom}}">{{$pay->nom}}</option>
+                                                        
+                                                    @endforeach
+                                                   
+                                                   
                                                    
                                                </select>
                                             </div>
@@ -380,6 +412,25 @@ $("#photobtn2").attr('type','file');
     })
         })
     })
+</script>
+
+
+<script src="https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script src='https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks fullscreen',
+    'insertdatetime media table paste help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | ' +
+  'bold italic backcolor | alignleft aligncenter ' +
+  'alignright alignjustify | bullist numlist outdent indent | ' +
+  'removeformat | help',
+  });
 </script>
 
 

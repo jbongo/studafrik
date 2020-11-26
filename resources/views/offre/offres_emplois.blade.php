@@ -129,7 +129,7 @@
                                 <select data-placeholder="20 par Page" class="chosen form-control">
                                     <option>30 Par Page</option>
                                     <option>40 Par Page</option>
-                                    <option>50 Par Page</option>
+                                    <option>50 Par Page</option> 
                                     <option>60 Par Page</option>
                                 </select>
                              </div>
@@ -147,7 +147,7 @@
                                    
                                         <div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
                                         <h3>{{ $offre->titre }}</h3>
-                                        <span>{{ substr($offre->description, 0 , 250) }}...</span>
+                                        <span>{!! substr($offre->description, 0 , 250)!!}</span>
                                     
                                         <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }},</div>
                                         <span class="job-is fl"> {{ $offre->categorie }}</span>
