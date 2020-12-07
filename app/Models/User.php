@@ -62,6 +62,6 @@ class User extends Authenticatable
 
     public function offres()
     {
-        return $this->belongsToMany(Offre::class,'offre_users');
+        return $this->belongsToMany(Offre::class,'offre_users')->withPivot('cv', 'lettre_motivation','created_at','updated_at');
     }
 }

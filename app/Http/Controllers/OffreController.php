@@ -162,7 +162,19 @@ class OffreController extends Controller
     
         $offre = Offre::where('id', Crypt::decrypt($id))->first();
 
-        return view('offre.show', compact('offre'));
+       
+        $offres = Auth::user()->offres;
+
+        $deja_postuler = false;
+
+        foreach ($offres as $off) {
+           
+            if($off->id == $offre->id){
+                $deja_postuler = true;
+            }
+        }
+
+        return view('offre.show', compact('offre','deja_postuler'));
     }
 
     /**
@@ -279,7 +291,12 @@ class OffreController extends Controller
             
         // dd($user);
 
-            $user->offres()->attach([$offre_id], ["cv" => $filename, "lettre_motivation" => $request->lettre_motivation]);
+            $user->offres()->attach([$offre_id], [                
+                "cv" => $filename,
+                "lettre_motivation" => $request->lettre_motivation,
+                "created_at"=> date('Y-m-d'),
+                "updated_at"=> date('Y-m-d'),
+                ]);
 
         // OffreUser::create([
         //     "user_id" => Auth::user()->id,

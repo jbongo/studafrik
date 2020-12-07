@@ -30,40 +30,44 @@
                     <div class="col-lg-9 column">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
-                            <h3>Manage Jobs</h3>
+                            <h3>Mes candidatures</h3>
                             <table>
                                 <thead>
                                     <tr>
                                         <td>Candidatures</td>
                                         <td>Offre</td>
-                                        <td>Date</td>
+                                        <td>Date de candidature</td>
                                         <td></td>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-
-                                    <tr>
-                                        <td>
-                                            <div class="table-list-title">
-                                                <i>Massimo Artemisis</i><br />
-                                                <span><i class="la la-map-marker"></i>Sacramento, California</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="table-list-title">
-                                                <h3><a href="#" title="">Web Designer / Developer</a></h3>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span>October 27, 2017</span><br />
-                                        </td>
-                                        <td>
-                                            <ul class="action_job">
-                                                <li><span>Supprimer</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                @foreach ($offres as $offre)
+                                    @if($offre->user->role == "recruteur")
+                                        <tr>
+                                            <td>
+                                                <div class="table-list-title">
+                                                    <i>{{$offre->user->nom}}</i><br />
+                                                    <span><i class="la la-map-marker"></i>{{$offre->pays}}, {{$offre->ville}}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-list-title">
+                                                    <h3><a href="#" title="">{{$offre->titre}}</a></h3>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span> {{$offre->pivot->created_at->format('d/m/Y')}}</span><br />
+                                            </td>
+                                            <td>
+                                                <ul class="action_job">
+                                                    <li><span>Voir</span><a href="{{route('mes_offres.show',Crypt::encrypt($offre->id))}}" title=""><i class="la la-eye"></i></a></li>
+                                                    {{-- <li><span>Supprimer</span><a href="#" title=""><i class="la la-trash-o"></i></a></li> --}}
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                                    
                                   
                                 </tbody>

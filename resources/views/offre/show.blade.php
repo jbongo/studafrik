@@ -75,12 +75,29 @@
 			 				<div class="job-head-info">
 					
 							 <h4> {{$offre->user->nom}}</h4>
-			 					{{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
-			 					<p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
+								 {{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
+								 @if($offre->user->site_web != null)
+								 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
+								 @endif
 			 					{{-- <p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
 			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p> --}}
-			 				</div>
-			 				<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+							 </div>
+							 
+								@if(Auth::check())
+									@if(Auth::user()->role == "candidat") 
+										@if($deja_postuler == false && $offre->date_expiration <= date("Y-m-d"))
+											<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+										@elseif($deja_postuler == true )
+											<span>Vous avez déjà postulé à cette offre</span>
+										@elseif($offre->date_expiration > date("Y-m-d"))
+											<span>L'offre a expirée</span>
+
+										@endif
+
+
+									@endif
+								@endif
+
 			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
 			 			</div><!-- Job Head -->
 				 	</div>
