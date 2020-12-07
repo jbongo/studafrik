@@ -109,12 +109,15 @@
                                     <div class="col-lg-3">
                                         <span class="pf-title">Nombre de salariés</span>
                                         <div class="pf-field">
-
-                                            <select name="nb_salarie" id="nb_salarie" class="form-control">
-                                              
-                                                @if(Auth::user()->nb_salarie != null)
+                                            <div class="pf-field">
+                                                <input type="number"  value="{{ old('nb_salarie') ? old('nb_salarie') : Auth::user()->nb_salarie  }}" name="nb_salarie" class="form-control"/>
+                                            </div>
+                                            @if(Auth::user()->nb_salarie != null)
                                                     <option value="{{Auth::user()->nb_salarie}}">{{Auth::user()->nb_salarie}}</option>
                                                 @endif
+                                            {{-- <select name="nb_salarie" id="nb_salarie" class="form-control">
+                                              
+                                                
 
                                                 <option value="0-50">0-50</option>
                                                 <option value="51-100">51-100</option>
@@ -122,7 +125,7 @@
                                                 <option value="501-1000">501-1000</option>
                                                 <option value="+1000">+1000</option>
 
-                                            </select>
+                                            </select> --}}
 
                                         </div>
                                     </div>
