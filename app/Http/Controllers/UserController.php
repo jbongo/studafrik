@@ -160,7 +160,7 @@ class UserController extends Controller
                 'nom_entreprise' => 'required|string|max:255',
                 'date_creation_entreprise' => 'date|max:255',
                 'nb_salarie' => 'required|integer',
-                'catégorie' => 'required|string',
+                // 'catégorie' => 'required|string',
                 // 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
                 'ville' => 'string|max:255',
