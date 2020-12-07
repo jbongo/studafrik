@@ -172,7 +172,7 @@ class UserController extends Controller
                 $user->nom = $request->nom_entreprise  ;
                 $user->date_creation_entreprise = $request->date_creation_entreprise  ;
                 $user->nb_salarie = $request->nb_salarie  ;
-                $user->categorie = $request->catégorie  ;
+                $user->categorie = $request->categorie  ;
                 // 'date_naissance' => $request->date_naissance  ,
                 $user->pays = $request->pays  ;
                 $user->ville = $request->ville ;

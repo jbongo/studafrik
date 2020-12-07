@@ -131,7 +131,7 @@
                                         <span class="pf-title">Secteur d'activité</span>
                                         <div class="pf-field">
                                             {{-- <textarea type="catégorie" class="form-control"  name="catégorie">{{ old('catégorie') ? old('catégorie') : Auth::user()->categorie  }}</textarea> --}}
-                                            <select name="nb_salarie" id="nb_salarie" class="form-control">
+                                            <select name="categorie" id="categorie" class="form-control">
                                               
                                                 @if(Auth::user()->categorie != null)
                                                     <option value="{{Auth::user()->categorie}}">{{Auth::user()->categorie}}</option>
