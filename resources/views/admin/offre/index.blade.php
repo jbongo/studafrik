@@ -73,9 +73,10 @@
                                             <td>{{$offre->ville}}</td>
                                             <td>{{$offre->date_expiration->format('d/m/Y')}}</td>
                                             <td>    
+                                                <a href="{{route('mes_offres.show', Crypt::encrypt($offre->id))}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>     
                                                 <a href="{{route('admin.offre.edit', Crypt::encrypt($offre->id))}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
-                                            <a href="{{route('admin.offre.delete', Crypt::encrypt($offre->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
+                                                <a href="{{route('admin.offre.delete', Crypt::encrypt($offre->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
                                             
                                         </tr>
                                         @endforeach

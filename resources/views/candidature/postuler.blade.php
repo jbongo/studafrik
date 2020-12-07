@@ -38,7 +38,7 @@
 				 			</div><!-- Job Head -->
 				 			<div class="job-details">
                          
-                                
+                            @if($offre->message_candidature == null)
                                 <form enctype="multipart/form-data" action="{{ route('postuler.store',$offre->id ) }}" method="POST">
 
                                     @csrf
@@ -79,9 +79,14 @@
 
                                     </div>
 
-                            
+								</form>
+							@else 
 
-                                </form>
+							{!!$offre->message_candidature!!}
+
+							@endif	
+
+
 
 				 			</div>
 				 			

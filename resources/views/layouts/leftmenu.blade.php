@@ -5,7 +5,7 @@
                 @if(Auth::user()->role == "candidat")
                     <a href="{{ route('dashboard') }}" title="">Profile</a>
                     @if(Auth::user()->profile_complete == true)
-                        <p><a href="/candidat/cv" title="">CV</a></p>
+                        <p><a href="{{route('cv.index')}}" title="">CV</a></p>
                         <p><a href="/candidat/favoris" title="">Mes favoris</a></p>
                         <p><a href="{{ route('candidatures.index') }}" title="">Mes candidatures</a></p>
                         <p><a href="/candidat/alertes" title="">Mes alertes</a></p>               

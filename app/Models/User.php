@@ -62,6 +62,6 @@ class User extends Authenticatable
 
     public function offres()
     {
-        return $this->belongsToMany('App\Models\Offre');
+        return $this->belongsToMany(Offre::class,'offre_users');
     }
 }

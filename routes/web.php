@@ -58,6 +58,34 @@ Route::post('postuler/{offre_id}','OffreController@store_postuler')->name('postu
 
 Route::get('candidatures','CandidatureController@index')->name('candidatures.index')->middleware('auth');
 
+// CV
+
+Route::middleware('auth')->group(function () {
+    Route::get('cv','CvController@index')->name('cv.index');
+
+    Route::get('cv/formation/create','CvController@create_formation')->name('cv.formation.create');
+    Route::get('cv/experience/create','CvController@create_experience')->name('cv.experience.create');
+    Route::get('cv/competence/create','CvController@create_competence')->name('cv.competence.create');
+
+    Route::post('cv/formation/store','CvController@store_formation')->name('cv.formation.store');
+    Route::post('cv/experience/store','CvController@store_experience')->name('cv.experience.store');
+    Route::post('cv/competence/store','CvController@store_competence')->name('cv.competence.store');
+
+    Route::get('cv/formation/edit/{formation_id}','CvController@edit_formation')->name('cv.formation.edit');
+    Route::get('cv/experience/edit/{experience_id}','CvController@edit_experience')->name('cv.experience.edit');
+    Route::get('cv/competence/edit/{competence_id}','CvController@edit_competence')->name('cv.competence.edit');
+
+    Route::post('cv/formation/update/{formation_id}','CvController@update_formation')->name('cv.formation.update');
+    Route::post('cv/experience/update/{experience_id}','CvController@update_experience')->name('cv.experience.update');
+    Route::post('cv/competence/update/{competence_id}','CvController@update_competence')->name('cv.competence.update');
+
+    Route::get('cv/formation/delete/{formation_id}','CvController@delete_formation')->name('cv.formation.delete');
+    Route::get('cv/experience/delete/{experience_id}','CvController@delete_experience')->name('cv.experience.delete');
+    Route::get('cv/competence/delete/{competence_id}','CvController@delete_competence')->name('cv.competence.delete');
+
+
+});
+
 
 // Blog
 Route::get('blog','ArticleController@index')->name('blog.index');

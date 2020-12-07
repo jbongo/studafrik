@@ -23,7 +23,9 @@ class CandidatureController extends Controller
 
         $user = User::where('id', Auth::user()->id )->first();
 
-        $offres = $user->offres()->get();
+        $offres = $user->offres;
+
+    //    dd($offres);
 
         return view('candidature.mes_candidatures', compact('offres'));
     }

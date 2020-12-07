@@ -15,11 +15,13 @@ class CreateOffreUsersTable extends Migration
     {
         Schema::create('offre_users', function (Blueprint $table) {
             $table->id();
-             $table->integer('user_id')->nullable();
-            $table->integer('offre_id')->nullable();
+             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('offre_id')->nullable();
             $table->string('cv')->nullable();
             $table->text('lettre_motivation')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('offre_id')->references('id')->on('offres');
         });
     }
 

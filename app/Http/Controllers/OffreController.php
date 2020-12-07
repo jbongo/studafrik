@@ -260,12 +260,7 @@ class OffreController extends Controller
     
         $offre = Offre::where('id', $offre_id)->first();
 
-        // dd($request);
-
-        // $request->validate([
-        //     'numero_mandat' => 'unique:compromis',
-        //     'pdf_compromis' => 'file:pdf'
-        // ]);
+      
 
 
         // if($request->hasFile('cv_fichier')){
@@ -280,14 +275,18 @@ class OffreController extends Controller
             $request->cv_fichier->storeAs('public/cv',$filename);
         // }
 
+            $user = Auth::user();
+            
+        // dd($user);
 
+            $user->offres()->attach([$offre_id], ["cv" => $filename, "lettre_motivation" => $request->lettre_motivation]);
 
-        OffreUser::create([
-            "user_id" => Auth::user()->id,
-            "offre_id" => $offre_id,
-            "cv" => $filename,
-            "lettre_motivation" => $request->lettre_motivation,
-        ]);
+        // OffreUser::create([
+        //     "user_id" => Auth::user()->id,
+        //     "offre_id" => $offre_id,
+        //     "cv" => $filename,
+        //     "lettre_motivation" => $request->lettre_motivation,
+        // ]);
 
         Mail::to($offre->user->email)->send(new CandidatureNotif($offre));
         // return Redirect::back()->withErrors(['ok', 'Votre  candidature a été envoyé au recruteur ']);
@@ -394,8 +393,8 @@ class OffreController extends Controller
     public function edit_admin($id)
     {
         $offre = Offre::where('id', Crypt::decrypt($id))->first();
-
-        return view('offre.edit', compact('offre'));
+        $pays = Pays::all();
+        return view('admin.offre.edit', compact('offre','pays'));
     }
 
     /**
@@ -426,6 +425,7 @@ class OffreController extends Controller
         $offre->pays = $request->pays ;
         $offre->ville = $request->ville ;
         $offre->date_expiration = $request->date_expiration ;
+        $offre->message_candidature = $request->message_candidature ;
 
 
         $offre->update();
