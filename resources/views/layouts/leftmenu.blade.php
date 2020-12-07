@@ -6,9 +6,9 @@
                     <a href="{{ route('dashboard') }}" title="">Profile</a>
                     @if(Auth::user()->profile_complete == true)
                         <p><a href="{{route('cv.index')}}" title="">CV</a></p>
-                        <p><a href="/candidat/favoris" title="">Mes favoris</a></p>
                         <p><a href="{{ route('candidatures.index') }}" title="">Mes candidatures</a></p>
-                        <p><a href="/candidat/alertes" title="">Mes alertes</a></p>               
+                        <p><a href="/candidat/favoris" title="">Candidatures sauvegardées</a></p>
+                        {{-- <p><a href="/candidat/alertes" title="">Mes alertes</a></p>                --}}
                     @endif
 
                 @elseif(Auth::user()->role == "recruteur")
@@ -18,8 +18,8 @@
 
                         <p><a href="{{ route('mes_offres.index') }}" title="">Offres d'emplois</a></p>
                         <p><a href="{{ route('mes_offres.create') }}" title="">Ajouter une offre</a></p>
-                        <p><a href="/recruteur/cv" title="">CV</a></p>
-                        <p><a href="/recruteur/alertes" title="">Mes alertes</a></p>   
+                        <p><a href="/recruteur/cv" title="">CV Sauvegardés</a></p>
+                        {{-- <p><a href="/recruteur/alertes" title="">Mes alertes</a></p>    --}}
                     @endif            
 
                 @endif
