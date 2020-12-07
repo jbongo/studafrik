@@ -163,7 +163,7 @@ class UserController extends Controller
                 // 'catégorie' => 'required|string',
                 // 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
-                'ville' => 'string|max:255',
+                // 'ville' => 'string|max:255',
                 
               
             ]);
