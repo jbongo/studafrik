@@ -163,16 +163,19 @@ class OffreController extends Controller
         $offre = Offre::where('id', Crypt::decrypt($id))->first();
 
        
-        $offres = Auth::user()->offres;
-
+        
         $deja_postuler = false;
+        if(Auth::check() && Auth::user()->role == "candidat"){
 
-        foreach ($offres as $off) {
-           
-            if($off->id == $offre->id){
-                $deja_postuler = true;
-            }
+            $offres = Auth::user()->offres;
+            foreach ($offres as $off) {
+            
+                if($off->id == $offre->id){
+                    $deja_postuler = true;
+                }
+            } 
         }
+        
 
         return view('offre.show', compact('offre','deja_postuler'));
     }

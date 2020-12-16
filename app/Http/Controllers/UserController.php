@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 // use Image;
 use App\Models\User;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\Crypt;
+
 
 class UserController extends Controller
 {
@@ -204,9 +206,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show_profil($user_id)
     {
-        //
+        $candidat = User::where([['role','candidat'],['id',Crypt::decrypt($user_id)]])->first();
+
+        return view('candidat.show_profil', compact('candidat'));
     }
 
     /**

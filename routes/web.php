@@ -35,6 +35,7 @@ Route::post('user/store','UserController@store')->name('user.store')->middleware
 Route::post('user/update','UserController@update')->name('user.update')->middleware('auth');
 Route::post('user/change_password','UserController@change_password')->name('user.change_password');
 Route::post('user/photo_profil','UserController@photoProfile')->name('user.photo_profil');
+Route::get('user/show_profil/{user_id}','UserController@show_profil')->name('user.show_profil');
 
 
 Route::get('recruteur/profile','UserController@profilRecruteur')->name('user.profil_recruteur');
@@ -83,6 +84,10 @@ Route::middleware('auth')->group(function () {
     Route::get('cv/experience/delete/{experience_id}','CvController@delete_experience')->name('cv.experience.delete');
     Route::get('cv/competence/delete/{competence_id}','CvController@delete_competence')->name('cv.competence.delete');
 
+
+    // ##Recruteur 
+
+    Route::get('cv/liste','CvController@liste')->name('cv.liste');
 
 });
 

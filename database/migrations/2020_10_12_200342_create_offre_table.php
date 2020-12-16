@@ -16,7 +16,7 @@ class CreateOffreTable extends Migration
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->integer('categorie_offre_id')->nullable();
+            $table->integer('categorieoffre_id')->nullable();
             $table->string('titre')->nullable();
             $table->text('description')->nullable();
             $table->string('type_contrat')->nullable();

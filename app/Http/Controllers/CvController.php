@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cv_formation;
 use App\Models\Cv_experience;
 use App\Models\Cv_competence;
+use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
 
 use Auth;
@@ -29,6 +30,23 @@ class CvController extends Controller
 
         // $user->offres()->attach([1,2]);
         return view('candidat.cv.index',compact('formations','experiences','competences'));
+    }
+
+    /**
+     * Retourne la liste des CV.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function liste()
+    {
+        //
+      
+        $candidats = User::where('role', "candidat")->get();
+
+        $user = Auth::user();
+
+        // $user->offres()->attach([1,2]);
+        return view('candidat.cv.liste',compact('candidats'));
     }
 
     /**

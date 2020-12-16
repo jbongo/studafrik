@@ -1,4 +1,4 @@
-<aside class="col-lg-3 column border-right">
+<aside class="col-lg-2 column border-right" style="background: #aabedc">
     <div class="widget">
         <div class="tree_widget-sec">
             <ul>
@@ -18,6 +18,7 @@
 
                         <p><a href="{{ route('mes_offres.index') }}" title="">Offres d'emplois</a></p>
                         <p><a href="{{ route('mes_offres.create') }}" title="">Ajouter une offre</a></p>
+                        <p><a href="{{ route('cv.liste') }}" title="">Recherche candidats </a></p>
                         <p><a href="/recruteur/cv" title="">CV Sauvegardés</a></p>
                         {{-- <p><a href="/recruteur/alertes" title="">Mes alertes</a></p>    --}}
                     @endif            

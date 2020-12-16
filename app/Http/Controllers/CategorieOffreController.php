@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\CategorieOffre;
+use App\Models\Categorieoffre;
 use Illuminate\Support\Facades\Crypt;
 class CategorieOffreController extends Controller
 {
@@ -15,7 +15,7 @@ class CategorieOffreController extends Controller
      */
     public function index()
     {
-        $categories = CategorieOffre::all();
+        $categories = Categorieoffre::all();
 
 
         return view('admin.configuration.categorie_offre.index',compact('categories'));
@@ -43,11 +43,13 @@ class CategorieOffreController extends Controller
 
         $request->validate([
             
-            'nom' => 'required|string|unique:categorie_offres',
+            'nom' => 'required|string|unique:categorieoffres',
           
         ]);
 
-        CategorieOffre::create([
+    
+
+        Categorieoffre::create([
             "nom"=>$request->nom
         ]);
 
@@ -87,7 +89,7 @@ class CategorieOffreController extends Controller
      */
     public function update(Request $request, $offre)
     {
-        $categorie = CategorieOffre::where('id',Crypt::decrypt($offre))->first();
+        $categorie = Categorieoffre::where('id',Crypt::decrypt($offre))->first();
 
         if($categorie->nom != $request->nom){
             $request->validate([
@@ -114,7 +116,7 @@ class CategorieOffreController extends Controller
     {
 
 
-        CategorieOffre::destroy(Crypt::decrypt($offre));
+        Categorieoffre::destroy(Crypt::decrypt($offre));
 
         return "ok";
         // return redirectroute('admin.categorie_offre.index')->with('ok', "Catégorie supprimée");

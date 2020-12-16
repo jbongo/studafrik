@@ -64,4 +64,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Offre::class,'offre_users')->withPivot('cv', 'lettre_motivation','created_at','updated_at');
     }
+
+    // 
+    public function  cv_formation(){
+        return $this->hasMany(Cv_formation::class);
+    }
+
+    public function  cv_competence(){
+        return $this->hasMany(Cv_competence::class);
+    }
+
+    public function  cv_experience(){
+        return $this->hasMany(Cv_experience::class);
+    }
 }

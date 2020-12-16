@@ -147,10 +147,12 @@
                                    
                                         <div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
                                         <h3>{{ $offre->titre }}</h3>
-                                        <span>{!! substr($offre->description, 0 , 250)!!}</span>
+                                        <span class="job-is f2"> {{ $offre->categorieoffre->nom}}</span>
+
+                                        {{-- <span>{!! substr($offre->description, 0 , 150)!!}</span> --}}
                                     
                                         <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }},</div>
-                                        <span class="job-is fl"> {{ $offre->categorie }}</span>
+                                        {{-- <span class="job-is fl"> {{ $offre->type_contrat }}</span> --}}
                                 </div>
                             </a>
                                 <div class="job-style-bx">
