@@ -37,15 +37,34 @@ class CvController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function liste()
+    public function liste($poste = null, $pays = null)
     {
         //
-      
-        $candidats = User::where('role', "candidat")->get();
+        // dd($_GET['pays']);
+        if(isset($_GET['pays']) )
+        $pays= $_GET['pays'];
+        
+        if(isset($_GET['poste']) )
+        $poste= $_GET['poste'];
+        
+        // dd($pays);
+        
+        if($poste == null && $pays != null){
+            $candidats = User::where([['role', "candidat"], ['pays', $pays]])->get();
+        
+        }
+        elseif($poste != null && $pays == null){
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"]])->get();
+          
+        }
+        elseif($poste != null && $pays != null){
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays]])->get();
+        }
+        else{
+            $candidats = User::where('role', "candidat")->get();
+        }
 
-        $user = Auth::user();
 
-        // $user->offres()->attach([1,2]);
         return view('candidat.cv.liste',compact('candidats'));
     }
 

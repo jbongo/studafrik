@@ -20,7 +20,7 @@
 
 	<section>
 		<div class="block remove-top">
-			<div class="container">
+			<div class="container-fluid">
 				 <div class="row no-gape">
 
 

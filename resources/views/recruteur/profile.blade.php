@@ -16,7 +16,7 @@
 
 	<section>
 		<div class="block remove-top">
-			<div class="container">
+			<div class="container-fluid">
 				 <div class="row no-gape">
 
 
@@ -112,9 +112,7 @@
                                             <div class="pf-field">
                                                 <input type="number"  value="{{ old('nb_salarie') ? old('nb_salarie') : Auth::user()->nb_salarie  }}" name="nb_salarie" class="form-control"/>
                                             </div>
-                                            @if(Auth::user()->nb_salarie != null)
-                                                    <option value="{{Auth::user()->nb_salarie}}">{{Auth::user()->nb_salarie}}</option>
-                                                @endif
+                                      
                                             {{-- <select name="nb_salarie" id="nb_salarie" class="form-control">
                                               
                                                 

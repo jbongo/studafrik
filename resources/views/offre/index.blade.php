@@ -20,7 +20,7 @@
 
  <section>
     <div class="block no-padding">
-        <div class="container">
+        <div class="container-fluid">
              <div class="row no-gape">
 
                  @include('layouts.leftmenu')

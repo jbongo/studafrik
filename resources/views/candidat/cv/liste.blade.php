@@ -29,12 +29,12 @@
                  <div class="col-lg-9 column">
 
 <br>
-                    <form action="{{ route('recherche_emplois') }}" method="get" >
+                    <form action="{{ route('cv.liste') }}" method="get" >
                         @csrf
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="job-field">
-                                    <input type="text" name="mot_cle" className="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['mot_cle']) ? $_GET['mot_cle'] :""}}" />
+                                    <input type="text" name="poste" className="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
                                     <i class="la la-keyboard-o"></i>
                                 </div>
                             </div>

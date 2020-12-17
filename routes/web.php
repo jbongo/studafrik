@@ -87,7 +87,7 @@ Route::middleware('auth')->group(function () {
 
     // ##Recruteur 
 
-    Route::get('cv/liste','CvController@liste')->name('cv.liste');
+    Route::get('cv/liste/{mot_cle?}/{pays?}','CvController@liste')->name('cv.liste');
 
 });
 
