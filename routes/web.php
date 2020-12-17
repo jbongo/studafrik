@@ -3,7 +3,7 @@ use App\Http\Controllers\LoginController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Admin;
-Use App\Models\CategorieOffre;
+Use App\Models\Categorieoffre;
 Use App\Models\Pays;
 
 /*
