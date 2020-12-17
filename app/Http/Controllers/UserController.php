@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 // use Image;
 use App\Models\User;
-use App\Models\Categorie;
+use App\Models\Categorieoffre;
 use App\Models\Favoriscv;
 
 use Illuminate\Support\Facades\Crypt;
@@ -308,7 +308,7 @@ public function photoProfile(){
     {
     
        $user = Auth::user();
-       $categories = Categorie::all();
+       $categories = Categorieoffre::all();
 
         return view('recruteur.profil', compact('user','categories'));
     }

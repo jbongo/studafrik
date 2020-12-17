@@ -25,7 +25,7 @@ Route::get('/','HomeController@index')->name('welcome');
 Route::post('user/store','UserController@store')->name('user.store')->middleware('auth');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $categories = CategorieOffre::all();
+    $categories = Categorieoffre::all();
     $pays = Pays::all();
     return view('dashboard', compact('categories','pays'));
 })->name('dashboard');
