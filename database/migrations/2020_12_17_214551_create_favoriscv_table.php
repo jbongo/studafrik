@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFavoriOffreTable extends Migration
+class CreateFavoriscvTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateFavoriOffreTable extends Migration
      */
     public function up()
     {
-        Schema::create('favori_offres', function (Blueprint $table) {
+        Schema::create('favoriscvs', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
-            $table->integer('offre_id')->nullable();
-
+            $table->unsignedBigInteger('recruteur_id')->nullable();
+            $table->unsignedBigInteger('candidat_id')->nullable();
             $table->timestamps();
         });
     }
-  
+
     /**
      * Reverse the migrations.
      *
@@ -29,6 +28,6 @@ class CreateFavoriOffreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favori_offres');
+        Schema::dropIfExists('favoriscv');
     }
 }

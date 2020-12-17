@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 // use Image;
 use App\Models\User;
 use App\Models\Categorie;
+use App\Models\Favoriscv;
+
 use Illuminate\Support\Facades\Crypt;
 
 
@@ -210,7 +212,11 @@ class UserController extends Controller
     {
         $candidat = User::where([['role','candidat'],['id',Crypt::decrypt($user_id)]])->first();
 
-        return view('candidat.show_profil', compact('candidat'));
+        $favoris = Favoriscv::where([['candidat_id', Crypt::decrypt($user_id)], ['recruteur_id', Auth::user()->id]])->first();
+
+        $est_favoris = $favoris != null ? true : false ;
+
+        return view('candidat.show_profil', compact('candidat','est_favoris'));
     }
 
     /**

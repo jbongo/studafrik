@@ -1,6 +1,9 @@
 
 @include('layouts.topmenuhome')
-
+<div class="page-loading">
+	<img src="images/loader.gif" alt="" />
+	<span>passer le chargement</span>
+</div>
 	<section>
 		<div class="block no-padding">
 			<div class="container fluid">

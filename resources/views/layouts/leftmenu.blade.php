@@ -1,4 +1,10 @@
-<aside class="col-lg-2 column border-right" style="background: #aabedc">
+
+<style>
+    .menugauche {
+        color:white;
+    }
+</style>
+<aside class="col-lg-2 column border-right" style="background: #0c1727; ">
     <div class="widget">
         <div class="tree_widget-sec">
             <ul>
@@ -13,20 +19,20 @@
 
                 @elseif(Auth::user()->role == "recruteur")
 
-                    <a href="{{ route('dashboard') }}" title="">Profile</a>
+                    <a href="{{ route('dashboard') }}" class="menugauche" title="">Profile</a>
                     @if(Auth::user()->profile_complete == true)
 
-                        <p><a href="{{ route('mes_offres.index') }}" title="">Offres d'emplois</a></p>
-                        <p><a href="{{ route('mes_offres.create') }}" title="">Ajouter une offre</a></p>
-                        <p><a href="{{ route('cv.liste') }}" title="">Recherche candidats </a></p>
-                        <p><a href="/recruteur/cv" title="">CV Sauvegardés</a></p>
+                        <p class="menugauche"><a href="{{ route('mes_offres.index') }}" title="">Offres d'emplois</a></p>
+                        <p class="menugauche"><a href="{{ route('mes_offres.create') }}" title="">Ajouter une offre</a></p>
+                        <p class="menugauche"><a href="{{ route('cv.liste') }}" title="">Recherche candidats </a></p>
+                        <p class="menugauche"><a href="/recruteur/cv" title="">CV Sauvegardés</a></p>
                         {{-- <p><a href="/recruteur/alertes" title="">Mes alertes</a></p>    --}}
                     @endif            
 
                 @endif
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <li><a href="/logout" title=""  onclick="event.preventDefault();
+                    <li><a href="/logout" title="" class="menugauche"  onclick="event.preventDefault();
                         this.closest('form').submit();" >Déconnexion</a></li> 
 {{-- 
                     <x-jet-dropdown-link href="{{ route('logout') }}"

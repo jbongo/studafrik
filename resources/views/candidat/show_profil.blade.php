@@ -46,8 +46,11 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="action-inner">
-                                                        <a href="#" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
-                                                        {{-- <a href="#" title=""><i class="la la-envelope-o"s></i>Contacter candidat</a> --}}
+                                                        @if($est_favoris == false)
+                                                        <a href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
+                                                        @else 
+                                                        <a href="#" style="color:rgb(83, 181, 26); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,6 +67,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
+                                    @if (session('ok'))
+                                    <div class="alert alert-success ">
+                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                       <strong> {{ session('ok') }}</strong>
+                                    </div>
+                                    @endif 
                                     <div class="cand-single-user">
                                         <div class="share-bar circle">
                                              <a href="#" title="" class="share-google"><i class="la la-google"></i></a><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
