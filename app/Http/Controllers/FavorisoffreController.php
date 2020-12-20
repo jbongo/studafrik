@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Offre;
+use App\Models\Favorisoffre;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
+
 
 class FavorisoffreController extends Controller
 {
@@ -13,18 +18,21 @@ class FavorisoffreController extends Controller
      */
     public function index()
     {
-        //
+        $offres_id = array();
+        $offres_ids = Favorisoffre::where('user_id', Auth::user()->id )->select('offre_id')->get()->toArray();
+
+        foreach ($offres_ids as $id) {
+            $offres_id[] = $id;
+        }
+        // dd($offres_id);
+
+        $offres = Offre::whereIn('id', $offres_id)->get();
+    
+
+        return view('candidat.offres_sauvegarde', compact('offres'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -32,44 +40,17 @@ class FavorisoffreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($user_id, $offre_id)
     {
-        //
+        Favorisoffre::create([
+            "user_id"=>$user_id,
+            "offre_id"=>$offre_id,
+        ]);
+       
+        return redirect()->route("mes_offres.show", Crypt::encrypt($offre_id))->with('ok','Offre sauvegardée dans vos favoris');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -77,8 +58,13 @@ class FavorisoffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user_id, $offre_id)
     {
-        //
+        $favoris = Favorisoffre::where([['user_id', $user_id], ['offre_id', $offre_id]])->first();
+
+        // dd($favoris);
+        if ($favoris != null )
+        $favoris->delete();
+        return redirect()->route("favoris.offre.index")->with('ok','Offre supprimée des favoris');
     }
 }

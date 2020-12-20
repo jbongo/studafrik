@@ -36,7 +36,7 @@
                                         <tr>
                                             <th>Secteur d'activité</th>
                                             <th>Titre</th>
-                                            <th>Description</th>
+                                            {{-- <th>Description</th> --}}
                                             <th>Type Contrat</th>
                                             <th>Pays</th>
                                             <th>Ville</th>
@@ -49,7 +49,7 @@
                                         <tr>
                                             <th>Secteur d'activité</th>
                                             <th>Titre</th>
-                                            <th>Description</th>
+                                            {{-- <th>Description</th> --}}
                                             <th>Type Contrat</th>
                                             <th>Pays</th>
                                             <th>Ville</th>
@@ -67,7 +67,7 @@
                                           
                                             <td>{{$offre->categorie}}</td>
                                             <td>{{$offre->titre}}</td>
-                                            <td>{!! substr($offre->description, 0, 50) !!}...</td>
+                                            {{-- <td>{!! substr($offre->description, 0, 50) !!}...</td> --}}
                                             <td>{{$offre->type_contrat}}</td>
                                             <td>{{$offre->pays}}</td>
                                             <td>{{$offre->ville}}</td>

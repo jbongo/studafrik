@@ -46,10 +46,12 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="action-inner">
-                                                        @if($est_favoris == false)
-                                                        <a href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
-                                                        @else 
-                                                        <a href="#" style="color:rgb(83, 181, 26); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
+                                                        @if($est_recruteur == true)
+                                                            @if($est_favoris == false)
+                                                            <a href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
+                                                            @else 
+                                                            <a href="#" style="color:rgb(83, 181, 26); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>

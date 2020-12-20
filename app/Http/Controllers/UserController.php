@@ -211,12 +211,18 @@ class UserController extends Controller
     public function show_profil($user_id)
     {
         $candidat = User::where([['role','candidat'],['id',Crypt::decrypt($user_id)]])->first();
-
-        $favoris = Favoriscv::where([['candidat_id', Crypt::decrypt($user_id)], ['recruteur_id', Auth::user()->id]])->first();
+        
+        $est_recruteur = false;
+        if(Auth::check() && Auth::user()->role == "recruteur"){
+            $favoris = Favoriscv::where([['candidat_id', Crypt::decrypt($user_id)], ['recruteur_id', Auth::user()->id]])->first();
+            $est_recruteur = true;
+        }
+        // $favoris = Favoriscv::where([['candidat_id', Crypt::decrypt($user_id)], ['recruteur_id', Auth::user()->id]])->first();
+   
 
         $est_favoris = $favoris != null ? true : false ;
 
-        return view('candidat.show_profil', compact('candidat','est_favoris'));
+        return view('candidat.show_profil', compact('candidat','est_favoris', 'est_recruteur'));
     }
 
     /**

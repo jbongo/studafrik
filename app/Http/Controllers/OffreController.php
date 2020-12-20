@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Offre;
 use App\Models\Candidature;
 use App\Models\OffreUser;
+use App\Models\Favorisoffre;
 use App\Models\Pays;
 use Illuminate\Support\Facades\Auth;
 
@@ -162,9 +163,9 @@ class OffreController extends Controller
     
         $offre = Offre::where('id', Crypt::decrypt($id))->first();
 
-       
-        
+        $est_candidat = false;    
         $deja_postuler = false;
+
         if(Auth::check() && Auth::user()->role == "candidat"){
 
             $offres = Auth::user()->offres;
@@ -174,10 +175,17 @@ class OffreController extends Controller
                     $deja_postuler = true;
                 }
             } 
+            $est_candidat = true;
+
+            $favoris = Favorisoffre::where([['offre_id', Crypt::decrypt($id)], ['user_id', Auth::user()->id]])->first();
+
         }
+
+        $est_favoris = $favoris != null ? true : false ;
+
         
 
-        return view('offre.show', compact('offre','deja_postuler'));
+        return view('offre.show', compact('offre','deja_postuler','est_candidat','est_favoris'));
     }
 
     /**

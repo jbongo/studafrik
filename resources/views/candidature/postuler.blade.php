@@ -31,7 +31,7 @@
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
 				 					<li><i class="la la-money"></i> Salaire mensuel : <span>{{$offre->salaire_min}} - {{$offre->salaire_max}}</span></li>
-									 <li><i class="la la-calendar-o"></i> Posté le : {{$offre->created_at->format('d/m/Y')}} </li>
+									 <li><i class="la la-calendar-o"></i> Postée le : {{$offre->created_at->format('d/m/Y')}} </li>
 									 
 				 				</ul>
 				 				{{-- <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span> --}}
@@ -68,9 +68,6 @@
                                         </div>
                                         
 
-                                        
-                                     
-                                     
 
                                         <div class="col-lg-12">
                                             <button type="submit" class="apply-job-btn" > <i class="la la-paper-plane"></i>POSTULER</button>
@@ -102,11 +99,11 @@
 				 		<div class="job-single-head style2">
 			 				<div class="job-thumb"> <img src="http://placehold.it/124x124" alt="" /> </div>
 			 				<div class="job-head-info">
-							 <h4> {{$offre->user->nom}}</h4>
+							 <h4> @if($offre->user->nom) {{$offre->user->nom}} @else {{$offre->nom_entreprise}} @endif</h4>
 			 					{{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
-			 					<p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
-			 					<p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
-			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p>
+			 					@if($offre->user->site_web)<p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>@endif
+			 					@if($offre->user->contact)<p><i class="la la-phone"></i> {{$offre->user->contact}}</p>@endif
+			 					@if($offre->user->email && $offre->user->role != "admin")<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p>@endif
 			 				</div>
 			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
 			 			</div><!-- Job Head -->

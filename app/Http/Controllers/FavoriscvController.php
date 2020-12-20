@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Favoriscv;
+use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
-
+use Illuminate\Support\Facades\Auth;
 class FavoriscvController extends Controller
 {
     /**
@@ -15,18 +16,20 @@ class FavoriscvController extends Controller
      */
     public function index()
     {
-        //
+       
+        $candidats_id = array();
+        $candidats_ids = Favoriscv::where('recruteur_id', Auth::user()->id )->select('candidat_id')->get()->toArray();
+
+        foreach ($candidats_ids as $id) {
+            $candidats_id[] = $id;
+        }
+
+        $candidats = User::whereIn('id', $candidats_id)->get();
+    
+
+        return view('recruteur.cv_sauvegarde', compact('candidats'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,40 +46,8 @@ class FavoriscvController extends Controller
        
         return redirect()->route("user.show_profil", Crypt::encrypt($candidat_id))->with('ok','Profil sauvegardé dans vos favoris');
     }
+    
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -84,8 +55,15 @@ class FavoriscvController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($recruteur_id,$candidat_id)
     {
-        //
+        $favoris = Favoriscv::where([['recruteur_id', $recruteur_id], ['candidat_id', $candidat_id]])->first();
+
+        // dd($favoris);
+        if ($favoris != null )
+        $favoris->delete();
+        return redirect()->route("favoris.cv.index")->with('ok','CV supprimé des favoris');
+
+        
     }
 }

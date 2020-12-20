@@ -27,7 +27,19 @@
 				 	<div class="col-lg-8 column">
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
-				 				<div class="job-title2"><h3>{{$offre->titre}}</h3><span class="job-is ft">{{$offre->type_contrat}}</span><i class="la la-heart-o"></i></div>
+								 <div class="job-title2">
+									 <h3>{{$offre->titre}}</h3><span class="job-is ft">{{$offre->type_contrat}}</span> 
+									
+								</div>
+							
+								@if($est_candidat == true)
+									@if($est_favoris == false)
+									<a href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder cette offre</a>
+									@else 
+									<a href="#" style="color:rgb(83, 181, 26); font-size:17px" title=""><i class="la la-check"></i>Offre sauvegardée</a>
+									@endif
+								@endif
+								<br>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
 				 					<li><i class="la la-money"></i> Salaire mensuel : <span>{{$offre->salaire_min}} - {{$offre->salaire_max}}</span></li>
@@ -37,14 +49,14 @@
 				 				{{-- <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span> --}}
 							 </div><!-- Job Head -->
 							 
-							 @if (session('ok'))
+							 {{-- @if (session('ok'))
 								<div class="alert alert-success">
 									<ul>
 										<li>{{ session('ok') }}</li>
 										
 									</ul>
 								</div>
-							@endif
+							@endif --}}
 
 
 				 			<div class="job-details">
@@ -88,10 +100,9 @@
 										@if($deja_postuler == false && $offre->date_expiration <= date("Y-m-d"))
 											<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
 										@elseif($deja_postuler == true )
-											<span>Vous avez déjà postulé à cette offre</span>
+											<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span>
 										@elseif($offre->date_expiration > date("Y-m-d"))
-											<span>L'offre a expirée</span>
-
+											<span style="color:#d60004; font-size:18px">L'offre a expirée</span>
 										@endif
 
 

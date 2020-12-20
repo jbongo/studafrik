@@ -91,7 +91,12 @@ Route::middleware('auth')->group(function () {
 
     // Favoris
     Route::get('favoris/cv/{recruteur_id}/{candidat_id}','FavoriscvController@store')->name('favoris.cv');
+    Route::get('favoris/cv','FavoriscvController@index')->name('favoris.cv.index');
+    Route::get('favoris/cv/delete/{recruteur_id}/{candidat_id}','FavoriscvController@destroy')->name('favoris.cv.delete');
+
     Route::get('favoris/offre/{user_id}/{offre_id}','FavorisoffreController@store')->name('favoris.offre');
+    Route::get('favoris/offre','FavorisoffreController@index')->name('favoris.offre.index');
+    Route::get('favoris/offre/delete/{user_id}/{offre_id}','FavorisoffreController@destroy')->name('favoris.offre.delete');
 
 
 
