@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       
+       dd($request->all());
 
         if($request->photo_profil != null){
             $request->validate([
