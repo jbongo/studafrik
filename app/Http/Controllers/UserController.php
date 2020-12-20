@@ -95,7 +95,7 @@ class UserController extends Controller
                 $filename = time() . '.' . $avatar->getClientOriginalExtension();
                 $filename = $user->id.'_'.$filename;
 
-                $avatar->move(public_path().'/image/photo_couverture/',$filename);
+                $avatar->move(public_path().'/images/photo_couverture/',$filename);
                 // Image::make($avatar)->save( public_path('\images\photo_couverture\\' . $filename ) );
                 
                 
