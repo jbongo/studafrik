@@ -43,55 +43,67 @@
                                 <h2>Veuillez compléter votre profil pour continuer</h2>
 
                                 @endif
-                                {{-- <div class="upload-img-bar">
-                                    <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #8ba2ad; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ asset('images/profil/profil.png') }}" alt="@lang('Photo de profil')">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="upload-img-bar">
+                                            <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
+        
+                                            <div class="upload-info">
+                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
+                                                 <span>Photo de profil .jpg & .png</span>
+                                                 
+                                                 <form action="{{ route('user.photo_profil') }}" method="post" enctype="multipart/form-data">
+                                                    @csrf  
+                                                  <input class="form-control" id="photobtn" type="hidden" name="photo_profil">
+                                                  @if ($errors->has('photo_profil'))
+                                                    <br>
+                                                    <div class="alert alert-warning ">
+                                                        <strong>{{$errors->first('photo_profil')}}</strong> 
+                                                    </div>
+                                                    @endif
+                                                  <input class="form-control btn-danger"  id="valider" value="Enregistrer" type="hidden" name="submit">
+                                              </form>
+                                            </div>  
+                                        </div>
+                                    </div>
 
-                                    <div class="upload-info">
-                                        <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
-                                         <span>Photo de profil .jpg & .png</span>
-                                         
-                                         <form action="{{ route('user.photo_profil') }}" method="post" enctype="multipart/form-data">
-                                            @csrf  
-                                          <input class="form-control" id="photobtn" type="hidden" name="photo_profil">
-                                          @if ($errors->has('photo_profil'))
-                                            <br>
-                                            <div class="alert alert-warning ">
-                                                <strong>{{$errors->first('photo_profil')}}</strong> 
-                                            </div>
-                                        @endif
-                                          <input class="form-control btn-danger"  id="valider" value="Enregistrer" type="hidden" name="submit">
-                                      </form>
-                                    </div>  
+
+                                    <div class="col-6">
+                                        <div class="upload-img-bar">
+                                            <img class="img-responsive" id="photodisplay2" style="object-fit: cover; width: 525px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ (Auth::user()->photo_couverture == null ) ? asset('images/photocouverture/couverture.jpg') :asset('images/photo_couverture/'. Auth::user()->photo_couverture) }}" alt="@lang('Photo de couverture')">
+        <br>
+                                            <div class="upload-info">
+                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto2">Téléverser</a> </div>
+                                                 <span>Photo de couverture .jpg & .png</span>
+                                                 
+                                                 <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+                                                    @csrf  
+                                                  <input class="form-control" id="photobtn2" type="hidden" name="photo_couverture">
+                                                  @if ($errors->has('photo_couverture'))
+                                                    <br>
+                                                    <div class="alert alert-warning ">
+                                                        <strong>{{$errors->first('photo_couverture')}}</strong> 
+                                                    </div>
+                                                @endif
+                                                  <input class="form-control btn-danger"  id="valider2" value="Enregistrer" type="hidden" name="submit">
+                                              </form>
+                                            </div>  
+                                        </div>
+
+                                    </div>
                                 </div>
+                               
 
-                                <div class="upload-img-bar">
-                                    <img class="img-responsive" id="photodisplay2" style="object-fit: cover; width: 525px; height: 225px; border: 5px solid #8ba2ad; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ asset('images/couverture/couverture.jpg') }}" alt="@lang('Photo de couverture')">
 
-                                    <div class="upload-info">
-                                        <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto2">Téléverser</a> </div>
-                                         <span>Photo de couverture .jpg & .png</span>
-                                         
-                                         <form action="" method="get" enctype="multipart/form-data">
-                                            @csrf  
-                                          <input class="form-control" id="photobtn2" type="hidden" name="photo_couverture">
-                                          @if ($errors->has('photo_couverture'))
-                                            <br>
-                                            <div class="alert alert-warning ">
-                                                <strong>{{$errors->first('photo_couverture')}}</strong> 
-                                            </div>
-                                        @endif
-                                          <input class="form-control btn-danger"  id="valider2" value="Enregistrer" type="hidden" name="submit">
-                                      </form>
-                                    </div>  
-                                </div> --}}
 
 
 
                             </div>
 
-                          
                             <div class="profile-form-edit">
-                               
+                                <br>
+                                <hr>
+                               <br>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <span class="pf-title">Nom de l'entreprise</span>

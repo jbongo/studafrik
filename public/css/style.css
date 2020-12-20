@@ -5176,7 +5176,7 @@ Author:         Creative Layer
      font-size: 30px;
      text-align: center;
      margin: 0;
-     margin-bottom: 50px;
+     /* margin-bottom: 50px; */
  }
  
  .search_widget_job {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use File;
 // use Image;
 use App\Models\User;
 use App\Models\Categorieoffre;
@@ -45,8 +45,6 @@ class UserController extends Controller
     {
        
 
-        // dd($request);
-
         if($request->photo_profil != null){
             $request->validate([
                 "photo_profil" => "required|image|max:5000",
@@ -59,13 +57,14 @@ class UserController extends Controller
                 $avatar = $request->file('photo_profil');
                 $filename = time() . '.' . $avatar->getClientOriginalExtension();
                 $filename = $user->id.'_'.$filename;
-                $avatar->move(public_path().'\images\photo_profil\\',$user->id.'.jpg');
+                $avatar->move(public_path().'\images\photo_profil\\',$filename);
 
                 // Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
                 
                 
                 // on supprime l'ancienne photo si elle existe
                 if($user->photo_profile) {
+                    // dd('xx');
                     
                     $img = public_path('images/photo_profil/'.$user->photo_profile);
                   
@@ -74,28 +73,29 @@ class UserController extends Controller
                    }
                    
                 }
+
         
-                $user->profile_photo_path = $filename;
+                $user->photo_profile = $filename;
                 $user->update();
             }
         }
 
+        // dd($request->all());
 
 
         if($request->photo_couverture != null){
             $request->validate([
                 "photo_couverture" => "required|image|max:5000",
             ]);
-            // dd($request);
         
             $user = User::where('id',Auth()->id())->first();
            
             if($request->hasFile('photo_couverture')){
                 $avatar = $request->file('photo_couverture');
                 $filename = time() . '.' . $avatar->getClientOriginalExtension();
-                $filename = $user->id.'_'.$filename;$
+                $filename = $user->id.'_'.$filename;
 
-                $avatar->move(public_path().'\images\\',$user->id.'.jpg');
+                $avatar->move(public_path().'\images\photo_couverture\\',$filename);
                 // Image::make($avatar)->save( public_path('\images\photo_couverture\\' . $filename ) );
                 
                 
@@ -110,7 +110,7 @@ class UserController extends Controller
                    
                 }
         
-                $user->photo_couverture_path = $filename;
+                $user->photo_couverture = $filename;
                 $user->update();
             }
         }
