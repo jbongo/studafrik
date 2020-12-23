@@ -119,6 +119,8 @@ Route::get('/qui-sommes-nous', function () {
 Route::get('/nous-contacter', function () {
     return view('nous_contacter');
 })->name('nous_contacter');
+Route::post('/nous-contacter','ContactController@store')->name('contact.store');
+
 
 
 // ############################# ROUTES ADMIN ##################################

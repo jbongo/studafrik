@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="widget">
                         <div class="mega-widget">
-                            <div class="logo"><a href="#" title=""><img src="http://placehold.it/93x40" alt="" /></a></div>
+                            {{-- <div class="logo"><a href="#" title=""><img src="{{asset('images/logo.png')}}" height="40px" width="93px" alt="" /></a></div> --}}
                             <div class="links">
                                 <a href="#" title="">A propos de nous</a>
                                 <a href="#" title="">Termes du contrat</a>
