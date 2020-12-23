@@ -49,12 +49,18 @@
                                             <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
         
                                             <div class="upload-info">
-                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
+                                                @if(Auth::user()->photo_profile == null )
+                                                    <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
+                                                @else 
+                                                    <div class="user-send-message upload-info"> <a href="#" title="" class="btn btn-danger " style="color:white;" id="modifPhoto">Modifier la photo</a> </div>
+                                                
+                                                @endif
+                                                
                                                  <span>Photo de profil .jpg & .png</span>
                                                  
                                                  <form action="{{ route('user.photo_profil') }}" method="post" enctype="multipart/form-data">
                                                     @csrf  
-                                                  <input class="form-control" id="photobtn" type="hidden" name="photo_profil">
+                                                  <input class="form-control" id="photobtn" type="hidden" accept="image/png, image/jpeg"  name="photo_profil" >
                                                   @if ($errors->has('photo_profil'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -73,12 +79,20 @@
                                             <img class="img-responsive" id="photodisplay2" style="object-fit: cover; width: 525px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ (Auth::user()->photo_couverture == null ) ? asset('images/photo_couverture/couverture.jpg') :asset('images/photo_couverture/'. Auth::user()->photo_couverture) }}" alt="@lang('Photo de couverture')">
         <br>
                                             <div class="upload-info">
+                                            
+                                                @if(Auth::user()->photo_profile == null )
                                                 <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto2">Téléverser</a> </div>
+                                            @else 
+                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn btn-danger " style="color:white;" id="modifPhoto2">Modifier la photo</a> </div>
+                                            
+                                            @endif
+                                            
+                                               
                                                  <span>Photo de couverture .jpg & .png</span>
                                                  
                                                  <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
                                                     @csrf  
-                                                  <input class="form-control" id="photobtn2" type="hidden" name="photo_couverture">
+                                                  <input class="form-control" id="photobtn2" accept="image/png, image/jpeg" type="hidden" name="photo_couverture">
                                                   @if ($errors->has('photo_couverture'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -108,14 +122,14 @@
                                     <div class="col-lg-6">
                                         <span class="pf-title">Nom de l'entreprise</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="TOTAL GABON" value="{{ old('nom_entreprise') ? old('nom_entreprise') : Auth::user()->nom_entreprise  }}" name="nom_entreprise" class="form-control"/>
+                                            <input type="text" placeholder="" value="{{ old('nom_entreprise') ? old('nom_entreprise') : Auth::user()->nom  }}" name="nom_entreprise" class="form-control"/>
                                         </div>
                                     </div>
                             
                                     <div class="col-lg-3">
                                         <span class="pf-title">Date de création</span>
                                         <div class="pf-field">
-                                            <input type="date" placeholder="1991" value="{{ old('date_creation_entreprise') ? old('date_creation_entreprise') : Auth::user()->date_creation_entreprise  }}" name="date_creation_entreprise" class="form-control"/>
+                                            <input type="date" placeholder="" value="{{ old('date_creation_entreprise') ? old('date_creation_entreprise') : Auth::user()->date_creation_entreprise  }}" name="date_creation_entreprise" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
