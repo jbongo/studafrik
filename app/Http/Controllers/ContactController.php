@@ -27,6 +27,8 @@ class ContactController extends Controller
             'email' => 'required|string',
             'sujet' => 'required|string',
             'message' => 'required|string',
+            'g-recaptcha-response'=>'required|recaptcha'
+
           
         ]);
 
@@ -42,6 +44,7 @@ class ContactController extends Controller
 
 
         Mail::to("jean-philippe.b@studafrik.com")->send(new ContactMail($request->nom, $request->email, $request->sujet, $request->message));
+        Mail::to("contact@studafrik.com")->send(new ContactMail($request->nom, $request->email, $request->sujet, $request->message));
         // return redirect::back()->with('_ok', "");
         return redirect()->route('nous_contacter')->with('ok', __("Votre message a été envoyé. ")  );
 

@@ -96,6 +96,8 @@
                                      <button type="submit">Envoyer</button>
                                  </div>
                              </div>
+                             {!! NoCaptcha::display() !!}
+
                          </form>
                      </div>
                  </div>
@@ -119,3 +121,9 @@
 
 
 @include('layouts/footer')
+
+@section('js-content')
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+@endsection
