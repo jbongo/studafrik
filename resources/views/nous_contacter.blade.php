@@ -96,7 +96,7 @@
                                      <button type="submit">Envoyer</button>
                                  </div>
                              </div>
-                             {!! NoCaptcha::display() !!}
+                          
                              <div id="html_element"></div>
                              <br>
                          </form>
