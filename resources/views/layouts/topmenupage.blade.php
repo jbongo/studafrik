@@ -26,7 +26,7 @@
     <script type="text/javascript">
 		var onloadCallback = function() {
 		  grecaptcha.render('html_element', {
-			'sitekey' : '6LcmAwETAAAAACZp3N0oT7VyNfaLbnQC8z9B9eqR'
+			'sitekey' : '6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL'
 		  });
 		};
 	  </script>
