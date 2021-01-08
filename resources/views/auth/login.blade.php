@@ -53,12 +53,16 @@
 									</div>
 									
 									  <div class="flex items-center justify-end mt-4">
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                                            Vous n'avez pas de compte ?
+                                          <p> Vous n'avez pas de compte ? </p>
+                                        <a style="color: blue"  class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                                            Créez votre compte
                                         </a>              
                                      </div>
 									
-									<button  type="submit">Se connecter</button>
+                                    <button  type="submit">Se connecter</button>
+                                    <a  style="color: red" class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                        Mot de passe oublié ?
+                                    </a>   
 								</form>
 								<div class="extra-login" >
 									<span>Se connecter avec :</span>

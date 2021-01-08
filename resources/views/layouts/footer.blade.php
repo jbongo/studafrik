@@ -104,12 +104,6 @@
 <script src="{{asset('js/select-chosen.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/counter.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-async defer>
-</script>
-
 @yield('js-content')
 </body>
 </html>

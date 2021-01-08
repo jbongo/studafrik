@@ -96,9 +96,6 @@
                                      <button type="submit">Envoyer</button>
                                  </div>
                              </div>
-                          
-                             <div id="html_element"></div>
-                             <br>
                          </form>
                      </div>
                  </div>
@@ -122,11 +119,3 @@
 
 
 @include('layouts/footer')
-
-@section('js-content')
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-async defer>
-</script>
-
-@endsection

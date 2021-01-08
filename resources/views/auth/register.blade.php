@@ -64,8 +64,9 @@
 										<i class="la la-key"></i>
 									</div>
 									  <div class="flex items-center justify-end mt-4">
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                                            Déjà inscrit ?
+                                          <p>Déjà inscrit ?</p>
+                                        <a  style="color: blue" class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                            Connectez-vous !
                                         </a>              
                                      </div>
 									
