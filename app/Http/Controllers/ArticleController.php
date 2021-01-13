@@ -157,7 +157,7 @@ class ArticleController extends Controller
            
 
             // $avatar->move(public_path().'\images\blog\\',$article->id.'.jpg');
-            InterventionImage::make($avatar)->save( public_path('\images\blog\\' . $filename ) );
+            InterventionImage::make($avatar)->save( public_path('images\blog\\' . $filename ) );
             
             }
 
