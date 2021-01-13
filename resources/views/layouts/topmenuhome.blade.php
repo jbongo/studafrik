@@ -19,17 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert2.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-{{-- {!! NoCaptcha::renderJs() !!} --}}
-
-<script type="text/javascript">
-	var onloadCallback = function() {
-	  grecaptcha.render('html_element', {
-		'sitekey' : '6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL'
-	  });
-	};
-  </script>
-
-
+	
 </head>
 <body>
 

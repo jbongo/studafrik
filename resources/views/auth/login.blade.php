@@ -53,8 +53,9 @@
 									</div>
 									
 									  <div class="flex items-center justify-end mt-4">
+                                          Vous n'avez pas de compte ?
                                         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                                            Vous n'avez pas de compte ?
+                                            Créez un compte
                                         </a>              
                                      </div>
 									
