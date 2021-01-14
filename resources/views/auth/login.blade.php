@@ -52,12 +52,12 @@
 										<i class="la la-key"></i>
 									</div>
 									
-									  <div class="flex items-center justify-end mt-4">
-                                          <p> Vous n'avez pas de compte ? </p>
+                                    <div class="flex items-center justify-end mt-4">
+                                        <p> Vous n'avez pas de compte ? </p>
                                         <a style="color: blue"  class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                                             Créez votre compte
                                         </a>              
-                                     </div>
+                                    </div>
 									
                                     <button  type="submit">Se connecter</button>
                                     <a  style="color: red" class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
@@ -65,11 +65,11 @@
                                     </a>   
 								</form>
 								<div class="extra-login" >
-									<span>Se connecter avec :</span>
+									{{-- <span>Se connecter avec :</span>
 									<div class="login-social">
 										<a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
 										<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
-									</div>
+									</div> --}}
 								</div>
 							</div>
 						</div><!-- SIGNUP POPUP -->

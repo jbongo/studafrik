@@ -263,7 +263,7 @@
                                 
                             </div>
                         </form>
-                            <div class="contact-edit" id="pi">
+                            {{-- <div class="contact-edit" id="pi">
                                 <h3>Changement du mot de passe</h3>
                                 <form>
                                         <div class="row">
@@ -287,7 +287,7 @@
                                             </div>
                                         </div>
                                     </form>
-                            </div>
+                            </div> --}}
                         </div>
                    </div>
 
@@ -305,7 +305,7 @@
 @section('js-content')
 
 <script>
-      function readURL(input) {
+    function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -320,6 +320,7 @@
         $('#modifPhoto').fadeOut(500);
         $("#photobtn").attr('type','file');
     });
+
     $("#photobtn").change(function () {
         readURL(this);
         $('#valider').attr('type','submit');
@@ -351,9 +352,6 @@
     //             })
     // })
    
-  
-
-
 </script>
 
 

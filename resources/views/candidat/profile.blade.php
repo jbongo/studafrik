@@ -306,7 +306,7 @@
                                 
                             </div>
                         </form>
-                            <div class="contact-edit" id="pi">
+                            {{-- <div class="contact-edit" id="pi">
                                 <h3>Changement du mot de passe</h3>
                                 <form>
                                         <div class="row">
@@ -348,7 +348,7 @@
                                             </div>
                                         </div>
                                     </form>
-                            </div>
+                            </div> --}}
                         </div>
                    </div>
 
