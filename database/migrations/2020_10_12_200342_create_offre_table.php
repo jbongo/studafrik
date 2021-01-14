@@ -18,6 +18,7 @@ class CreateOffreTable extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('categorieoffre_id')->nullable();
             $table->string('titre')->nullable();
+            $table->string('nom_entreprise')->nullable();
             $table->text('description')->nullable();
             $table->string('type_contrat')->nullable();
             $table->text('description_profil')->nullable();

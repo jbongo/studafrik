@@ -45,6 +45,10 @@ class UserController extends Controller
     {
     //    dd($request->all());
 
+
+    $user = User::where('id', Auth::user()->id)->first();
+
+    // Sauvegarde de la photo de profil
         if($request->photo_profil != null){
             $request->validate([
                 "photo_profil" => "required|image|max:5000",
@@ -83,6 +87,8 @@ class UserController extends Controller
         // dd($request->all());
 
 
+
+        // Sauvegarde de la photo de couverture
         if($request->photo_couverture != null){
             $request->validate([
                 "photo_couverture" => "required|image|max:5000",
@@ -115,8 +121,28 @@ class UserController extends Controller
             }
         }
 
+// Sauvegarde du cv
 
-        $user = User::where('id', Auth::user()->id)->first();
+// $request->validate([
+//     'pdf_compromis' => 'file:pdf'
+// ]);
+
+if($request->hasFile('cv')){
+
+    $request->validate([
+        'cv' => 'mimes:pdf',
+    ]);
+
+    $avatar = $request->file('cv');
+    $filename =time() . '.' . $avatar->getClientOriginalExtension() ;
+     $filename = $user->id."_".$filename;
+    $user->cv = $filename;
+    // return response()->download(storage_path('app/pdf_compromis/pdf_compro.pdf'));
+    $request->cv->storeAs('public/cv/',$filename);
+}
+
+// ***********
+
         if($user->role == "candidat"){
 
             // 'photo' => 'mimes:jpeg,bmp,png'
@@ -202,6 +228,23 @@ class UserController extends Controller
 
     }
 
+
+    
+     /**
+     *Télécharger le fichier du cv.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function telecharger_cv($id)
+    {
+        
+        $user = User::where('id',$id)->first();
+        
+
+        return response()->download(storage_path('app/public/cv/'.$user->cv));
+ 
+    } 
     /**
      * Display the specified resource.
      *

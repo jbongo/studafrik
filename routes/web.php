@@ -63,6 +63,10 @@ Route::post('user/change_password','UserController@change_password')->name('user
 Route::post('user/photo_profil','UserController@photoProfile')->name('user.photo_profil');
 Route::get('user/show_profil/{user_id}','UserController@show_profil')->name('user.show_profil');
 
+// Télecharger CV du candidat
+Route::get('user/telecharger_cv/{user_id}','UserController@telecharger_cv')->name('user.telecharger_cv');
+
+
 
 Route::get('recruteur/profile','UserController@profilRecruteur')->name('user.profil_recruteur');
 

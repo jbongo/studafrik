@@ -88,7 +88,11 @@
                                              <p><i class="la la-map-marker"></i>{{$candidat->ville}} / {{$candidat->pays}}</p>
                                          </div>
                                          <div class="download-cv">
-                                             <a href="#" title="">Télécharger le CV <i class="la la-download"></i></a>
+                                         @if($candidat->cv != null)
+
+                                             <a href="{{route('user.telecharger_cv', $candidat->id)}}" title="">Télécharger le CV <i class="la la-download"></i></a>
+                                         @endif
+
                                          </div>
                                      </div>
                                      <ul class="cand-extralink">

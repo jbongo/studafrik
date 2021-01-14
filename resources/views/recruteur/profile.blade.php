@@ -34,8 +34,7 @@
                         @endif
                         <div class="padding-left">
 
-                            <form method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
-                                @csrf
+                          
                             <div class="profile-title">
                                 @if(Auth::user()->profile_complete == true)
                                     <h3>Mon profil</h3>
@@ -115,6 +114,8 @@
                             </div>
 
                             <div class="profile-form-edit">
+                                <form method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
+                                    @csrf
                                 <br>
                                 <hr>
                                <br>

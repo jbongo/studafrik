@@ -165,6 +165,7 @@ class OffreController extends Controller
 
         $est_candidat = false;    
         $deja_postuler = false;
+        $favoris = null;
 
         if(Auth::check() && Auth::user()->role == "candidat"){
 
@@ -373,7 +374,8 @@ class OffreController extends Controller
         Offre::create([
 
             "user_id" => Auth::user()->id,
-            "categorie_offre_id" => $request->categorie_offre_id,
+            "categorieoffre_id" => $request->categorie_offre_id,
+            "nom_entreprise" => $request->nom_entreprise,
             "titre" => $request->titre,
             "description" => $request->description,
             "type_contrat" => $request->type_contrat,
@@ -440,6 +442,7 @@ class OffreController extends Controller
 
     
         $offre->categorie_offre_id = $request->categorie_offre_id ;
+        $offre->nom_entreprise = $request->nom_entreprise ;
         $offre->titre = $request->titre ;
         $offre->description = $request->description ;
         $offre->type_contrat = $request->type_contrat ;

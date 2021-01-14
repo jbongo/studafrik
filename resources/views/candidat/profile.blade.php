@@ -33,9 +33,7 @@
                         @endif
                         <div class="padding-left">
 
-                            <form method="POST" action="{{ route('user.store') }}">
-
-                                @csrf
+                           
                             <div class="profile-title">
                                 @if(Auth::user()->profile_complete == true)
                                     <h3>Mon profile</h3>
@@ -96,12 +94,14 @@
 
                           
                             <div class="profile-form-edit">
-                               
+                                <form method="POST" action="{{ route('user.store') }}" enctype="multipart/form-data">
+
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <span class="pf-title">Nom</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder=" TUFAN" name="nom" value="{{old('nom') ? old('nom') : Auth::user()->nom}}"  class="form-control"/>
+                                                <input type="text" placeholder=" " name="nom" value="{{old('nom') ? old('nom') : Auth::user()->nom}}"  class="form-control" required/>
                                                 @if ($errors->has('nom'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -113,7 +113,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Prénom (s)</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="Ali" name="prenom" value="{{old('prenom') ? old('prenom') : Auth::user()->prenom}}"  class="form-control"/>
+                                                <input type="text" placeholder="" name="prenom" value="{{old('prenom') ? old('prenom') : Auth::user()->prenom}}"  class="form-control" required/>
                                                 @if ($errors->has('prenom'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -122,10 +122,10 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <span class="pf-title">Poste</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="UX / UI Designer" value="{{old('poste') ? old('poste') : Auth::user()->poste}}" name="poste"class="form-control" />
+                                                <input type="text" placeholder="UX / UI Designer" value="{{old('poste') ? old('poste') : Auth::user()->poste}}" name="poste"class="form-control" required/>
                                                 @if ($errors->has('poste'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -135,6 +135,18 @@
                                             </div>
                                         </div>
                                         
+                                        <div class="col-lg-6">
+                                            <span class="pf-title">Ajoutez votre CV</span>
+                                            <div class="pf-field">
+                                                <input type="file" value="{{old('cv') ? old('cv') : Auth::user()->cv}}" name="cv"class="form-control" required/>
+                                                @if ($errors->has('cv'))
+                                                    <br>
+                                                    <div class="alert alert-warning ">
+                                                        <strong>{{$errors->first('cv')}}</strong> 
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
                                         
                                         <div class="col-lg-6">
                                             <span class="pf-title">Expérience</span>

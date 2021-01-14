@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('nom')->nullable();
             $table->string('prenom')->nullable();
             $table->string('poste')->nullable();
+            $table->string('cv')->nullable();
             $table->string('experience')->nullable();
             $table->string('date_naissance')->nullable();
             $table->string('raison_sociale')->nullable();

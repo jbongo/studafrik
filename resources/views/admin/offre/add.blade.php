@@ -44,7 +44,17 @@
                     @csrf
                    
 
-
+                    <div class="row">
+                        <div class="col-9">
+                            <span class="pf-title">Nom de l'entreprise</span>
+                            <div class="pf-field">
+                                <input type="text"  name="nom_entreprise" class="form-control" placeholder=""required  />
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <br>
                     <div class="row">
                         <div class="col-9">
                             <span class="pf-title">Titre de l'offre</span>
