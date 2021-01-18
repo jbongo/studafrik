@@ -50,18 +50,18 @@ class CvController extends Controller
         // dd($pays);
         
         if($poste == null && $pays != null){
-            $candidats = User::where([['role', "candidat"], ['pays', $pays]])->get();
+            $candidats = User::where([['role', "candidat"], ['pays', $pays]])->paginate(15);
         
         }
         elseif($poste != null && $pays == null){
-            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"]])->get();
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"]])->paginate(15);
           
         }
         elseif($poste != null && $pays != null){
-            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays]])->get();
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays]])->paginate(15);
         }
         else{
-            $candidats = User::where('role', "candidat")->get();
+            $candidats = User::where('role', "candidat")->paginate(15);
         }
 
 

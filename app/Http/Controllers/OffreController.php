@@ -43,9 +43,9 @@ class OffreController extends Controller
     public function offres_emplois()
     {
         
-        $offres = Offre::where('active', true)->get();
+        $offres = Offre::paginate(15);
         $nb_offres = sizeof($offres) ;
-
+        // dd($offres);
         return view('offre.offres_emplois', compact('offres','nb_offres'));
     }
 

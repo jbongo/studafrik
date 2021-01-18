@@ -70,8 +70,9 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     @if (session('ok'))
-                                    <div class="alert alert-success ">
-                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <div class="alert alert-success "> 
+                                       <a href="#" class="close" data-dismiss="alert" aria-label=
+                                       "close">&times;</a>
                                        <strong> {{ session('ok') }}</strong>
                                     </div>
                                     @endif 

@@ -123,6 +123,9 @@
 	<section>
 		<div class="block gray">
 			<div class="container">
+				<br>
+								<br>
+								<br>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
@@ -158,10 +161,14 @@
 						</div>
 					</div>
 				</div>
+				<br>
+								<br>
+								<br>
 			</div>
 		</div>
 	</section>
 
+	<!--
 	<section>
 		<div class="block">
 			<div class="container">
@@ -171,7 +178,7 @@
 							<h2>Comment ça marche ?</h2>
 							{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day. --}}
 							</span>
-						</div><!-- Heading -->
+						</div>
 						<div class="how-to-sec">
 							<div class="how-to">
 								<span class="how-icon"><i class="la la-user"></i></span>
@@ -180,7 +187,7 @@
 							</div>
 							<div class="how-to">
 								<span class="how-icon"><i class="la la-file-archive-o"></i></span>
-								<h3>Recherchez un emplois selon vos critères</h3>
+								<h3>Recherchez un emploi selon vos critères</h3>
 								{{-- <p>Browse profiles, reviews, and proposals then interview top candidates. </p> --}}
 							</div>
 							<div class="how-to">
@@ -194,7 +201,7 @@
 			</div>
 		</div>
 	</section>
-
+-->
 	{{-- <section>
 		<div class="block gray">
 			<div class="container">
@@ -343,12 +350,16 @@
 		</div>
 	</section> --}}
 
+	
 	<section>
-		<div class="block gray">
+		<div class="block ">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
+							<br>
+							<br>
+							<br>
 							<h2>Nos derniers articles</h2>
 							{{-- <span>Found by employers communicate directly with hiring managers and recruiters.</span> --}}
 						</div><!-- Heading -->
@@ -415,8 +426,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="subscription-sec">
+						<div class="subscription-sec"><br>
+							<br>
+							<br>
 							<div class="row">
+								
 								<div class="col-lg-6">
 									<h3>Souscrivez à notre Newsletter</h3>
 									<span>Laissez nous votre adresse mail</span>
@@ -428,6 +442,9 @@
 									</form>
 								</div>
 							</div>
+							<br>
+								<br>
+								<br>
 						</div>
 					</div>
 				</div>

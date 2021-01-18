@@ -70,7 +70,7 @@
 							<a href="{{ route('qui_sommes_nous') }}" title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('blog.index') }}" title="">Blog</a>
+							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
 							<a href="{{ route('nous_contacter') }}" title="">Nous contacter</a>
@@ -111,7 +111,7 @@
 							<a href="{{ route('qui_sommes_nous') }}" title="">Qui sommes nous ?</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('blog.index') }}" title="">Blog</a>
+							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
 							<a href="{{ route('nous_contacter') }}" title="">Nous contacter</a>

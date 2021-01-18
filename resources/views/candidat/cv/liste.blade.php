@@ -9,7 +9,7 @@
              <div class="row">
                  <div class="col-lg-12">
                      <div class="inner-header">
-                     <h3> MON CV </h3>
+                     <h3> Rechercher des candidats </h3>
                      </div>
                  </div>
              </div>
@@ -79,15 +79,17 @@
                       
                        
 
-                        <div class="pagination">
-                           <ul>
+                        {{-- <div class="pagination"> --}}
+
+                            {!!$candidats->links()!!}
+                           {{-- <ul>
                                <li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Précédent</a></li>
                                <li><a href="">1</a></li>
                                <li class="active"><a href="">2</a></li>
                                <li><a href="">3</a></li>
                            <li class="next"><a href="">Suivant <i class="la la-long-arrow-right"></i></a></li>
-                           </ul>
-                       </div><!-- Pagination -->
+                           </ul> --}}
+                       {{-- </div><!-- Pagination --> --}}
                     </div>
                </div>
 

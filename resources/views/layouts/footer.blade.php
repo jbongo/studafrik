@@ -1,3 +1,4 @@
+<!--
 <footer class="gray">
     <div class="block">
         <div class="container">
@@ -25,7 +26,90 @@
         <span>© 2020 Studafrik Tous droits reservés</span>
         <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
     </div>
+</footer> -->
+
+
+<footer>
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 column">
+                    <div class="widget">
+                        <div class="about_widget">
+                            <div class="logo">
+                                <a href="#" title=""><img src="{{asset('images/logo.png')}}" alt="" width="150px" /></a>
+                            </div>
+                           
+                            <span>contact@studafrik.scom</span>
+                            <div class="social">
+                                <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                                <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
+                                <a href="#" title=""><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div><!-- About Widget -->
+                    </div>
+                </div>
+                <div class="col-lg-4 column">
+                    <div class="widget">
+                        <h3 class="footer-title">Questions fréquentes</h3>
+                        <div class="link_widgets">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a href="#" title="">Qui sommes nous ?</a>
+                                    <a href="#" title="">FAQ </a>
+                                    <a href="#" title="">Offres d'emplois </a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="#" title="">Contact </a>
+                                    <a href="#" title="">Termes du contrat</a>
+                                    <a href="#" title="">Récruteurs </a>
+
+                                    {{-- <a href="#" title="">For Employers </a>
+                                    <a href="#" title="">Underwriting </a>
+                                    <a href="#" title="">Contact Us</a> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-lg-2 column">
+                    <div class="widget">
+                        <h3 class="footer-title">Find Jobs</h3>
+                        <div class="link_widgets">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#" title="">US Jobs</a>	
+                                    <a href="#" title="">Canada Jobs</a>	
+                                    <a href="#" title="">UK Jobs</a>	
+                                    <a href="#" title="">Emplois en Fnce</a>	
+                                    <a href="#" title="">Jobs in Deuts</a>	
+                                    <a href="#" title="">Vacatures China</a>	
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                {{-- <div class="col-lg-3 column">
+                    <div class="widget">
+                        <div class="download_widget">
+                            <a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
+                            <a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </div>
+    <div class="bottom-line style2">
+        <span>© 2020 Studafrik Tous droits reservés</span>
+        <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+    </div>
 </footer>
+
+
+
+
 
 </div>
 
