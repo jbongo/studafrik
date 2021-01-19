@@ -15,9 +15,7 @@ class CreateCommentaireTable extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
-            $table->integer('article_id')->nullable();
-            $table->text('commentaire')->nullable();
+            
             $table->timestamps();
         });
     }

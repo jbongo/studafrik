@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Commentaire;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image as InterventionImage;
 use Illuminate\Support\Facades\Crypt;
 use File;
+use Auth;
 
 
 class ArticleController extends Controller
@@ -42,9 +44,27 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add_commentaire(Request $request, $article_id)
     {
         //
+        // dd($request->all());
+
+        if(Auth::check()){
+            Commentaire::create([
+                "user_id" => $request->user_id,
+             
+                "article_id" => $article_id,
+                "commentaire" => $request->commentaire,
+            ]);
+        }else{
+            Commentaire::create([
+                "nom" => $request->nom,
+                "email" => $request->email,
+                "article_id" => $article_id,
+                "commentaire" => $request->commentaire,
+            ]);
+        }
+    
     }
 
     /**
@@ -57,10 +77,11 @@ class ArticleController extends Controller
     {
         
         $article = Article::where('id', Crypt::decrypt($id))->first();
+        $commentaires = Commentaire::where([['article_id', Crypt::decrypt($id)],['valide',true]])->get();
        
 
 
-        return view('blog.article',compact('article'));
+        return view('blog.article',compact('article','commentaires'));
     }
 
     /**

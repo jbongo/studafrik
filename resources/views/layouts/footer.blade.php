@@ -42,10 +42,10 @@
                            
                             <span>contact@studafrik.scom</span>
                             <div class="social">
-                                <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                                <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                                <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                                <a href="#" title=""><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/Studafrik/" title=""><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/studafrik?lang=fr" title=""><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/company/stud-afrik/" title=""><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.instagram.com/studafrik/?hl=fr" title=""><i class="fa fa-instagram"></i></a>
                             </div>
                         </div><!-- About Widget -->
                     </div>

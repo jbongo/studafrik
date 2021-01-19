@@ -136,6 +136,8 @@ Route::middleware('auth')->group(function () {
 // Blog
 Route::get('blog','ArticleController@index')->name('blog.index');
 Route::get('article/{article_id}','ArticleController@article_show')->name('article.show');
+// Commentaires
+Route::post('article/add-commentaire/{article_id}','ArticleController@add_commentaire')->name('article.add_commentaire');
 
 
 // Qui sommes nous

@@ -105,7 +105,7 @@
                          <ul>
 
                             {{-- <li><i class="la la-phone"></i><span>Contactez-nous au : +33015522000</span></li> --}}
-                            <li><i class="la la-envelope-o"></i><span>Email : info@studafrik.com</span></li>
+                            <li><i class="la la-envelope-o"></i><span>Email : CONTACT@studafrik.com</span></li>
                             <div class="login-social">
                                 <a class="fb-login" href="https://www.facebook.com/Studafrik/" title=""><i class="fa fa-facebook fa-2x"></i></a>
                                 <a class="tw-login" href="https://twitter.com/studafrik" title=""><i class="fa fa-twitter fa-2x"></i></a>

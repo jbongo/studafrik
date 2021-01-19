@@ -74,9 +74,12 @@
                                             <span class="pf-title">Type de contrat</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism"  name="type_contrat" class="form-control chosen">
-                                                   <option value="CDI">CDI</option>
-                                                   <option value="CDD">CDD</option>
-                                                   <option value="INTERIM">INTERIM</option>
+                                                    <option value="CDI">CDI</option>
+                                                    <option value="CDD">CDD</option>
+                                                    <option value="STAGE">STAGE</option>
+                                                    <option value="JOB ETUDIANT">JOB ETUDIANT</option>
+                                                    <option value="VIE">VIE</option>
+                                                    <option value="INTERIM">INTERIM</option>
                                                  
                                                    
                                                </select>

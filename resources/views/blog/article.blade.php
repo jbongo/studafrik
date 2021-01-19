@@ -80,27 +80,29 @@
                          </div>
                          <div class="commentform-sec">
                              <h3>Laissez un commentaire</h3>
-                             <form>
+                             <form action="{{route('article.add_commentaire', $article->id)}}" method="POST">
+                                 @csrf
                                  <div class="row">
                                      <div class="col-lg-12">
                                          <span class="pf-title">Commentaire</span>
                                          <div class="pf-field">
-                                             <textarea></textarea>
+                                             <textarea name="commentaire" required></textarea>
                                          </div>
                                      </div>
+                                     @if(!Auth::check())
                                      <div class="col-lg-8">
                                          <span class="pf-title">Votre nom</span>
                                          <div class="pf-field">
-                                             <input type="text" placeholder="" />
+                                             <input type="text"  name="nom" required placeholder="" />
                                          </div>
                                      </div>
                                      <div class="col-lg-8">
                                          <span class="pf-title">Email</span>
                                          <div class="pf-field">
-                                             <input type="text" placeholder="" />
+                                             <input type="email" name="email" required  placeholder="" />
                                          </div>
                                      </div>
-                                   
+                                   @endauth
                                      <div class="col-lg-12">
                                          <button type="submit">Terminer</button>
                                      </div>
