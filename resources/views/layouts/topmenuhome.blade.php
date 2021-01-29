@@ -32,7 +32,7 @@
 	
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="120px" height="80px" alt="" /></a>
+			<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px" height="120px" alt="" /></a>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="images/icon.png" alt="" /> Menu
@@ -93,7 +93,7 @@
 		<div class="menu-sec">
 			<div class="container fluid">
 				<div class="logo">
-					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="120px" height="80px" alt="" /></a>
+					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px" height="120px" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					@if(Auth::check())

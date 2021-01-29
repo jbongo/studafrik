@@ -352,73 +352,100 @@
 
 	
 	<section>
-		<div class="block ">
+		<div class="block">
+			<div data-velocity="-.1" style="background-color:#383a5a" class="parallax scrolly-invisible  color "></div><!-- PARALLAX BACKGROUND IMAGE -->
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="heading">
-							<br>
-							<br>
-							<br>
+						<div class="heading light">
+							<br><br>
 							<h2>Nos derniers articles</h2>
-							{{-- <span>Found by employers communicate directly with hiring managers and recruiters.</span> --}}
 						</div><!-- Heading -->
-						<div class="blog-sec">
-							<div class="row">
-								<div class="col-lg-4">
-									<div class="my-blog">
-										<div class="blog-thumb">
-											<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-											<div class="blog-date">
-												<a href="#" title="">2020 <i>14 Octobre</i></a>
-											</div>
-										</div>
-										<div class="blog-details">
-											<h3><a href="#" title="">Comment faire son CV</a></h3>
-											<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-											<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+						<div class="reviews-sec" id="reviews-carousel">
+							<div class="col-lg-4">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">2020 <i>14 Octobre</i></a>
 										</div>
 									</div>
-								</div>
-								<div class="col-lg-4">
-									<div class="my-blog">
-										<div class="blog-thumb">
-											<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-											<div class="blog-date">
-												<a href="#" title="">2020 <i>14 Octobre</i></a>
-											</div>
-										</div>
-										<div class="blog-details">
-											<h3><a href="#" title="">Comment faire son CV</a></h3>
-											<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-											<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-										</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">Comment faire son CV</a></h3>
+										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 									</div>
 								</div>
-								<div class="col-lg-4">
-									<div class="my-blog">
-										<div class="blog-thumb">
-											<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-											<div class="blog-date">
-												<a href="#" title="">2020 <i>14 Octobre</i></a>
-											</div>
-										</div>
-										<div class="blog-details">
-											<h3><a href="#" title="">Comment faire son CV</a></h3>
-											<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-											<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+							</div>
+							<div class="col-lg-4">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">2020 <i>14 Octobre</i></a>
 										</div>
 									</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">Comment faire son CV</a></h3>
+										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+									</div>
 								</div>
-								
-	
+							</div>
+							<div class="col-lg-4">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">2020 <i>14 Octobre</i></a>
+										</div>
+									</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">Comment faire son CV</a></h3>
+										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">2020 <i>14 Octobre</i></a>
+										</div>
+									</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">Comment faire son CV</a></h3>
+										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">2020 <i>14 Octobre</i></a>
+										</div>
+									</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">Comment faire son CV</a></h3>
+										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 	</section>
+
+
 
 
 	<section>
@@ -458,11 +485,12 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="social-links">
+							<br><br>
 							<a href="#" title="" class="fb-color"><i class="fa fa-facebook"></i> Facebook</a>
 							<a href="#" title="" class="tw-color"><i class="fa fa-twitter"></i> Twitter</a>
 							<a href="#" title="" class="in-color"><i class="la la-instagram"></i> Instagram</a>
 							<a href="#" title="" class="lk-color"><i class="la la-linkedin"></i> Linkedin</a>
-
+<br><br>
 						</div>
 					</div>
 				</div>

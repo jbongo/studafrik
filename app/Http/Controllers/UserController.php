@@ -188,7 +188,7 @@ if($request->hasFile('cv')){
             $request->validate([
 
                 'nom_entreprise' => 'required|string|max:255',
-                'date_creation_entreprise' => 'date|max:255',
+                // 'date_creation_entreprise' => 'date|max:255',
                 // 'nb_salarie' => 'required|integer',
                 // 'catégorie' => 'required|string',
                 // 'date_naissance' => 'required|date|max:255',
@@ -200,7 +200,7 @@ if($request->hasFile('cv')){
 
                          
                 $user->nom = $request->nom_entreprise  ;
-                $user->date_creation_entreprise = $request->date_creation_entreprise  ;
+                // $user->date_creation_entreprise = $request->date_creation_entreprise  ;
                 $user->nb_salarie = $request->nb_salarie  ;
                 $user->categorie = $request->categorie  ;
                 // 'date_naissance' => $request->date_naissance  ,
@@ -213,6 +213,7 @@ if($request->hasFile('cv')){
                 $user->linkedin = $request->linkedin ;
                 $user->contact1 = $request->contact1 ;
                 $user->contact2 = $request->contact2 ;
+                $user->email_contact = $request->email_contact ;
 
                 $user->profile_complete = true ;
           

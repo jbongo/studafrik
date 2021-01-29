@@ -11,6 +11,8 @@ use App\Models\OffreUser;
 use App\Models\Favorisoffre;
 use App\Models\Pays;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Categorieoffre;
+
 
 use Illuminate\Support\Facades\Crypt;
 
@@ -43,7 +45,7 @@ class OffreController extends Controller
     public function offres_emplois()
     {
         
-        $offres = Offre::paginate(15);
+        $offres = Offre::paginate(10);
         $nb_offres = sizeof($offres) ;
         // dd($offres);
         return view('offre.offres_emplois', compact('offres','nb_offres'));
@@ -111,7 +113,9 @@ class OffreController extends Controller
     {
 
         $pays = Pays::all();
-        return view('offre.add', compact('pays'));
+        $categories = Categorieoffre::all();
+
+        return view('offre.add', compact('pays','categories'));
         
     }
 
@@ -130,17 +134,15 @@ class OffreController extends Controller
         Offre::create([
 
             "user_id" => Auth::user()->id,
-            "categorie_offre_id" => $request->categorie_offre_id,
+            "categorieoffre_id" => $request->categorieoffre_id,
             "titre" => $request->titre,
             "description" => $request->description,
             "type_contrat" => $request->type_contrat,
             "description_profil" => $request->description_profil,
             "sexe" => $request->sexe,
-            "salaire_min" => $request->salaire_min,
-            "salaire_max" => $request->salaire_max,
+            "salaire" => $request->salaire,
             "experience_min" => $request->experience_min,
             "experience_max" => $request->experience_max,
-            "competence_requise" => $request->competence_requise,
             "pays" => $request->pays,
             "ville" => $request->ville,
             "date_expiration" => $request->date_expiration,

@@ -44,7 +44,7 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function add_commentaire(Request $request, $article_id)
+    public function add_commentaire(Request $request, $article_i)
     {
         //
         // dd($request->all());

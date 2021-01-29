@@ -39,29 +39,29 @@
                              @csrf
                                  <div class="row">
                                      <div class="col-lg-12">
-                                         <span class="pf-title">Titre de l'offre</span>
+                                         <span class="pf-title">Titre de l'offre <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
-                                             <input type="text"  value="{{old('titre') ? old('titre') : $offre->titre}}" name="titre" placeholder="" />
+                                             <input type="text" required  value="{{old('titre') ? old('titre') : $offre->titre}}" name="titre" placeholder="" />
                                          </div>
                                      </div>
 
                                      <div class="col-lg-12">
-                                         <span class="pf-title">Description</span>
+                                         <span class="pf-title">Description <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
-                                             <textarea  name="description" >{{old('description') ? old('description') : $offre->description}}</textarea>
+                                             <textarea  name="description" required >{{old('description') ? old('description') : $offre->description}}</textarea>
                                          </div>
                                      </div>
                                      <div class="col-lg-12">
-                                         <span class="pf-title">Description du profil recherché</span>
+                                         <span class="pf-title">Description du profil recherché <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
-                                             <textarea  name="description_profil" >{{old('description_profil') ? old('description_profil') : $offre->description_profil}}</textarea>
+                                             <textarea  name="description_profil" required >{{old('description_profil') ? old('description_profil') : $offre->description_profil}}</textarea>
                                          </div>
                                      </div>
 
                                      <div class="col-lg-6">
-                                         <span class="pf-title">Catégorie de l'emploi</span>
+                                         <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
-                                             <select data-placeholder="Please Select Specialism"  value="{{old('categorie_offre_id') ? old('categorie_offre_id') : $offre->categorie_offre_id}}" name="categorie_offre_id" class="form-control chosen">
+                                             <select data-placeholder="Please Select Specialism" required value="{{old('categorie_offre_id') ? old('categorie_offre_id') : $offre->categorie_offre_id}}" name="categorie_offre_id" class="form-control chosen">
                                                 <option value="1">Marketing</option>
                                                 <option value="2">Informatique</option>
                                                 <option value="3">Art & Culture</option>
@@ -71,17 +71,12 @@
                                      </div>
                                      
                                      <div class="col-lg-3">
-                                         <span  htmlFor="customRange1" class="pf-title">Salaire Min </span>
+                                         <span  htmlFor="customRange1" class="pf-title">Salaire </span>
                                          <div class="pf-field">
-                                            <input type="number"  value="{{old('salaire_min') ? old('salaire_min') : $offre->salaire_min}}" name="salaire_min" class="custom-range" />
+                                            <input type="number"  value="{{old('salaire') ? old('salaire') : $offre->salaire}}" name="salaire" class="custom-range" />
                                          </div>
                                      </div>
-                                     <div class="col-lg-3">
-                                         <span  htmlFor="customRange1" class="pf-title">Salaire Max </span>
-                                         <div class="pf-field">
-                                            <input type="number"  value="{{old('salaire_max') ? old('salaire_max') : $offre->salaire_max}}" name="salaire_max" class="custom-range" />
-                                         </div>
-                                     </div>
+                            
                                      <div class="col-lg-3">
                                          <span class="pf-title"  htmlFor="customRange2">Expérience réquise Min (mois)</span>
                                          <div class="pf-field">

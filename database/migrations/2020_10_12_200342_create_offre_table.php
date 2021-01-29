@@ -23,8 +23,7 @@ class CreateOffreTable extends Migration
             $table->string('type_contrat')->nullable();
             $table->text('description_profil')->nullable();
             $table->string('sexe')->nullable();
-            $table->integer('salaire_min')->nullable();
-            $table->integer('salaire_max')->nullable();
+            $table->integer('salaire')->nullable();
             $table->integer('experience_min')->nullable();
             $table->integer('experience_max')->nullable();
             $table->text('competence_requise')->nullable();

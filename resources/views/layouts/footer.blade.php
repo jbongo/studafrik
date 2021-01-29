@@ -52,6 +52,7 @@
                 </div>
                 <div class="col-lg-4 column">
                     <div class="widget">
+                        <br><br>
                         <h3 class="footer-title">Questions fréquentes</h3>
                         <div class="link_widgets">
                             <div class="row">

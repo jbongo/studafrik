@@ -43,66 +43,77 @@
 
                                 @endif
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-7">
                                         <div class="upload-img-bar">
                                             <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
         
-                                            <div class="upload-info">
-                                                @if(Auth::user()->photo_profile == null )
-                                                    <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
-                                                @else 
-                                                    <div class="user-send-message upload-info"> <a href="#" title="" class="btn btn-danger " style="color:white;" id="modifPhoto">Modifier la photo</a> </div>
-                                                
-                                                @endif
-                                                
-                                                 <span>Photo de profil .jpg & .png</span>
-                                                 
-                                                 <form action="{{ route('user.photo_profil') }}" method="post" enctype="multipart/form-data">
-                                                    @csrf  
-                                                  <input class="form-control" id="photobtn" type="hidden" accept="image/png, image/jpeg"  name="photo_profil" >
-                                                  @if ($errors->has('photo_profil'))
+                                            
+                                        </div>
+                                  
+                                        
+                                    </div>
+
+                                    <div class="col-2">
+                                        <div class="upload-info">
+                                            @if(Auth::user()->photo_profile == null )
+                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto">Téléverser</a> </div>
+                                            @else 
+                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn btn-danger " style="color:white;" id="modifPhoto">Modifier la photo</a> </div>
+                                            
+                                            @endif
+                                            
+                                            <span>Photo de profil .jpg & .png</span>
+                                            
+                                            <form action="{{ route('user.photo_profil') }}" method="post" enctype="multipart/form-data">
+                                                @csrf  
+                                                <input class="form-control" id="photobtn" type="hidden" accept="image/png, image/jpeg"  name="photo_profil" >
+                                                @if ($errors->has('photo_profil'))
                                                     <br>
                                                     <div class="alert alert-warning ">
                                                         <strong>{{$errors->first('photo_profil')}}</strong> 
                                                     </div>
                                                     @endif
-                                                  <input class="form-control btn-danger"  id="valider" value="Enregistrer" type="hidden" name="submit">
-                                              </form>
-                                            </div>  
-                                        </div>
+                                                <input class="form-control btn-danger"  id="valider" value="Enregistrer" type="hidden" name="submit">
+                                            </form>
+                                        </div>  
                                     </div>
 
+                                </div>
 
-                                    <div class="col-6">
+                                <div class="row">
+                                    <div class="col-7">
                                         <div class="upload-img-bar">
                                             <img class="img-responsive" id="photodisplay2" style="object-fit: cover; width: 525px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ (Auth::user()->photo_couverture == null ) ? asset('images/photo_couverture/couverture.jpg') :asset('images/photo_couverture/'. Auth::user()->photo_couverture) }}" alt="@lang('Photo de couverture')">
         <br>
-                                            <div class="upload-info">
-                                            
-                                                @if(Auth::user()->photo_profile == null )
-                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto2">Téléverser</a> </div>
-                                            @else 
-                                                <div class="user-send-message upload-info"> <a href="#" title="" class="btn btn-danger " style="color:white;" id="modifPhoto2">Modifier la photo</a> </div>
-                                            
-                                            @endif
-                                            
-                                               
-                                                 <span>Photo de couverture .jpg & .png</span>
-                                                 
-                                                 <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
-                                                    @csrf  
-                                                  <input class="form-control" id="photobtn2" accept="image/png, image/jpeg" type="hidden" name="photo_couverture">
-                                                  @if ($errors->has('photo_couverture'))
-                                                    <br>
-                                                    <div class="alert alert-warning ">
-                                                        <strong>{{$errors->first('photo_couverture')}}</strong> 
-                                                    </div>
-                                                @endif
-                                                  <input class="form-control btn-danger"  id="valider2" value="Enregistrer" type="hidden" name="submit">
-                                              </form>
-                                            </div>  
                                         </div>
 
+                                    </div>
+
+                                    <div class="col-2">
+                                        <div class="upload-info">
+                                        
+                                            @if(Auth::user()->photo_profile == null )
+                                            <div class="user-send-message upload-info"> <a href="#" title="" class="btn " id="modifPhoto2">Téléverser</a> </div>
+                                                @else 
+                                                    <div class="user-send-message upload-info"> <a href="#" title="" class="btn btn-danger " style="color:white;" id="modifPhoto2">Modifier la photo</a> </div>
+                                                
+                                                @endif
+                                                
+                                                
+                                                    <span>Photo de couverture .jpg & .png</span>
+                                                    
+                                                    <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+                                                        @csrf  
+                                                    <input class="form-control" id="photobtn2" accept="image/png, image/jpeg" type="hidden" name="photo_couverture">
+                                                    @if ($errors->has('photo_couverture'))
+                                                        <br>
+                                                        <div class="alert alert-warning ">
+                                                            <strong>{{$errors->first('photo_couverture')}}</strong> 
+                                                        </div>
+                                                    @endif
+                                                    <input class="form-control btn-danger"  id="valider2" value="Enregistrer" type="hidden" name="submit">
+                                                </form>
+                                        </div>  
                                     </div>
                                 </div>
                                
@@ -113,26 +124,21 @@
 
                             </div>
 
-                            <div class="profile-form-edit">
-                                <form method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
+                            <div class="profile-form-edit" style="margin-left: 50px">
                                     @csrf
                                 <br>
                                 <hr>
                                <br>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <span class="pf-title">Nom de l'entreprise</span>
+                                        <span class="pf-title">Nom de l'entreprise <span class="text-danger">*</span> </span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="" value="{{ old('nom_entreprise') ? old('nom_entreprise') : Auth::user()->nom  }}" name="nom_entreprise" class="form-control"/>
+                                            <input type="text" placeholder="" value="{{ old('nom_entreprise') ? old('nom_entreprise') : Auth::user()->nom  }}" name="nom_entreprise" required class="form-control"/>
                                         </div>
                                     </div>
                             
-                                    <div class="col-lg-3">
-                                        <span class="pf-title">Date de création</span>
-                                        <div class="pf-field">
-                                            <input type="date" placeholder="" value="{{ old('date_creation_entreprise') ? old('date_creation_entreprise') : Auth::user()->date_creation_entreprise  }}" name="date_creation_entreprise" class="form-control"/>
-                                        </div>
-                                    </div>
+                                 
                                     <div class="col-lg-3">
                                         <span class="pf-title">Nombre de salariés</span>
                                         <div class="pf-field">
@@ -155,11 +161,11 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="col-lg-12">
-                                        <span class="pf-title">Secteur d'activité</span>
+                                    <div class="col-lg-3"> 
+                                        <span class="pf-title">Secteur d'activité <span class="text-danger">*</span> </span>
                                         <div class="pf-field">
                                             {{-- <textarea type="catégorie" class="form-control"  name="catégorie">{{ old('catégorie') ? old('catégorie') : Auth::user()->categorie  }}</textarea> --}}
-                                            <select name="categorie" id="categorie" class="form-control">
+                                            <select name="categorie" id="categorie" class="form-control" required>
                                               
                                                 @if(Auth::user()->categorie != null)
                                                     <option value="{{Auth::user()->categorie}}">{{Auth::user()->categorie}}</option>
@@ -176,15 +182,15 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <span class="pf-title">Description</span>
+                                        <span class="pf-title">Description de votre activité <span class="text-danger">*</span> </span>
                                         <div class="pf-field">
-                                            <textarea type="description" class="form-control" value="" name="description">{{ old('description') ? old('description') : Auth::user()->description  }}</textarea>
+                                            <textarea type="description" class="form-control" required name="description">{{ old('description') ? old('description') : Auth::user()->description  }}</textarea>
                                         </div>
                                     </div>
                                     
                                 </div>
                             </div>
-                            <div class="social-edit">
+                            <div class="social-edit" style="margin-left: 50px">
                                 <h3>Réseaux sociaux</h3>
                                
                                     <div class="row">
@@ -219,22 +225,22 @@
                                     </div>
                                
                             </div>
-                            <div class="contact-edit">
+                            <div class="contact-edit" style="margin-left: 50px">
                                 <h3>Contact</h3>
                                 
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <span class="pf-title">Numéro de téléphone</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="+290 538 963 " value="{{ old('contact1') ? old('contact1') : Auth::user()->contact1  }}" name="contact1" class="form-control"/>
+                                                <input type="text" placeholder="" value="{{ old('contact1') ? old('contact1') : Auth::user()->contact1  }}" name="contact1" class="form-control"/>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-lg-6">
+                                        <div class="col-lg-6">
                                             <span class="pf-title">Email</span>
                                             <div class="pf-field">
-                                                <input type="text" placeholder="demo@total.com" value="{{ old('contact2') ? old('contact2') : Auth::user()->contact2  }}" name="contact2" class="form-control"/>
+                                                <input type="text" placeholder="" value="{{ old('contact2') ? old('contact2') : Auth::user()->contact2  }}" name="contact2" class="form-control"/>
                                             </div>
-                                        </div> --}}
+                                        </div>
 
                                         <div class="col-lg-6">
                                             <span class="pf-title">Site web</span>
@@ -259,11 +265,13 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <button type="submit">Enregistrer</button>
+                                            <br><br>
                                         </div>
                                     </div>
                                 
                             </div>
                         </form>
+                       
                             {{-- <div class="contact-edit" id="pi">
                                 <h3>Changement du mot de passe</h3>
                                 <form>
