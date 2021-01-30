@@ -69,30 +69,31 @@ class OffreController extends Controller
             $offres = Offre::where([['pays', $pays], ['active', true]])->where(function($query) use ($poste){
                 $query->where('titre', 'like', '%'.$poste.'%')
                       ->orWhere('description', 'like', '%'.$poste.'%');
-            })->get();
+            })->paginate(10);
 
             // dd(111);
         }elseif($request->poste != null && $request->pays == null){
             $offres = Offre::where([ ['active', true]])->where(function($query) use ($poste){
                 $query->where('titre', 'like', '%'.$poste.'%')
                       ->orWhere('description', 'like', '%'.$poste.'%');
-            })->get();
+            })->paginate(10);
             // dd(222);
 
 
         }elseif($request->poste == null && $request->pays != null){
-            $offres = Offre::where([ ['pays', $pays], ['active', true] ])->get();
+            $offres = Offre::where([ ['pays', $pays], ['active', true] ])->paginate(10);
             // dd(333);
 
         }
         elseif($request->poste == null && $request->pays == null){
-            $offres = Offre::where([ ['active', true] ])->get();
+            $offres = Offre::where([ ['active', true] ])->paginate(10);
             // dd(444);
 
         }
 
         if($request->categorie != ""){
             
+            // dd($offres);
             $offres = $offres->where('categorie', $request->categorie );
         }
 
