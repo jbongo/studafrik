@@ -33,7 +33,7 @@ class OffreController extends Controller
     public function index()
     {
         $offres = Offre::where('id', Auth::user()->id)->get();
-dd($offres);
+dd(Auth::user());
         return view('offre.index', compact('offres'));
     }
 
