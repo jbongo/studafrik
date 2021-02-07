@@ -47,7 +47,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- {{dd($offres)}} --}}
                                     @foreach ( $offres as $offre )
+
+                                
                                     <tr>
                                         <td>
                                             <div class="table-list-title">

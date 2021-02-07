@@ -44,7 +44,7 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function add_commentaire(Request $request, $article_i)
+    public function add_commentaire(Request $request, $article_id)
     {
         //
         // dd($request->all());
@@ -65,6 +65,8 @@ class ArticleController extends Controller
             ]);
         }
     
+        return redirect()->route('article.show',Crypt::encrypt($article_id))->with('ok',"Votre commentaire sera soumis à la validation de l'administrateur");
+
     }
 
     /**

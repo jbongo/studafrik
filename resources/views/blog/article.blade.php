@@ -34,6 +34,17 @@
         <div class="container">
              <div class="row">
                  <div class="col-lg-9 column">
+                    @if (session('ok'))
+                    
+                        <div class="alert alert-success">
+                            <ul>
+                                <li>{{ session('ok') }}</li>
+                                
+                            </ul>
+                        </div>
+                    @endif
+
+
                      <div class="blog-single">
                        
                          <div class="bs-thumbxxx"><img src="{{asset($article->image)}}" width="650px" height="330px" alt="" /></div>
@@ -42,7 +53,7 @@
                       
                       
                        
-                         <h2>Comment faire un CV (Curriculum Vitae)</h2> 
+                         <h2>{{$article->titre}}</h2> 
                          
                          {!!$article->description!!}
                         
@@ -105,8 +116,11 @@
                                    @endauth
                                      <div class="col-lg-12">
                                          <button type="submit">Terminer</button>
+
                                      </div>
                                  </div>
+                                 <br><br>
+
                              </form>
                          </div>
                      </div>
