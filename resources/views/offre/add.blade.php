@@ -78,7 +78,7 @@
 
 
 
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-4">
                                             <span class="pf-title">Type de contrat <span class="text-danger">*</span> </span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism" required  name="type_contrat" class="form-control chosen">
@@ -93,35 +93,46 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-4">
                                             <span  htmlFor="customRange1" class="pf-title">Salaire </span>
                                             <div class="pf-field">
                                                <input type="number"  name="salaire" class="custom-range" />
                                             </div>
                                         </div>
+                                        <div class="col-lg-2">
+                                            <span  htmlFor="" class="pf-title">Devise du Salaire </span>
+                                            <div class="pf-field">
+                                                <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
+                                                    <option value="FCFA">FCFA</option>
+                                                    <option value="USD">USD</option>
+                                                    <option value="EUR">EUR</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                        
-                                        <div class="col-lg-3">
-                                            <span class="pf-title"  htmlFor="customRange2">Expérience réquise Min (mois)</span>
-                                            <div class="pf-field">
-                                               <input type="number"  name="experience_min" class="custom-range" />
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <span class="pf-title"  htmlFor="customRange2">Expérience réquise Max (mois)</span>
-                                            <div class="pf-field">
-                                               <input type="number"  name="experience_max" class="custom-range" />
-                                                
-                                            </div>
-                                        </div>
+                                        
+                                        
                             
                                      
                                         
                                         
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-6">
                                             <span class="pf-title">Date d'expiration de l'offre</span>
                                             <div class="pf-field">
                                                 <input type="date"   name="date_expiration" class="form-control datepicker" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <span class="pf-title"  htmlFor="customRange2">Expérience requise </span>
+                                            <div class="pf-field">
+                                               <select data-placeholder="experience" required  name="experience" class="form-control chosen">
+                                                <option value="0-6">0-6 mois</option>
+                                                <option value="7-12">7-12 mois</option>
+                                                <option value=">12">> 12 mois</option>
+                                                
+                                               
+                                           </select>
                                             </div>
                                         </div>
                                       
@@ -150,8 +161,9 @@
                                             <button type="submit" >Ajouter</button>
                                         </div>
                                         
-
                                     </div>
+<br><br><br>
+
                                 </form>
                             </div>
        
@@ -160,10 +172,10 @@
                    
 				 </div>
 			</div>
-		</div>
+        </div>
+        
 	</section>
 
-	
 
 </div>
 

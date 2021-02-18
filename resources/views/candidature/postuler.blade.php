@@ -30,7 +30,7 @@
 				 				<div class="job-title2"><h3>{{$offre->titre}}</h3><span class="job-is ft">{{$offre->type_contrat}}</span><i class="la la-heart-o"></i></div>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
-				 					<li><i class="la la-money"></i> Salaire mensuel : <span>{{$offre->salaire_min}} - {{$offre->salaire_max}}</span></li>
+				 					<li><i class="la la-money"></i> Salaire  : <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li>
 									 <li><i class="la la-calendar-o"></i> Postée le : {{$offre->created_at->format('d/m/Y')}} </li>
 									 
 				 				</ul>

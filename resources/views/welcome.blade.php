@@ -138,12 +138,14 @@
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
-											<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
-											<h3><a href="#" title="">{{$offre->poste}}</a></h3>
-											<span>{{$offre->nom_entreprise == null ? $offre->user->nom : $offre->nom_entreprise}} &nbsp;</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
+											<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">
+												<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
+												<h3><a href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" >{{$offre->poste}}</a></h3>
+												<span><a href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" >{{$offre->nom_entreprise == null ? $offre->user->nom : $offre->nom_entreprise}} &nbsp; </a></span>
+												<span class="fav-job"><i class="la la-heart-o"></i></span>
+											</a>
 										</div>
-										<span class="job-lctn">{{$offre->ville}}, {{$offre->pays}}</span>
+										<span class="job-lctn"><a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">{{$offre->ville}}, {{$offre->pays}}</a></span>
 									<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>

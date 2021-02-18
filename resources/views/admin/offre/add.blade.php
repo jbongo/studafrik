@@ -106,10 +106,11 @@
                         <div class="col-6">
                             <span class="pf-title">Catégorie de l'emploi</span>
                             <div class="pf-field">
-                                <select data-placeholder="Please Select Specialism"  name="categorie_offre_id" class="form-control chosen">
-                                   <option value="1">Marketing</option>
-                                   <option value="2">Informatique</option>
-                                   <option value="3">Art & Culture</option>
+                                <select data-placeholder="Please Select Specialism"  name="categorieoffre_id" class="form-control chosen">
+                                               
+                                    @foreach ($categories as $categorie )
+                                    <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
+                                    @endforeach
                                    
                                </select>
                             </div>
@@ -137,32 +138,35 @@
                     
                     <div class="row">
                         <div class="col-6">
-                            <span  htmlFor="customRange1" class="pf-title">Salaire Min </span>
+                            <span  htmlFor="customRange1" class="pf-title">Salaire  </span>
                             <div class="pf-field">
-                               <input type="number"  name="salaire_min" class="form-control custom-range" />
+                               <input type="number"  name="salaire" class="form-control custom-range" />
                             </div>
                         </div>
                         <div class="col-6">
-                            <span  htmlFor="customRange1" class="pf-title">Salaire Max </span>
+                            <span  htmlFor="customRange1" class="pf-title">Devise du Salaire  </span>
                             <div class="pf-field">
-                               <input type="number"  name="salaire_max" class="form-control custom-range" />
+                              
+                               <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
+                                <option value="FCFA">FCFA</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
                             </div>
                         </div>
                     </div>
                     <br><br>
                     
                     <div class="row">
+                       
                         <div class="col-6">
-                            <span class="pf-title"  htmlFor="customRange2">Expérience réquise Min (mois)</span>
+                            <span class="pf-title"  htmlFor="customRange2">Expérience requise </span>
                             <div class="pf-field">
-                               <input type="number"  name="experience_min" class="form-control custom-range" />
-                                
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <span class="pf-title"  htmlFor="customRange2">Expérience réquise Max (mois)</span>
-                            <div class="pf-field">
-                               <input type="number"  name="experience_max" class="form-control custom-range" />
+                                <select data-placeholder="experience" required  name="experience" class="form-control chosen">
+                                    <option value="0-6">0-6 mois</option>
+                                    <option value="7-12">7-12 mois</option>
+                                    <option value=">12">> 12 mois</option>                                   
+                               </select>
                                 
                             </div>
                         </div>

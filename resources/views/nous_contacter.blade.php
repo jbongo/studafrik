@@ -96,6 +96,7 @@
                                      <button type="submit">Envoyer</button>
                                  </div>
                              </div>
+                             <br><br>
                          </form>
                      </div>
                  </div>
@@ -105,11 +106,14 @@
                          <ul>
 
                             {{-- <li><i class="la la-phone"></i><span>Contactez-nous au : +33015522000</span></li> --}}
-                            <li><i class="la la-envelope-o"></i><span>Email : CONTACT@studafrik.com</span></li>
-                            <div class="login-social">
-                                <a class="fb-login" href="https://www.facebook.com/Studafrik/" title=""><i class="fa fa-facebook fa-2x"></i></a>
-                                <a class="tw-login" href="https://twitter.com/studafrik" title=""><i class="fa fa-twitter fa-2x"></i></a>
-                                <a  href="https://www.instagram.com/studafrik/?hl=fr" title=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                            <li><i class="la la-envelope-o"></i><span>Email : contact@studafrik.com</span></li>
+                            <div class="login-socialx">
+                                <a class="fb-loginb" href="https://www.facebook.com/Studafrik/" title=""><img src="{{asset('images/icoface.png')}}" width="75px" /> </a>
+                                <a class="fb-loginb" href="https://www.instagram.com/studafrik/?hl=fr" title=""><img src="{{asset('images/icoinsta.jpg')}}" width="60px" /> </a>
+                                <a class="fb-loginb" href="https://twitter.com/studafrik/" title=""><img src="{{asset('images/icotwitter.png')}}" width="60px" /> </a>
+                                {{-- <a class="" href="https://www.facebook.com/Studafrik/" title=""><i class="fa fa-facebook fa-2x"></i></a>
+                                <a class="" href="" title=""><i class="fa fa-twitter fa-2x"></i></a>
+                                <a  href="" title=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i> --}}
                                 </a>
                             </div> 
                          

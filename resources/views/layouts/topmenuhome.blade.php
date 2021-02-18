@@ -93,7 +93,7 @@
 		<div class="menu-sec">
 			<div class="container fluid">
 				<div class="logo">
-					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px" height="120px" alt="" /></a>
+					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					@if(Auth::check())

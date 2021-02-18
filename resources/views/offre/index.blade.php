@@ -30,9 +30,9 @@
                         <div class="manage-jobs-sec">
                             <h3>Gestion des offres d'emplois</h3>
                             <div class="extra-job-info">
-                                <span><i class="la la-clock-o"></i><strong>1</strong> Offres</span>
-                                <span><i class="la la-file-text"></i><strong>0</strong> Candidatures</span>
-                                <span><i class="la la-users"></i><strong>1</strong> Offres actives </span>
+                                <span><i class="la la-clock-o"></i><strong>{{$nb_offres}}</strong> Offres</span>
+                                <span><i class="la la-file-text"></i><strong>{{$nb_candidatures}}</strong> Candidatures</span>
+                                <span><i class="la la-users"></i><strong>{{$nb_offres_actives}}</strong> Offres actives </span>
                             </div>
 
                             
@@ -59,7 +59,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="applied-field">3xx</span>
+                                            <span class="applied-field">{{sizeof($offre->users)}}</span>
                                         </td>
                                         <td>
                                             <span>{{$offre->created_at->format('d/m/Y')}} -- </span>

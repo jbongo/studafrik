@@ -42,7 +42,7 @@
 								<br>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
-				 					<li><i class="la la-money"></i> Salaire mensuel : <span>{{$offre->salaire_min}} - {{$offre->salaire_max}}</span></li>
+				 					<li><i class="la la-money"></i> Salaire : <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li>
 									 <li><i class="la la-calendar-o"></i> Posté le : {{$offre->created_at->format('d/m/Y')}} </li>
 									 
 				 				</ul>
@@ -64,13 +64,13 @@
 								 
 								<p>{!! $offre->description !!}</p>
 								
-								 <h3>Compétences et connaissances requises</h3>
-				 					<p>{!! $offre->competence_requise!!}</p>
+								 <h3>Profil et compétences recherchés</h3>
+				 					<p>{!! $offre->description_profil!!}</p>
 								 
 
 
-				 				<h3>Profil recherché</h3>
-				 				<p>{!! $offre->description_profil!!}</p>
+				 				{{-- <h3>Profil recherché</h3>
+				 				<p>{!! $offre->description_profil!!}</p> --}}
 				 			</div>
 				 			
 				 			<div class="share-bar">
@@ -99,16 +99,23 @@
 									@if(Auth::user()->role == "candidat") 
 										@if($deja_postuler == false && $offre->date_expiration <= date("Y-m-d"))
 											<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+										
 										@elseif($deja_postuler == true )
 											<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span>
-										@elseif($offre->date_expiration > date("Y-m-d"))
-											<span style="color:#d60004; font-size:18px">L'offre a expirée</span>
 										@endif
 
-
 									@endif
+								@else 
+
+						
+									<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+
+								
 								@endif
 
+								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
+									<span style="color:#d60004; font-size:18px">L'offre a expirée</span> <br>
+								@endif
 			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
 			 			</div><!-- Job Head -->
 				 	</div>

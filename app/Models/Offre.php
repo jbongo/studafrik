@@ -24,4 +24,9 @@ class Offre extends Model
     {
         return $this->belongsToMany(User::class,'offre_users')->withPivot('cv', 'lettre_motivation');
     }
+
+    public function candidatures(){
+
+        
+    }
 }

@@ -52,7 +52,7 @@
                                          </div>
                                      </div>
                                      <div class="col-lg-12">
-                                         <span class="pf-title">Description du profil recherché <span class="text-danger">*</span> </span>
+                                         <span class="pf-title">Profil et compétences recherchés <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
                                              <textarea  name="description_profil" required >{{old('description_profil') ? old('description_profil') : $offre->description_profil}}</textarea>
                                          </div>
@@ -61,52 +61,83 @@
                                      <div class="col-lg-6">
                                          <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
-                                             <select data-placeholder="Please Select Specialism" required value="{{old('categorie_offre_id') ? old('categorie_offre_id') : $offre->categorie_offre_id}}" name="categorie_offre_id" class="form-control chosen">
-                                                <option value="1">Marketing</option>
-                                                <option value="2">Informatique</option>
-                                                <option value="3">Art & Culture</option>
+                                             <select data-placeholder="Please Select Specialism" required value="{{old('categorieoffre_id') ? old('categorieoffre_id') : $offre->categorieoffre_id}}" name="categorieoffre_id" class="form-control chosen">
+                                               
+                                                <option value="{{$offre->categorieoffre->id}}">{{$offre->categorieoffre->nom}}</option>   
+                                               
+                                                @foreach ($categories as $categorie )
+                                                <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
+                                                @endforeach
                                                 
                                             </select>
                                          </div>
                                      </div>
+
+                                     <div class="col-lg-6">
+                                        <span class="pf-title">Type de contrat <span class="text-danger">*</span> </span>
+                                        <div class="pf-field">
+                                            <select data-placeholder="Please Select Specialism" required  name="type_contrat" class="form-control chosen">
+                                                <option value="{{$offre->type_contrat}}">{{$offre->type_contrat}}</option>
+                                                <option value="CDI">CDI</option>
+                                                <option value="CDD">CDD</option>
+                                                <option value="STAGE">STAGE</option>
+                                                <option value="JOB ETUDIANT">JOB ETUDIANT</option>
+                                                <option value="VIE">VIE</option>
+                                                <option value="INTERIM">INTERIM</option>
+                                               
+                                           </select>
+                                        </div>
+                                    </div>
                                      
-                                     <div class="col-lg-3">
+                                     <div class="col-lg-4">
                                          <span  htmlFor="customRange1" class="pf-title">Salaire </span>
                                          <div class="pf-field">
                                             <input type="number"  value="{{old('salaire') ? old('salaire') : $offre->salaire}}" name="salaire" class="custom-range" />
                                          </div>
                                      </div>
+                                     <div class="col-lg-2">
+                                        <span  htmlFor="" class="pf-title">Devise du Salaire </span>
+                                        <div class="pf-field">
+                                            <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
+                                               @if($offre->devise_salaire != null)
+                                                <option value="{{$offre->devise_salaire}}">{{$offre->devise_salaire}}</option>
+                                                @endif
+                                                <option value="FCFA">FCFA</option>
+                                                <option value="USD">USD</option>
+                                                <option value="EUR">EUR</option>
+                                            </select>
+                                        </div>
+                                    </div>
                             
-                                     <div class="col-lg-3">
-                                         <span class="pf-title"  htmlFor="customRange2">Expérience réquise Min (mois)</span>
-                                         <div class="pf-field">
-                                            <input type="number"  value="{{old('experience_min') ? old('experience_min') : $offre->experience_min}}" name="experience_min" class="custom-range" />
-                                             
-                                         </div>
-                                     </div>
-                                     <div class="col-lg-3">
-                                         <span class="pf-title"  htmlFor="customRange2">Expérience réquise Max (mois)</span>
-                                         <div class="pf-field">
-                                            <input type="number"  value="{{old('experience_max') ? old('experience_max') : $offre->experience_max}}" name="experience_max" class="custom-range" />
-                                             
-                                         </div>
-                                     </div>
+                                
+                                    
                          
                                     
                                      
                                      
-                                     <div class="col-lg-12">
+                                     <div class="col-lg-6">
                                          <span class="pf-title">Date d'expiration de l'offre</span>
                                          <div class="pf-field">
-                                             <input type="date"   value="{{old('date_expiration') ? old('date_expiration') : $offre->date_expiration->format('Y-m-d')}}" name="date_expiration" class="form-control datepicker" />
+                                             <input type="date"   value="{{old('date_expiration') ? old('date_expiration') : ($offre->date_expiration != null ? $offre->date_expiration->format('Y-m-d'): "" )  }}" name="date_expiration" class="form-control datepicker" />
                                          </div>
                                      </div>
-                                     <div class="col-lg-12">
-                                         <span class="pf-title">Compétences réquises</span>
-                                         <div class="pf-field">
-                                             <textarea value="" name="competence_requise" id="" cols="30" rows="5">{{old('competence_requise') ? old('competence_requise') : $offre->competence_requise}}</textarea>
+
+                                     <div class="col-lg-6">
+                                        <span class="pf-title"  htmlFor="customRange2">Expérience requise </span>
+                                        <div class="pf-field">
+                                            <select data-placeholder="experience" required  name="experience" class="form-control chosen">
+                                                @if($offre->experience != null)
+                                                <option value="{{$offre->experience}}">{{$offre->experience}} mois</option>
+                                                @endif
+                                                <option value="0-6">0-6 mois</option>
+                                                <option value="7-12">7-12 mois</option>
+                                                <option value=">12">> 12 mois</option>
+                                           </select>
+                                            
                                         </div>
-                                     </div>
+                                    </div>
+
+                                 
                                      <div class="col-lg-6">
                                          <span class="pf-title">Pays de l'offre</span>
                                          <div class="pf-field">
@@ -148,5 +179,19 @@
  
 
 </div>
+@section('js-content')
 
+<script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+
+
+tinymce.init({
+    selector: 'textarea',
+    skin: 'bootstrap',
+    plugins: 'lists, link, image, media',
+    toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+    menubar: false
+  });
+  </script>
+@endsection
 @include('layouts.footer')

@@ -66,7 +66,7 @@
                                     </div>
 
 
-                                    <div class="col-6">
+                                    {{-- <div class="col-6">
                                         <div class="upload-img-bar">
                                             <img class="img-responsive" id="photodisplay2" style="object-fit: cover; width: 525px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{ (Auth::user()->photo_couverture == null ) ? asset('images/photo_couverture/couverture.jpg') :asset('images/photo_couverture/'. Auth::user()->photo_couverture) }}" alt="@lang('Photo de couverture')">
         <br>
@@ -88,7 +88,8 @@
                                             </div>  
                                         </div>
 
-                                    </div>
+                                    </div> --}}
+
                                 </div>
                             </div>
 
