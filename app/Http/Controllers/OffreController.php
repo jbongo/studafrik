@@ -478,7 +478,7 @@ class OffreController extends Controller
 
 
         $offre->update();
-        return redirect()->route('mes_offres.index')->with('ok', __("Votre offre a été mise à jour ")  );
+        return redirect()->route('admin.offres.index')->with('ok', __("Votre offre a été mise à jour ")  );
 
 
 

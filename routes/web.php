@@ -188,6 +188,9 @@ Route::middleware([Admin::class])->group(function () {
     Route::post('admin/articles/store','ArticleController@store_admin')->name('admin.article.store');
     Route::post('admin/articles/update/{offre}','ArticleController@update_admin')->name('admin.article.update');
     Route::post('admin/articles/delete/{offre}','ArticleController@delete_admin')->name('admin.article.delete');
+    // Liste des commentaires d'un article
+    Route::get('admin/article/{article_id}/commentaires','ArticleController@commentaire_admin')->name('admin.article.commentaires');
+
     
     
     // offres
@@ -199,8 +202,13 @@ Route::middleware([Admin::class])->group(function () {
     Route::post('admin/update-offre/{offre_id}','OffreController@update_admin')->name('admin.offre.update');
     Route::get('admin/delete-offre/{offre_id}','OffreController@destroy_admin')->name('admin.offre.delete');
     
+    // Commentaires
     
-    
+    Route::get('admin/commentaires','CommentaireController@index')->name('admin.commentaires.index');
+    Route::get('admin/commentaire/valider/{commentaire_id}','CommentaireController@valider')->name('admin.commentaire.valider');
+    Route::get('admin/commentaire/supprimer/{commentaire_id}','CommentaireController@delete')->name('admin.commentaire.delete');
+
+   
     
     
 });

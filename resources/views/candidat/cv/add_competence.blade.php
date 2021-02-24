@@ -57,17 +57,13 @@
                                      
                                      
                                     
-                                  
-                                     
-                                     
-                                    
-                                    
                                      <div class="col-lg-12">
                                          <button type="submit" >Ajouter</button>
                                      </div>
                                      
 
                                  </div>
+                                 <br><br>
                              </form>
                          </div>
     

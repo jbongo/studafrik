@@ -3,82 +3,53 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use  App\Models\Commentaire;
 
+use Illuminate\Support\Facades\Crypt;
+
+ 
 class CommentaireController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Liste de tous les commentaires / validés, non validé, et à valider
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $commentaires = Commentaire::all();
+
+        return view('admin.commentaire.index',compact('commentaires'));
+
     }
 
+  
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Liste des 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function valider($commentaire_id)
     {
-        //
+        $commentaire = Commentaire::where('id', Crypt::decrypt($commentaire_id))->first();
+
+        $commentaire->valide = true;
+
+        $commentaire->update();
     }
 
+   
     /**
-     * Show the form for editing the specified resource.
+     * Suppression d'un commentraire
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function delete($commentaire_id)
     {
-        //
-    }
+        $commentaire = Commentaire::where('id', Crypt::decrypt($commentaire_id))->first();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $commentaire->delete();
     }
 }

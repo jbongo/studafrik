@@ -72,19 +72,24 @@
                              </div>
                          </div> --}}
                          <div class="comment-sec">
-                             <h3>0 commentaires</h3>
+                             <h3>{{sizeof($commentaires)}} commentaires</h3>
                              <ul>
                         
                                  <li>
-                                     {{-- <div class="comment">
+                                     @foreach ($commentaires as $commentaire)
+                                         
+                                     
+                                     <div class="comment">
                                          <div class="comment-avatar"> <img src="http://placehold.it/90x90" alt="" /> </div>
                                          <div class="comment-detail">
-                                             <h3>Kate ROSELINE</h3>
-                                             <div class="date-comment"><a href="#" title=""><i class="la la-calendar-o"></i>Jan 16, 2016 07:48 am</a></div>
-                                             <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much. </p>
-                                             <a href="#" title=""><i class="la la-reply"></i>Reply</a>
+                                             <h3>{{$commentaire->nom}}</h3>
+                                             <div class="date-comment"><a href="#" title=""><i class="la la-calendar-o"></i>{{$commentaire->created_at->format('d/m/Y H:m')}}</a></div>
+                                             <p>{{$commentaire->commentaire}} </p>
+                                             {{-- <a href="#" title=""><i class="la la-reply"></i>Repondre</a> --}}
                                          </div>
-                                     </div> --}}
+                                     </div> 
+
+                                     @endforeach
                                  </li>
                              
                              </ul>

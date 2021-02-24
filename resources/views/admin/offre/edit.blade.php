@@ -39,7 +39,7 @@
             
 
 
-        <form method="POST"  action="{{route('admin.offre.store')}}" enctype="multipart/form-data">
+        <form method="POST"  action="{{route('admin.offre.update', Crypt::encrypt($offre->id))}}" enctype="multipart/form-data">
                     
                     @csrf
                    
@@ -168,10 +168,11 @@
                             <span class="pf-title"  htmlFor="customRange2">Expérience requise</span>
                             <div class="pf-field">
                                <select data-placeholder="experience" required  name="experience" class="form-control chosen">
-                                    <option value="{{$offre->experience}}">{{$offre->experience}} mois</option>
-                                    <option value="0-6">0-6 mois</option>
-                                    <option value="7-12">7-12 mois</option>
-                                    <option value=">12">> 12 mois</option>
+                                    <option value="{{$offre->experience}}">{{$offre->experience}} ans</option>
+
+                                    <option value="<1">moins de 1 ans </option>
+                                    <option value="1-2">entre 1 et 2 ans</option>
+                                    <option value="2-3">2 à 3 ans</option>
                                 </select>
                             </div>
                         </div>
@@ -183,7 +184,7 @@
                         <div class="col-4">
                             <span class="pf-title">Date d'expiration de l'offre</span>
                             <div class="pf-field">
-                                <input type="date"   name="date_expiration" value="{{ old('date_expiration') ? old('date_expiration') : $offre->date_expiration }}" class="form-control datepicker" required />
+                                <input type="date"   name="date_expiration" value="{{ old('date_expiration') ? old('date_expiration') : $offre->date_expiration->format('Y-m-d') }}" class="form-control datepicker" required />
                             </div>
                         </div>
                        

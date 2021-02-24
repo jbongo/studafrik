@@ -80,7 +80,7 @@
                     <br>
                     <div class="row">
                         <div class="col-9">
-                            <span class="pf-title">Description du profil recherché</span>
+                            <span class="pf-title">Profil et compétences recherchés</span>
                             <div class="pf-field">
                                 <textarea name="description_profil" ></textarea>
                             </div>
@@ -89,7 +89,7 @@
                     <br>
                     <br>
                     
-                    <div class="row">
+                    {{-- <div class="row">
                     
                         <div class="col-9">
                             <span class="pf-title">Compétences réquises</span>
@@ -97,7 +97,7 @@
                                 <textarea name="competence_requise" id="" cols="30" rows="5"></textarea>
                            </div>
                         </div>
-                    </div>
+                    </div> --}}
                     
                     <br><br>
                     
@@ -140,7 +140,7 @@
                         <div class="col-6">
                             <span  htmlFor="customRange1" class="pf-title">Salaire  </span>
                             <div class="pf-field">
-                               <input type="number"  name="salaire" class="form-control custom-range" />
+                               <input type="number"  name="salaire" class="form-control " />
                             </div>
                         </div>
                         <div class="col-6">
@@ -163,9 +163,9 @@
                             <span class="pf-title"  htmlFor="customRange2">Expérience requise </span>
                             <div class="pf-field">
                                 <select data-placeholder="experience" required  name="experience" class="form-control chosen">
-                                    <option value="0-6">0-6 mois</option>
-                                    <option value="7-12">7-12 mois</option>
-                                    <option value=">12">> 12 mois</option>                                   
+                                    <option value="<1">moins de 1 ans </option>
+                                    <option value="1-2">entre 1 et 2 ans</option>
+                                    <option value="2-3">2 à 3 ans</option>                                 
                                </select>
                                 
                             </div>
@@ -215,6 +215,31 @@
                             </div>
                         </div>
                     </div>
+
+                    <br><br>
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
+                            <div class="pf-field">
+                              
+                               <select data-placeholder="" required  name="url_candidature" class="form-control chosen">
+                                <option value="Non">Non</option>
+                                <option value="Oui">Oui</option>
+                                
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
+                            <div class="pf-field">
+                               <input type="url"  name="url_candidature" class="form-control" required />
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <br><br>
 
            
        <br><br>

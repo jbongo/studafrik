@@ -48,9 +48,10 @@
                                                     <div class="action-inner">
                                                         @if($est_recruteur == true)
                                                             @if($est_favoris == false)
-                                                            <a href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
+
+                                                            <a class="btn btn-success" href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
                                                             @else 
-                                                            <a href="#" style="color:rgb(83, 181, 26); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
+                                                            <a class="btn btn-danger" href="#" style="color:rgb(232, 243, 241); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
                                                             @endif
                                                         @endif
                                                     </div>
@@ -150,12 +151,23 @@
                                                      
                                                      <div class="progress-sec" id="skills">
                                                          <h2>Compétences</h2>
+
+                                                         <div class="skills-btn2" >
+                                                          
+                                                                
+                                                                
+                                                            
+                                                           
+                                                       
                                                          @foreach ($candidat->cv_competence as $competence )
                                                          <div class="progress-sec">
-                                                             <span>- {{$competence->libelle}}</span>
+                                                             {{-- <span>- {{$competence->libelle}}</span> --}}
+                                                             <span> <a href="#" title="">{{$competence->libelle}}</a> </span>
                                                              {{-- <div class="progressbar"> <div class="progress" style="width: 80%;"><span>80%</span></div> </div> --}}
                                                          </div>
                                                          @endforeach
+                                                         <br><br>
+                                                        </div>
                                                      </div>
      
                             

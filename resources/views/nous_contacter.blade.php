@@ -94,7 +94,7 @@
                                  </div>
                                  <div class="col-lg-12">
                                      <button type="submit">Envoyer</button>
-                                 </div>
+                                 </div>                     
                              </div>
                              <br><br>
                          </form>

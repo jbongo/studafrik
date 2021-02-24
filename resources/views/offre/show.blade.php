@@ -34,9 +34,9 @@
 							
 								@if($est_candidat == true)
 									@if($est_favoris == false)
-									<a href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder cette offre</a>
+									<a class="btn btn-success" href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
 									@else 
-									<a href="#" style="color:rgb(83, 181, 26); font-size:17px" title=""><i class="la la-check"></i>Offre sauvegardée</a>
+									<a class=" btn btn-warning" href="#" style="color:rgb(58, 3, 3); font-size:17px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
 									@endif
 								@endif
 								<br>
@@ -101,7 +101,7 @@
 											<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
 										
 										@elseif($deja_postuler == true )
-											<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span>
+											<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span> <br>
 										@endif
 
 									@endif

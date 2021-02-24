@@ -60,6 +60,11 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Blog</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.commentaires.index')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Commentaires articles</span></a>
+    </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">

@@ -8762,6 +8762,20 @@ Author:         Creative Layer
      padding: 6px 20px;
      margin-right: 12px;
  }
+ .skills-btn2 a {
+    float: left;
+    font-family: Open Sans;
+    font-size: 13px;
+    color: #08232b;
+    border: 2px solid #fb236a;
+    -webkit-border-radius: 21px;
+    -moz-border-radius: 21px;
+    -ms-border-radius: 21px;
+    -o-border-radius: 21px;
+    border-radius: 21px;
+    padding: 6px 20px;
+    margin-right: 12px;
+}
  
  .action-inner {
      float: right;

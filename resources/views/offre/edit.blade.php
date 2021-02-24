@@ -127,11 +127,11 @@
                                         <div class="pf-field">
                                             <select data-placeholder="experience" required  name="experience" class="form-control chosen">
                                                 @if($offre->experience != null)
-                                                <option value="{{$offre->experience}}">{{$offre->experience}} mois</option>
+                                                <option value="{{$offre->experience}}">{{$offre->experience}} ans</option>
                                                 @endif
-                                                <option value="0-6">0-6 mois</option>
-                                                <option value="7-12">7-12 mois</option>
-                                                <option value=">12">> 12 mois</option>
+                                                <option value="<1">moins de 1 ans </option>
+                                                <option value="1-2">entre 1 et 2 ans</option>
+                                                <option value="2-3">2 à 3 ans</option>
                                            </select>
                                             
                                         </div>
