@@ -184,7 +184,7 @@
                         <div class="col-4">
                             <span class="pf-title">Date d'expiration de l'offre</span>
                             <div class="pf-field">
-                                <input type="date"   name="date_expiration" value="{{ old('date_expiration') ? old('date_expiration') :  ($offre->date_expiration != null ) ? $offre->date_expiration->format('Y-m-d') : '' }}" class="form-control datepicker" required />
+                                <input type="date"   name="date_expiration" value="{{ old('date_expiration') ? old('date_expiration') :  $offre->date_expiration != null  ? $offre->date_expiration->format('Y-m-d') : '' }}" class="form-control datepicker" required />
                             </div>
                         </div>
                        
