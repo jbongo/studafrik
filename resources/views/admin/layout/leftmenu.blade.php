@@ -45,7 +45,7 @@
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-table"></i>
-            <span>Récruteurs</span></a>
+            <span>Recruteurs</span></a>
     </li>
     
     <li class="nav-item">
