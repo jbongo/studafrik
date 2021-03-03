@@ -170,7 +170,7 @@
                                 <a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
                                 <div class="job-title-sec">
                                    
-                                <div class="c-logo"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" alt="" /> </div>
+                                <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" alt="" /> </div>
                                         <h3>{{ $offre->titre }}</h3>
                                         <span class="job-is f2"> {{ $offre->categorieoffre->nom}}</span>
 
