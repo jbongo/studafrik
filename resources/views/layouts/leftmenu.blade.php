@@ -9,7 +9,7 @@
         <div class="tree_widget-sec">
             <ul>
                 @if(Auth::user()->role == "candidat")
-                <p class="menugauche"><a href="{{ route('dashboard') }}" title="">Profile</a></p>
+                <p class="menugauche"><a href="{{ route('dashboard') }}" title="">Profil</a></p>
                     @if(Auth::user()->profile_complete == true)
                         <p class="menugauche"><a href="{{route('cv.index')}}" title="">CV</a></p>
                         <p class="menugauche"><a href="{{ route('candidatures.index') }}" title="">Mes candidatures</a></p>
@@ -19,7 +19,7 @@
 
                 @elseif(Auth::user()->role == "recruteur")
 
-                <p class="menugauche"> <a href="{{ route('dashboard') }}" title="">Profile</a> </p>
+                <p class="menugauche"> <a href="{{ route('dashboard') }}" title="">Profil</a> </p>
                     @if(Auth::user()->profile_complete == true)
 
                         <p class="menugauche"><a href="{{ route('mes_offres.index') }}" title="">Offres d'emplois</a></p>

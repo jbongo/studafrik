@@ -170,8 +170,8 @@
                                <select data-placeholder="experience" required  name="experience" class="form-control chosen">
                                     <option value="{{$offre->experience}}">{{$offre->experience}} ans</option>
 
-                                    <option value="<1">moins de 1 ans </option>
-                                    <option value="1-2">entre 1 et 2 ans</option>
+                                    <option value="<1">moins de 1 an </option>
+                                    <option value="1-2">1 à 2 ans</option>
                                     <option value="2-3">2 à 3 ans</option>
                                 </select>
                             </div>

@@ -25,9 +25,12 @@
                                             <div class="job-field">
                                                 <select name="categorie" class="chosen-city form-control">
                                                     <option value="">Toutes les catégories</option>
-                                                    <option>Informatique</option>
-                                                    <option>Marketing</option>
-                                                    <option>Finance</option>
+
+                                                    @foreach ($categories as $categorie )
+                                                        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+                                                    @endforeach
+                                                    
+                                                    
                                                     
                                                 </select>
                                                 <i class="la la-briefcase"></i>
@@ -37,9 +40,10 @@
                                             <div class="job-field">
                                                 <select name="pays" class="chosen-city form-control">
                                                     <option value="">Tous les pays</option>
-                                                    <option>Gabon</option>
-                                                    <option>Mali</option>
-                                                    <option>Côte d'ivoire</option>
+                                                    @foreach ($payss as $pay )
+                                                        <option value="{{$pay->nom}}">{{$pay->nom}}</option>
+                                                    @endforeach
+                                                  
                                                     
                                                 </select>
                                                 <i class="la la-map-marker"></i>
@@ -85,24 +89,45 @@
                          </div>
                      </div> --}}
                      <div class="widget border">
-                         <h3 class="sb-title open"> Type de l'offre</h3>
+                         <h3 class="sb-title @if($typeoffres != null) open @else closed @endif"> Type de l'offre</h3> 
                          <div class="type_widget">
-                            <p class="flchek"><input type="checkbox" name="choosetype" id="33r"/><label for="33r">Freelance (9)</label></p>
-                            <p class="ftchek"><input type="checkbox" name="choosetype" id="dsf"/><label for="dsf">CDD (8)</label></p>
-                            <p class="ischek"><input type="checkbox" name="choosetype" id="sdd"/><label for="sdd">CDI (8)</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("CDI",$typeoffres)) checked @endif name="typeoffres[]" value="CDI" id="CDI"/><label for="CDI">CDI</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("CDD",$typeoffres)) checked @endif name="typeoffres[]" value="CDD" id="CDD"/><label for="CDD">CDD</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("STAGE",$typeoffres)) checked @endif name="typeoffres[]" value="STAGE" id="STAGE"/><label for="STAGE">STAGE</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("JOB ETUDIANT",$typeoffres)) checked @endif name="typeoffres[]" value="JOB ETUDIANT" id="JOB ETUDIANT"/><label for="JOB ETUDIANT">JOB ETUDIANT</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("VIE",$typeoffres)) checked @endif name="typeoffres[]" value="VIE" id="VIE"/><label for="VIE">VIE</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("INTERIM",$typeoffres)) checked @endif name="typeoffres[]" value="INTERIM" id="INTERIM"/><label for="INTERIM">INTERIM</label></p>
+
                             
                          </div>
                      </div>
                      <div class="widget border">
-                         <h3 class="sb-title closed">Spécialité</h3>
+                        <h3 class="sb-title @if($experiences != null) open @else closed @endif">Expérience requise</h3>
+                        <div class="specialism_widget">
+                           {{-- <div class="field_w_search">
+                                <input type="text" placeholder="spécialité" />
+                            </div> --}}
+                           
+                            <div class="type_widget">
+                               <p class="ischek"><input type="checkbox" @if( is_array($experiences) && in_array("<1",$experiences)) checked @endif name="experiences[]" value="<1" id="1"/><label for="1">Moins de 1 an</label></p>
+                               <p class="ischek"><input type="checkbox" @if( is_array($experiences) && in_array("1-2",$experiences)) checked @endif name="experiences[]" value="1-2" id="2"/><label for="2">1 à 2 ans</label></p>
+                               <p class="ischek"><input type="checkbox" @if( is_array($experiences) && in_array("2-3",$experiences)) checked @endif name="experiences[]" value="2-3" id="3"/><label for="3">2 à 3 ans</label></p>
+                               
+                    
+                            </div>
+                        </div>
+                    </div>
+                     <div class="widget border">
+                         <h3 class="sb-title @if($categoris != null) open @else closed @endif">Spécialité</h3>
                          <div class="specialism_widget">
                             {{-- <div class="field_w_search">
                                  <input type="text" placeholder="spécialité" />
                              </div> --}}
-                             <div class="simple-checkbox scrollbar">
-                                <p><input type="checkbox" name="categorie[]" value="finance" id="1"/><label for="1">Finance (2)</label></p>
-                                <p><input type="checkbox" name="categorie[]" value="banque" id="2"/><label for="2">Banque (2)</label></p>
-                                <p><input type="checkbox" name="categorie[]" value="informatique" id="3"/><label for="3">Informatique (2)</label></p>
+                             <div class="type_widget">
+                                 @foreach ($categories as $categorie )
+                                    <p class="ischek"><input type="checkbox"  @if( is_array($categoris) && in_array($categorie->id ,$categoris)) checked @endif  name="categories[]" value="{{$categorie->id}}" id="{{$categorie->nom}}"/><label for="{{$categorie->nom}}">{{$categorie->nom}} (2)</label></p>
+                                     
+                                 @endforeach
                                 
                                 
                              </div>
@@ -157,7 +182,7 @@
                             </a>
                                 <div class="job-style-bx">
                                     <span class="job-is fl"> {{ $offre->type_contrat }}</span>
-                                    <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                    {{-- <span class="fav-job"><i class="la la-heart-o"></i></span> --}}
                                     <i>Il y'a 1 heure</i>
                                 </div>
                             </div>

@@ -59,7 +59,15 @@ class OffreController extends Controller
         $offres = Offre::paginate(10);
         $nb_offres = sizeof($offres) ;
         // dd($offres);
-        return view('offre.offres_emplois', compact('offres','nb_offres'));
+        $payss = Pays::all();
+
+        $categories = Categorieoffre::all();
+
+        $typeoffres = "null";
+        $experiences = "null";
+        $categoris = "null";
+
+        return view('offre.offres_emplois', compact('offres','nb_offres','categories','payss','typeoffres','experiences','categoris'));
     }
 
 
@@ -71,47 +79,114 @@ class OffreController extends Controller
      */
     public function recherche_emplois(Request $request)
     {
-    //  dd($request->categories);
+    //  dd($request->all());
 
+
+    
         $poste = $request->poste;
         $pays = $request->pays;
+        $categorie = $request->categorie ;
+
+        $typeoffres = $request->typeoffres;
+        $experiences = $request->experiences;
+        $categoris = $request->categories;
         
-        if($request->poste != null && $request->pays != null){
-            $offres = Offre::where([['pays', $pays], ['active', true]])->where(function($query) use ($poste){
-                $query->where('titre', 'like', '%'.$poste.'%')
-                      ->orWhere('description', 'like', '%'.$poste.'%');
-            })->paginate(10);
+// dd($categorie_id->id);
 
-            // dd(111);
-        }elseif($request->poste != null && $request->pays == null){
-            $offres = Offre::where([ ['active', true]])->where(function($query) use ($poste){
-                $query->where('titre', 'like', '%'.$poste.'%')
-                      ->orWhere('description', 'like', '%'.$poste.'%');
-            })->paginate(10);
-            // dd(222);
-
-
-        }elseif($request->poste == null && $request->pays != null){
-            $offres = Offre::where([ ['pays', $pays], ['active', true] ])->paginate(10);
-            // dd(333);
-
-        }
-        elseif($request->poste == null && $request->pays == null){
-            $offres = Offre::where([ ['active', true] ])->paginate(10);
-            // dd(444);
-
-        }
-
-        if($request->categorie != ""){
+            $offres = Offre::where([['active', true]])
             
-            // dd($offres);
-            $offres = $offres->where('categorie', $request->categorie );
-        }
+            // trie avec le poste
+            ->where(function($query) use ($poste){
+                if($poste != null){
+                    $query->where('titre', 'like', '%'.$poste.'%')
+                    ->orWhere('description', 'like', '%'.$poste.'%');
+                }
+                
+            })
+            // trie avec la catégorie
+            ->where(function($query2) use ($categorie){
+                if($categorie != ""){
+                    $query2->where('categorieoffre_id', $categorie);
+                }
+            })
+
+            // Trie avec le pays
+            ->where(function($query2) use ($pays){
+                if($pays != ""){
+                    $query2->where('pays', $pays);
+                }
+            })
+
+              // Trie avec l'experience requise
+              ->where(function($query2) use ($experiences){
+                if($experiences != null){
+                    $query2->whereIn('experience', $experiences);
+                }
+            })
+            // Trie avec le type du contrat
+            ->where(function($query2) use ($typeoffres){
+                if($typeoffres != null){
+                    $query2->whereIn('type_contrat', $typeoffres);
+                }
+            })
+
+            // Trie avec les categories
+            ->where(function($query2) use ($categoris){
+                if($categoris != null){
+                    $query2->whereIn('categorieoffre_id', $categoris);
+                }
+            })
+
+            ->paginate(10);
+
+
+
+
+        
+        // if($request->poste != null && $request->pays != null){
+        //     $offres = Offre::where([['pays', $pays], ['active', true]])->where(function($query) use ($poste){
+        //         $query->where('titre', 'like', '%'.$poste.'%')
+        //               ->orWhere('description', 'like', '%'.$poste.'%');
+        //     })->where(function($query2) use ($categorie){
+        //         if($categorie != ""){
+        //             $query2->where('categorieoffre_id', $categorie);
+        //         }
+        //     })
+
+            
+           
+
+        //     // dd(111);
+        // }elseif($request->poste != null && $request->pays == null){
+        //     $offres = Offre::where([ ['active', true]])->where(function($query) use ($poste){
+        //         $query->where('titre', 'like', '%'.$poste.'%')
+        //               ->orWhere('description', 'like', '%'.$poste.'%');
+        //     })->paginate(10);
+
+        // }elseif($request->poste == null && $request->pays != null){
+        //     $offres = Offre::where([ ['pays', $pays], ['active', true] ])->paginate(10);
+
+        // }
+        // elseif($request->poste == null && $request->pays == null){
+        //     $offres = Offre::where([ ['active', true] ])->paginate(10);
+        // }
+
+        // if($request->categorie != ""){
+            
+        //     // dd($offres);
+        //     $offres = $offres->where('categorie', $request->categorie );
+        // }
 
 
        $nb_offres = sizeof($offres) ;
 
-        return view('offre.offres_emplois', compact('offres', 'nb_offres'));
+       $payss = Pays::all();
+
+       $categories = Categorieoffre::all();
+
+
+
+        return view('offre.offres_emplois', compact('offres', 'nb_offres','payss','categories','typeoffres','experiences','categoris' ));
     }
 
 
