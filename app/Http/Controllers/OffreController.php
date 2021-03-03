@@ -63,9 +63,9 @@ class OffreController extends Controller
 
         $categories = Categorieoffre::all();
 
-        $typeoffres = "null";
-        $experiences = "null";
-        $categoris = "null";
+        $typeoffres = null;
+        $experiences = null;
+        $categoris = null;
 
         return view('offre.offres_emplois', compact('offres','nb_offres','categories','payss','typeoffres','experiences','categoris'));
     }
