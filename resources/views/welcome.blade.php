@@ -364,36 +364,8 @@
 							<h2>Nos derniers articles</h2>
 						</div><!-- Heading -->
 						<div class="reviews-sec" id="reviews-carousel">
-							<div class="col-lg-4">
-								<div class="my-blog">
-									<div class="blog-thumb">
-										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-										<div class="blog-date">
-											<a href="#" title="">2020 <i>14 Octobre</i></a>
-										</div>
-									</div>
-									<div class="blog-details">
-										<h3><a href="#" title="">Comment faire son CV</a></h3>
-										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="my-blog">
-									<div class="blog-thumb">
-										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-										<div class="blog-date">
-											<a href="#" title="">2020 <i>14 Octobre</i></a>
-										</div>
-									</div>
-									<div class="blog-details">
-										<h3><a href="#" title="">Comment faire son CV</a></h3>
-										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
+
+							@foreach ($articles as $article )
 							<div class="col-lg-4">
 								<div class="my-blog">
 									<div class="blog-thumb">
@@ -410,36 +382,9 @@
 								</div>
 							</div>
 
-							<div class="col-lg-4">
-								<div class="my-blog">
-									<div class="blog-thumb">
-										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-										<div class="blog-date">
-											<a href="#" title="">2020 <i>14 Octobre</i></a>
-										</div>
-									</div>
-									<div class="blog-details">
-										<h3><a href="#" title="">Comment faire son CV</a></h3>
-										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="my-blog">
-									<div class="blog-thumb">
-										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
-										<div class="blog-date">
-											<a href="#" title="">2020 <i>14 Octobre</i></a>
-										</div>
-									</div>
-									<div class="blog-details">
-										<h3><a href="#" title="">Comment faire son CV</a></h3>
-										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
-										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
+							@endforeach
+							
+					
 						</div>
 					</div>
 				</div>

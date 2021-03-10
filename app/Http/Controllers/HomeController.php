@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Offre;
+Use App\Models\Article;
 
 class HomeController extends Controller
 {
@@ -15,9 +16,10 @@ class HomeController extends Controller
     public function index()
     {
         $offres = Offre::where('active', true)->orderBy('id','desc')->limit(6)->get();
+        $articles = Article::where('actif', true)->orderBy('id','desc')->limit(6)->get();
         
         // dd($offres);
-        return view('welcome', compact('offres'));
+        return view('welcome', compact('offres','articles'));
     }
 
     /**
