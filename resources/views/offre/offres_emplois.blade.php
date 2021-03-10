@@ -24,7 +24,15 @@
                                         <div class="col-lg-3">
                                             <div class="job-field">
                                                 <select name="categorie" class="chosen-city form-control">
+                                                    @if($cat != null)
+                                                        <option value="{{$cat}}">{{$cat}}</option>
+                                                        <option value="">Toutes les catégories</option>
+
+
+                                                    @else 
                                                     <option value="">Toutes les catégories</option>
+
+                                                    @endif
 
                                                     @foreach ($categories as $categorie )
                                                         <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
@@ -39,7 +47,16 @@
                                         <div class="col-lg-3">
                                             <div class="job-field">
                                                 <select name="pays" class="chosen-city form-control">
+                                                    @if($pays != null)
+                                                        <option value="{{$pays}}">{{$pays}}</option>
+                                                        <option value="">Tous les pays</option>
+
+
+                                                    @else 
                                                     <option value="">Tous les pays</option>
+
+                                                    @endif
+                                                    
                                                     @foreach ($payss as $pay )
                                                         <option value="{{$pay->nom}}">{{$pay->nom}}</option>
                                                     @endforeach
@@ -118,16 +135,18 @@
                         </div>
                     </div>
                      <div class="widget border">
-                         <h3 class="sb-title @if($categoris != null) open @else closed @endif">Spécialité</h3>
+                         <h3 class="sb-title @if($date_publication != null) open @else closed @endif">Date de publication</h3>
                          <div class="specialism_widget">
                             {{-- <div class="field_w_search">
                                  <input type="text" placeholder="spécialité" />
                              </div> --}}
                              <div class="type_widget">
-                                 @foreach ($categories as $categorie )
-                                    <p class="ischek"><input type="checkbox"  @if( is_array($categoris) && in_array($categorie->id ,$categoris)) checked @endif  name="categories[]" value="{{$categorie->id}}" id="{{$categorie->nom}}"/><label for="{{$categorie->nom}}">{{$categorie->nom}} (2)</label></p>
-                                     
-                                 @endforeach
+                                
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "1") checked @endif name="date_publication" value="1" id="1h"/><label for="1h">Moins de 24h</label></p>
+                                <p class="ischek"><input type="radio"  @if( $date_publication != null && $date_publication == "3") checked @endif name="date_publication" value="3" id="3h"/><label for="3h">Moins de 3 jours</label></p>
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "7") checked @endif name="date_publication" value="7" id="7h"/><label for="7h">Moins de 7 jours</label></p>
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "15") checked @endif name="date_publication" value="15" id="15h"/><label for="15h">Moins de 15 jours</label></p>
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "30") checked @endif name="date_publication" value="30" id="30h"/><label for="30h">Moins de 30 jours</label></p>
                                 
                                 
                              </div>
@@ -183,7 +202,19 @@
                                 <div class="job-style-bx">
                                     <span class="job-is fl"> {{ $offre->type_contrat }}</span>
                                     {{-- <span class="fav-job"><i class="la la-heart-o"></i></span> --}}
-                                    <i>Il y'a 1 heure</i>
+                                    @php 
+                                        $duree = date_diff(date_create(date('Y-m-d')) ,date_create($offre->created_at->format('Y-m-d')) ); 
+                                    @endphp 
+
+
+                                    @if($duree->days == 0)
+                                        <i>Publiée Aujourd'hui </i>
+                                    @elseif($duree->days == 1)
+                                        <i>Publiée Hier </i>
+                                    @else 
+                                        <i>Publiée Il y'a {{$duree->days}} jours</i>
+
+                                    @endif
                                 </div>
                             </div>
                            @endforeach

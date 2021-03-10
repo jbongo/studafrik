@@ -10,4 +10,12 @@ class Article extends Model
     use HasFactory;
     protected $guarded =[];
 
+    public function  commentaires(){
+        
+        // return 
+        $commentaires = $this->hasMany(Commentaire::class);
+        return $commentaires->where('valide',1)->get();
+    }
+
+
 }

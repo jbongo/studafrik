@@ -9,6 +9,8 @@ use File;
 use App\Models\User;
 use App\Models\Categorieoffre;
 use App\Models\Favoriscv;
+use App\Models\Offre;
+use App\Models\Pays;
 
 use Illuminate\Support\Facades\Crypt;
 
@@ -362,6 +364,64 @@ public function photoProfile(){
 
         return view('recruteur.profil', compact('user','categories'));
     }
+
+
+
+    /**
+     * Afficher la liste des recruteurs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function bibliothequeRecruteur(Request $request)
+    {
+    
+        $raison_sociale = $request->raison_sociale;
+        $pays = $request->pays;
+
+       $recruteurs = User::where([['role', 'recruteur', ['profile_complete', 1]]])
+       
+       // trie avec la raison sociale
+       ->where(function($query) use ($raison_sociale){
+            if($raison_sociale != null){
+                $query->where('raison_sociale', 'like', '%'.$raison_sociale.'%');
+            
+            }
+        
+        })
+        // trie avec le pays
+       ->where(function($query) use ($pays){
+            if($pays != null){
+                $query->where('pays', 'like', '%'.$pays.'%');
+            }
+        
+        })
+       
+       
+       ->paginate(10);
+
+      
+       $payss = Pays::all();
+
+        return view('recruteur.biblio.index', compact('recruteurs','raison_sociale', 'pays','payss'));
+    }
+
+
+    
+    /**
+     * Afficher le profile d'un recruteurs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showBibliothequeRecruteur($recruteur_id)
+    {
+    
+        $recruteur = User::where('id', Crypt::decrypt($recruteur_id) )->first();
+        $offres = Offre::paginate(10);
+
+
+        return view('recruteur.biblio.show', compact('recruteur','offres'));
+    }
+
 
 
 

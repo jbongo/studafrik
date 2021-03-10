@@ -103,7 +103,14 @@
 									@if(Auth::check())
 										@if(Auth::user()->role == "candidat") 
 											@if($deja_postuler == false && $offre->date_expiration <= date("Y-m-d"))
-												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+
+												@if($offre->candidater_lien == "Non")
+													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+												@else
+
+												<a href="{{$offre->url_candidature}}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+
+												@endif
 											
 											@elseif($deja_postuler == true )
 												<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span> <br>
@@ -112,8 +119,13 @@
 										@endif
 									@else 
 
-						
-										<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+											@if($offre->candidater_lien == "Non")
+												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+											@else
+
+												<a href="{{$offre->url_candidature}}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
+
+											@endif
 
 									
 									@endif

@@ -18,6 +18,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    protected $dates = ['date_creation_entreprise'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -59,11 +61,18 @@ class User extends Authenticatable implements MustVerifyEmail
         'photo_profile',
     ];
 
-
+    // offres candidatées par le user
     public function offres()
     {
         return $this->belongsToMany(Offre::class,'offre_users')->withPivot('cv', 'lettre_motivation','created_at','updated_at');
     }
+
+    // offres ajoutée par le recruteur
+    public function  mes_offres(){
+        return $this->hasMany(Offre::class);
+    }
+
+
 
     // 
     public function  cv_formation(){

@@ -64,7 +64,7 @@
                                 <div class="col-lg-6">
                                     <a href="#" title="">Contact </a>
                                     <a href="#" title="">Termes du contrat</a>
-                                    <a href="#" title="">Récruteurs </a>
+                                    <a href="{{route('user.bibliotheque.index')}}" title="">Recruteurs </a>
 
                                     {{-- <a href="#" title="">For Employers </a>
                                     <a href="#" title="">Underwriting </a>

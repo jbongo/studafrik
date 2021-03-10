@@ -229,14 +229,41 @@
                     </div>
 
            
-       <br><br>
+                    <br><br>
+                    
+                    <div class="row">
+                        <div class="col-6" id="div_candidater_lien">
+                            <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
+                            <div class="pf-field">
+                              
+                               <select data-placeholder="" required id="candidater_lien"  name="candidater_lien" class="form-control chosen">
+                                @if($offre->candidater_lien != null)
+                                    <option value="{{$offre->candidater_lien}}">{{$offre->candidater_lien}}</option>
+                                @endif
+                                    <option value="Non">Non</option>
+                                    <option value="Oui">Oui</option>
+                                
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6" id="div_url_candidature">
+                            <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
+                            <div class="pf-field">
+                               <input type="url" id="url_candidature" name="url_candidature" value="{{$offre->url_candidature}}" class="form-control"  />
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <br><br>
                 
                 
            
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <input type="submit" class="btn btn-success" id="Ajouter" value="Modifier">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <input type="submit" class="btn btn-success" id="Ajouter" value="Modifier">
                 </div>
+
                 </form>
         </div>
     </div>
@@ -255,7 +282,9 @@
 
 <script src="https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script src='https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
+{{-- <script src='https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script> --}}
+
+
 <script>
   tinymce.init({
     selector: 'textarea',
@@ -269,6 +298,35 @@
   'alignright alignjustify | bullist numlist outdent indent | ' +
   'removeformat | help',
   });
+</script>
+
+
+<script>
+
+    var lien_cand = "{{$offre->candidater_lien}}";
+    if(lien_cand == "Non"){
+    $('#div_url_candidature').hide();
+
+    }
+
+
+    
+    $('#candidater_lien').on('change',function(){
+
+    var val = $('#candidater_lien').val();
+    
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+
+    }else{
+        $('#div_url_candidature').show();
+
+    }
+   
+
+    })
+
+
 </script>
 
 

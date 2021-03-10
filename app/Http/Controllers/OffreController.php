@@ -66,8 +66,11 @@ class OffreController extends Controller
         $typeoffres = null;
         $experiences = null;
         $categoris = null;
-
-        return view('offre.offres_emplois', compact('offres','nb_offres','categories','payss','typeoffres','experiences','categoris'));
+        $cat = null;
+        $pays = null;
+        $date_publication = null;
+        
+        return view('offre.offres_emplois', compact('offres','nb_offres','categories','payss','pays','typeoffres','experiences','categoris','date_publication','cat'));
     }
 
 
@@ -90,8 +93,12 @@ class OffreController extends Controller
         $typeoffres = $request->typeoffres;
         $experiences = $request->experiences;
         $categoris = $request->categories;
+
+        $date_publication = $request->date_publication;
         
-// dd($categorie_id->id);
+        $today = date('Y-m-d');
+        $date_pub=  date('Y-m-d', strtotime($today. " - $date_publication days"));
+// dd($date_publication);
 
             $offres = Offre::where([['active', true]])
             
@@ -136,46 +143,15 @@ class OffreController extends Controller
                     $query2->whereIn('categorieoffre_id', $categoris);
                 }
             })
+            // Trie avec la date de publication
+            ->where(function($query2) use ($date_pub){
+                if($date_pub != null){
+                    $query2->where('created_at','>', $date_pub);
+                }
+            })
 
             ->paginate(10);
 
-
-
-
-        
-        // if($request->poste != null && $request->pays != null){
-        //     $offres = Offre::where([['pays', $pays], ['active', true]])->where(function($query) use ($poste){
-        //         $query->where('titre', 'like', '%'.$poste.'%')
-        //               ->orWhere('description', 'like', '%'.$poste.'%');
-        //     })->where(function($query2) use ($categorie){
-        //         if($categorie != ""){
-        //             $query2->where('categorieoffre_id', $categorie);
-        //         }
-        //     })
-
-            
-           
-
-        //     // dd(111);
-        // }elseif($request->poste != null && $request->pays == null){
-        //     $offres = Offre::where([ ['active', true]])->where(function($query) use ($poste){
-        //         $query->where('titre', 'like', '%'.$poste.'%')
-        //               ->orWhere('description', 'like', '%'.$poste.'%');
-        //     })->paginate(10);
-
-        // }elseif($request->poste == null && $request->pays != null){
-        //     $offres = Offre::where([ ['pays', $pays], ['active', true] ])->paginate(10);
-
-        // }
-        // elseif($request->poste == null && $request->pays == null){
-        //     $offres = Offre::where([ ['active', true] ])->paginate(10);
-        // }
-
-        // if($request->categorie != ""){
-            
-        //     // dd($offres);
-        //     $offres = $offres->where('categorie', $request->categorie );
-        // }
 
 
        $nb_offres = sizeof($offres) ;
@@ -183,10 +159,12 @@ class OffreController extends Controller
        $payss = Pays::all();
 
        $categories = Categorieoffre::all();
+       $cat = Categorieoffre::where('id',$categorie)->first();
+       $cat = $cat!= null ? $cat->nom : null;
+   
 
 
-
-        return view('offre.offres_emplois', compact('offres', 'nb_offres','payss','categories','typeoffres','experiences','categoris' ));
+        return view('offre.offres_emplois', compact('offres', 'nb_offres','payss','pays','cat','categories','typeoffres','experiences','categoris','date_publication' ));
     }
 
 
@@ -484,8 +462,10 @@ class OffreController extends Controller
             "date_expiration" => $request->date_expiration,
             "message_candidature" => $request->message_candidature,
 
-        ]);
+            "candidater_lien" => $request->candidater_lien,
+            "url_candidature" => $request->url_candidature,
 
+        ]);
 
         return redirect()->route('admin.offres.index')->with('ok', __("Nouvelle offre ajoutée")  );
 
@@ -507,6 +487,7 @@ class OffreController extends Controller
         return view('offre.show', compact('offre'));
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -550,6 +531,9 @@ class OffreController extends Controller
         $offre->ville = $request->ville ;
         $offre->date_expiration = $request->date_expiration ;
         $offre->message_candidature = $request->message_candidature ;
+
+        $offre->candidater_lien = $request->candidater_lien ;
+        $offre->url_candidature = $request->url_candidature ;
 
 
         $offre->update();

@@ -49,7 +49,7 @@
                        
                          <div class="bs-thumbxxx"><img src="{{asset($article->image)}}" width="650px" height="330px" alt="" /></div>
                       
-                         <ul class="post-metas"><li><a href="#" title=""><i class="la la-calendar-o"></i>30 Novembre 2020</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>0 commentaires</a></li><li><a href="#" title=""><i class="la la-file-text"></i>Emploi</a></li></ul>
+                         <ul class="post-metas" style="margin-top: 30px"><li><a href="#" title=""><i class="la la-calendar-o"></i>{{$article->created_at->format('d/m/Y')}}</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>{{ sizeof($article->commentaires()) }} commentaires</a></li></ul>
                       
                       
                        
@@ -80,7 +80,7 @@
                                          
                                      
                                      <div class="comment">
-                                         <div class="comment-avatar"> <img src="http://placehold.it/90x90" alt="" /> </div>
+                                         <div class="comment-avatar"> <img width="50px" height="70px" src="{{ ($commentaire->user_id != null && $commentaire->user->photo_profile!= null) ? asset('images/photo_profil/'.$commentaire->user->photo_profile) : asset('images/profil/profil.png') }}" alt="" /></div>
                                          <div class="comment-detail">
                                              <h3>{{$commentaire->nom}}</h3>
                                              <div class="date-comment"><a href="#" title=""><i class="la la-calendar-o"></i>{{$commentaire->created_at->format('d/m/Y H:m')}}</a></div>
@@ -139,24 +139,22 @@
                              </div><!-- Search Widget -->
                          </div>
                      </div>
-                     <div class="widget">
-                         <h3>Categories</h3>
-                         <div class="sidebar-links">
-                             <a href="#" title=""><i class="la la-angle-right"></i>Education</a>
-                             
-                             <a href="#" title=""><i class="la la-angle-right"></i>Emploi</a>
-                         </div>
-                     </div>
+ 
                      <div class="widget">
                          <h3>Posts récents </h3>
                          <div class="post_widget">
-                             <div class="mini-blog">
-                                 <span><a href="#" title=""><img src="http://placehold.it/74x64" alt="" /></a></span>
-                                 <div class="mb-info">
-                                     <h3><a href="#" title="">Comment faire un CV (Curriculum Vitae)</a></h3>
-                                     <span>30 Novembre 2020</span>
-                                 </div>
-                             </div>
+
+                            @foreach ($posts as $post)
+                            <div class="mini-blog">
+                                <span><a href="#" title=""><img src="{{asset($post->image)}}" alt="" /></a></span>
+                                <div class="mb-info">
+                                    <h3><a href="#" title="">{{$post->titre}}</a></h3>
+                                    <span>{{$post->created_at->format('d/m/Y')}}</span>
+                                </div>
+                            </div>
+                            @endforeach
+
+                            
                             
                          </div>
                      </div>

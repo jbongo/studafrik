@@ -69,6 +69,10 @@ Route::get('user/telecharger_cv/{user_id}','UserController@telecharger_cv')->nam
 
 
 Route::get('recruteur/profile','UserController@profilRecruteur')->name('user.profil_recruteur');
+// Bibliotheque de recruteurs
+Route::get('recruteur/bibliotheque','UserController@bibliothequeRecruteur')->name('user.bibliotheque.index');
+Route::get('recruteur/bibliotheque/{recruteur_id}','UserController@showBibliothequeRecruteur')->name('user.bibliotheque.show');
+
 
 // offres
 

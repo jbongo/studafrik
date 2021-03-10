@@ -138,20 +138,20 @@
                     
                     <div class="row">
                         <div class="col-6">
-                            <span  htmlFor="customRange1" class="pf-title">Salaire  </span>
+                            <span  htmlFor="customRange1" class="pf-title">Salaire </span>
                             <div class="pf-field">
-                               <input type="number"  name="salaire" class="form-control " />
+                               <input type="number"  name="salaire" class="form-control" />
                             </div>
                         </div>
                         <div class="col-6">
                             <span  htmlFor="customRange1" class="pf-title">Devise du Salaire  </span>
                             <div class="pf-field">
                               
-                               <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
-                                <option value="FCFA">FCFA</option>
-                                <option value="USD">USD</option>
-                                <option value="EUR">EUR</option>
-                            </select>
+                                <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
+                                    <option value="FCFA">FCFA</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                             <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
                             <div class="pf-field">
                               
-                               <select data-placeholder="" required  name="url_candidature" class="form-control chosen">
+                               <select data-placeholder="" id="candidater_lien" required  name="candidater_lien" class="form-control chosen">
                                 <option value="Non">Non</option>
                                 <option value="Oui">Oui</option>
                                 
@@ -231,10 +231,10 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6" id="div_url_candidature">
                             <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
                             <div class="pf-field">
-                               <input type="url"  name="url_candidature" class="form-control" required />
+                               <input type="url" id="url_candidature" name="url_candidature" class="form-control" required />
                             </div>
                         </div>
                         
@@ -284,5 +284,26 @@
   });
 </script>
 
+<script>
 
+   
+
+    
+    $('#candidater_lien').on('change',function(){
+
+    var val = $('#candidater_lien').val();
+    
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+
+    }else{
+        $('#div_url_candidature').show();
+
+    }
+   
+
+    })
+
+
+</script>
 @endsection

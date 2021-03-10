@@ -81,9 +81,10 @@ class ArticleController extends Controller
         $article = Article::where('id', Crypt::decrypt($id))->first();
         $commentaires = Commentaire::where([['article_id', Crypt::decrypt($id)],['valide',true]])->get();
        
+        $posts = Article::orderBy('id', 'desc')->paginate(5);
 
 
-        return view('blog.article',compact('article','commentaires'));
+        return view('blog.article',compact('article','commentaires','posts'));
     }
 
     /**
