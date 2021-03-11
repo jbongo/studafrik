@@ -1,25 +1,22 @@
 @include('layouts.topmenupage')
 
 
-    	    
 <section>
-    <div className="block no-padding  gray">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="inner2">
-                        <div className="inner-title2">
+    <div class="block no-padding  gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2" style="text-align: center; margin:-25px">
+                        <div class="inner-title2">
                             <h3>Contact</h3>
-                            
-                           
                         </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 
 
@@ -32,7 +29,7 @@
 
 
 <section>
-    <div class="block">
+    <div class="block" style="margin-top: 50px">
         <div class="container">
              <div class="row">
                  <div class="col-lg-6 column">

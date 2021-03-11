@@ -83,10 +83,13 @@
 	
 	<header class="gradient">
 		<div class="menu-sec">
+			<div class="logo" style="margin-left:60px">
+				<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px"  alt="" /></a>
+			</div>
 			<div class="container">
-				<div class="logo">
-					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px"  alt="" /></a>
-				</div><!-- Logo -->
+				
+				
+				<!-- Logo -->
 				<div class="btn-extars">
 					{{-- <a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Ajouter une offre</a> --}}
 					<ul class="account-btns">

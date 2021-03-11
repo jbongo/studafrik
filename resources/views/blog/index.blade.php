@@ -2,18 +2,17 @@
 
 
     	    
+
 <section>
-    <div className="block no-padding  gray">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="inner2">
-                        <div className="inner-title2">
-                            {{-- <h3>Blog</h3> --}}
-                            
-                           
+    <div class="block no-padding  gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2" style="text-align: center; margin:-25px">
+                        <div class="inner-title2">
+                            <h3>Nos articles</h3>
                         </div>
-                        
+         
                     </div>
                 </div>
             </div>
@@ -21,7 +20,7 @@
     </div>
 </section>
 
-    <center ><h3>Nos articles</h3></center>
+
 
 
 <section>

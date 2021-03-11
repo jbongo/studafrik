@@ -1,32 +1,33 @@
 @include('layouts.topmenupage')
-{{-- 
-  <section>
-		<div className="block no-padding  gray">
-			<div className="container">
-				<div className="row">
-					<div className="col-lg-12">
-						<div className="inner2">
-							<div className="inner-title2">
-								<h3>Inscription</h3>
-							
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> --}}
+
+
+    
+<section>
+    <div class="block no-padding  gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2" style="text-align: center; margin:-25px">
+                        <div class="inner-title2">
+                            <h3>Inscription</h3>
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     	
 	<section>
-		<div class="block remove-bottom">
+		<div class="block remove-bottom" style="25px">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="account-popup-area signup-popup-box static">
 							<div class="account-popup">
-                                <h3>Inscription</h3>
+                                <h3></h3>
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>

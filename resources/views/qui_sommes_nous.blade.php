@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="inner2">
+                    <div class="inner2" style="text-align: center; margin:-25px">
                         <div class="inner-title2">
                             <h3>Qui Sommes Nous ?</h3>
                             {{-- <span>Keep up to date with the latest news</span> --}}
