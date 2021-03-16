@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="job-field">
-                                    <input type="text" name="poste" className="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
+                                    <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
                                     <i class="la la-keyboard-o"></i>
                                 </div>
                             </div>

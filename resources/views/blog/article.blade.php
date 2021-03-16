@@ -3,15 +3,15 @@
 
     	    
 <section>
-    <div className="block no-padding  gray">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="inner2">
-                        <div className="inner-title2">
+    <div class="block no-padding  gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner2">
+                        <div class="inner-title2">
                             <br>
                             <div class="row">
-                                <div class="col-5 mx-auto">
+                                <div class="col-10 mx-auto">
                                     <h2>{{$article->titre}}</h2>
 
                                 </div>
@@ -29,7 +29,7 @@
     </div>
 </section>
 
-<section>
+<section style="margin-top: 35px">
     <div class="block">
         <div class="container">
              <div class="row">

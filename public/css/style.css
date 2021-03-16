@@ -1003,10 +1003,10 @@ Author:         Creative Layer
  
  .account-btns>li a {
      font-family: Open Sans;
-     font-size: 15px;
+     font-size: 18px;
      color: #ffffff;
      float: left;
-     line-height: 22px;
+     line-height: 24px;
  }
  
  .account-btns>li a i {
@@ -1048,7 +1048,7 @@ Author:         Creative Layer
  .menu-sec nav>ul>li>a {
      float: left;
      font-family: Open Sans;
-     font-size: 15px;
+     font-size: 18px;
      color: #ffffff;
      position: relative;
      padding: 14px 20px;
@@ -11083,7 +11083,7 @@ Author:         Creative Layer
      width: 100%;
      font-family: Open Sans;
      font-size: 13px;
-     color: #888888;
+     color: #151313;
      line-height: 24px;
  }
  

@@ -5,9 +5,9 @@
 			<div class="container ">
 				<div class="row">
 
-						<div className="col-lg-12">
-							<div className="inner2">
-								<div className="inner-title2">
+						<div class="col-lg-12">
+							<div class="inner2" style="text-align: center; margin:-25px">
+								<div class="inner-title2">
 									<h3>Postulez à cette offre</h3> <br><br>
 								</div>
 							
@@ -20,7 +20,7 @@
 	</section>
 
 
-	<section>
+	<section style="margin-top: 55px">
 		<div class="block">
 			<div class="container">
 				<div class="row">

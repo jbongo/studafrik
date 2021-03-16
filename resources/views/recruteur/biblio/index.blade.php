@@ -16,7 +16,7 @@
                                     <div class="row">
                                         <div class="col-lg-5">
                                             <div class="job-field">
-                                                <input type="text" name="raison_sociale" className="form-control" placeholder="Nom de l'entreprise" value="{{isset($_GET['raison_sociale']) ? $_GET['raison_sociale'] :""}}" />
+                                                <input type="text" name="raison_sociale" class="form-control" placeholder="Nom de l'entreprise" value="{{isset($_GET['raison_sociale']) ? $_GET['raison_sociale'] :""}}" />
                                                 <i class="la la-keyboard-o"></i>
                                             </div>
                                         </div>

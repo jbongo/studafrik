@@ -15,7 +15,7 @@
 								{{-- <li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li> --}}
 							</ul>
-							<div class="job-search-sec">
+							<div class="job-search-sec" style="margin-bottom: ">
 								<div class="job-search style2">
 									<h3>La meilleure façon de trouver un emploi</h3>
 									{{-- <span>Find Jobs, Employment & Career Opportunities</span> --}}
@@ -103,15 +103,7 @@
 
 								</div>
 							
-								<div class="row">
-										<div class="col-lg col-md col-sm col-xs" >
-										{{-- <div class="col-lg-12"> --}}
-											<div class="browse-all-cat">
-												{{-- <a href="#" title="" class="style2">Voir toutes les catégories</a> --}}
-											</div>
-										{{-- </div> --}}
-										</div>
-									</div>
+							
 							</div>
 						</div>
 					</div>
@@ -138,14 +130,14 @@
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid">
 										<div class="job-title-sec">
-											<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">
+											<a  href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
 												<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
-												<h3><a href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" >{{$offre->poste}}</a></h3>
-												<span><a href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" >{{$offre->nom_entreprise == null ? $offre->user->nom : $offre->nom_entreprise}} &nbsp; </a></span>
+												<h3><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" >{{$offre->poste}}</a></h3>
+												<span><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" >{{$offre->nom_entreprise == null ? $offre->user->nom : $offre->nom_entreprise}} &nbsp; </a></span>
 												<span class="fav-job"><i class="la la-heart-o"></i></span>
 											</a>
 										</div>
-										<span class="job-lctn"><a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">{{$offre->ville}}, {{$offre->pays}}</a></span>
+										<span class="job-lctn"><a  href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">{{$offre->ville}}, {{$offre->pays}}</a></span>
 									<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
@@ -353,11 +345,11 @@
 	</section> --}}
 
 	
-	<section>
-		<div class="block">
+	<section >
+		<div class="block" >
 			<div data-velocity="-.1" style="background-color:#383a5a" class="parallax scrolly-invisible  color "></div><!-- PARALLAX BACKGROUND IMAGE -->
 			<div class="container">
-				<div class="row">
+				<div class="row" style="margin-bottom: 100px">
 					<div class="col-lg-12">
 						<div class="heading light">
 							<br><br>
@@ -365,23 +357,60 @@
 						</div><!-- Heading -->
 						<div class="reviews-sec" id="reviews-carousel">
 
+							@php 
+								$mois = array('','Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre');
+							@endphp
+		
 							@foreach ($articles as $article )
-							<div class="col-lg-4">
+
+							<div class="col-lg-4 col-md-4 col-sm-3">
 								<div class="my-blog">
 									<div class="blog-thumb">
-										<a href="#" title=""><img src="http://placehold.it/360x200" alt="" /></a>
+										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""><img src="{{asset($article->image)}}" alt="" /></a>
 										<div class="blog-date">
-											<a href="#" title="">2020 <i>14 Octobre</i></a>
+											<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
 										</div>
 									</div>
 									<div class="blog-details">
-										<h3><a href="#" title="">Comment faire son CV</a></h3>
-										<p>Pour faire son cv, c'est très facile. Il suffit de d'ouvrir word et c'est tout. </p>
+										<h3><a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->titre}}</a></h3>
+										<p>{!! substr($article->description, 0, 100) !!} ...</p>
+										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4 col-sm-3">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="{{asset($article->image)}}" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
+										</div>
+									</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">{{$article->titre}}</a></h3>
+										<p>{!! substr($article->description, 0, 100) !!} </p>
 										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 									</div>
 								</div>
 							</div>
 
+							<div class="col-lg-4 col-md-4 col-sm-3">
+								<div class="my-blog">
+									<div class="blog-thumb">
+										<a href="#" title=""><img src="{{asset($article->image)}}" alt="" /></a>
+										<div class="blog-date">
+											<a href="#" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
+										</div>
+									</div>
+									<div class="blog-details">
+										<h3><a href="#" title="">{{$article->titre}}</a></h3>
+										<p>{!! substr($article->description, 0, 100) !!} </p>
+										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+							
 							@endforeach
 							
 					
@@ -393,9 +422,41 @@
 	</section>
 
 
+	
+	<section style="margin-top: 100px">
+		<div class="block">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="heading">
+							<h2>Les entreprises qui nous font confiance</h2>
+							<span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span>
+						</div><!-- Heading -->
+						<div class="comp-sec">
+							<div class="company-img">
+								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							</div><!-- Client  -->
+							<div class="company-img">
+								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							</div><!-- Client  -->
+							<div class="company-img">
+								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							</div><!-- Client  -->
+							<div class="company-img">
+								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							</div><!-- Client  -->
+							<div class="company-img">
+								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							</div><!-- Client  -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
-	<section>
+	<section style="margin-top: 100px">
 		<div class="block gray">
 			<div class="container">
 				<div class="row">

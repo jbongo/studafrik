@@ -37,7 +37,7 @@
                                 <h3 style="color: #f66551">• QU’EST-CE QUE STUD’AFRIK ?</h3>
                                 <br><br>
                             </div>
-                             <div class="col-lg-7 col-md-7 col-sm-7">
+                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p>
                                 
                                     Stud’Afrik est une plateforme de recherche d’emploi et stages. Elle permet de
@@ -62,7 +62,11 @@
                                     informations sur le code du travail…
                                 </p>
                              </div>
-                             <div class="col-lg-5 col-md-5 col-sm-5">
+                         </div>
+
+                         <div class="row justify-content-center" style="margin-top: 55px; margin-bottom: 55px">
+
+                             <div class="col-lg-12 col-md-12 col-sm-12" >
                                 <video controls autoplay height="300px" width="500px">
                                     <source src="{{asset('videos/qui_somme_nous.mp4')}}"
                                     type="video/mp4">
@@ -70,6 +74,10 @@
                                   </video>
                         
                              </div>
+                         </div>
+
+                         <div class="row">
+
                              <div class="col-lg-7 col-md-7 col-sm-7">
                                  <br><br>
                                 <h3 style="color: #f66551">• POURQUOI MENER CE PROJET ? </h3> 
