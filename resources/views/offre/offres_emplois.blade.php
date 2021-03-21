@@ -106,7 +106,7 @@
                          </div>
                      </div> --}}
                      <div class="widget border">
-                         <h3 class="sb-title @if($typeoffres != null) open @else closed @endif"> Type de l'offre</h3> 
+                         <h3 class="sb-title @if($typeoffres != null) open @else closed @endif"> Type d'offre</h3> 
                          <div class="type_widget">
                             <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("CDI",$typeoffres)) checked @endif name="typeoffres[]" value="CDI" id="CDI"/><label for="CDI">CDI</label></p>
                             <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("CDD",$typeoffres)) checked @endif name="typeoffres[]" value="CDD" id="CDD"/><label for="CDD">CDD</label></p>
@@ -143,10 +143,9 @@
                              <div class="type_widget">
                                 
                                 <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "1") checked @endif name="date_publication" value="1" id="1h"/><label for="1h">Moins de 24h</label></p>
-                                <p class="ischek"><input type="radio"  @if( $date_publication != null && $date_publication == "3") checked @endif name="date_publication" value="3" id="3h"/><label for="3h">Moins de 3 jours</label></p>
                                 <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "7") checked @endif name="date_publication" value="7" id="7h"/><label for="7h">Moins de 7 jours</label></p>
-                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "15") checked @endif name="date_publication" value="15" id="15h"/><label for="15h">Moins de 15 jours</label></p>
-                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "30") checked @endif name="date_publication" value="30" id="30h"/><label for="30h">Moins de 30 jours</label></p>
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "30") checked @endif name="date_publication" value="30" id="30h"/><label for="30h">Moins d'un mois jours</label></p>
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "Tout") checked @endif name="date_publication" value="Tout" id="Tout"/><label for="Tout">Tout</label></p>
                                 
                                 
                              </div>
@@ -181,7 +180,7 @@
                          </div>
                      </div>
                      <div class="job-list-modern">
-                         <div class="job-listings-sec no-border">
+                         <div class="job-listings-sec no-border" style="margin-bottom: 100px">
                    
 
                            @foreach ( $offres as $offre )
@@ -189,13 +188,13 @@
                                 <a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
                                 <div class="job-title-sec">
                                    
-                                <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" alt="" /> </div>
+                                <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  alt="" /> </div>
                                         <h3>{{ $offre->titre }}</h3>
                                         <span class="job-is f2"> {{ $offre->categorieoffre->nom}}</span>
 
                                         {{-- <span>{!! substr($offre->description, 0 , 150)!!}</span> --}}
                                     
-                                        <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }},</div>
+                                        <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
                                         {{-- <span class="job-is fl"> {{ $offre->type_contrat }}</span> --}}
                                 </div>
                             </a>
