@@ -144,7 +144,7 @@
                                 
                                 <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "1") checked @endif name="date_publication" value="1" id="1h"/><label for="1h">Moins de 24h</label></p>
                                 <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "7") checked @endif name="date_publication" value="7" id="7h"/><label for="7h">Moins de 7 jours</label></p>
-                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "30") checked @endif name="date_publication" value="30" id="30h"/><label for="30h">Moins d'un mois jours</label></p>
+                                <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "30") checked @endif name="date_publication" value="30" id="30h"/><label for="30h">Moins d'un mois</label></p>
                                 <p class="ischek"><input type="radio" @if( $date_publication != null && $date_publication == "Tout") checked @endif name="date_publication" value="Tout" id="Tout"/><label for="Tout">Tout</label></p>
                                 
                                 
