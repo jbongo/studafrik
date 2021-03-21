@@ -1932,6 +1932,23 @@ Author:         Creative Layer
      margin: 9px 0;
      text-align: center;
  }
+ .job-isx {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: Open Sans;
+    font-size: 12px;
+    border: 1px solid;
+    float: right;
+    padding: 7px 0;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    /* width: 108px; */
+    margin: 9px 0;
+    text-align: center;
+}
  
  .ft.fill {
      background: #8b91dd;

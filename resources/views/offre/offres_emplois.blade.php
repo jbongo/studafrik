@@ -190,7 +190,7 @@
                                    
                                 <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  alt="" /> </div>
                                         <h3>{{ $offre->titre }}</h3>
-                                        <span class="job-is f2"> {{ $offre->categorieoffre->nom}}</span>
+                                        <span class="job-isx f1"> &nbsp; {{ $offre->categorieoffre->nom}} &nbsp;</span>
 
                                         {{-- <span>{!! substr($offre->description, 0 , 150)!!}</span> --}}
                                     
