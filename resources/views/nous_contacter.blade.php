@@ -104,15 +104,12 @@
 
                             {{-- <li><i class="la la-phone"></i><span>Contactez-nous au : +33015522000</span></li> --}}
                             <li><i class="la la-envelope-o"></i><span>Email : contact@studafrik.com</span></li>
-                            <div class="login-socialx">
-                                <a class="fb-loginb" href="https://www.facebook.com/Studafrik/" title=""><img src="{{asset('images/icoface.png')}}" width="75px" /> </a>
-                                <a class="fb-loginb" href="https://www.instagram.com/studafrik/?hl=fr" title=""><img src="{{asset('images/icoinsta.jpg')}}" width="60px" /> </a>
-                                <a class="fb-loginb" href="https://twitter.com/studafrik/" title=""><img src="{{asset('images/icotwitter.png')}}" width="60px" /> </a>
-                                {{-- <a class="" href="https://www.facebook.com/Studafrik/" title=""><i class="fa fa-facebook fa-2x"></i></a>
-                                <a class="" href="" title=""><i class="fa fa-twitter fa-2x"></i></a>
-                                <a  href="" title=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i> --}}
-                                </a>
-                            </div> 
+                            <div class="share-bar circle">
+                                <a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="share-instagram"><i class="la la-instagram"></i></a>
+                                <a href="https://www.facebook.com/Studafrik/" title="" class="share-fb"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/studafrik/" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
+                            </div>
+                            
                          
                              
                             

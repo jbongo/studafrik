@@ -23,6 +23,12 @@
 <section>
     <div class="block">
         <div class="container">
+            <div class="row"  style="margin-bottom: 20px; margin-left: ">
+                <div class="col-2">
+                    <p onclick="rtn()"> <a btn href=""  style="background: #485631; color:#fff; padding:10px 10px 10px 10px ">  Retour</a> </p> 
+
+                </div>
+            </div>
             <div class="row">
                  <div class="col-lg-12 column">
                      <div class="job-single-sec style3">
@@ -193,4 +199,12 @@
 
 </div>
 
+
 @extends('layouts.footer')
+@section('js-content')
+<script>
+    function rtn() {
+       window.history.back();
+    }
+    </script>
+@endsection

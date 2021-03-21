@@ -44,18 +44,7 @@
                                                        
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="action-inner">
-                                                        @if($est_recruteur == true)
-                                                            @if($est_favoris == false)
-
-                                                            <a class="btn btn-success" href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
-                                                            @else 
-                                                            <a class="btn btn-danger" href="#" style="color:rgb(232, 243, 241); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
-                                                            @endif
-                                                        @endif
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -77,25 +66,45 @@
                                        <strong> {{ session('ok') }}</strong>
                                     </div>
                                     @endif 
+
                                     <div class="cand-single-user">
+                                         <span onclick="rtn()"> <a btn   style="background: #485631; color:#fff; padding:10px 10px 10px 10px "> Retour</a> </span> 
+
                                         <div class="share-bar circle">
                                              <a href="#" title="" class="share-google"><i class="la la-google"></i></a><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
                                          </div>
+
                                          <div class="can-detail-s">
-                                             <div class="cst"><img src="http://placehold.it/145x145" alt="" /></div>
+                                             <div class="cst"><img class="img-responsive" id="photodisplay"  src="{{($candidat->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $candidat->photo_profile) }}" alt="@lang('Photo de profil')"></div>
                                              <h3>{{$candidat->prenom}} {{$candidat->nom}}</h3>
                                              <span><i>{{$candidat->poste}}</i></span>
                                              <p>{{$candidat->email}}</p>
                                              <p>Membre dépuis, {{$candidat->created_at->format('Y')}}</p>
                                              <p><i class="la la-map-marker"></i>{{$candidat->ville}} / {{$candidat->pays}}</p>
                                          </div>
+              
+
+
                                          <div class="download-cv">
-                                         @if($candidat->cv != null)
+                                            @if($est_recruteur == true)
+                                                @if($est_favoris == false)
+                        
+                                                <a style="margin-right: 5px" class="btn btn-success" href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
+                                                @else 
+                                                <a class="btn btn-danger" href="#" style="color:rgb(232, 243, 241); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
+                                                @endif
+                                            @endif 
+                                        </div>
+                                      
+                                         <div class="download-cv">
+                                            @if($candidat->cv != null)
 
-                                             <a href="{{route('user.telecharger_cv', $candidat->id)}}" title="">Télécharger le CV <i class="la la-download"></i></a>
-                                         @endif
+                                                <a href="{{route('user.telecharger_cv', $candidat->id)}}" title="">Télécharger le CV <i class="la la-download"></i></a>
+                                            @endif
 
+                                        
                                          </div>
+                                         
                                      </div>
                                      <ul class="cand-extralink">
                                          <li><a href="#about" title="">À Propos</a></li>
@@ -211,6 +220,12 @@ tinymce.init({
  menubar: false
 });
 </script>
+
+<script>
+    function rtn() {
+       window.history.back();
+    }
+    </script>
 @endsection
 @include('layouts.footer')
 

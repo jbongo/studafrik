@@ -62,7 +62,7 @@
                                     <a href="#" title="">Offres d'emplois </a>
                                 </div>
                                 <div class="col-lg-6">
-                                    <a href="#" title="">Contact </a>
+                                    <a href="{{route('nous_contacter')}}" title="">Contact </a>
                                     <a href="#" title="">Termes du contrat</a>
                                     <a href="{{route('user.bibliotheque.index')}}" title="">Recruteurs </a>
 

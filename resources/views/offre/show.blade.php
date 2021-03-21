@@ -20,10 +20,17 @@
 	</section>
 
 
-	<section style="margin-top: 55px">
+	<section style="margin-top: 1px">
 		<div class="block">
 			<div class="container">
+				<div class="row"  style="margin-bottom: 20px; margin-left: ">
+					<div class="col-2">
+						<p onclick="rtn()"> <a btn href=""  style="background: #485631; color:#fff; padding:10px 10px 10px 10px ">  Retour</a> </p> 
+
+					</div>
+				</div>
 				<div class="row">
+					
 				 	<div class="col-lg-8 column">
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
@@ -83,7 +90,7 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb"> <img src="http://placehold.it/124x124" alt="" /> </div>
+			 				<div class="job-thumb"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil') alt="" /> </div>
 			 				<div class="job-head-info">
 					
 							 <h4> {{$offre->user->nom}}</h4>
@@ -131,7 +138,7 @@
 									@endif
 
 								@endif
-			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
+			 				<a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #ab0f0f" class="viewall-jobs">Découvrir l'entreprise</a>
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>
@@ -139,5 +146,12 @@
 		</div>
 	</section>
 
-	
+	@section('js-content')
+	<script>
+		function rtn() {
+		   window.history.back();
+		}
+		</script>
+	@endsection
 	@include('layouts.footer')
+
