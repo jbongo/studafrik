@@ -40,7 +40,7 @@
                                 <a href="#" title=""><img src="{{asset('images/logo.png')}}" alt="" width="150px" /></a>
                             </div>
                            
-                            <span>contact@studafrik.scom</span>
+                            <span>contact@studafrik.com</span>
                             <div class="social">
                                 <a href="https://www.facebook.com/Studafrik/" title=""><i class="fa fa-facebook"></i></a>
                                 <a href="https://twitter.com/studafrik?lang=fr" title=""><i class="fa fa-twitter"></i></a>
@@ -57,7 +57,7 @@
                         <div class="link_widgets">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <a href="#" title="">Qui sommes nous ?</a>
+                                    <a href="#" title="">Qui sommes-nous ?</a>
                                     <a href="#" title="">FAQ </a>
                                     <a href="#" title="">Offres d'emplois </a>
                                 </div>

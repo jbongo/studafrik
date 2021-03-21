@@ -11,7 +11,7 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideDashboard"><img src="https://www.ecpinvestments.com/wp-content/uploads/2019/11/zt0a0681.jpg" alt="" /></li>
+								<li class="slideDashboard"><img src="{{asset('images/header/header3.jpg')}}" alt="" /></li>
 								{{-- <li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li> --}}
 							</ul>
@@ -32,21 +32,22 @@
 												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="job-field">
 														<select data-placeholder="Tous les pays" name="pays" class="chosen-city">
-															<option></option>
-															<option>Gabon</option>
-															<option>Mali</option>
-															<option>Côte d'ivoire</option>
-															<option>Sénégal</option>
+															<option value="">Tous les pays</option>															
+															@foreach ($pays as $pay )
+																<option value="{{$pay->nom}}">{{$pay->nom}}</option>
+															@endforeach
 														</select>
 													</div>
 												</div>
 												<div class="col-lg-3 col-md-3 col-sm-4">
 													<div class="job-field">
 														<select data-placeholder="Toutes les catégories" name="categorie" class="chosen-city">
-															<option></option>
-															<option>Informatique</option>
-															<option>Communication</option>
-															<option>Finance/Comptabilité</option>
+															<option value="">Toutes les catégories</option>
+														
+		
+															@foreach ($categories as $categorie )
+																<option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+															@endforeach
 															
 														</select>
 													</div>
@@ -429,7 +430,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>Les entreprises qui nous font confiance</h2>
+							<h2>Ils recrutent</h2>
 							<span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span>
 						</div><!-- Heading -->
 						<div class="comp-sec">
@@ -494,10 +495,10 @@
 					<div class="col-lg-12">
 						<div class="social-links">
 							<br><br>
-							<a href="#" title="" class="fb-color"><i class="fa fa-facebook"></i> Facebook</a>
-							<a href="#" title="" class="tw-color"><i class="fa fa-twitter"></i> Twitter</a>
-							<a href="#" title="" class="in-color"><i class="la la-instagram"></i> Instagram</a>
-							<a href="#" title="" class="lk-color"><i class="la la-linkedin"></i> Linkedin</a>
+							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-color"><i class="fa fa-facebook"></i> Facebook</a>
+							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-color"><i class="fa fa-twitter"></i> Twitter</a>
+							<a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="in-color"><i class="la la-instagram"></i> Instagram</a>
+							<a href="https://www.linkedin.com/company/stud-afrik/" title="" class="lk-color"><i class="la la-linkedin"></i> Linkedin</a>
 <br><br>
 						</div>
 					</div>

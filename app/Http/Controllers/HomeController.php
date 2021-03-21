@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use App\Models\Offre;
 Use App\Models\Article;
+Use App\Models\Categorieoffre;
+Use App\Models\Pays;
 
 class HomeController extends Controller
 {
@@ -17,9 +19,11 @@ class HomeController extends Controller
     {
         $offres = Offre::where('active', true)->orderBy('id','desc')->limit(6)->get();
         $articles = Article::where('actif', true)->orderBy('id','desc')->limit(6)->get();
-        
+        $categories = Categorieoffre::all();
+        $pays = Pays::all();
+
         // dd($offres);
-        return view('welcome', compact('offres','articles'));
+        return view('welcome', compact('offres','articles', 'categories', 'pays'));
     }
 
     /**

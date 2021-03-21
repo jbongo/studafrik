@@ -36,7 +36,7 @@
                            
                             <div class="profile-title">
                                 @if(Auth::user()->profile_complete == true)
-                                    <h3>Mon profile</h3>
+                                    <h3>Mon profil</h3>
                                 @else 
                                 <h2>Veuillez compléter votre profile pour continuer</h2>
 
