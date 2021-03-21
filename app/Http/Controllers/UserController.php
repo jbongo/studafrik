@@ -324,15 +324,19 @@ public function photoProfile(Request $request){
 
     $user = User::where('id',Auth()->id())->first();
    
+           
     if($request->hasFile('photo_profil')){
         $avatar = $request->file('photo_profil');
         $filename = time() . '.' . $avatar->getClientOriginalExtension();
         $filename = $user->id.'_'.$filename;
-        Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
+        $avatar->move(public_path().'/images/photo_profil/',$filename);
+
+        // Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
         
         
         // on supprime l'ancienne photo si elle existe
         if($user->photo_profile) {
+            // dd('xx');
             
             $img = public_path('images/photo_profil/'.$user->photo_profile);
           
@@ -342,9 +346,36 @@ public function photoProfile(Request $request){
            
         }
 
-        $user->photo_profile_path = $filename;
+
+        $user->photo_profile = $filename;
         $user->update();
     }
+
+
+
+
+
+    // if($request->hasFile('photo_profil')){
+    //     $avatar = $request->file('photo_profil');
+    //     $filename = time() . '.' . $avatar->getClientOriginalExtension();
+    //     $filename = $user->id.'_'.$filename;
+    //     Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
+        
+        
+    //     // on supprime l'ancienne photo si elle existe
+    //     if($user->photo_profile) {
+            
+    //         $img = public_path('images/photo_profil/'.$user->photo_profile);
+          
+    //         if(File::exists($img) ){
+    //            File::delete($img);
+    //        }
+           
+    //     }
+
+    //     $user->photo_profile_path = $filename;
+    //     $user->update();
+    // }
 
     return back()->with('ok', __("La photo a bien été enregistrée"));
 }
