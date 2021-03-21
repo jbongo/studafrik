@@ -313,7 +313,7 @@ if($request->hasFile('cv')){
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
 */
-public function photoProfile(){
+public function photoProfile(Request $request){
 
 // return 444;
 //     dd("dedede");
