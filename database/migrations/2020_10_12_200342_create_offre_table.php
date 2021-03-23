@@ -31,7 +31,7 @@ class CreateOffreTable extends Migration
             $table->string('ville')->nullable();
             $table->date('date_expiration')->nullable();
             $table->text('message_candidature')->nullable();
-            $table->string('candidater_lien')->default(false);
+            $table->string('candidater_lien')->default("Non");
             $table->string('url_candidature')->nullable();
             
             

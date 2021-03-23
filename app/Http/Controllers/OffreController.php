@@ -211,6 +211,8 @@ class OffreController extends Controller
             "pays" => $request->pays,
             "ville" => $request->ville,
             "date_expiration" => $request->date_expiration,
+            "candidater_lien" => $request->candidater_lien,
+            "url_candidature" => $request->url_candidature,
 
         ]);
 
@@ -298,6 +300,9 @@ class OffreController extends Controller
         $offre->pays = $request->pays ;
         $offre->ville = $request->ville ;
         $offre->date_expiration = $request->date_expiration ;
+        
+        $offre->candidater_lien = $request->candidater_lien ;
+        $offre->url_candidature = $request->url_candidature ;
 
 
         $offre->update();
@@ -387,7 +392,7 @@ class OffreController extends Controller
 
         Mail::to($offre->user->email)->send(new CandidatureNotif($offre));
         // return Redirect::back()->withErrors(['ok', 'Votre  candidature a été envoyé au recruteur ']);
-        return redirect()->route('mes_offres.index')->with('ok', __("Votre  candidature a été envoyé au recruteur")  );
+        return redirect()->route('candidatures.index')->with('ok', __("Votre  candidature a été envoyé au recruteur")  );
 
         // return view('mes_offres.show', compact('offre'))->with('ok', 'Votre  candidature a été envoyé au recruteur ');;
     }

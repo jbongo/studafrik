@@ -37,13 +37,27 @@
                              
                          <form method="POST" action="{{route('mes_offres.update', Crypt::encrypt($offre->id) )}}" >
                              @csrf
-                                 <div class="row">
-                                     <div class="col-lg-12">
+                                 <div class="row" style="margin-bottom: 100px">
+                                     <div class="col-12">
                                          <span class="pf-title">Titre de l'offre <span class="text-danger">*</span> </span>
                                          <div class="pf-field">
                                              <input type="text" required  value="{{old('titre') ? old('titre') : $offre->titre}}" name="titre" placeholder="" />
                                          </div>
                                      </div>
+                                     <div class="col-12">
+                                        <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
+                                        <div class="pf-field">
+                                            <select data-placeholder="Please Select Specialism" required value="{{old('categorieoffre_id') ? old('categorieoffre_id') : $offre->categorieoffre_id}}" name="categorieoffre_id" class="form-control chosen">
+                                              
+                                               <option value="{{$offre->categorieoffre->id}}">{{$offre->categorieoffre->nom}}</option>   
+                                              
+                                               @foreach ($categories as $categorie )
+                                               <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
+                                               @endforeach
+                                               
+                                           </select>
+                                        </div>
+                                    </div>
 
                                      <div class="col-lg-12">
                                          <span class="pf-title">Description <span class="text-danger">*</span> </span>
@@ -58,20 +72,7 @@
                                          </div>
                                      </div>
 
-                                     <div class="col-lg-6">
-                                         <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
-                                         <div class="pf-field">
-                                             <select data-placeholder="Please Select Specialism" required value="{{old('categorieoffre_id') ? old('categorieoffre_id') : $offre->categorieoffre_id}}" name="categorieoffre_id" class="form-control chosen">
-                                               
-                                                <option value="{{$offre->categorieoffre->id}}">{{$offre->categorieoffre->nom}}</option>   
-                                               
-                                                @foreach ($categories as $categorie )
-                                                <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
-                                                @endforeach
-                                                
-                                            </select>
-                                         </div>
-                                     </div>
+                                
 
                                      <div class="col-lg-6">
                                         <span class="pf-title">Type de contrat <span class="text-danger">*</span> </span>
@@ -154,6 +155,28 @@
                                              <input type="text"  value="{{old('ville') ? old('ville') : $offre->ville}}" name="ville" placeholder="" />
                                          </div>
                                      </div>
+                                     
+                                     <div class="col-6" id="div_candidater_lien">
+                                        <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
+                                        <div class="pf-field">
+                                          
+                                           <select data-placeholder="" required id="candidater_lien"  name="candidater_lien" class="form-control chosen">
+                                            @if($offre->candidater_lien != null)
+                                                <option value="{{$offre->candidater_lien}}">{{$offre->candidater_lien}}</option>
+                                            @endif
+                                                <option value="Non">Non</option>
+                                                <option value="Oui">Oui</option>
+                                            
+                                            </select>
+                                        </div>
+                                    </div>
+            
+                                    <div class="col-6" id="div_url_candidature">
+                                        <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
+                                        <div class="pf-field">
+                                           <input type="url" id="url_candidature" name="url_candidature" value="{{$offre->url_candidature}}" class="form-control"  />
+                                        </div>
+                                    </div>
 
                                      <div class="col-lg-12">
                                          <button type="submit" >Modifier</button>
@@ -193,5 +216,35 @@ tinymce.init({
     menubar: false
   });
   </script>
+  
+  
+
+<script>
+
+    var lien_cand = "{{$offre->candidater_lien}}";
+    if(lien_cand == "Non"){
+    $('#div_url_candidature').hide();
+
+    }
+
+
+    
+    $('#candidater_lien').on('change',function(){
+
+    var val = $('#candidater_lien').val();
+    
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+
+    }else{
+        $('#div_url_candidature').show();
+
+    }
+   
+
+    })
+
+
+</script>
 @endsection
 @include('layouts.footer')

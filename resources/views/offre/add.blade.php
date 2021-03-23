@@ -157,6 +157,27 @@
                                             </div>
                                         </div>
 
+                                        {{-- <div class="row"> --}}
+                                            <div class="col-6">
+                                                <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
+                                                <div class="pf-field">
+                                                  
+                                                   <select data-placeholder="" id="candidater_lien" required  name="candidater_lien" class="form-control chosen">
+                                                    <option value="Non">Non</option>
+                                                    <option value="Oui">Oui</option>
+                                                    
+                                                </select>
+                                                </div>
+                                            </div>
+                    
+                                            <div class="col-6" id="div_url_candidature">
+                                                <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
+                                                <div class="pf-field">
+                                                   <input type="url" id="url_candidature" name="url_candidature" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            
+                                        {{-- </div> --}}
                                         <div class="col-lg-12">
                                             <button type="submit" >Ajouter</button>
                                         </div>
@@ -194,6 +215,29 @@ tinymce.init({
     menubar: false
   });
   </script>
+  
+  <script>
+
+   
+
+    
+    $('#candidater_lien').on('change',function(){
+
+    var val = $('#candidater_lien').val();
+    
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+
+    }else{
+        $('#div_url_candidature').show();
+
+    }
+   
+
+    })
+
+
+</script>
 @endsection
 @include('layouts.footer')
 

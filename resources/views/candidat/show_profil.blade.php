@@ -68,6 +68,12 @@
                 <section class="overlape">
                     <div class="block remove-top">
                         <div class="container">
+                            <div class="row"  >
+                                <div class="col-5">
+                                <p> <a  href="{{route('cv.liste')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux candidats</a> </p> 
+            
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     @if (session('ok'))
@@ -78,7 +84,7 @@
                                     </div>
                                     @endif 
                                     <div class="cand-single-user">
-                                        <span onclick="rtn()"> <a btn   style="background: #485631; color:#fff; padding:10px 10px 10px 10px "> Retour</a> </span> 
+                                      
                                         <div class="share-bar circle">
                                              <a href="#" title="" class="share-google"><i class="la la-google"></i></a><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
                                          </div>

@@ -22,10 +22,16 @@
 
 	<section style="margin-top: 1px">
 		<div class="block">
+				<div class="row"  style="margin-bottom: 20px; margin-left: ">
+					<div class="col-5">
+					{{-- <p> <a  href="{{route('offres_emplois')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux offres</a> </p>  --}}
+
+					</div>
+				</div>
 			<div class="container">
 				<div class="row"  style="margin-bottom: 20px; margin-left: ">
-					<div class="col-2">
-						<p onclick="rtn()"> <a btn href=""  style="background: #485631; color:#fff; padding:10px 10px 10px 10px ">  Retour</a> </p> 
+					<div class="col-5">
+					<p> <a  href="{{route('offres_emplois')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux offres</a> </p> 
 
 					</div>
 				</div>
@@ -39,13 +45,7 @@
 									
 								</div>
 							
-								@if($est_candidat == true)
-									@if($est_favoris == false)
-									<a class="btn btn-success" href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
-									@else 
-									<a class=" btn btn-warning" href="#" style="color:rgb(58, 3, 3); font-size:17px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
-									@endif
-								@endif
+							
 								<br>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
@@ -81,7 +81,7 @@
 				 			</div>
 				 			
 				 			<div class="share-bar">
-				 				<span>Partager</span><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
+				 				{{-- <span>Partager</span><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a> --}}
 				 			</div>
 				 		</div>
 					 </div>
@@ -90,7 +90,7 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil') alt="" /> </div>
+			 				<div class="job-thumb"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 			 				<div class="job-head-info">
 					
 							 <h4> {{$offre->user->nom}}</h4>
@@ -100,17 +100,32 @@
 								 @endif
 			 					{{-- <p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
 			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p> --}}
+			 					<br>
+								 <p>
+									@if($est_candidat == true)
+										@if($est_favoris == false)
+										<a class="btn btn-success" href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
+										@else 
+										<a class=" btn btn-warning" href="#" style="color:rgb(58, 3, 3); font-size:17px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
+										@endif
+									@endif
+								 </p>
 							 </div>
 							 
 							
 
 								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
-									<br> <span style="color:#d60004; font-size:18px">L'offre a expirée</span> <br>
+								
+											@if($deja_postuler == true )
+												<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span> <br>
+											@endif
+											
+											
+									<br> <span style="color:#d60004; font-size:18px">L'offre a expiré</span> <br>
 								@else 
 									@if(Auth::check())
 										@if(Auth::user()->role == "candidat") 
-											@if($deja_postuler == false && $offre->date_expiration <= date("Y-m-d"))
-
+											@if($deja_postuler == false )
 												@if($offre->candidater_lien == "Non")
 													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
 												@else
@@ -129,16 +144,16 @@
 											@if($offre->candidater_lien == "Non")
 												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
 											@else
-
 												<a href="{{$offre->url_candidature}}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
-
 											@endif
 
 									
 									@endif
 
 								@endif
-			 				<a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #ab0f0f" class="viewall-jobs">Découvrir l'entreprise</a>
+			 				<a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #ab0f0f" class="viewall-jobs">Découvrir l'entreprise</a> <br>
+							 
+						
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>

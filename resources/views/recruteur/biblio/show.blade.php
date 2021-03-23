@@ -24,8 +24,8 @@
     <div class="block">
         <div class="container">
             <div class="row"  style="margin-bottom: 20px; margin-left: ">
-                <div class="col-2">
-                    <p onclick="rtn()"> <a btn href=""  style="background: #485631; color:#fff; padding:10px 10px 10px 10px ">  Retour</a> </p> 
+                <div class="col-5">
+                <p> <a  href="{{route('user.bibliotheque.index')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux entreprises</a> </p> 
 
                 </div>
             </div>

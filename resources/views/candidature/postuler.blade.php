@@ -27,7 +27,7 @@
 				 	<div class="col-lg-8 column">
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
-				 				<div class="job-title2"><h3>{{$offre->titre}}</h3><span class="job-is ft">{{$offre->type_contrat}}</span><i class="la la-heart-o"></i></div>
+				 				<div class="job-title2"><h3>{{$offre->titre}}</h3><span class="job-is ft">{{$offre->type_contrat}}</span></div>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
 				 					<li><i class="la la-money"></i> Salaire  : <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li>
@@ -36,7 +36,7 @@
 				 				</ul>
 				 				{{-- <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span> --}}
 				 			</div><!-- Job Head -->
-				 			<div class="job-details">
+				 			<div class="job-details" style="margin-bottom: 50px">
                          
                             @if($offre->message_candidature == null)
                                 <form enctype="multipart/form-data" action="{{ route('postuler.store',$offre->id ) }}" method="POST">
@@ -88,8 +88,9 @@
 				 			</div>
 				 			
 				 			<div class="share-bar">
-				 				<span>Partager</span><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
+				 				{{-- <span>Partager</span><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a> --}}
 				 			</div>
+				 			
 				 		</div>
 					 </div>
 					 
@@ -97,7 +98,7 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb"> <img src="http://placehold.it/124x124" alt="" /> </div>
+			 				<div class="job-thumb"><img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" />  </div>
 			 				<div class="job-head-info">
 							 <h4> @if($offre->user->nom) {{$offre->user->nom}} @else {{$offre->nom_entreprise}} @endif</h4>
 			 					{{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
