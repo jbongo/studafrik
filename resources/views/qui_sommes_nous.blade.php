@@ -161,10 +161,10 @@
                                 <div class="team">
                                     <div class="team-img"><img src="http://placehold.it/121x121" alt="" /></div>
                                     <div class="team-detail">
-                                        <h3><a href="#" title="">Amanda Cook</a></h3>
-                                        <span>I Knew You Were Trouble</span>
-                                        <p>The Random Name Generator is a simple fiction writing tool…</p>
-                                        <a href="#" title="">View Resume <i class="la la-long-arrow-right"></i></a>
+                                        <h3><a href="#" title="">Yeelen </a></h3>
+                                        <span>Ceo Studarfik</span>
+                                        <p>Passionnée des outils de communication…</p>
+                                        <a href="#" style="color: #f66551" title="">Voir Profil Linkedin <i class="la la-long-arrow-right"></i></a>
                                     </div>
                                 </div><!-- Team -->
                             </div>
@@ -172,35 +172,38 @@
                                 <div class="team">
                                     <div class="team-img"><img src="http://placehold.it/121x121" alt="" /></div>
                                     <div class="team-detail">
-                                        <h3><a href="#" title="">İbrahim Agay</a></h3>
-                                        <span>Developer</span>
-                                        <p>The Random Name Generator is a simple fiction writing tool…</p>
-                                        <a href="#" title="">View Resume <i class="la la-long-arrow-right"></i></a>
+                                        <h3><a href="#" title="">Morgan </a></h3>
+                                        <span>Ceo Studarfik</span>
+                                        <p>Passionnée des outils de communication…</p>
+                                        <a href="#" style="color: #f66551" title="">Voir Profil Linkedin <i class="la la-long-arrow-right"></i></a>
                                     </div>
                                 </div><!-- Team -->
                             </div>
+                            
                             <div class="col-lg-3">
                                 <div class="team">
                                     <div class="team-img"><img src="http://placehold.it/121x121" alt="" /></div>
                                     <div class="team-detail">
-                                        <h3><a href="#" title="">Ali Tufan</a></h3>
-                                        <span>Senior UI / UX Designer</span>
-                                        <p>The Random Name Generator is a simple fiction writing tool…</p>
-                                        <a href="#" title="">View Resume <i class="la la-long-arrow-right"></i></a>
+                                        <h3><a href="#" title="">Jean Philippe </a></h3>
+                                        <span>Ceo Studarfik</span>
+                                        <p>Passionnée des outils de communication…</p>
+                                        <a href="#" style="color: #f66551" title="">Voir Profil Linkedin <i class="la la-long-arrow-right"></i></a>
                                     </div>
                                 </div><!-- Team -->
                             </div>
+                            
                             <div class="col-lg-3">
                                 <div class="team">
                                     <div class="team-img"><img src="http://placehold.it/121x121" alt="" /></div>
                                     <div class="team-detail">
-                                        <h3><a href="#" title="">Juan Suso</a></h3>
-                                        <span>IT Outsource Company</span>
-                                        <p>The Random Name Generator is a simple fiction writing tool…</p>
-                                        <a href="#" title="">View Resume <i class="la la-long-arrow-right"></i></a>
+                                        <h3><a href="#" title="">Anne-Claire </a></h3>
+                                        <span>Ceo Studarfik</span>
+                                        <p>Passionnée des outils de communication…</p>
+                                        <a href="#" style="color: #f66551" title="">Voir Profil Linkedin <i class="la la-long-arrow-right"></i></a>
                                     </div>
                                 </div><!-- Team -->
                             </div>
+                          
                            
                         </div>
                     </div>
