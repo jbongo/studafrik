@@ -81,7 +81,7 @@
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('user.bibliotheque.index') }}" title="">Recruteurs</a>
+							<a href="{{ route('user.bibliotheque.index') }}" title="">Découvrir les entreprises</a>
 						</li>
 					
 					</ul>

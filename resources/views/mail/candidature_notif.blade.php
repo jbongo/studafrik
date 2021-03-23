@@ -10,6 +10,6 @@ Se connecter
 
 Bien cordialement,<br>
 L'Équipe STUDAFRIK.
-<img src="{{asset('images/logo.png')}}" width="130px" height="65px" alt="logo">
+<img src="{{asset('images/logo.png')}}" width="120px" height="100px" alt="logo">
 
 @endcomponent

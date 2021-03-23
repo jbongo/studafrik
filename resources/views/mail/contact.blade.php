@@ -3,10 +3,10 @@
  # Vous avez reçu un nouveau mail via le formulaire de contact
 
  
- Nom ou Raison sociale :  {{$nom}} <br>
- email :  {{$email}}  <br>
- Sujet :  {{$sujet}}  <br>
- Message : {{$message}}  <br>
+ <strong>  Nom ou Raison sociale : </strong>  {{$nom}} <br>
+ <strong>  email : </strong>  {{$email}}  <br>
+ <strong>  Sujet : </strong>  {{$sujet}}  <br>
+ <strong>  Message : </strong> {{$message}}  <br>
 
 
 
@@ -15,6 +15,6 @@ Se connecter
 @endcomponent
 
 
-<img src="{{asset('images/logo.png')}}" width="130px" height="65px" alt="logo">
+<img src="{{asset('images/logo.png')}}" width="120px" height="100px" alt="logo">
 
 @endcomponent

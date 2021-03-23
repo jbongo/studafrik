@@ -103,7 +103,7 @@
                          <ul>
 
                             {{-- <li><i class="la la-phone"></i><span>Contactez-nous au : +33015522000</span></li> --}}
-                            <li><i class="la la-envelope-o"></i><span>Email : contact@studafrik.com</span></li>
+                            <li><i class="la la-envelope-o"></i><span> contact@studafrik.com</span></li>
                             <div class="share-bar circle">
                                 <a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="share-instagram"><i class="la la-instagram"></i></a>
                                 <a href="https://www.facebook.com/Studafrik/" title="" class="share-fb"><i class="fa fa-facebook"></i></a>
