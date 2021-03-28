@@ -131,14 +131,14 @@
                      </div>
                 </div>
                 <aside class="col-lg-3 column">
-                    <div class="widget">
+                    {{-- <div class="widget">
                          <div class="search_widget_job no-margin">
                              <div class="field_w_search">
                                  <input placeholder="rechercher" type="text">
                                  <i class="la la-search"></i>
                              </div><!-- Search Widget -->
                          </div>
-                     </div>
+                     </div> --}}
  
                      <div class="widget">
                          <h3>Posts récents </h3>

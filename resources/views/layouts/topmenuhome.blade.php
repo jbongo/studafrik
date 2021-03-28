@@ -81,7 +81,7 @@
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('user.bibliotheque.index') }}" title="">Découvrir les entreprises</a>
+							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
 						</li>
 					
 					</ul>
@@ -89,11 +89,13 @@
 		</div>
 	</div>
 	
-	<header class="stick-top style2">
+
+	
+	<header class="stick-top forsticky">
 		<div class="menu-sec">
 			<div class="container fluid">
 				<div class="logo">
-					<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px" alt="" /></a>
+					<a href="{{ route('welcome')}}" title=""><img class="logoo" src="{{ asset('images/logo.png') }}" width="150px" alt="" /></a>
 				</div><!-- Logo -->
 				<div class="btn-extars">
 					@if(Auth::check())
@@ -129,7 +131,7 @@
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('user.bibliotheque.index') }}" title="">Découvrir les entreprises</a>
+							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
 						</li>
 						
 					</ul>

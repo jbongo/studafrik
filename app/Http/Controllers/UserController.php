@@ -408,6 +408,7 @@ public function photoProfile(Request $request){
     
         $raison_sociale = $request->raison_sociale;
         $pays = $request->pays;
+        $categorie = $request->categorie;
 
        $recruteurs = User::where([['role', 'recruteur', ['profile_complete', 1]]])
        
@@ -426,14 +427,27 @@ public function photoProfile(Request $request){
             }
         
         })
+
+         // trie avec la catégorie
+       ->where(function($query) use ($categorie){
+        if($categorie != null){
+            $query->where('categorie', 'like', '%'.$categorie.'%');
+        }
+    
+    })
        
        
        ->paginate(10);
 
+    //    dd($categorie);
       
        $payss = Pays::all();
+       $categories = Categorieoffre::all();
 
-        return view('recruteur.biblio.index', compact('recruteurs','raison_sociale', 'pays','payss'));
+       $cat = Categorieoffre::where('id',$categorie)->first();
+       $cat = $cat!= null ? $cat->nom : null;
+
+        return view('recruteur.biblio.index', compact('recruteurs','raison_sociale', 'pays','payss','categories','cat'));
     }
 
 
@@ -448,6 +462,7 @@ public function photoProfile(Request $request){
     
         $recruteur = User::where('id', Crypt::decrypt($recruteur_id) )->first();
         $offres = Offre::paginate(10);
+
 
 
         return view('recruteur.biblio.show', compact('recruteur','offres'));

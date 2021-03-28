@@ -73,7 +73,7 @@
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('user.bibliotheque.index') }}" title="">Découvrir les entreprises</a>
+							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
 						</li>
 					
 					</ul>
@@ -117,7 +117,7 @@
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('user.bibliotheque.index') }}" title="">Découvrir les entreprises</a>
+							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
 						</li>
 						
 					</ul>

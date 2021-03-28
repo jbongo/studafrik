@@ -1,5 +1,12 @@
 
 @include('layouts.topmenuhome')
+
+<style>
+	h2 {
+        font-family: 'Montserrat';
+		color: #EB586C;
+    }
+</style>
 <div class="page-loading">
 	<img src="images/loader.gif" alt="" />
 	<span>passer le chargement</span>
@@ -11,13 +18,13 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideDashboard"><img src="{{asset('images/header/header3.jpg')}}" alt="" /></li>
+								<li class="slideDashboard"><img src="{{asset('images/header/header03.png')}}" alt="" /></li>
 								{{-- <li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li> --}}
 							</ul>
 							<div class="job-search-sec" style="margin-bottom: ">
 								<div class="job-search style2">
-									<h3>La meilleure façon de trouver un emploi</h3>
+									<h3>Etudiant(e) ou jeune diplômé(e): trouve ton job en Afrique !</h3>
 									{{-- <span>Find Jobs, Employment & Career Opportunities</span> --}}
 									<div class="search-job2">	
 										<form action="{{ route('recherche_emplois') }}" method="get">
@@ -122,7 +129,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="heading">
-							<h2>Offres récentes</h2>
+							<h2 style=" font-family: 'Montserrat">Offres récentes</h2>
 							{{-- <span>Leading Employers already using job and talent.</span> --}}
 						</div><!-- Heading -->
 						<div class="job-grid-sec">
@@ -152,7 +159,7 @@
 					</div>
 					<div class="col-lg-12">
 						<div class="browse-all-cat">
-						<a href="{{route('offres_emplois')}}" title="" class="style2">Voir toutes les offres</a>
+							<a href="{{route('offres_emplois')}}" title="" class="style2">Voir toutes les offres</a>
 						</div>
 					</div>
 				</div>
@@ -431,7 +438,7 @@
 					<div class="col-lg-12">
 						<div class="heading">
 							<h2>Ils recrutent</h2>
-							<span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span>
+							{{-- <span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span> --}}
 						</div><!-- Heading -->
 						<div class="comp-sec">
 							<div class="company-img">
@@ -495,10 +502,10 @@
 					<div class="col-lg-12">
 						<div class="social-links">
 							<br><br>
-							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-color"><i class="fa fa-facebook"></i> Facebook</a>
-							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-color"><i class="fa fa-twitter"></i> Twitter</a>
-							<a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="in-color"><i class="la la-instagram"></i> Instagram</a>
-							<a href="https://www.linkedin.com/company/stud-afrik/" title="" class="lk-color"><i class="la la-linkedin"></i> Linkedin</a>
+							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-colorx"><i class="fa fa-facebook"></i> Facebook</a>
+							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-colorx"><i class="fa fa-twitter"></i> Twitter</a>
+							<a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="in-colorx"><i class="la la-instagram"></i> Instagram</a>
+							<a href="https://www.linkedin.com/company/stud-afrik/" title="" class="lk-colorx"><i class="la la-linkedin"></i> Linkedin</a>
 <br><br>
 						</div>
 					</div>

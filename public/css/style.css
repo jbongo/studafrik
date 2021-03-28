@@ -506,7 +506,7 @@ Author:         Creative Layer
      -ms-border-radius: 4px;
      -o-border-radius: 4px;
      border-radius: 4px;
-     background: black;
+     background: #EB586C;
      border: 0;
      letter-spacing: 1px;
  }
@@ -1024,6 +1024,9 @@ Author:         Creative Layer
      margin-top: 4px;
  }
  
+ .forsticky.sticky .menu-sec {
+    margin: 1px 0;
+}
  .newbg .menu-sec nav {
      margin-top: 4px;
  }
@@ -1433,7 +1436,7 @@ Author:         Creative Layer
      width: 100%;
      padding: 0;
      margin-bottom: 20px;
-     margin-top: -50px;
+     margin-top: 90px;
  }
  
  .job-search>h3 {
@@ -1527,7 +1530,7 @@ Author:         Creative Layer
      width: 100%;
      padding: 9px 0;
      font-size: 30px;
-     background-color: #8b91dd;
+     background-color: #EB586C;
      height: 61px;
      border-radius: 8px;
  }
@@ -1682,7 +1685,7 @@ Author:         Creative Layer
      margin: 0;
      font-weight: bold;
      font-size: 30px;
-     color: #202020;
+     color: #EE6E49;
      line-height: 23px;
  }
  
@@ -1894,7 +1897,7 @@ Author:         Creative Layer
      vertical-align: middle;
      font-family: open Sans;
      font-size: 13px;
-     color: #888888;
+     color: #323232;
      line-height: 23px;
      width: 25%;
  }
@@ -1980,8 +1983,8 @@ Author:         Creative Layer
  
  .job-is.fl,
  .job-list-modern .job-is.fl {
-     color: #fb236a;
-     border-color: #fb236a;
+     color: #EB586C;
+     border-color: #EB586C;
  }
  
  .job-is.tp,
@@ -2520,7 +2523,7 @@ Author:         Creative Layer
  .bottom-line span {
      font-family: Open Sans;
      font-size: 13px;
-     color: #6a7d9b;
+     color: #EE6E49;
      line-height: 24px;
  }
  /* Header Style 2 */
@@ -2584,7 +2587,7 @@ Author:         Creative Layer
  .search-job2 form button {
      font-size: 15px;
      font-weight: bold;
-     background: #d42525;
+     background: #EB586C;
      padding: 20px 0px;
      width: 100%;
      font-family: Open Sans;
@@ -2668,7 +2671,7 @@ Author:         Creative Layer
  }
  
  .quick-select:hover i {
-     background: #d42525;
+     background: #EB586C;
  }
  /* Job Grid Sec */
  
@@ -2745,8 +2748,8 @@ Author:         Creative Layer
      float: right;
      font-family: Open Sans;
      font-size: 13px;
-     color: #fb236a;
-     border: 1px solid #fb236a;
+     color: #EB586C;
+     border: 1px solid #EB586C;
      -webkit-border-radius: 20px;
      -moz-border-radius: 20px;
      -ms-border-radius: 20px;
@@ -3291,7 +3294,7 @@ Author:         Creative Layer
      height: 50px;
      padding: 0;
      font-size: 24px;
-     background: #d42525;
+     background: #EB586C;
  }
  
  .social-links {
@@ -3349,7 +3352,46 @@ Author:         Creative Layer
  .social-links a.lk-color i {
      background: #0077B5;
  }
- 
+
+
+
+ .social-links a.fb-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.tw-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.in-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.pt-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.dr-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.gl-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.lk-colorx i {
+    background: #EB586C;
+}
+
+.social-links a.lk-colorx i {
+   background: #EB586C;
+}
+
+
+
+
+
+
  .mega-widget {
      float: left;
      width: 100%;
@@ -4927,7 +4969,7 @@ Author:         Creative Layer
  }
  
  footer.style3 .bottom-line span {
-     color: #929393;
+     color: #EE6E49;
  }
  
  footer.style3 span,
@@ -5088,7 +5130,7 @@ Author:         Creative Layer
      -ms-box-shadow: none;
      -o-box-shadow: none;
      box-shadow: none;
-     border: 2px solid #e8ecec;
+     border: 2px solid #aa2424;
  }
  
  .job-grid:hover {
@@ -5337,7 +5379,7 @@ Author:         Creative Layer
  }
  
  .ischek label::before {
-     border-color: #f831e3 !important;
+     border-color: #EB586C !important;
  }
  
  .ptchek label::before {
@@ -5545,7 +5587,7 @@ Author:         Creative Layer
      bottom: 0;
      font-style: normal;
      font-size: 13px;
-     color: #888888;
+     color: #323232;
  }
  
  .job-list-modern .job-listing.wtabs {
@@ -6275,7 +6317,7 @@ Author:         Creative Layer
      float: left;
      line-height: 15px;
      margin-right: 8px;
-     color: #ff0000;
+     color: #EE6E49;
  }
  
  .tags-jobs>li span {
@@ -6379,7 +6421,7 @@ Author:         Creative Layer
  }
  
  .apply-job-btn {
-     background: #fb236a;
+     background: #EB586C;
      font-family: Open Sans;
      font-size: 15px;
      font-weight: bold;
@@ -6726,7 +6768,7 @@ Author:         Creative Layer
      position: absolute;
      right: 0;
      top: 0;
-     color: #8b91dd;
+     color: #EE6E49;
      font-size: 13px;
  }
  
@@ -6743,7 +6785,7 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      font-size: 13px;
-     color: #fb236a;
+     color: #EE6E49;
  }
  
  .emply-list-info>h6 {
@@ -6949,7 +6991,7 @@ Author:         Creative Layer
  }
  
  .emply-list.box {
-     border: 2px solid #e6e7ef;
+     border: 2px solid #323232;
      -webkit-border-radius: 8px;
      -moz-border-radius: 8px;
      -ms-border-radius: 8px;
@@ -7012,7 +7054,7 @@ Author:         Creative Layer
      -ms-box-shadow: none;
      -o-box-shadow: none;
      box-shadow: none;
-     border-color: #8b91dd;
+     border-color: #323232;
  }
  
  .alpha-pag.full a {
@@ -7103,7 +7145,7 @@ Author:         Creative Layer
  .emply-btns>a {
      float: left;
      width: 100%;
-     background: #fb236a;
+     background: #EB586C;
      font-family: Open Sans;
      font-size: 13px;
      color: #ffffff;
@@ -7113,7 +7155,7 @@ Author:         Creative Layer
      -ms-border-radius: 8px;
      -o-border-radius: 8px;
      border-radius: 8px;
-     border: 2px solid #fb236a;
+     border: 2px solid #EB586C;
      padding: 11px 0;
      margin-top: 10px;
  }
@@ -8537,7 +8579,7 @@ Author:         Creative Layer
  }
  
  header.gradient {
-    background: #423e3e;
+    background: #323232;
      /* background: -moz-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
      background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(139, 145, 221, 1)), color-stop(71%, rgba(16, 25, 93, 1)), color-stop(100%, rgba(16, 25, 93, 1)));
      background: -webkit-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
@@ -10495,7 +10537,7 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      font-size: 13px;
-     color: #888888;
+     color: #323232;
      margin-top: 5px;
  }
  
@@ -10937,7 +10979,7 @@ Author:         Creative Layer
  .commentform-sec>form button {
      float: left;
      font-size: 15px;
-     background: #fb236a;
+     background: #EB586C;
      color: #ffffff;
      padding: 15px 28px;
      -webkit-border-radius: 8px;
@@ -11017,6 +11059,7 @@ Author:         Creative Layer
      color: #202020;
      font-weight: bold;
      margin: 0;
+     color: #EE6E49;
  }
  
  .inner-title2>span {
@@ -11706,7 +11749,7 @@ Author:         Creative Layer
  }
  
  .account-popup>form button:hover {
-     background: #fb236a;
+     background: #EB586C;
  }
  
  .login-social a.tw-login:hover {
@@ -11722,7 +11765,7 @@ Author:         Creative Layer
  }
  
  .job-search form button:hover {
-     background: #fb236a;
+     background: #EB586C;
  }
  
  .or-browser>a:hover {
@@ -11740,7 +11783,7 @@ Author:         Creative Layer
  }
  
  .browse-all-cat a:hover {
-     background: #fb236a;
+     background: #EB586C;
      color: #ffffff;
  }
  
@@ -11769,9 +11812,9 @@ Author:         Creative Layer
  }
  
  .job-grid>a:hover {
-     background: #fb236a;
+     background: #EB586C;
      color: #ffffff;
-     border-color: #fb236a;
+     border-color: #EB586C;
  }
  
  .top-compnay>a:hover {
@@ -11828,7 +11871,7 @@ Author:         Creative Layer
  }
  
  .job-search form button:hover {
-     background: #fb236a;
+     background: #EB586C;
  }
  
  .p-category.style2:hover>a i {
@@ -11958,8 +12001,8 @@ Author:         Creative Layer
  
  .emply-btns>a.seemap:hover {
      background: transparent;
-     border-color: #fb236a;
-     color: #fb236a;
+     border-color: #EB586C;
+     color: #EB586C;
  }
  
  .upload-info>a:hover {
@@ -12079,7 +12122,7 @@ Author:         Creative Layer
  }
  
  .commentform-sec>form button:hover {
-     background: #555555;
+     background: #323232;
  }
  
  .service:hover i {
@@ -12203,8 +12246,8 @@ Author:         Creative Layer
  }
  
  .forsticky.sticky .menu-sec {
-     margin-top: 23px;
-     margin-bottom: 17px;
+     /* margin-top: 23px; */
+     /* margin-bottom: 17px; */
  }
  
  .forsticky.sticky .post-job-btn:hover {

@@ -42,7 +42,7 @@
 								<form method="POST" action="{{ route('register') }}">
                                 @csrf
 								
-                                  <div class="cfield">
+                                  <div class="cfieldX">
                                    
                                         <input type="radio" id="recruteur" name="role" value="recruteur" required>
                                         <label for="recruteur">Je suis Recruteur</label>
@@ -73,13 +73,13 @@
 									
 									<button  type="submit">S'inscrire</button>
 								</form>
-								<div class="extra-login" >
+								{{-- <div class="extra-login" >
 									<span>S'inscrire avec :</span>
 									<div class="login-social">
 										<a class="fb-login" href="#" title=""><i class="fa fa-facebook"></i></a>
 										<a class="tw-login" href="#" title=""><i class="fa fa-twitter"></i></a>
 									</div>
-								</div>
+								</div> --}}
 							</div>
 						</div><!-- SIGNUP POPUP -->
 					</div>

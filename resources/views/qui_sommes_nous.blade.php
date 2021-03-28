@@ -1,4 +1,6 @@
 @include('layouts.topmenuhome')
+
+
 	<section>
 		<div class="block no-padding">
 			<div class="container fluid">
@@ -59,7 +61,7 @@
                                
                             </div>
                              <div class="col-lg-6 col-md-6 col-sm-6">
-                                <h3 style="color: #f66551">• QU’EST-CE QUE STUD’AFRIK ?</h3>
+                                <h3 style="color: #EE6E49; text-align:center; font-weight:bold">QU’EST-CE QUE STUD’AFRIK ?</h3>
                                 <br><br>
                                 <br><br>
 
@@ -89,7 +91,7 @@
                                 </p>
                              </div>
                              <div class="col-lg-6 col-md-6 col-sm-6">
-                                <h3 style="color: #f66551">• POURQUOI MENER CE PROJET ? </h3> 
+                                <h3 style="color: #EE6E49; text-align:center; font-weight:bold">POURQUOI MENER CE PROJET ? </h3> 
                                 <br><br>
                                 <br><br>
                                 <p>  

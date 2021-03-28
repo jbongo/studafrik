@@ -1,5 +1,10 @@
 @include('layouts.topmenupage')
 
+<style>
+    h3{
+        color: #EE6E49;
+    }
+</style>
 
     	
 	<section>

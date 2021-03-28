@@ -11,7 +11,7 @@
                     <div class="inner-header wform">
                         <div class="job-search-sec">
                             <div class="job-search">
-                                <h4>Recherchez un Job...</h4>
+                                <h4>Découvrez les offres d'emploi </h4>
                                 <form action="{{ route('recherche_emplois') }}" method="get" >
                                     @csrf
                                     <div class="row">
@@ -152,9 +152,15 @@
                          </div>
                      </div>
 
-                     <div class="widget border">
+                     <div class="widget border"  >
                         {{-- <h3 class="sb-title closed">Spécialité</h3> --}}
-                        <button type="submit" class="mux-btn btn-default" id="use-filter-btn">Appliquer filtres</button>
+
+                        <div class="row justify-content-md-center">
+                            <div class="col-10 col-offset-1">
+                                <button type="submit"  class="mux-btn btn-default" id="use-filter-btn">Appliquer filtres</button>
+
+                            </div>
+                        </div>
                         
                     </div>
                      
@@ -198,9 +204,13 @@
                                         {{-- <span class="job-is fl"> {{ $offre->type_contrat }}</span> --}}
                                 </div>
                             </a>
-                                <div class="job-style-bx">
+                                <div class="job-style-b">
                                     <span class="job-is fl"> {{ $offre->type_contrat }}</span>
-                                    {{-- <span class="fav-job"><i class="la la-heart-o"></i></span> --}}
+                                   
+                                </div>
+
+                                <div class="job-style-bx">
+                                   
                                     @php 
                                         $duree = date_diff(date_create(date('Y-m-d')) ,date_create($offre->created_at->format('Y-m-d')) ); 
                                     @endphp 

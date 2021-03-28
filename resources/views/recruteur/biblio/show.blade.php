@@ -1,14 +1,14 @@
 
  @include('layouts.topmenuhome')
 
- <section class="overlape">
+ <section class="overlape" style="margin-bottom: 100px">
     <div class="block no-padding">
-        <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div data-velocity="-.1" style="" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
         <div class="container fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-header">
-                        <h3>Recruteur</h3>
+                        <h3></h3>
                     </div>
                 </div>
             </div>
@@ -17,13 +17,13 @@
 </section>
 <style>
     .nav-pills .nav-link.active{
-        background-color: #fb236a;
+        background-color: #EB586C;
     }
 </style>
 <section>
     <div class="block">
         <div class="container">
-            <div class="row"  style="margin-bottom: 20px; margin-left: ">
+            <div class="row"  style="margin-bottom: 20px; margin-top: 30px">
                 <div class="col-5">
                 <p> <a  href="{{route('user.bibliotheque.index')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux entreprises</a> </p> 
 
@@ -43,7 +43,7 @@
                                              <ul class="tags-jobs">
                                                  <li><i class="la la-file-text"></i> Secteur d'activité : {{$recruteur->categorie}} </li>
                                                  @if($recruteur->date_creation_entreprise != null) <li><i class="la la-calendar-o"></i> Date de création: {{$recruteur->date_creation_entreprise->format('d/m/Y')}}</li> @endif
-                                                 <li><i class="la la-eye"></i> Nombre de vues 563</li>
+                                                 <li><i class="la la-eye" style="color: #EB586C" ></i> Nombre de vues 563</li>
                                              </ul>
                                          </div>
                                      </div><!-- Job Head -->

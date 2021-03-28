@@ -29,7 +29,7 @@
 </footer> -->
 
 
-<footer>
+<footer style="background: #323232">
     <div class="block">
         <div class="container">
             <div class="row">
@@ -53,7 +53,7 @@
                 <div class="col-lg-4 column">
                     <div class="widget">
                         <br><br>
-                        <h3 class="footer-title">Questions fréquentes</h3>
+                        <h3 class="footer-title">A propos</h3>
                         <div class="link_widgets">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -102,8 +102,8 @@
             </div>
         </div>
     </div>
-    <div class="bottom-line style2">
-        <span>© 2020 Studafrik Tous droits reservés</span>
+    <div class="bottom-line style2" style="background: #ffffff; color:#EB586C">
+        <span style="color:#EB586C">© 2020 Studafrik Tous droits reservés</span>
         <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
     </div>
 </footer>

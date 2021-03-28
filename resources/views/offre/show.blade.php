@@ -41,7 +41,7 @@
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
 								 <div class="job-title2">
-									 <h3>{{$offre->titre}}</h3><span class="job-is ft">{{$offre->type_contrat}}</span> 
+									 <h3>{{$offre->titre}}</h3><span class="job-is fl">{{$offre->type_contrat}}</span> 
 									
 								</div>
 							
@@ -90,8 +90,51 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
-			 				<div class="job-head-info">
+			 				<div class="job-thumb" style="margin-bottom: 55px"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
+			 				
+						
+								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
+								
+											@if($deja_postuler == true )
+												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
+											@endif
+											
+											
+									<br> <span style="color:#d60004; font-size:18px;">L'offre a expiré</span> <br>
+								@else 
+									@if(Auth::check())
+										@if(Auth::user()->role == "candidat") 
+											@if($deja_postuler == false )
+												@if($offre->candidater_lien == "Non")
+													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+												@else
+
+												<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+
+												@endif
+											
+											@elseif($deja_postuler == true )
+												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
+											@endif
+
+										@endif
+									@else 
+
+											@if($offre->candidater_lien == "Non")
+												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+											@else
+												<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+											@endif
+
+									
+									@endif
+
+								@endif
+
+
+
+							
+							 <div class="job-head-info">
 					
 							 <h4> {{$offre->user->nom}}</h4>
 								 {{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
@@ -104,9 +147,9 @@
 								 <p>
 									@if($est_candidat == true)
 										@if($est_favoris == false)
-										<a class="btn btn-success" href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
+										<a class="btn btn-success" style="width: 190px" href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
 										@else 
-										<a class=" btn btn-warning" href="#" style="color:rgb(58, 3, 3); font-size:17px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
+										<a class=" btn btn-warning"  href="#" style="color:rgb(58, 3, 3); font-size:17px; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
 										@endif
 									@endif
 								 </p>
@@ -114,44 +157,8 @@
 							 
 							
 
-								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
-								
-											@if($deja_postuler == true )
-												<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span> <br>
-											@endif
-											
-											
-									<br> <span style="color:#d60004; font-size:18px">L'offre a expiré</span> <br>
-								@else 
-									@if(Auth::check())
-										@if(Auth::user()->role == "candidat") 
-											@if($deja_postuler == false )
-												@if($offre->candidater_lien == "Non")
-													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
-												@else
-
-												<a href="{{$offre->url_candidature}}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
-
-												@endif
-											
-											@elseif($deja_postuler == true )
-												<span style="color:#d60004; font-size:18px">Vous avez déjà postulé à cette offre</span> <br>
-											@endif
-
-										@endif
-									@else 
-
-											@if($offre->candidater_lien == "Non")
-												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
-											@else
-												<a href="{{$offre->url_candidature}}" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Postuler</a>
-											@endif
-
-									
-									@endif
-
-								@endif
-			 				<a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #ab0f0f" class="viewall-jobs">Découvrir l'entreprise</a> <br>
+					
+			 				 <br> <a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #323232; width: 190px"  class="viewall-jobs">Découvrir l'entreprise</a> <br>
 							 
 						
 			 			</div><!-- Job Head -->

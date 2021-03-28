@@ -10,7 +10,7 @@
                     <div class="inner-header wform">
                         <div class="job-search-sec">
                             <div class="job-search">
-                                <h4>Nos recruteurs</h4>
+                                <h4>Découvrir les entreprises</h4>
                                 <form action="{{ route('user.bibliotheque.index') }}" method="get" >
                                     @csrf
                                     <div class="row">
@@ -20,7 +20,7 @@
                                                 <i class="la la-keyboard-o"></i>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-lg-3">
+                                        <div class="col-lg-3">
                                             <div class="job-field">
                                                 <select name="categorie" class="chosen-city form-control">
                                                     @if($cat != null)
@@ -42,7 +42,7 @@
                                                 </select>
                                                 <i class="la la-briefcase"></i>
                                             </div>
-                                        </div>--}}
+                                        </div>
                                         <div class="col-lg-3">
                                             <div class="job-field">
                                                 <select name="pays" class="chosen-city form-control">
@@ -91,13 +91,13 @@
 
 <style>
     .box { cursor: pointer; }
-    .emply-list.box { border:2px solid #609ca0 } 
-    .emply-list.box:hover { border:6px solid #335e61 } 
+    .emply-list.box { border:1px solid #EB586C } 
+    .emply-list.box:hover { border:2px solid #323232 } 
 
     
 </style>
 <section>
-    <div class="block less-top">
+    <div class="block gray less-top">
         <div class="container">
              <div class="row">
                  <aside class="col-lg-3 column margin_widget">
@@ -130,7 +130,7 @@
                          </div>
                      </div>
                      <div class="emply-list-sec">
-                         
+{{--                          
                          <div class="row" id="masonry">
 
                             @foreach ($recruteurs as $recruteur )
@@ -156,7 +156,56 @@
                  
                
 
+                        </div> --}}
+
+
+
+                        <br>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading">
+                    {{-- <h2 style=" font-family: 'Montserrat">Offres récentes</h2> --}}
+                    {{-- <span>Leading Employers already using job and talent.</span> --}}
+                </div><!-- Heading -->
+                <div class="job-grid-sec">
+                    <div class="row">
+                    @foreach ($recruteurs as $recruteur )
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="job-grid">
+                                <div class="job-title-sec">
+                                    <a  href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" title="">
+                                        <span>{{$recruteur->categorie}}</span>
+                                        <div class="c-logo"> <img src="{{asset(($recruteur->photo_profile != null) ? asset('images/photo_profil/'.$recruteur->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
+                                        <h3><a href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" >{{$recruteur->poste}}</a></h3>
+                                        <span><a href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" >{{$recruteur->raison_sociale}} &nbsp; </a></span>
+                                        <div class="emply-pstn">{{ sizeof($recruteur->mes_offres)}} offre(s)</div>
+                                    </a>
+                                   
+
+                                </div>
+                                <span class="job-lctn"><a  href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" title="">{{$recruteur->ville}}, {{$recruteur->pays}}</a></span>
+                            <a  href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" title="">Afficher</a>
+                            </div><!-- JOB Grid -->
                         </div>
+                    @endforeach
+                        
+                        
+                        
+                    
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        <br>
+                        <br>
+                        <br>
+
+
+
+
+
+
                      </div>
                 </div>
              </div>
