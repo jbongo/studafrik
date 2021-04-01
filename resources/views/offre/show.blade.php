@@ -6,7 +6,7 @@
 				<div class="row">
 
 						<div class="col-lg-12">
-							<div class="inner2" style="text-align: center; margin:-25px">
+							<div class="inner2" style="text-align: center; ">
 								<div class="inner-title2">
 									<h3>Postulez à cette offre</h3> <br><br>
 								</div>
@@ -20,17 +20,12 @@
 	</section>
 
 
-	<section style="margin-top: 1px">
+	<section style="margin-top: 20px">
 		<div class="block">
-				<div class="row"  style="margin-bottom: 20px; margin-left: ">
-					<div class="col-5">
-					{{-- <p> <a  href="{{route('offres_emplois')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux offres</a> </p>  --}}
-
-					</div>
-				</div>
+	
 			<div class="container">
-				<div class="row"  style="margin-bottom: 20px; margin-left: ">
-					<div class="col-5">
+				<div class="row"  style="margin-bottom: 20px;  ">
+					<div class="col-10">
 					<p> <a  href="{{route('offres_emplois')}}"  style=" color:rgb(82, 4, 108); ">  << Retour aux offres</a> </p> 
 
 					</div>
@@ -41,7 +36,20 @@
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
 								 <div class="job-title2">
-									 <h3>{{$offre->titre}}</h3><span class="job-is fl">{{$offre->type_contrat}}</span> 
+								 
+								 <div class="row">
+									 <div class="col-12">
+										<h3>{{$offre->titre}}</h3>
+									 
+									 </div>
+									 
+									 <div class="col-12">
+										<span class="job-is fl">{{$offre->type_contrat}}</span> 
+									 
+									 </div>
+								 </div>
+									 
+									 
 									
 								</div>
 							

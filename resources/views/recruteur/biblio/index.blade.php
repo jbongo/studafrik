@@ -1,9 +1,9 @@
 
  @include('layouts.topmenuhome')
 
- <section class="overlape">
+ <section class="overlape" style="background: #323232">
     <div class="block no-padding">
-        <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div data-velocity="-.1" style="" class=""></div><!-- PARALLAX BACKGROUND IMAGE -->
         <div class="container fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -130,33 +130,6 @@
                          </div>
                      </div>
                      <div class="emply-list-sec">
-{{--                          
-                         <div class="row" id="masonry">
-
-                            @foreach ($recruteurs as $recruteur )
-
-                                <div  class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="emply-list box" href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}">
-                                     
-                                        <div class="emply-list-thumb">
-                                            <a href="#" title=""><img  height="180px" src="{{ ($recruteur->photo_profile != null) ? asset('images/photo_profil/'.$recruteur->photo_profile) : asset('images/profil/profil_entreprise.png') }}" alt="" /></a>
-                                        </div>
-                                        <div class="emply-list-info">
-                                            <div class="emply-pstn">{{ sizeof($recruteur->mes_offres)}} offre(s)</div>
-                                            <h3><a href="#" title="">{{$recruteur->raison_sociale}}</a></h3>
-                                            <span>{{$recruteur->categorie}}</span>
-                                            <h6><i class="la la-map-marker"></i> {{$recruteur->ville}}, {{$recruteur->pays}}</h6>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-
-                            @endforeach
-                            
-                 
-               
-
-                        </div> --}}
 
 
 
@@ -172,13 +145,13 @@
                     @foreach ($recruteurs as $recruteur )
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="job-grid">
-                                <div class="job-title-sec">
+                                <div class="job-title-sec" >
                                     <a  href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" title="">
-                                        <span>{{$recruteur->categorie}}</span>
+                                        <span style="margin-top:15px">{{$recruteur->categorie}}</span>
                                         <div class="c-logo"> <img src="{{asset(($recruteur->photo_profile != null) ? asset('images/photo_profil/'.$recruteur->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
                                         <h3><a href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" >{{$recruteur->poste}}</a></h3>
-                                        <span><a href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" >{{$recruteur->raison_sociale}} &nbsp; </a></span>
-                                        <div class="emply-pstn">{{ sizeof($recruteur->mes_offres)}} offre(s)</div>
+                                        <span><a href="{{route('user.bibliotheque.show', Crypt::encrypt($recruteur->id))}}" >{{$recruteur->nom}} &nbsp; </a></span>
+                                        <div class="emply-pstn" style="margin-top:15px">{{ sizeof($recruteur->mes_offres)}} offre(s)</div>
                                     </a>
                                    
 

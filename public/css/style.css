@@ -1025,8 +1025,9 @@ Author:         Creative Layer
  }
  
  .forsticky.sticky .menu-sec {
-    margin: 1px 0;
-}
+     margin: 1px 0;
+ }
+ 
  .newbg .menu-sec nav {
      margin-top: 4px;
  }
@@ -1048,9 +1049,10 @@ Author:         Creative Layer
      margin: 0;
  }
  
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
  .menu-sec nav>ul>li>a {
      float: left;
-     font-family: Open Sans;
+     font-family: 'Montserrat', sans-serif, Open Sans;
      font-size: 18px;
      color: #ffffff;
      position: relative;
@@ -1436,7 +1438,7 @@ Author:         Creative Layer
      width: 100%;
      padding: 0;
      margin-bottom: 20px;
-     margin-top: 90px;
+     /* margin-top: 90px; */
  }
  
  .job-search>h3 {
@@ -1935,23 +1937,24 @@ Author:         Creative Layer
      margin: 9px 0;
      text-align: center;
  }
+ 
  .job-isx {
-    display: table-cell;
-    vertical-align: middle;
-    font-family: Open Sans;
-    font-size: 12px;
-    border: 1px solid;
-    float: right;
-    padding: 7px 0;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    border-radius: 20px;
-    /* width: 108px; */
-    margin: 9px 0;
-    text-align: center;
-}
+     display: table-cell;
+     vertical-align: middle;
+     font-family: Open Sans;
+     font-size: 12px;
+     border: 1px solid;
+     float: right;
+     padding: 7px 0;
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     -ms-border-radius: 20px;
+     -o-border-radius: 20px;
+     border-radius: 20px;
+     /* width: 108px; */
+     margin: 9px 0;
+     text-align: center;
+ }
  
  .ft.fill {
      background: #8b91dd;
@@ -3352,46 +3355,39 @@ Author:         Creative Layer
  .social-links a.lk-color i {
      background: #0077B5;
  }
-
-
-
+ 
  .social-links a.fb-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.tw-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.in-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.pt-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.dr-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.gl-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.lk-colorx i {
-    background: #EB586C;
-}
-
-.social-links a.lk-colorx i {
-   background: #EB586C;
-}
-
-
-
-
-
-
+     background: #EB586C;
+ }
+ 
+ .social-links a.tw-colorx i {
+     background: #EB586C;
+ }
+ 
+ .social-links a.in-colorx i {
+     background: #EB586C;
+ }
+ 
+ .social-links a.pt-colorx i {
+     background: #EB586C;
+ }
+ 
+ .social-links a.dr-colorx i {
+     background: #EB586C;
+ }
+ 
+ .social-links a.gl-colorx i {
+     background: #EB586C;
+ }
+ 
+ .social-links a.lk-colorx i {
+     background: #EB586C;
+ }
+ 
+ .social-links a.lk-colorx i {
+     background: #EB586C;
+ }
+ 
  .mega-widget {
      float: left;
      width: 100%;
@@ -4995,17 +4991,16 @@ Author:         Creative Layer
      height: 100%;
      content: "";
      z-index: -1;
-     background: #020215;
+     background: #323232;
      /* background: -moz-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
      background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(139, 145, 221, 1)), color-stop(71%, rgba(16, 25, 93, 1)), color-stop(100%, rgba(16, 25, 93, 1)));
      background: -webkit-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
      background: -o-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
      background: -ms-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%); */
-
      /* background: linear-gradient(45deg, rgb(64 48 48) 0%, rgb(1 3 21) 71%, rgb(93 16 55) 100%); */
      /* linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%); */
-     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d', GradientType=1);
-     opacity: 0.8;
+     /* filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#8b91dd', endColorstr='#10195d', GradientType=1); */
+     /* opacity: 0.8; */
  }
  
  .inner-header::after {
@@ -5073,7 +5068,7 @@ Author:         Creative Layer
  .filterbar {
      float: left;
      width: 100%;
-     margin-bottom: 30px;
+     margin-bottom: 3px;
  }
  
  .filterbar>h5 {
@@ -6841,9 +6836,9 @@ Author:         Creative Layer
  .filterbar>p {
      float: left;
      margin: 0;
-     font-family: Open Sans;
+     font-family: 'Montserrat', Open Sans;
      font-size: 13px;
-     color: #888888;
+     color: #EE6E49;
      line-height: 36px;
  }
  
@@ -8579,7 +8574,7 @@ Author:         Creative Layer
  }
  
  header.gradient {
-    background: #323232;
+     background: #323232;
      /* background: -moz-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
      background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(139, 145, 221, 1)), color-stop(71%, rgba(16, 25, 93, 1)), color-stop(100%, rgba(16, 25, 93, 1)));
      background: -webkit-linear-gradient(45deg, rgba(139, 145, 221, 1) 0%, rgba(16, 25, 93, 1) 71%, rgba(16, 25, 93, 1) 100%);
@@ -8822,20 +8817,21 @@ Author:         Creative Layer
      padding: 6px 20px;
      margin-right: 12px;
  }
+ 
  .skills-btn2 a {
-    float: left;
-    font-family: Open Sans;
-    font-size: 13px;
-    color: #08232b;
-    border: 2px solid #fb236a;
-    -webkit-border-radius: 21px;
-    -moz-border-radius: 21px;
-    -ms-border-radius: 21px;
-    -o-border-radius: 21px;
-    border-radius: 21px;
-    padding: 6px 20px;
-    margin-right: 12px;
-}
+     float: left;
+     font-family: Open Sans;
+     font-size: 13px;
+     color: #08232b;
+     border: 2px solid #fb236a;
+     -webkit-border-radius: 21px;
+     -moz-border-radius: 21px;
+     -ms-border-radius: 21px;
+     -o-border-radius: 21px;
+     border-radius: 21px;
+     padding: 6px 20px;
+     margin-right: 12px;
+ }
  
  .action-inner {
      float: right;
@@ -11046,7 +11042,7 @@ Author:         Creative Layer
  .inner-title2 {
      float: none;
      width: 50%;
-     padding: 60px 0px;
+     padding: 30px 0px;
      display: table-cell;
      vertical-align: middle;
  }

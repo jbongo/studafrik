@@ -5,7 +5,7 @@
         font-size:18px;
     }
 </style>
-<aside class="col-lg-2 column border-right" style="background: #EE6E49 ; ">
+<aside class="col-lg-2 col-md-2  column " style="background: #EE6E49 ; ">
     <div class="widget">
         <div class="tree_widget-sec">
             <ul>

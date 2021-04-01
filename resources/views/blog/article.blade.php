@@ -47,7 +47,7 @@
 
                      <div class="blog-single">
                        
-                         <div class="bs-thumbxxx"><img src="{{asset($article->image)}}" width="650px" height="330px" alt="" /></div>
+                         <div class="bs-thumbxxx"><img src="{{asset($article->image)}}" width="100%" height="330px" alt="" /></div>
                       
                          <ul class="post-metas" style="margin-top: 30px"><li><a href="#" title=""><i class="la la-calendar-o"></i>{{$article->created_at->format('d/m/Y')}}</a></li><li><a class="metascomment" href="#" title=""><i class="la la-comments"></i>{{ sizeof($article->commentaires()) }} commentaires</a></li></ul>
                       

@@ -60,7 +60,7 @@
 			</form> --}}
 			<div class="responsivemenu">
 				<ul>
-						<li class="menu-item-has-children">
+						<li class="menu-item">
 							<a href="{{ route('welcome') }}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
