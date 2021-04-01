@@ -12514,8 +12514,8 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      position: relative;
-     background: #0b1b46;
-     padding: 0 25px;
+     background: #323232;
+     /* padding: 0 25px; */
      z-index: 99;
      display: none;
  }
@@ -12555,7 +12555,7 @@ Author:         Creative Layer
  .responsive-menubar {
      float: left;
      width: 100%;
-     padding: 30px 0;
+     /* padding: 30px 0; */
  }
  
  .res-logo {
@@ -12617,7 +12617,7 @@ Author:         Creative Layer
      position: absolute;
      left: 0;
      top: 100%;
-     background: #0b1b46;
+     background: #323232;
      padding: 0 30px;
      overflow-y: scroll;
      height: 620px;
@@ -12626,8 +12626,8 @@ Author:         Creative Layer
  .responsive-opensec .btn-extars {
      float: left;
      width: 100%;
-     border-top: 1px solid #38425f;
-     border-bottom: 1px solid #38425f;
+     border-top: 1px solid #F28E1B;
+     border-bottom: 1px solid #F28E1B;
      padding: 20px 0;
  }
  

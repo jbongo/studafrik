@@ -195,12 +195,26 @@
                                 <div class="job-title-sec">
                                    
                                 <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  alt="" /> </div>
+                                        
+                                <div class="row">
+                                    <div class="col-12" style="margin-bottom: 25px">
                                         <h3>{{ $offre->titre }}</h3>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
+                                    </div>
+
+                                    <div class="col-6">
                                         <span class="job-isx f1"> &nbsp; {{ $offre->categorieoffre->nom}} &nbsp;</span>
+                                    </div>
+                                   
+                                   
+                                </div>
+                                
 
                                         {{-- <span>{!! substr($offre->description, 0 , 150)!!}</span> --}}
                                     
-                                        <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
                                         {{-- <span class="job-is fl"> {{ $offre->type_contrat }}</span> --}}
                                 </div>
                             </a>

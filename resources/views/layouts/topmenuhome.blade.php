@@ -68,11 +68,11 @@
 			</form> --}}
 			<div class="responsivemenu">
 				<ul>
-						<li class="menu-item-has-children">
+						<li class="menu-item">
 						<a href="{{route('welcome')}}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
-							<a  title="{{ route('offres_emplois') }}">Offres d'emplois</a>
+							<a  href="{{ route('offres_emplois') }}">Offres d'emplois</a>
 						</li>
 						<li class="menu-item">
 							<a href="{{ route('qui_sommes_nous') }}"  title="">Qui sommes nous ?</a>
