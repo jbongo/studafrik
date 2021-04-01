@@ -387,37 +387,7 @@
 								</div>
 							</div>
 
-							<div class="col-lg-4 col-md-4 col-sm-3">
-								<div class="my-blog">
-									<div class="blog-thumb">
-										<a href="#" title=""><img src="{{asset($article->image)}}" alt="" /></a>
-										<div class="blog-date">
-											<a href="#" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
-										</div>
-									</div>
-									<div class="blog-details">
-										<h3><a href="#" title="">{{$article->titre}}</a></h3>
-										<p>{!! substr($article->description, 0, 100) !!} </p>
-										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-4 col-md-4 col-sm-3">
-								<div class="my-blog">
-									<div class="blog-thumb">
-										<a href="#" title=""><img src="{{asset($article->image)}}" alt="" /></a>
-										<div class="blog-date">
-											<a href="#" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
-										</div>
-									</div>
-									<div class="blog-details">
-										<h3><a href="#" title="">{{$article->titre}}</a></h3>
-										<p>{!! substr($article->description, 0, 100) !!} </p>
-										<a href="#" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
+							
 							
 							@endforeach
 							
