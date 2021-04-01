@@ -194,19 +194,20 @@
                                 <a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
                                 <div class="job-title-sec">
                                    
-                                <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  alt="" /> </div>
+                                <div class="c-logo" style=""> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  alt="" /> </div>
                                         
                                 <div class="row">
                                     <div class="col-12" style="margin-bottom: 25px">
                                         <h3>{{ $offre->titre }}</h3>
                                     </div>
 
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  ">
                                         <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offre->ville }}, {{ $offre->pays }}</div>
                                     </div>
 
-                                    <div class="col-6">
-                                        <span class="job-isx f1"> &nbsp; {{ $offre->categorieoffre->nom}} &nbsp;</span>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                                        {{-- <span class="job-isx f1"> &nbsp; {{ $offre->categorieoffre->nom}} &nbsp;</span> --}}
+                                        <span class=""> &nbsp; {{ $offre->categorieoffre->nom}} &nbsp;</span>
                                     </div>
                                    
                                    
@@ -218,10 +219,7 @@
                                         {{-- <span class="job-is fl"> {{ $offre->type_contrat }}</span> --}}
                                 </div>
                             </a>
-                                <div class="job-style-b">
-                                    <span class="job-is fl"> {{ $offre->type_contrat }}</span>
-                                   
-                                </div>
+                                <div class="job-style-b"><span class="job-is fl"> {{ $offre->type_contrat }}</span></div>
 
                                 <div class="job-style-bx">
                                    

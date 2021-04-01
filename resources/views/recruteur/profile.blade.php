@@ -24,7 +24,7 @@
                     @include('layouts.leftmenu')
 
 
-                    <div class="col-lg-9 column">
+                    <div class="col-lg-9 col-md-9 column">
 
                         @if (session('ok'))
                         <div class="alert alert-success alert-dismissible fade in">

@@ -461,7 +461,7 @@ public function photoProfile(Request $request){
     {
     
         $recruteur = User::where('id', Crypt::decrypt($recruteur_id) )->first();
-        $offres = Offre::paginate(10);
+        $offres = Offre::where('user_id', Crypt::decrypt($recruteur_id))->paginate(10);
 
 
 
