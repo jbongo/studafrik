@@ -8,7 +8,7 @@
     }
 </style>
 <div class="page-loading">
-	<img src="images/loader.gif" alt="" />
+	<img src="images/loader1.gif" alt="" />
 	<span>passer le chargement</span>
 </div>
 	<section>
@@ -355,7 +355,7 @@
 	
 	<section >
 		<div class="block" >
-			<div data-velocity="-.1" style="background-color:#383a5a" class="parallax scrolly-invisible  color "></div><!-- PARALLAX BACKGROUND IMAGE -->
+			<div data-velocity="-.1" style="background-color:#323232" class="parallax scrolly-invisible  color "></div><!-- PARALLAX BACKGROUND IMAGE -->
 			<div class="container">
 				<div class="row" style="margin-bottom: 100px">
 					<div class="col-lg-12">
@@ -381,7 +381,7 @@
 									</div>
 									<div class="blog-details">
 										<h3><a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->titre}}</a></h3>
-										<p>{!! substr($article->description, 0, 100) !!} ...</p>
+										{!! $article->description !!} ...
 										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 									</div>
 								</div>

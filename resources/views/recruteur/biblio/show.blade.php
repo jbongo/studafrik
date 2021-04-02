@@ -92,7 +92,7 @@
                                   <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Profil</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Offres d'emplois ({{ sizeof($recruteur->mes_offres)}})</a>
+                                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Offres d'emploi ({{ sizeof($recruteur->mes_offres)}})</a>
                                 </li>
                                 
                               </ul>

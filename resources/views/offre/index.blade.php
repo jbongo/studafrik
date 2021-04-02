@@ -28,7 +28,7 @@
                  <div class="col-lg-9 column">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
-                            <h3>Gestion des offres d'emplois</h3>
+                            <h3>Gestion des offres d'emploi</h3>
                             <div class="extra-job-info">
                                 <span><i class="la la-clock-o"></i><strong>{{$nb_offres}}</strong> Offres</span>
                                 <span><i class="la la-file-text"></i><strong>{{$nb_candidatures}}</strong> Candidatures</span>

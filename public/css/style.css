@@ -506,7 +506,7 @@ Author:         Creative Layer
      -ms-border-radius: 4px;
      -o-border-radius: 4px;
      border-radius: 4px;
-     background: #EB586C;
+     background: #EE6E49;
      border: 0;
      letter-spacing: 1px;
  }
@@ -1532,7 +1532,7 @@ Author:         Creative Layer
      width: 100%;
      padding: 9px 0;
      font-size: 30px;
-     background-color: #EB586C;
+     background-color: #EE6E49;
      height: 61px;
      border-radius: 8px;
  }
@@ -2590,7 +2590,7 @@ Author:         Creative Layer
  .search-job2 form button {
      font-size: 15px;
      font-weight: bold;
-     background: #EB586C;
+     background: #EE6E49;
      padding: 20px 0px;
      width: 100%;
      font-family: Open Sans;
@@ -2674,7 +2674,7 @@ Author:         Creative Layer
  }
  
  .quick-select:hover i {
-     background: #EB586C;
+     background: #EE6E49;
  }
  /* Job Grid Sec */
  
@@ -2751,8 +2751,8 @@ Author:         Creative Layer
      float: right;
      font-family: Open Sans;
      font-size: 13px;
-     color: #EB586C;
-     border: 1px solid #EB586C;
+     color: #EE6E49;
+     border: 1px solid #EE6E49;
      -webkit-border-radius: 20px;
      -moz-border-radius: 20px;
      -ms-border-radius: 20px;
@@ -3297,7 +3297,7 @@ Author:         Creative Layer
      height: 50px;
      padding: 0;
      font-size: 24px;
-     background: #EB586C;
+     background: #EE6E49;
  }
  
  .social-links {
@@ -11779,7 +11779,7 @@ Author:         Creative Layer
  }
  
  .browse-all-cat a:hover {
-     background: #EB586C;
+     background: #EE6E49;
      color: #ffffff;
  }
  
@@ -11808,9 +11808,9 @@ Author:         Creative Layer
  }
  
  .job-grid>a:hover {
-     background: #EB586C;
+     background: #EE6E49;
      color: #ffffff;
-     border-color: #EB586C;
+     border-color: #EE6E49;
  }
  
  .top-compnay>a:hover {
@@ -11867,7 +11867,7 @@ Author:         Creative Layer
  }
  
  .job-search form button:hover {
-     background: #EB586C;
+     background: #EE6E49;
  }
  
  .p-category.style2:hover>a i {
@@ -12510,7 +12510,7 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      position: relative;
-     background: #323232;
+     background: #fff;
      /* padding: 0 25px; */
      z-index: 99;
      display: none;
@@ -12572,7 +12572,7 @@ Author:         Creative Layer
  
  .res-openmenu {
      float: left;
-     color: #fff;
+     color: #EE6E49;
      font-size: 15px;
      font-family: Open Sans;
      padding: 12px 27px;

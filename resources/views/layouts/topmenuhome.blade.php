@@ -72,7 +72,7 @@
 						<a href="{{route('welcome')}}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
-							<a  href="{{ route('offres_emplois') }}">Offres d'emplois</a>
+							<a  href="{{ route('offres_emplois') }}">Offres d'emploi</a>
 						</li>
 						<li class="menu-item">
 							<a href="{{ route('qui_sommes_nous') }}"  title="">Qui sommes nous ?</a>
@@ -122,7 +122,7 @@
 							<a href="{{ route('welcome') }}" title="">Accueil</a>							
 						</li>
 						<li class="menu-item">
-							<a href="{{ route('offres_emplois') }}" title="">Offres d'emplois</a>
+							<a href="{{ route('offres_emplois') }}" title="">Offres d'emploi</a>
 						</li>
 						<li class="menu-item">
 							<a href="{{ route('qui_sommes_nous') }}" title="">Qui sommes nous ?</a>

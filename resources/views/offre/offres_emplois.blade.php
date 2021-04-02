@@ -5,7 +5,7 @@
  <section class="overlape">
     <div class="block no-padding">
         <div data-velocity="-.1" style="" class="parallax scrolly-invisible no-parallax" ></div><!-- PARALLAX BACKGROUND IMAGE -->
-        <div class="container fluid">
+        <div class="container fluid gra">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-header wform">
@@ -92,7 +92,7 @@
 
 
 <section>
-    <div class="block remove-top">
+    <div class="block remove-top ">
         <div class="container">
              <div class="row no-gape">
                  <aside class="col-lg-3 column">
@@ -190,7 +190,7 @@
                    
 
                            @foreach ( $offres as $offre )
-                            <div class="job-listing wtabs">
+                            <div class="job-listing wtabs" >
                                 <a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
                                 <div class="job-title-sec">
                                    

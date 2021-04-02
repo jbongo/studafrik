@@ -4,8 +4,12 @@
         color:white;
         font-size:18px;
     }
+    .bg-gradient-studafrik{
+        background-color:#323232;
+        background-image:linear-gradient(180deg,#EE6E49 1%,#323232 50%);
+        background-size:cover}
 </style>
-<aside class="col-lg-2 col-md-2  column " style="background: #EE6E49 ; ">
+<aside class="col-lg-2 col-md-2  bg-gradient-studafrik " >
     <div class="widget">
         <div class="tree_widget-sec">
             <ul>
@@ -22,8 +26,8 @@
 
                 <p class="menugauche"> <a href="{{ route('dashboard') }}" title="">Profil</a> </p>
                     @if(Auth::user()->profile_complete == true)
-
-                        <p class="menugauche"><a href="{{ route('mes_offres.index') }}" title="">Offres d'emplois</a></p>
+ 
+                        <p class="menugauche"><a href="{{ route('mes_offres.index') }}" title="">Offres d'emploi</a></p>
                         <p class="menugauche"><a href="{{ route('mes_offres.create') }}" title="">Ajouter une offre</a></p>
                         <p class="menugauche"><a href="{{ route('cv.liste') }}" title="">Recherche candidats </a></p>
                         <p class="menugauche"><a href="{{route('favoris.cv.index')}}" title="">CV Sauvegardés</a></p>

@@ -51,7 +51,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.offres.index')}}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Offres d'emplois</span></a>
+            <span>Offres d'emploi</span></a>
     </li>
 
 
