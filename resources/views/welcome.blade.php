@@ -374,14 +374,17 @@
 							<div class="col-lg-4 col-md-4 col-sm-3">
 								<div class="my-blog">
 									<div class="blog-thumb">
-										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""><img src="{{asset($article->image)}}" alt="" /></a>
+										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""><img src="{{asset($article->image)}}" height="250px" alt="" /></a>
 										<div class="blog-date">
 											<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
 										</div>
 									</div>
+									@php  
+										$description = strip_tags($article->description) ;
+									@endphp
 									<div class="blog-details">
 										<h3><a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->titre}}</a></h3>
-										{!! $article->description !!} ...
+										{!! substr($description,0,100) !!} ...
 										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">lire la suite<i class="la la-long-arrow-right"></i></a>
 									</div>
 								</div>

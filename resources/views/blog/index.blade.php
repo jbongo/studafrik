@@ -42,9 +42,12 @@
                                                 <a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""> {{ sizeof($article->commentaires()) }} commentaires</a>
                                             </div>
                                         </div>
+                                        @php  
+										$description = strip_tags($article->description) ;
+									    @endphp
                                         <div class="blog-details">
                                             <h3><a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->titre}}</a></h3>
-                                            <p> {!! substr($article->description, 0, 100) !!} ... </p>
+                                            <p> {!! substr($description, 0, 250) !!} ... </p>
                                             <a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
                                         </div>
                                     </div>
