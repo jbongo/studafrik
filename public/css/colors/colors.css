@@ -33,7 +33,7 @@ COLOR SCHEME 2
 	background: transparent; color: #fb236a;
 }
 .post-job-btn{
-    background-color: #fb236a ; border: 2px solid #fb236a;
+    background-color: #EE6E49 ; border: 2px solid #EE6E49;
 }
 
 
@@ -41,7 +41,7 @@ COLOR SCHEME 2
 .post-job-btn,
 .account-popup .close-popup,
 .blog-metas a::before{
-    background-color: #fb236a ;
+    background-color: #EE6E49 ;
 }
 
 /*------------------------------------------------------------------

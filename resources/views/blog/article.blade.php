@@ -55,6 +55,7 @@
                        
                          <h2>{{$article->titre}}</h2> 
                          
+                        
                          {!!$article->description!!}
                         
                          <div class="tags-share">

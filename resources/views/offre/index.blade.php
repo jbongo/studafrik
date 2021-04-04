@@ -4,7 +4,7 @@
 
  <section class="overlape">
      <div class="block no-padding">
-         <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+         <div data-velocity="-.1" style="" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
          <div class="container fluid">
              <div class="row">
                  <div class="col-lg-12">
@@ -21,24 +21,24 @@
  <section>
     <div class="block no-padding">
         <div class="container-fluid">
-             <div class="row no-gape">
+             <div class="row no-gapex">
 
                  @include('layouts.leftmenu')
 
-                 <div class="col-lg-9 column">
+                 <div class="col-lg-9 ">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
                             <h3>Gestion des offres d'emploi</h3>
-                            <div class="extra-job-info">
+                            <div class="extra-job-info" style="margin-bottom:25px">
                                 <span><i class="la la-clock-o"></i><strong>{{$nb_offres}}</strong> Offres</span>
                                 <span><i class="la la-file-text"></i><strong>{{$nb_candidatures}}</strong> Candidatures</span>
                                 <span><i class="la la-users"></i><strong>{{$nb_offres_actives}}</strong> Offres actives </span>
                             </div>
 
                             
-                            <table>
+                            <table id="example" class="table table-striped table-bordered dt-responsive dt-responsive" style="width:100%; margin-top:25px">
                                 <thead>
-                                    <tr>
+                                    <tr style="color: #EB586C; font-weigth:bold">
                                         <td>Titre</td>
                                         <td>Candidatures</td>
                                         <td>Date de création et expiration</td>
@@ -50,7 +50,7 @@
                                     {{-- {{dd($offres)}} --}}
                                     @foreach ( $offres as $offre )
 
-                                
+                                    
                                     <tr>
                                         <td>
                                             <div class="table-list-title">
@@ -80,12 +80,17 @@
                                             </ul>
                                         </td>
                                     </tr>
-                                   
-                                   @endforeach
-                                
-
+                                    
+                                    @endforeach
+                             
+                        
                                 </tbody>
                             </table>
+
+
+
+
+
                         </div>
                     </div>
                </div>
@@ -96,13 +101,58 @@
 		</div>
 	</section>
  
+    
 
 </div>
 
 @extends('layouts.footer')
 
 @section('js-content')
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/French.json"></script>
+
+
+
 <script>
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+        var table = $('#example').DataTable({
+            "order": [],
+            "iDisplayLength": 50,
+            "language": {
+            "decimal":        "",
+            "emptyTable":     "Aucune donnée disponible dans le tableau",
+            "info":           "Affichage _START_ à _END_ sur _TOTAL_ lignes",
+            "infoEmpty":      "Affichage 0 à 0 sur 0 lignes",
+            "infoFiltered":   "(filtrés sur _MAX_ total lignes)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Voir _MENU_ lignes",
+        
+           
+            "search":         "Rechercher:",
+            "zeroRecords":    "Aucune donnée trouvée",
+            "paginate": {
+                "first":      "First",
+                "last":       "Last",
+                "next":       "Suivant",
+                "previous":   "Précédent"
+            },
+   
+            }
+        });
+
+
+
     // ######### supprimer une offre
     $(function() {
         $.ajaxSetup({

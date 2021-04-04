@@ -119,7 +119,7 @@
                             </div>
 
                             <form method="POST" action="{{ route('user.store') }}"  enctype="multipart/form-data">
-                            <div class="profile-form-edit" style="margin-left: 50px">
+                            <div class="profile-form-edit" style="margin-left: 10px">
                                     @csrf
                                 <br>
                                 <hr>
@@ -184,7 +184,7 @@
                                     
                                 </div>
                             </div>
-                            <div class="social-edit" style="margin-left: 50px">
+                            <div class="social-edit" style="margin-left: 10px">
                                 <h3>Réseaux sociaux</h3>
                                
                                     <div class="row">
@@ -219,7 +219,7 @@
                                     </div>
                                
                             </div>
-                            <div class="contact-edit" style="margin-left: 50px">
+                            <div class="contact-edit" style="margin-left: 10px">
                                 <h3>Contact</h3>
                                 
                                     <div class="row">
@@ -257,7 +257,7 @@
                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12" style="margin-top:50px">
                                             <button type="submit">Enregistrer</button>
                                             <br><br>
                                         </div>

@@ -10,7 +10,7 @@
         background-size:cover}
 </style>
 <aside class="col-lg-2 col-md-2  bg-gradient-studafrik " >
-    <div class="widget">
+    <div class="widget" style="margin-left: 5px ">
         <div class="tree_widget-sec">
             <ul>
                 @if(Auth::user()->role == "candidat")
