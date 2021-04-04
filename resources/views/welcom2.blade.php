@@ -48,11 +48,10 @@
 
 		<div class="flex-col-c w-full p-t-50 p-b-80">
 			<h3 class="l1-txt1 txt-center p-b-10">
-				Nous reviendrons bientôt
+				Rendez-vous le 5 avril 
 			</h3>
 
 			<p class="txt-center l1-txt2 p-b-43 wsize2">
-				Site en construction !!
 			</p>
 
 			
