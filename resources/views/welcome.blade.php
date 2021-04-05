@@ -140,6 +140,10 @@
 										<div class="job-title-sec">
 											<a  href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
 												<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
+												
+												
+													<h3 style="color:#323232 ">{{ $offre->titre }}</h3>
+												
 												<h3><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" >{{$offre->poste}}</a></h3>
 												<span><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" >{{$offre->nom_entreprise == null ? $offre->user->nom : $offre->nom_entreprise}} &nbsp; </a></span>
 												<span class="fav-job"><i class="la la-heart-o"></i></span>
