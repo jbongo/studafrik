@@ -69,8 +69,10 @@ class OffreController extends Controller
         $cat = null;
         $pays = null;
         $date_publication = null;
+
+        $total = $offres->total();
         
-        return view('offre.offres_emplois', compact('offres','nb_offres','categories','payss','pays','typeoffres','experiences','categoris','date_publication','cat'));
+        return view('offre.offres_emplois', compact('offres','nb_offres','categories','payss','pays','typeoffres','experiences','categoris','date_publication','cat','total'));
     }
 
 
@@ -155,8 +157,8 @@ class OffreController extends Controller
 
 
        $nb_offres = sizeof($offres) ;
-
-    //    dd($offres);
+        $total = $offres->total();
+      
        $payss = Pays::all();
 
        $categories = Categorieoffre::all();
@@ -165,7 +167,7 @@ class OffreController extends Controller
    
 
 
-        return view('offre.offres_emplois', compact('offres', 'nb_offres','payss','pays','cat','categories','typeoffres','experiences','categoris','date_publication' ));
+        return view('offre.offres_emplois', compact('offres', 'nb_offres','payss','pays','cat','categories','typeoffres','experiences','categoris','date_publication','total' ));
     }
 
 

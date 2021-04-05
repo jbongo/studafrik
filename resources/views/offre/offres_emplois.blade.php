@@ -179,7 +179,7 @@
                                     <option>60 Par Page</option>
                                 </select>
                              </div> --}}
-                             <h5>{{ $nb_offres }} Offres</h5>
+                             <h5>{{ $total }} Offres</h5>
                          </div>
                      </div>
                      <div class="job-list-modern">
