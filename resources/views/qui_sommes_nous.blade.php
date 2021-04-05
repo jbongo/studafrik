@@ -8,7 +8,7 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideDashboard"><img src="{{asset('images/header/header9.jpg')}}" height="500px" width="1900px" alt="" /></li>
+								<li class="slideDashboard"><img src="{{asset('images/header/header9.png')}}" height="500px" width="1900px" alt="" /></li>
 								{{-- <li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li> --}}
 							</ul>
