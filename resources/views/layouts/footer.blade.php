@@ -189,6 +189,18 @@
 <script src="{{asset('js/select-chosen.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/counter.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3NQ98TCKP3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3NQ98TCKP3');
+</script>
+
+
 @yield('js-content')
 </body>
 </html>
