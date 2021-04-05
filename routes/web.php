@@ -150,6 +150,12 @@ Route::get('/qui-sommes-nous', function () {
     return view('qui_sommes_nous');
 })->name('qui_sommes_nous');
 
+// FAQ
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
 //  Nous contacter
 
 Route::get('/nous-contacter', function () {

@@ -106,10 +106,13 @@
                                 <br><br>
                                 <p>  
                                     Le travail d’équipe : c’est ensemble, par nos expériences, que nous avançons vers un but commun. 
-                                    Le respect et la tolérance entre nous, envers notre communauté et les entreprises qui nous font confiance. 
                                     
                                 </p>
 
+                                <p>
+                                    Le respect et la tolérance entre nous, envers notre communauté et les entreprises qui nous font confiance. 
+
+                                </p>
                                 <p>
                                     L’innovation : c’est ce qui a fait naître Stud’Afrik: nous sommes sans cesse en quête de nouveauté et d’innovation.
                                 </p>
