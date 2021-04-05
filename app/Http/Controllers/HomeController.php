@@ -23,7 +23,7 @@ class HomeController extends Controller
         $pays = Pays::all();
 
         // dd($offres);
-        return view('welcome', compact('offres','articles', 'categories', 'pays'));
+        return view('welcom2', compact('offres','articles', 'categories', 'pays'));
     }
 
     /**
