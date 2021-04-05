@@ -241,7 +241,7 @@
 								<a href="#" title=""><img src="{{asset('images/entreprise/logo-total.png')}}" width="60%" height="80px" alt="" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpeg')}}" width="60%" height="80px" alt="" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpg')}}" width="60%" height="80px" alt="" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
 								<a href="#" title=""><img src="{{asset('images/entreprise/intelcia.jpg')}}" width="60%" height="80px" alt="" /></a>
