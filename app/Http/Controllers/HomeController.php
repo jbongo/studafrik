@@ -28,7 +28,7 @@ class HomeController extends Controller
         $nb_offre_pub =  Offre::where('categorieoffre_id', 17)->count();
 
         // dd($offres);
-        return view('welcome', compact('offres','articles', 'categories', 'pays','nb_offre_industrie','nb_offre_banque','nb_offre_pub','nb_offre_education',));
+        return view('welcom2', compact('offres','articles', 'categories', 'pays','nb_offre_industrie','nb_offre_banque','nb_offre_pub','nb_offre_education',));
     }
 
     /**
