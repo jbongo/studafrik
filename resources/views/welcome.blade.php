@@ -71,37 +71,37 @@
 										<div class="row">
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="#" title="">
+													<a href="{{route('recherche_emplois')}}" title="">
 														<i class="la la-bullhorn"></i>
-														<span>Art & Multimédia</span>
-														<p>(22 offres)</p>
+														<span>   Publicité / Marketing / Agence  </span>
+														<p>({{$nb_offre_pub}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="#" title="">
+													<a href="{{route('recherche_emplois')}}" title="">
 														<i class="la la-graduation-cap"></i>
 														<span>   Education / Formation / Recrutement  </span>
-														<p>(06 offres)</p>
+														<p>({{$nb_offre_education}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="#" title="">
+													<a href="{{route('recherche_emplois')}}" title="">
 														<i class="la la-line-chart "></i>
 														<span>   Banques / Assurances / Finance </span>
-														<p>(03 offres)</p>
+														<p>({{$nb_offre_banque}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="#" title="">
+													<a href="{{route('recherche_emplois')}}" title="">
 														<i class="la la-users"></i>
 														<span>Insdustrie</span>
-														<p>(03 offres)</p>
+														<p>({{$nb_offre_industrie}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
