@@ -82,7 +82,7 @@
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-graduation-cap"></i>
-														<span>Informatique</span>
+														<span>   Education / Formation / Recrutement  </span>
 														<p>(06 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
@@ -91,7 +91,7 @@
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-line-chart "></i>
-														<span>Finance & Comptabilité</span>
+														<span>   Banques / Assurances / Finance </span>
 														<p>(03 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
@@ -100,7 +100,7 @@
 												<div class="quick-select">
 													<a href="#" title="">
 														<i class="la la-users"></i>
-														<span>Ressources humaines</span>
+														<span>Insdustrie</span>
 														<p>(03 offres)</p>
 													</a>
 												</div><!-- Quick Select -->
