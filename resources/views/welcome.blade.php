@@ -100,7 +100,7 @@
 												<div class="quick-select">
 													<a href="{{route('recherche_emplois')}}" title="">
 														<i class="la la-users"></i>
-														<span>Insdustrie</span>
+														<span>Industrie</span>
 														<p>({{$nb_offre_industrie}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
