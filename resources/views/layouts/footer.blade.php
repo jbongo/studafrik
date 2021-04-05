@@ -57,9 +57,9 @@
                         <div class="link_widgets">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <a href="#" title="">Qui sommes-nous ?</a>
-                                    <a href="#" title="">FAQ </a>
-                                    <a href="#" title="">Offres d'emploi </a>
+                                    <a href="{{route('qui_sommes_nous')}}" title="">Qui sommes-nous ?</a>
+                                    <a href="{{route('faq')}}" title="">FAQ </a>
+                                    <a href="{{route('offres_emplois')}}" title="">Offres d'emploi </a>
                                 </div>
                                 <div class="col-lg-6">
                                     <a href="{{route('nous_contacter')}}" title="">Contact </a>
