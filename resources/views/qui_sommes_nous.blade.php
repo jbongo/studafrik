@@ -107,7 +107,30 @@
                                  leur correspond et permettre aux entreprises, startups et entrepreneurs de trouver le
                                  talent qui leur manquait.
                                 </p>
+
+                                <br><br>
+                                <br><br>
+                                <br><br>
+                                <br><br>
+                                <h3 style="color: #EE6E49; text-align:center; font-weight:bold; margin-top:25px">POURQUOI MENER CE PROJET ? </h3> 
+                                <br><br>
+                                <br><br>
+                                <p>  
+                                 Au delà de mettre en contact des jeunes talents et des entreprises, nous aimons à
+                                 penser que Stud’Afrik servira de boîte à outils aux personnes passant par notre site
+                                 afin d’affronter leur recherche d’emploi en Afrique avec sérénité, en ayant du choix
+                                 et surtout en toutes connaissances de cause.
+                                </p>
+
+                                <p>
+                                 Nous souhaitons pour cette plateforme
+                                 de répondre aux réalités du terrain, de donner aux chercheurs d’emploi l’offre qui
+                                 leur correspond et permettre aux entreprises, startups et entrepreneurs de trouver le
+                                 talent qui leur manquait.
+                                </p>
                              </div>
+
+                          
                          </div>
 
                          {{-- <div class="row justify-content-center" style="margin-top: 55px; margin-bottom: 55px">

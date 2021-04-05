@@ -7753,7 +7753,7 @@ Author:         Creative Layer
  .manage-jobs-sec>table thead tr td {
      font-size: 15px;
      font-weight: bold;
-     color: #fb236a;
+     color: #EE6E49;
      padding-bottom: 14px;
  }
  
@@ -8552,8 +8552,8 @@ Author:         Creative Layer
      float: left;
      font-family: Open Sans;
      font-size: 13px;
-     color: #8b91dd;
-     border: 2px solid #8b91dd;
+     color: #EE6E49;
+     border: 2px solid #EE6E49;
      width: 150px;
      height: 40px;
      padding-left: 30px;
@@ -8963,8 +8963,8 @@ Author:         Creative Layer
  .download-cv a {
      float: right;
      background: #ffffff;
-     border: 2px solid #8b91dd;
-     color: #8b91dd;
+     border: 2px solid #EE6E49;
+     color: #EE6E49;
      font-family: Open Sans;
      font-size: 13px;
      padding: 14px 30px;
@@ -8981,7 +8981,7 @@ Author:         Creative Layer
  }
  
  .download-cv a:hover {
-     background-color: #8b91dd;
+     background-color: #EE6E49;
      color: #FFF;
  }
  
@@ -9019,8 +9019,8 @@ Author:         Creative Layer
  }
  
  .cand-extralink>li:hover a {
-     color: #8b91dd;
-     border-color: #8b91dd;
+     color: #EE6E49;
+     border-color: #EE6E49;
  }
  
  .cand-details-sec {
@@ -11742,7 +11742,7 @@ Author:         Creative Layer
  
  .btn-extars .post-job-btn:hover {
      background: transparent;
-     border: 2px solid #fb236a;
+     border: 2px solid #EE6E49;
      color: #FFF;
  }
  
@@ -12056,7 +12056,7 @@ Author:         Creative Layer
  }
  
  .shortlists>a:hover {
-     background: #8b91dd;
+     background: #EE6E49;
      color: #ffffff;
  }
  
@@ -12249,7 +12249,7 @@ Author:         Creative Layer
  }
  
  .forsticky.sticky .post-job-btn:hover {
-     background: #fb236a;
+     background: #EE6E49;
      color: #FFF;
  }
  
@@ -12595,7 +12595,7 @@ Author:         Creative Layer
      position: absolute;
      right: 0;
      top: 0;
-     color: #fff;
+     color: #EE6E49;
      font-size: 15px;
      font-family: Open Sans;
      padding: 13px 27px;

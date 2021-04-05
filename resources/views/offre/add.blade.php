@@ -26,7 +26,7 @@
 
                     @include('layouts.leftmenu')
 
-                    <div class="col-lg-9 column">
+                    <div class="col-lg-9 column" style="margin-left: 5px">
                         <div class="padding-left">
                             <div class="profile-title">
                                 <h3>Ajouter une offre</h3>

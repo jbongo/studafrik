@@ -149,13 +149,14 @@ class OffreController extends Controller
                     $query2->where('created_at','>', $date_pub);
                 }
             })
-
+            ->orderBy('created_at','desc')
             ->paginate(10);
 
 
 
        $nb_offres = sizeof($offres) ;
 
+       dd($offres);
        $payss = Pays::all();
 
        $categories = Categorieoffre::all();

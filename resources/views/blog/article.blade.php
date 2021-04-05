@@ -147,9 +147,9 @@
 
                             @foreach ($posts as $post)
                             <div class="mini-blog">
-                                <span><a href="#" title=""><img src="{{asset($post->image)}}" alt="" /></a></span>
+                                <span><a href="{{route('article.show', Crypt::encrypt($post->id))}}" title=""><img src="{{asset($post->image)}}" alt="" /></a></span>
                                 <div class="mb-info">
-                                    <h3><a href="#" title="">{{$post->titre}}</a></h3>
+                                    <h3><a href="{{route('article.show', Crypt::encrypt($post->id))}}" title="">{{$post->titre}}</a></h3>
                                     <span>{{$post->created_at->format('d/m/Y')}}</span>
                                 </div>
                             </div>

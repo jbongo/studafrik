@@ -31,7 +31,7 @@
 <div class="theme-layout" id="scrollup">
 	<div class="responsive-header">
 		<div class="responsive-menubar">
-			<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px" alt="" /></a>
+			<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo1.png') }}" width="150px" alt="" /></a>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
 					<img src="images/icon.png" alt="" /> Menu
@@ -84,7 +84,7 @@
 	<header class="gradient">
 		<div class="menu-sec">
 			<div class="logo" style="margin-left:60px">
-				<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo.png') }}" width="150px"  alt="" /></a>
+				<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo1.png') }}" width="150px"  alt="" /></a>
 			</div>
 			<div class="container">
 				

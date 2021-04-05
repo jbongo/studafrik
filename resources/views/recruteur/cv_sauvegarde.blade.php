@@ -41,7 +41,7 @@
                             </div>
                             @endif 
                             
-                            <table>
+                            <table class="table table-striped table-bordered dt-responsive " style="width:100%; margin-top:25px">
                                 <thead>
                                     <tr>
                                         <td>Nom</td>
@@ -100,7 +100,50 @@
 @extends('layouts.footer')
 
 @section('js-content')
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/French.json"></script>
+
+
+
+
+
+
+
 <script>
+
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        fixedHeader: true,
+        "order": [],
+            "iDisplayLength": 50,
+            "language": {
+            "decimal":        "",
+            "emptyTable":     "Aucune donnée disponible dans le tableau",
+            "info":           "Affichage _START_ à _END_ sur _TOTAL_ lignes",
+            "infoEmpty":      "Affichage 0 à 0 sur 0 lignes",
+            "infoFiltered":   "(filtrés sur _MAX_ total lignes)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Voir _MENU_ lignes",
+        
+           
+            "search":         "Rechercher:",
+            "zeroRecords":    "Aucune donnée trouvée",
+            "paginate": {
+                "first":      "First",
+                "last":       "Last",
+                "next":       "Suivant",
+                "previous":   "Précédent"
+                } });
+} );
+} );
+
     // ######### supprimer une offre
     $(function() {
         $.ajaxSetup({

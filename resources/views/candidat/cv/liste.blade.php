@@ -61,9 +61,9 @@
                     <div class="emply-resume-sec">
                       
                        @foreach ($candidats as $candidat )
-                            <div class="emply-resume-list square">
+                            <div class="emply-resume-list square col-lg-9">
                                 <div class="emply-resume-thumb">
-                                    <img src="http://placehold.it/90x90" alt="" />
+                                    <img src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" alt="" />
                                 </div>
                                 <div class="emply-resume-info">
                                     <h3><a href="#" title="">{{$candidat->prenom}} {{$candidat->nom}}</a></h3>

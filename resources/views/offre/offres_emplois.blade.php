@@ -169,19 +169,16 @@
                  <div class="col-lg-9 column">
                      <div class="modrn-joblist np">
                          <div class="filterbar">
-                             <div class="sortby-sec">
+                             {{-- <div class="sortby-sec">
                                  <span>Trier par</span>
-                                 {{-- <select data-placeholder="Most Recent" class="chosen form-control">
-                                    <option>Plus Recent</option>
-                                    
-                                </select> --}}
+                                
                                 <select data-placeholder="20 par Page" class="chosen form-control">
                                     <option>30 Par Page</option>
                                     <option>40 Par Page</option>
                                     <option>50 Par Page</option> 
                                     <option>60 Par Page</option>
                                 </select>
-                             </div>
+                             </div> --}}
                              <h5>{{ $nb_offres }} Offres</h5>
                          </div>
                      </div>

@@ -36,7 +36,7 @@
                             </div>
 
                             
-                            <table id="example" class="table table-striped table-bordered dt-responsive dt-responsive" style="width:100%; margin-top:25px">
+                            <table id="example" class="table table-striped table-bordered dt-responsive " style="width:100%; margin-top:25px">
                                 <thead>
                                     <tr style="color: #EB586C; font-weigth:bold">
                                         <td>Titre</td>
@@ -122,11 +122,9 @@
 <script>
 
 $(document).ready(function() {
-    $('#example').DataTable();
-} );
-
-        var table = $('#example').DataTable({
-            "order": [],
+    var table = $('#example').DataTable( {
+        fixedHeader: true,
+        "order": [],
             "iDisplayLength": 50,
             "language": {
             "decimal":        "",
@@ -146,10 +144,10 @@ $(document).ready(function() {
                 "last":       "Last",
                 "next":       "Suivant",
                 "previous":   "Précédent"
-            },
-   
-            }
-        });
+    } });
+} );
+} );
+     
 
 
 

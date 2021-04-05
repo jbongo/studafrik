@@ -170,187 +170,6 @@
 		</div>
 	</section>
 
-	<!--
-	<section>
-		<div class="block">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading">
-							<h2>Comment ça marche ?</h2>
-							{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day. --}}
-							</span>
-						</div>
-						<div class="how-to-sec">
-							<div class="how-to">
-								<span class="how-icon"><i class="la la-user"></i></span>
-								<h3>Creéz votre compte</h3>
-								{{-- <p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p> --}}
-							</div>
-							<div class="how-to">
-								<span class="how-icon"><i class="la la-file-archive-o"></i></span>
-								<h3>Recherchez un emploi selon vos critères</h3>
-								{{-- <p>Browse profiles, reviews, and proposals then interview top candidates. </p> --}}
-							</div>
-							<div class="how-to">
-								<span class="how-icon"><i class="la la-list"></i></span>
-								<h3>Postulez</h3>
-								{{-- <p>Use the Upwork platform to chat, share files, and collaborate from your desktop or on the go.</p> --}}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
--->
-	{{-- <section>
-		<div class="block gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading">
-							<h2>Top entreprises qui nous font confiance</h2>
-						</div><!-- Heading -->
-						<div class="top-company-sec">
-							<div class="row" id="companies-carousel">
-								<div class="col-lg-3">
-									<div class="top-compnay">
-										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
-										<h3><a href="#" title="">Société générale</a></h3>
-										<span>Libreville, GABON</span>
-										<a href="#" title="">5 offres</a>
-									</div><!-- Top Company -->
-								</div>
-								<div class="col-lg-3">
-									<div class="top-compnay">
-										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
-										<h3><a href="#" title="">Société générale</a></h3>
-										<span>Libreville, GABON</span>
-										<a href="#" title="">5 offres</a>
-									</div><!-- Top Company -->
-								</div>
-								<div class="col-lg-3">
-									<div class="top-compnay">
-										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
-										<h3><a href="#" title="">Société générale</a></h3>
-										<span>Libreville, GABON</span>
-										<a href="#" title="">5 offres</a>
-									</div><!-- Top Company -->
-								</div>
-								<div class="col-lg-3">
-									<div class="top-compnay">
-										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
-										<h3><a href="#" title="">Société générale</a></h3>
-										<span>Libreville, GABON</span>
-										<a href="#" title="">5 offres</a>
-									</div><!-- Top Company -->
-								</div>
-								<div class="col-lg-3">
-									<div class="top-compnay">
-										<img src="https://equipagetraining.fr/wp-content/uploads/2018/03/logo-sg-c.jpg" alt="" />
-										<h3><a href="#" title="">Société générale</a></h3>
-										<span>Libreville, GABON</span>
-										<a href="#" title="">5 offres</a>
-									</div><!-- Top Company -->
-								</div>
-						
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-		</div>
-	</section> --}}
-
-	{{-- <section>
-		<div class="block">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1920x1000) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color red"></div><!-- PARALLAX BACKGROUND IMAGE -->
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading light">
-							<h2>Nos Statistiques</h2>
-						</div><!-- Heading -->
-						<div class="stats-sec">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-									<div class="stats">
-										<span>300</span>
-										<h5>Offres postées</h5>
-									</div>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-									<div class="stats">
-										<span>700</span>
-										<h5>Candidatures</h5>
-									</div>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-									<div class="stats">
-										<span>67</span>
-										<h5>Entreprises</h5>
-									</div>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-									<div class="stats">
-										<span>92</span>
-										<h5>Membres</h5>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> --}}
-
-	{{-- <section>
-		<div class="block">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="heading">
-							<h2>Témoignages</h2>
-						</div><!-- Heading -->
-						<div class="reviews-sec" id="reviews">
-							<div class="col-lg-12">
-								<div class="reviews style2">
-									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
-									<h3>Thomas PONS <span>Web designer</span></h3>
-									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
-								</div><!-- Reviews -->
-							</div>
-
-							<div class="col-lg-12">
-								<div class="reviews style2">
-									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
-									<h3>Thomas PONS <span>Web designer</span></h3>
-									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
-								</div><!-- Reviews -->
-							</div>
-							<div class="col-lg-12">
-								<div class="reviews style2">
-									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
-									<h3>Thomas PONS <span>Web designer</span></h3>
-									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
-								</div><!-- Reviews -->
-							</div>
-							<div class="col-lg-12">
-								<div class="reviews style2">
-									<img src="https://test-orientation.studyrama.com/img/profiles/etudiant.svg" alt="" />
-									<h3>Thomas PONS <span>Web designer</span></h3>
-									<p>J'ai trouvé un emplois grâce à studafrik. je suis très heureux</p>
-								</div><!-- Reviews -->
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>	
-		</div>
-	</section> --}}
 
 	
 	<section >
@@ -413,21 +232,22 @@
 							<h2>Ils recrutent</h2>
 							{{-- <span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span> --}}
 						</div><!-- Heading -->
-						<div class="comp-sec">
-							<div class="company-img">
-								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+						<div class="comp-sec" style="margin-top: 50px">
+							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
+								<a href="#" title=""><img src="{{asset('images/entreprise/logo-total.png')}}" width="100%" height="130px" alt="" /></a>
 							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
+								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpg')}}" width="100%" height="130px" alt="" /></a>
 							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
+								<a href="#" title=""><img src="{{asset('images/entreprise/intelcia.jpg')}}" width="100%" height="130px" alt="" /></a>
 							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
+								<a href="#" title=""><img src="{{asset('images/entreprise/societe.png')}}" width="100%" height="130px" alt="" /></a>
 							</div><!-- Client  -->
-							<div class="company-img">
-								<a href="#" title=""><img src="http://placehold.it/180x80" alt="" /></a>
+							
+							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
+								<a href="#" title=""><img src="{{asset('images/entreprise/canal.jpg')}}" width="100%" height="130px" alt="" /></a>
 							</div><!-- Client  -->
 						</div>
 					</div>
