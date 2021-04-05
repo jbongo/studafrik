@@ -156,7 +156,7 @@ class OffreController extends Controller
 
        $nb_offres = sizeof($offres) ;
 
-       dd($offres);
+    //    dd($offres);
        $payss = Pays::all();
 
        $categories = Categorieoffre::all();
