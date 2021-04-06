@@ -71,15 +71,7 @@
                                         </div>
                                     </div>
                                 {{-- </form> --}}
-                                {{-- <div class="tags-bar">
-                                     <span>CDI<i class="close-tag">x</i></span>
-                                     <span>UX/UI Design<i class="close-tag">x</i></span>
-                                     <span>Gabon<i class="close-tag">x</i></span>
-                                     <div class="action-tags">
-                                         <a href="#" title=""><i class="la la-cloud-download"></i> Sauvegarder</a>
-                                         <a href="#" title=""><i class="la la-trash-o"></i> Supprimer</a>
-                                     </div>
-                                 </div> --}}
+                               
                             </div>
                         </div>
                     </div>
@@ -114,6 +106,7 @@
                             <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("JOB ETUDIANT",$typeoffres)) checked @endif name="typeoffres[]" value="JOB ETUDIANT" id="JOB ETUDIANT"/><label for="JOB ETUDIANT">JOB ETUDIANT</label></p>
                             <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("VIE",$typeoffres)) checked @endif name="typeoffres[]" value="VIE" id="VIE"/><label for="VIE">VIE</label></p>
                             <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("INTERIM",$typeoffres)) checked @endif name="typeoffres[]" value="INTERIM" id="INTERIM"/><label for="INTERIM">INTERIM</label></p>
+                            <p class="ischek"><input type="checkbox" @if( is_array($typeoffres) && in_array("BENEVOLAT",$typeoffres)) checked @endif name="typeoffres[]" value="BENEVOLAT" id="BENEVOLAT"/><label for="BENEVOLAT">BENEVOLAT</label></p>
 
                             
                          </div>

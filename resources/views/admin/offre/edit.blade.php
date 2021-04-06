@@ -129,9 +129,13 @@
                                     <option value="{{$offre->type_contrat}}">{{$offre->type_contrat}}</option>
                                     @endif
                                    
-                                   <option value="CDI">CDI</option>
-                                   <option value="CDD">CDD</option>
-                                   <option value="INTERIM">INTERIM</option>
+                                    <option value="CDI">CDI</option>
+                                    <option value="CDD">CDD</option>
+                                    <option value="STAGE">STAGE</option>
+                                    <option value="JOB ETUDIANT">JOB ETUDIANT</option>
+                                    <option value="VIE">VIE</option>
+                                    <option value="INTERIM">INTERIM</option>
+                                    <option value="BENEVOLAT">BENEVOLAT</option>
                                  
                                    
                                </select>

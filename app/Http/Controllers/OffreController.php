@@ -56,7 +56,7 @@ class OffreController extends Controller
     public function offres_emplois()
     {
         
-        $offres = Offre::paginate(10);
+        $offres = Offre::orderBy('created_at','desc')->paginate(10);
         $nb_offres = sizeof($offres) ;
         // dd($offres);
         $payss = Pays::all();

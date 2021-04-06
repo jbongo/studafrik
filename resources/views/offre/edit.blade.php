@@ -85,6 +85,8 @@
                                                 <option value="JOB ETUDIANT">JOB ETUDIANT</option>
                                                 <option value="VIE">VIE</option>
                                                 <option value="INTERIM">INTERIM</option>
+                                                <option value="BENEVOLAT">BENEVOLAT</option>
+
                                                
                                            </select>
                                         </div>
