@@ -80,12 +80,16 @@ Route::get('mes-offres','OffreController@index')->name('mes_offres.index')->midd
 Route::get('offres-emplois','OffreController@offres_emplois')->name('offres_emplois');
 Route::get('recherche-emplois','OffreController@recherche_emplois')->name('recherche_emplois');
 
+
 Route::get('ajout-offre','OffreController@create')->name('mes_offres.create')->middleware('auth');
 Route::post('ajout-offre','OffreController@store')->name('mes_offres.store')->middleware('auth');
 Route::get('edit-offre/{offre_id}','OffreController@edit')->name('mes_offres.edit')->middleware('auth');
 Route::post('update-offre/{offre_id}','OffreController@update')->name('mes_offres.update')->middleware('auth');
 Route::get('delete-offre/{offre_id}','OffreController@destroy')->name('mes_offres.delete')->middleware('auth');
 Route::get('offre/{offre_id}','OffreController@show')->name('mes_offres.show');
+
+Route::get('slug','OffreController@convert_to_slug')->name('convert_to_slug');
+
 
 // Candidature
 Route::get('postuler/{offre_id}','OffreController@create_postuler')->name('postuler.create')->middleware('auth');

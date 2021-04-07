@@ -196,10 +196,8 @@ class OffreController extends Controller
     public function store(Request $request)
     {
         
-
-    //    dd($request->all());
     
-        Offre::create([
+        $offre = Offre::create([
 
             "user_id" => Auth::user()->id,
             "categorieoffre_id" => $request->categorieoffre_id,
@@ -220,9 +218,67 @@ class OffreController extends Controller
         ]);
 
 
+        $slug = $this->to_slug($request->titre);
+
+        $slug = $slug."-".$offre->id;
+
+        $offre->slug = $slug;
+        $offre->update();
+
+        // dd($offre);
+        
+        
         return redirect()->route('mes_offres.index')->with('ok', __("Nouvelle offre ajoutée")  );
 
     }
+
+
+
+  /**
+     * Convertir une chaine de caractère en slug.
+     *
+     * @param  String $slug
+     * @return String 
+     */
+    public function convert_to_slug()
+    {
+
+       $offres =  Offre::all();
+
+       foreach($offres as $offre){
+
+            $slug = $this->to_slug($offre->titre);
+            $slug = $slug."-".$offre->id;
+
+            $offre->slug = $slug;
+            $offre->update();
+
+       }
+
+
+
+    }
+
+
+  /**
+     * Convertir une chaine de caractère en slug.
+     *
+     * @param  String $slug
+     * @return String 
+     */
+    public function to_slug($string)
+    {
+
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string)));
+
+        return $slug;
+    }
+
+
+
+
+
+
 
     /**
      * Display the specified resource.
@@ -451,7 +507,7 @@ class OffreController extends Controller
 
     //    dd($request->all());
 
-        Offre::create([
+    $offre = Offre::create([
 
             "user_id" => Auth::user()->id,
             "categorieoffre_id" => $request->categorieoffre_id,

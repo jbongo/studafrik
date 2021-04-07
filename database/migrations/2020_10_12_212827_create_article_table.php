@@ -17,6 +17,7 @@ class CreateArticleTable extends Migration
             $table->id();
             $table->integer('user_id')->nullable();
             $table->text('titre')->nullable();
+            $table->text('slug')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('archive')->default(false);
