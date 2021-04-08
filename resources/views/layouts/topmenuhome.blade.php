@@ -8,6 +8,10 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="CreativeLayers">
 
+	<meta name="description" content="une plateforme de recherche d’emploi et stages permettant de mettre en relation des entreprises, de toutes tailles et tous secteurs confondus, et des étudiants ou jeunes diplômés en quête d’une opportunité professionnelle en Afrique francophone." />
+
+
+
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-grid.css')}}" />
 	<link rel="stylesheet" href="{{asset('css/icons.css')}}">
@@ -20,7 +24,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	
-
+<link rel="icon" href="{{ asset('images/favicon.ico') }}" />
 <link rel="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
 <link rel="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
 <link rel="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />

@@ -24,7 +24,7 @@
 
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
-                <p class="text-sm text-gray-700 leading-5" style="font-size:20px;margin-bottom: 30px; color:#f70707">
+                <p class="text-sm text-gray-700 leading-5" style="font-size:17px;margin-bottom: 30px; color:#323232">
                     {{-- {!! __('Showing') !!} --}} 
                     Affichage
                     <span class="font-medium">{{ $paginator->firstItem() }}</span>

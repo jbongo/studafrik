@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert2.css')}}" />
 	
+	<link rel="icon" href="{{ asset('images/favicon.ico') }}" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	

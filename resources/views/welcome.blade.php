@@ -18,13 +18,13 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideDashboard"><img src="{{asset('images/header/header03.png')}}" alt="" /></li>
+								<li class="slideDashboard"><img src="{{asset("images/header/sud'afrik recherche d'emploi.png")}}" alt="" /></li>
 								{{-- <li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li> --}}
 							</ul>
 							<div class="job-search-sec" style="margin-bottom: ">
 								<div class="job-search style2">
-									<h3>Etudiant(e) ou jeune diplômé(e): trouve ton job en Afrique !</h3>
+									<h1 style="color: #ffffff;float: left;width: 100%;font-family: Quicksand;font-size: 40px;font-weight: bold;letter-spacing: 0px;text-align: center;line-height: 39px;margin-bottom: 13px;">Etudiant(e) ou jeune diplômé(e): trouve ton job en Afrique !</h1>
 									{{-- <span>Find Jobs, Employment & Career Opportunities</span> --}}
 									<div class="search-job2">	
 										<form action="{{ route('recherche_emplois') }}" method="get">
@@ -71,7 +71,7 @@
 										<div class="row">
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="{{route('recherche_emplois')}}" title="">
+													<a href="{{route('offres_emplois')}}" title="">
 														<i class="la la-bullhorn"></i>
 														<span>   Publicité / Marketing / Agence  </span>
 														<p>({{$nb_offre_pub}} offres)</p>
@@ -80,7 +80,7 @@
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="{{route('recherche_emplois')}}" title="">
+													<a href="{{route('offres_emplois')}}" title="">
 														<i class="la la-graduation-cap"></i>
 														<span>   Education / Formation / Recrutement  </span>
 														<p>({{$nb_offre_education}} offres)</p>
@@ -89,7 +89,7 @@
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="{{route('recherche_emplois')}}" title="">
+													<a href="{{route('offres_emplois')}}" title="">
 														<i class="la la-line-chart "></i>
 														<span>   Banques / Assurances / Finance </span>
 														<p>({{$nb_offre_banque}} offres)</p>
@@ -98,7 +98,7 @@
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="{{route('recherche_emplois')}}" title="">
+													<a href="{{route('offres_emplois')}}" title="">
 														<i class="la la-users"></i>
 														<span>Industrie</span>
 														<p>({{$nb_offre_industrie}} offres)</p>
@@ -139,7 +139,7 @@
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<a  href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
-												<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px"  alt="" /> </div>
+												<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px" title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
 												
 												
 													<h3 style="color:#323232 ">{{ $offre->titre }}</h3>
@@ -197,7 +197,7 @@
 							<div class="col-lg-4 col-md-4 col-sm-3">
 								<div class="my-blog">
 									<div class="blog-thumb">
-										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""><img src="{{asset($article->image)}}" height="250px" alt="" /></a>
+										<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""><img src="{{asset($article->image)}}" height="250px" title="{{$article->slug}}"  alt="{{$article->slug}}" /></a>
 										<div class="blog-date">
 											<a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->created_at->format('Y')}} <i>{{$article->created_at->format('d')}} {{$mois[$article->created_at->format('m') * 1]}}</i></a>
 										</div>
@@ -238,20 +238,20 @@
 						</div><!-- Heading -->
 						<div class="comp-sec" style="margin-top: 50px">
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/logo-total.png')}}" width="60%" height="80px" alt="" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/logo-total.png')}}" width="60%" height="80px" alt="total" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpg')}}" width="60%" height="80px" alt="" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpg')}}" width="60%" height="80px" alt="perenco" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/intelcia.jpg')}}" width="60%" height="80px" alt="" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/intelcia.jpg')}}" width="60%" height="80px" alt="intelcia" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/societe.png')}}" width="60%" height="80px" alt="" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/societe.png')}}" width="60%" height="80px" alt="societe" /></a>
 							</div><!-- Client  -->
 							
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/canal.jpg')}}" width="60%" height="80px" alt="" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/canal.jpg')}}" width="60%" height="80px" alt="canal-plus" /></a>
 							</div><!-- Clientx  -->
 						</div>
 					</div>
