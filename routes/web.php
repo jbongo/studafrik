@@ -144,6 +144,11 @@ Route::middleware('auth')->group(function () {
 // Blog
 Route::get('blog','ArticleController@index')->name('blog.index');
 Route::get('article/{article_id}','ArticleController@article_show')->name('article.show');
+
+Route::get('article-slug','ArticleController@convert_to_slug')->name('article.convert_to_slug');
+
+
+
 // Commentaires
 Route::post('article/add-commentaire/{article_id}','ArticleController@add_commentaire')->name('article.add_commentaire');
 

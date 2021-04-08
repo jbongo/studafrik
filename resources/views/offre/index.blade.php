@@ -74,8 +74,8 @@
                                         </td>
                                         <td>
                                             <ul class="action_job">
-                                            <li><span>Voir l'offre</span><a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title=""><i class="la la-eye"></i></a></li>
-                                                <li><span>Modifier</span><a href="{{route('mes_offres.edit', Crypt::encrypt($offre->id) )}}" title=""><i class="la la-pencil"></i></a></li>
+                                            <li><span>Voir l'offre</span><a href="{{route('mes_offres.show', $offre->slug )}}" title=""><i class="la la-eye"></i></a></li>
+                                                <li><span>Modifier</span><a href="{{route('mes_offres.edit', $offre->slug )}}" title=""><i class="la la-pencil"></i></a></li>
                                                 <li><span>Supprimer</span><a class="supprimer" href="{{route('mes_offres.delete', Crypt::encrypt($offre->id) )}}" title=""><i class="la la-trash-o"></i></a></li>
                                             </ul>
                                         </td>

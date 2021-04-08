@@ -268,23 +268,7 @@ class OffreController extends Controller
      */
     public function to_slug($string)
     {
-        $string = "As tu été à la plage cet été ? ";
-
-        $string = $this->enleveaccents($string);
-
         
-
-        // $string = iconv('utf-8', 'us-ascii//TRANSLIT', $string);
-
-        dd($string);
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string)));
-
-        return $slug;
-    }
-
-
-    public function enleveaccents($string)
-    {
         $table = array(
             'Š'=>'S', 'š'=>'s', 'Đ'=>'Dj', 'đ'=>'dj', 'Ž'=>'Z', 'ž'=>'z', 'Č'=>'C', 'č'=>'c', 'Ć'=>'C', 'ć'=>'c',
             'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
@@ -294,16 +278,15 @@ class OffreController extends Controller
             'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o',
             'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b',
             'ÿ'=>'y', 'Ŕ'=>'R', 'ŕ'=>'r', '/' => '-', ' ' => '-'
-    );
-
-    // -- Remove duplicated spaces
-    $stripped = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $string);
-
-    // -- Returns the slug
-    return strtolower(strtr($string, $table));
-    } 
-
-
+        );
+    
+        // -- Remove duplicated spaces
+        $string = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $string);
+    
+        // -- Returns the slug
+        return strtolower(strtr($string, $table));
+        
+    }
 
 
     /**
@@ -312,10 +295,10 @@ class OffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
     
-        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+        $offre = Offre::where('slug',$slug)->first();
 
         $est_candidat = false;    
         $deja_postuler = false;
@@ -332,7 +315,7 @@ class OffreController extends Controller
             } 
             $est_candidat = true;
 
-            $favoris = Favorisoffre::where([['offre_id', Crypt::decrypt($id)], ['user_id', Auth::user()->id]])->first();
+            $favoris = Favorisoffre::where([['offre_id', $offre->id], ['user_id', Auth::user()->id]])->first();
 
         }
 
@@ -349,9 +332,9 @@ class OffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+        $offre = Offre::where('slug', $slug)->first();
         $categories = Categorieoffre::all();
 
 
@@ -389,7 +372,12 @@ class OffreController extends Controller
         $offre->candidater_lien = $request->candidater_lien ;
         $offre->url_candidature = $request->url_candidature ;
 
+        $slug = $this->to_slug($request->titre);
 
+        $slug = $slug."-".$offre->id;
+
+        $offre->slug = $slug;
+       
         $offre->update();
         return redirect()->route('mes_offres.index')->with('ok', __("Votre offre a été mise à jour ")  );
 
@@ -557,6 +545,13 @@ class OffreController extends Controller
 
         ]);
 
+        $slug = $this->to_slug($request->titre);
+
+        $slug = $slug."-".$offre->id;
+
+        $offre->slug = $slug;
+        $offre->update();
+        
         return redirect()->route('admin.offres.index')->with('ok', __("Nouvelle offre ajoutée")  );
 
     }
@@ -569,10 +564,10 @@ class OffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_admin($id)
+    public function show_admin($slug)
     {
     
-        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+        $offre = Offre::where('slug', $slug)->first();
 
         return view('offre.show', compact('offre'));
     }
@@ -584,9 +579,9 @@ class OffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_admin($id)
+    public function edit_admin($slug)
     {
-        $offre = Offre::where('id', Crypt::decrypt($id))->first();
+        $offre = Offre::where('slug', $slug)->first();
         $pays = Pays::all();
         $categories = Categorieoffre::all();
 
@@ -625,6 +620,12 @@ class OffreController extends Controller
         $offre->candidater_lien = $request->candidater_lien ;
         $offre->url_candidature = $request->url_candidature ;
 
+        $slug = $this->to_slug($request->titre);
+
+        $slug = $slug."-".$offre->id;
+
+        $offre->slug = $slug;
+      
 
         $offre->update();
         return redirect()->route('admin.offres.index')->with('ok', __("Votre offre a été mise à jour ")  );

@@ -38,17 +38,17 @@
                                         <div class="blog-thumb">
                                             <a href="#" title=""><img src="{{asset($article->image)}}" alt="" /></a>
                                             <div class="blog-metas">
-                                                <a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->created_at->format('d/m/Y')}}</a>
-                                                <a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title=""> {{ sizeof($article->commentaires()) }} commentaires</a>
+                                                <a href="{{ route('article.show', $article->slug) }}" title="">{{$article->created_at->format('d/m/Y')}}</a>
+                                                <a href="{{ route('article.show', $article->slug) }}" title=""> {{ sizeof($article->commentaires()) }} commentaires</a>
                                             </div>
                                         </div>
                                         @php  
 										$description = strip_tags($article->description) ;
 									    @endphp
                                         <div class="blog-details">
-                                            <h3><a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">{{$article->titre}}</a></h3>
+                                            <h3><a href="{{ route('article.show', $article->slug) }}" title="">{{$article->titre}}</a></h3>
                                             <p> {!! substr($description, 0, 250) !!} ... </p>
-                                            <a href="{{ route('article.show', Crypt::encrypt($article->id)) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
+                                            <a href="{{ route('article.show', $article->slug) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

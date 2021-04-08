@@ -28,15 +28,7 @@ class ArticleController extends Controller
         return view('blog.index', compact('articles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -75,11 +67,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function article_show($id)
+    public function article_show($slug)
     {
         
-        $article = Article::where('id', Crypt::decrypt($id))->first();
-        $commentaires = Commentaire::where([['article_id', Crypt::decrypt($id)],['valide',true]])->get();
+        $article = Article::where('slug', $slug)->first();
+        $commentaires = Commentaire::where([['article_id', $article->id],['valide',true]])->get();
        
         $posts = Article::orderBy('id', 'desc')->paginate(5);
 
@@ -87,29 +79,7 @@ class ArticleController extends Controller
         return view('blog.article',compact('article','commentaires','posts'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
+   
     /**
      * Remove the specified resource from storage.
      *
@@ -186,6 +156,13 @@ class ArticleController extends Controller
             }
 
             $article->image = 'images\blog\\' . $filename ;
+            
+            $slug = $this->to_slug($request->titre);
+    
+            $article->slug = $slug;
+    
+            
+            
             $article->update();
       
 
@@ -199,10 +176,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_admin($id)
+    public function show_admin($slug)
     {
         
-        $article = Article::where('id',$id)->first();
+        $article = Article::where('slug',$slug)->first();
         $num = $id;
 
 
@@ -215,9 +192,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_admin($id)
+    public function edit_admin($slug)
     {
-        $article = Article::where('id',Crypt::decrypt($id))->first();
+        $article = Article::where('slug',$slug)->first();
       
 
 
@@ -284,6 +261,10 @@ class ArticleController extends Controller
 
             
             }
+            
+            $slug = $this->to_slug($request->titre);
+    
+            $article->slug = $slug;
 
             $article->update();
       
@@ -301,4 +282,61 @@ class ArticleController extends Controller
     {
         //
     }
+    
+    
+    
+
+  /**
+     * Convertir une chaine de caractère en slug.
+     *
+     * @param  String $slug
+     * @return String 
+     */
+    public function to_slug($string)
+    {
+        
+        $table = array(
+            'Š'=>'S', 'š'=>'s', 'Đ'=>'Dj', 'đ'=>'dj', 'Ž'=>'Z', 'ž'=>'z', 'Č'=>'C', 'č'=>'c', 'Ć'=>'C', 'ć'=>'c',
+            'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
+            'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O',
+            'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U', 'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss',
+            'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e',
+            'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o',
+            'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b',
+            'ÿ'=>'y', 'Ŕ'=>'R', 'ŕ'=>'r', '/' => '-', ' ' => '-'
+        );
+    
+        // -- Remove duplicated spaces
+        $string = preg_replace(array('/\s{2,}/', '/[\t\n]/'), ' ', $string);
+    
+        // -- Returns the slug
+        return strtolower(strtr($string, $table));
+        
+    }
+    
+    
+      /**
+     * Convertir une chaine de caractère en slug.
+     *
+     * @param  String $slug
+     * @return String 
+     */
+    public function convert_to_slug()
+    {
+
+       $articles =  Article::all();
+
+       foreach($articles as $article){
+
+            $slug = $this->to_slug($article->titre);
+          
+            $article->slug = $slug;
+            $article->update();
+
+       }
+
+
+
+    }
+
 }

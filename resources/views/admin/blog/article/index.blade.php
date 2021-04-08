@@ -65,7 +65,7 @@
                                             <td>{{$article->titre}}</td>
                                             <td>{!!$article->description!!}</td>
                                             <td>    
-                                                <a href="{{route('admin.article.edit', Crypt::encrypt($article->id))}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
+                                                <a href="{{route('admin.article.edit', $article->slug)}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
                                             <a href="{{route('admin.article.delete', Crypt::encrypt($article->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
                                             
