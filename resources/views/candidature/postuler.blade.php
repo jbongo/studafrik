@@ -88,11 +88,7 @@
 							
 							
 							
-							@if($offre->candidater_lien == "Oui") 
-							<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
 							
-							
-							@endif
 
 
 
@@ -117,7 +113,13 @@
 			 					@if($offre->user->contact)<p><i class="la la-phone"></i> {{$offre->user->contact}}</p>@endif
 			 					@if($offre->user->email && $offre->user->role != "admin")<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p>@endif
 			 				</div>
+			 				@if($offre->candidater_lien == "Oui") 
+							<a href="{{$offre->url_candidature}}" title=""  class="apply-job-btn">Postuler</a>
+							
+							
+							@endif
 			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
+			 				
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>
