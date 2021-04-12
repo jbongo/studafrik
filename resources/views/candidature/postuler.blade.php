@@ -38,50 +38,61 @@
 				 			</div><!-- Job Head -->
 				 			<div class="job-details" style="margin-bottom: 50px">
                          
-                            @if($offre->message_candidature == null)
-                                <form enctype="multipart/form-data" action="{{ route('postuler.store',$offre->id ) }}" method="POST">
-
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <span class="pf-title">Ajoutez votre CV *</span>
-                                            <div class="pf-field">
-                                                <input type="file"  name="cv_fichier" placeholder="" required/>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-lg-12">
-                                            <input type="radio" id="cv_profil" name="cv_profil" value="true">
-                                            <label for="cv_profil">Ou postulez avec votre profil</label><br>
-                                        </div>
-                                     
-                                       
-                                        
-                                        
-
-                                        <div class="col-lg-12">
-                                            <span class="pf-title">Ajoutez votre lettre de motivation</span>
-                                            <div class="pf-field">
-                                                <textarea name="lettre_motivation" ></textarea>
-                                            </div>
-                                        </div>
-                                        
-
-
-                                        <div class="col-lg-12">
-                                            <button type="submit" class="apply-job-btn" > <i class="la la-paper-plane"></i>POSTULER</button>
-                                        </div>
-                                        
-
-                                    </div>
-
-								</form>
+                            @if($offre->message_candidature == null )
+                            
+                                @if($offre->candidater_lien == "Non")
+	                                <form enctype="multipart/form-data" action="{{ route('postuler.store',$offre->id ) }}" method="POST">
+	
+	                                    @csrf
+	                                    <div class="row">
+	                                        <div class="col-lg-12">
+	                                            <span class="pf-title">Ajoutez votre CV *</span>
+	                                            <div class="pf-field">
+	                                                <input type="file"  name="cv_fichier" placeholder="" required/>
+	                                            </div>
+	                                        </div>
+	
+	
+	                                        <div class="col-lg-12">
+	                                            <input type="radio" id="cv_profil" name="cv_profil" value="true">
+	                                            <label for="cv_profil">Ou postulez avec votre profil</label><br>
+	                                        </div>
+	                                     
+	                                       
+	                                        
+	                                        
+	
+	                                        <div class="col-lg-12">
+	                                            <span class="pf-title">Ajoutez votre lettre de motivation</span>
+	                                            <div class="pf-field">
+	                                                <textarea name="lettre_motivation" ></textarea>
+	                                            </div>
+	                                        </div>
+	                                        
+	
+	
+	                                        <div class="col-lg-12">
+	                                            <button type="submit" class="apply-job-btn" > <i class="la la-paper-plane"></i>POSTULER</button>
+	                                        </div>
+	                                        
+	
+	                                    </div>
+	
+									</form>
+									@endif
 							@else 
 
 							{!!$offre->message_candidature!!}
 
 							@endif	
+							
+							
+							
+							@if($offre->candidater_lien == "Oui") 
+							<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+							
+							
+							@endif
 
 
 

@@ -113,13 +113,13 @@
 									@if(Auth::check())
 										@if(Auth::user()->role == "candidat") 
 											@if($deja_postuler == false )
-												@if($offre->candidater_lien == "Non")
+												{{-- @if($offre->candidater_lien == "Non") --}}
 													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
-												@else
+												{{-- @else --}}
 
-												<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+												{{-- <a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a> --}}
 
-												@endif
+												{{-- @endif --}}
 											
 											@elseif($deja_postuler == true )
 												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
@@ -128,11 +128,11 @@
 										@endif
 									@else 
 
-											@if($offre->candidater_lien == "Non")
+											{{-- @if($offre->candidater_lien == "Non") --}}
 												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
-											@else
-												<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
-											@endif
+											{{-- @else --}}
+												{{-- <a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a> --}}
+											{{-- @endif --}}
 
 									
 									@endif
