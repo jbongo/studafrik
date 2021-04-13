@@ -100,6 +100,7 @@
 				 		<div class="job-single-head style2">
 			 				<div class="job-thumb" style="margin-bottom: 55px"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 			 				
+							 <h4> {{$offre->user->nom}}</h4>
 						
 								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
 								
@@ -144,7 +145,6 @@
 							
 							 <div class="job-head-info">
 					
-							 <h4> {{$offre->user->nom}}</h4>
 								 {{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
 								 @if($offre->user->site_web != null)
 								 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
@@ -155,9 +155,15 @@
 								 <p>
 									@if($est_candidat == true)
 										@if($est_favoris == false)
-										<a class="btn btn-success" style="width: 190px" href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
-										@else 
-										<a class=" btn btn-warning"  href="#" style="color:rgb(58, 3, 3); font-size:17px; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
+										<a  style="background: #d60004; width: 200px"  href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
+										
+										{{-- <a class="viewall-jobs"  href="#" style="background: #323232; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a> --}}
+
+										@else
+										
+			 				 			<br> <a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #323232; width: 190px"  >Découvrir l'entreprise</a> <br>
+
+										<a class="viewall-jobs"  href="#" style="background: #323232; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
 										@endif
 									@endif
 								 </p>

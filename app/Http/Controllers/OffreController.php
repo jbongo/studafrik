@@ -487,7 +487,7 @@ class OffreController extends Controller
      */
     public function index_admin()
     {
-        $offres = Offre::all();
+        $offres = Offre::orderBy('created_at','desc')->get();
 
         return view('admin.offre.index', compact('offres'));
     }
