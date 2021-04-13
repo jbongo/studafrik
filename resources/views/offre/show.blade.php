@@ -39,7 +39,7 @@
 								 
 								 <div class="row">
 									 <div class="col-12">
-										<h1>{{$offre->titre}}</h1>
+										<h3>{{$offre->titre}}</h3>
 									 
 									 </div>
 									 
@@ -100,7 +100,10 @@
 				 		<div class="job-single-head style2">
 			 				<div class="job-thumb" style="margin-bottom: 55px"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 			 				
-							 <h4> {{$offre->user->nom}}</h4>
+							 <h4> {{$offre->user->nom}}</h4> <br>
+							 @if($offre->user->site_web != null)
+							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
+							 @endif
 						
 								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
 								
@@ -116,11 +119,11 @@
 											@if($deja_postuler == false )
 												{{-- @if($offre->candidater_lien == "Non") --}}
 													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
-												{{-- @else --}}
+												{{-- @else
 
-												{{-- <a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a> --}}
+												<a href="{{$offre->url_candidature}}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
 
-												{{-- @endif --}}
+												@endif --}}
 											
 											@elseif($deja_postuler == true )
 												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
@@ -143,38 +146,31 @@
 
 
 							
-							 <div class="job-head-info">
+							 {{-- <div class="job-head-info "> --}}
 					
 								 {{-- <span>274 Seven Sisters Road, London, N4 2HY</span> --}}
-								 @if($offre->user->site_web != null)
-								 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
-								 @endif
+								
 			 					{{-- <p><i class="la la-phone"></i> {{$offre->user->contact}}</p>
 			 					<p><i class="la la-envelope-o"></i>{{$offre->user->email}}</p> --}}
 			 					<br>
-								 <p>
+								 {{-- <p> --}}
 									@if($est_candidat == true)
 										@if($est_favoris == false)
-										<a  style="background: #d60004; width: 200px"  href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" title=""><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
-										
-										{{-- <a class="viewall-jobs"  href="#" style="background: #323232; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a> --}}
+										<a   href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" style="background: #323232; width: 190px"  class="viewall-jobs"><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
 
-										@else
-										
-			 				 			<br> <a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #323232; width: 190px"  >Découvrir l'entreprise</a> <br>
-
-										<a class="viewall-jobs"  href="#" style="background: #323232; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
+										@else 
+										<a class=" btn btn-warning"  href="#" style="color:rgb(58, 3, 3); font-size:17px; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
 										@endif
 									@endif
-								 </p>
-							 </div>
+								 {{-- </p> --}}
+							 {{-- </div> --}}
 							 
 							
 
-					
+							@if($offre->user->role == "recruteur")
 			 				 <br> <a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #323232; width: 190px"  class="viewall-jobs">Découvrir l'entreprise</a> <br>
 							 
-						
+						@endif
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>

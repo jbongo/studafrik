@@ -118,7 +118,7 @@
 							
 							
 							@endif
-			 				<a href="{{ route('offres_emplois') }}" title="" class="viewall-jobs">Consulter les offres</a>
+			 				<a href="{{ route('offres_emplois') }}" title="" style="background: #323232; " class="viewall-jobs">Consulter les offres</a>
 			 				
 			 			</div><!-- Job Head -->
 				 	</div>
