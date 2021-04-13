@@ -39,7 +39,7 @@
 								 
 								 <div class="row">
 									 <div class="col-12">
-										<h3>{{$offre->titre}}</h3>
+										<h1>{{$offre->titre}}</h1>
 									 
 									 </div>
 									 
