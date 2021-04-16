@@ -71,7 +71,7 @@ class ArticleController extends Controller
     {
         
         $article = Article::where('slug', $slug)->first();
-        $commentaires = Commentaire::where([['article_id', $article->id],['valide',true]])->get();
+        $commentaires = $article != null ? Commentaire::where([['article_id', $article->id],['valide',true]])->get() : null;
        
         $posts = Article::orderBy('id', 'desc')->paginate(5);
 
