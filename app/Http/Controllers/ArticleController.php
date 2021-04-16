@@ -158,6 +158,8 @@ class ArticleController extends Controller
             $article->image = 'images\blog\\' . $filename ;
             
             $slug = $this->to_slug($request->titre);
+            
+            $slug = str_replace(['--','---'],'-', $slug);
     
             $article->slug = $slug;
     
@@ -263,6 +265,8 @@ class ArticleController extends Controller
             }
             
             $slug = $this->to_slug($request->titre);
+            $slug = str_replace(['--','---'],'-', $slug);
+            
     
             $article->slug = $slug;
 
@@ -280,7 +284,12 @@ class ArticleController extends Controller
      */
     public function delete_admin($id)
     {
-        //
+    
+        $article = Article::where('id',Crypt::decrypt($id))->first();
+        
+        $article->delete();
+    
+        
     }
     
     
@@ -303,7 +312,7 @@ class ArticleController extends Controller
             'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c', 'è'=>'e', 'é'=>'e',
             'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o',
             'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b',
-            'ÿ'=>'y', 'Ŕ'=>'R', 'ŕ'=>'r', '/' => '-', ' ' => '-'
+            'ÿ'=>'y', 'Ŕ'=>'R', 'ŕ'=>'r', '/' => '-', ' ' => '-','?' => '','-' => '','  ' => '-','.'=>''
         );
     
         // -- Remove duplicated spaces
@@ -331,6 +340,8 @@ class ArticleController extends Controller
             $slug = $this->to_slug($article->titre);
           
             $article->slug = $slug;
+            $slug = str_replace(['--','---'],'-', $slug);
+            
             $article->update();
 
        }
