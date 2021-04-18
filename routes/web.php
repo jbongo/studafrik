@@ -227,7 +227,27 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/commentaire/valider/{commentaire_id}','CommentaireController@valider')->name('admin.commentaire.valider');
     Route::get('admin/commentaire/supprimer/{commentaire_id}','CommentaireController@delete')->name('admin.commentaire.delete');
 
-   
+    // Candidats
+
+    Route::get('admin/candidats','UserController@index_candidat')->name('admin.candidat.index');    
+    Route::get('admin/candidat/create','UserController@create_candidat')->name('admin.candidat.create');    
+    Route::post('admin/candidat/add','UserController@add_candidat')->name('admin.candidat.add');    
+    Route::get('admin/candidat/edit/{candidat_id}','UserController@edit_candidat')->name('admin.candidat.edit');   
+    Route::post('admin/candidat/update/{candidat_id}','UserController@update_candidat')->name('admin.candidat.update');    
+    Route::post('admin/candidat/delete/{candidat_id}','UserController@delete_candidat')->name('admin.candidat.delete');    
+
+
+    // recruteurs
+
+    Route::get('admin/recruteurs','UserController@index_recruteur')->name('admin.recruteur.index');    
+    Route::get('admin/recruteur/create','UserController@create_recruteur')->name('admin.recruteur.create');    
+    Route::post('admin/recruteur/add','UserController@add_recruteur')->name('admin.recruteur.add');    
+    Route::get('admin/recruteur/edit/{recruteur_id}','UserController@edit_recruteur')->name('admin.recruteur.edit');   
+    Route::post('admin/recruteur/update/{candidat_id}','UserController@update_recruteur')->name('admin.recruteur.update');    
+    Route::post('admin/recruteur/delete/{recruteur_id}','UserController@delete_recruteur')->name('admin.recruteur.delete');    
+
+    
+
     
     
 });

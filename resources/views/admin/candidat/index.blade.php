@@ -5,14 +5,14 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">offres</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Candidats</h1>
                   <hr>
-                      <a href="{{route('admin.offre.create')}}" class="btn btn-success btn-icon-split" >
+                      {{-- <a href="{{route('admin.candidat.create')}}" class="btn btn-success btn-icon-split" >
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Ajouter une offre</span>
-                    </a>
+                        <span class="text">Ajouter un candidat</span>
+                    </a> --}}
                   <hr>
                   @if (session('ok'))
                   <div class="alert alert-success ">
@@ -27,33 +27,41 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Liste des offres</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Liste des candidats ({{sizeof($candidats)}})</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+                                <table class="table table-bordered"  id="example" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Secteur d'activité</th>
-                                            <th>Titre</th>
-                                            {{-- <th>Description</th> --}}
-                                            <th>Type Contrat</th>
+                                         
+                                            <th>Email</th>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                            <th>Présentation</th>
+                                            <th>Poste</th>
                                             <th>Pays</th>
                                             <th>Ville</th>
-                                            <th>Date d'expiration</th>
+                                            <th>Date d'inscription</th>
+                                            <th>Création profil</th>
+                                            <th>Email Comfirmée</th>
+
                                             <th>Actions</th>
                                             
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Secteur d'activité</th>
-                                            <th>Titre</th>
-                                            {{-- <th>Description</th> --}}
-                                            <th>Type Contrat</th>
+                                            <th>Email</th>
+                                            <th>Nom</th>
+                                            <th>Prénom</th>
+                                            <th>Présentation</th>
+                                            <th>Poste</th>
                                             <th>Pays</th>
                                             <th>Ville</th>
-                                            <th>Date d'expiration</th>
+                                            <th>Date d'inscription</th>
+                                            <th>Création profil</th>
+                                            <th>Email Comfirmée</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -62,21 +70,25 @@
                                         
                                     </tfoot>
                                     <tbody>
-                                        @foreach ($offres as $offre )
+                                        @foreach ($candidats as $candidat )
                                         <tr>
                                           
-                                            <td>{{$offre->categorie}}</td>
-                                            <td>{{$offre->titre}}</td>
-                                            {{-- <td>{!! substr($offre->description, 0, 50) !!}...</td> --}}
-                                            <td>{{$offre->type_contrat}}</td>
-                                            <td>{{$offre->pays}}</td>
-                                            <td>{{$offre->ville}}</td>
-                                            <td>@if($offre->date_expiration != null ) {{$offre->date_expiration->format('d/m/Y')}} @endif</td>
+                                            <td>{{$candidat->email}}</td>
+                                            <td>{{$candidat->nom}}</td>
+                                            <td>{{$candidat->prenom}}</td>
+                                            <td>{{$candidat->description}}</td>
+                                            <td>{{$candidat->poste}}</td>
+                                            <td>{{$candidat->pays}}</td>
+                                            <td>{{$candidat->ville}}</td>
+                                            <td> {{$candidat->created_at->format('d/m/Y')}} </td>
+                                            <td> @if($candidat->profile_complete == true) <a type="button" class="btn btn-success"> terminée</a>  @else <button type="button" class="btn btn-danger">non terminée</button>  @endif</td>
+                                            <td> @if($candidat->email_verified_at != null) <a type="button" class="btn btn-outline-success"> OUI</a>  @else <button type="button" class="btn btn-outline-danger">NON</button>  @endif</td>
+                                            
                                             <td>    
-                                                <a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>     
-                                                <a href="{{route('admin.offre.edit', $offre->slug)}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
+                                              {{-- <a href="{{route('mes_candidats.show', $candidat->slug)}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>      --}}
+                                                <a href="" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
-                                                <a href="{{route('admin.offre.delete', Crypt::encrypt($offre->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
+                                                <a href="" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td> 
                                             
                                         </tr>
                                         @endforeach
@@ -98,10 +110,18 @@
 
     
 @section('js-content')
+
+>
+
+
+
+
+
+
 <script>
 
 
-    // ######### supprimer un offre
+    // ######### supprimer un candidat
     $(function() {
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
@@ -114,7 +134,7 @@
            
            
             swal({
-                title: "Voulez-vous supprimer cet offre ?",
+                title: "Voulez-vous supprimer cet candidat ?",
                 // text: "Once deleted, you will not be able to recover this imaginary file!",
                 icon: "warning",
                 //     showCancelButton: true,
@@ -144,7 +164,7 @@
 
 
 
-                    swal("Le offre a été supprimé !", {
+                    swal("Le candidat a été supprimé !", {
                     icon: "success",
                     });
 

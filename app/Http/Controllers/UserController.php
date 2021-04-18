@@ -472,7 +472,7 @@ public function photoProfile(Request $request){
 
 
 
-    //################### ADMIN
+    ###################################### ADMIN ######################################
 
 
    /**
@@ -485,4 +485,98 @@ public function photoProfile(Request $request){
 
         return view('admin.login');
     }
+
+     /**
+     * Affiche la liste des candidats
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_candidat()
+    {
+
+        $candidats = User::where('role','candidat')->get();
+        return view('admin.candidat.index', compact('candidats'));
+    }
+
+    /**
+     * Page de modification d'un candidat
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_candidat($candidat_id)
+    {
+
+        return view('admin.login');
+    }
+
+    /**
+     *  modification d'un candidat
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update_candidat($candidat_id)
+    {
+
+        return view('admin.login');
+    }
+
+    
+    /**
+     *  suppression d'un candidat
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_candidat($candidat_id)
+    {
+
+        return view('admin.login');
+    }
+
+    
+     /**
+     * Affiche la liste des recruteurs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_recruteur()
+    {
+
+        $recruteurs = User::where('role','recruteur')->get();
+        return view('admin.recruteur.index', compact('recruteurs'));
+    }
+
+    /**
+     * Page de modification d'un recruteur
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_recruteur($recruteur_id)
+    {
+
+        return view('admin.login');
+    }
+
+    /**
+     *  modification d'un recruteur
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update_recruteur($recruteur_id)
+    {
+
+        return view('admin.login');
+    }
+
+    
+    /**
+     *  suppression d'un recruteur
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_recruteur($recruteur_id)
+    {
+
+        return view('admin.login');
+    }
+
 }
