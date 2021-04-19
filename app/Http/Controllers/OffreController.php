@@ -412,7 +412,12 @@ class OffreController extends Controller
     public function create_postuler($offre_id)
     {
     
+    
         $offre = Offre::where('id', Crypt::decrypt($offre_id))->first();
+        
+        $offre->nb_clic =   $offre->nb_clic + 1;
+        
+        $offre->update();
 
         return view('candidature.postuler', compact('offre'));
     }
