@@ -41,6 +41,7 @@
                                             <th>Pays</th>
                                             <th>Ville</th>
                                             <th>Date d'expiration</th>
+                                            <th>nombre de clics sur l'offre</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -54,6 +55,8 @@
                                             <th>Pays</th>
                                             <th>Ville</th>
                                             <th>Date d'expiration</th>
+                                            <th>nombre de clics sur l'offre</th>
+
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -72,6 +75,8 @@
                                             <td>{{$offre->pays}}</td>
                                             <td>{{$offre->ville}}</td>
                                             <td>@if($offre->date_expiration != null ) {{$offre->date_expiration->format('d/m/Y')}} @endif</td>
+                                            <td>{{$offre->nb_clic}}</td>
+
                                             <td>    
                                                 <a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>     
                                                 <a href="{{route('admin.offre.edit', $offre->slug)}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
