@@ -5,14 +5,9 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">offres</h1>
+                    <h1 class="h3 mb-2 text-gray-800">offres archivées</h1>
                   <hr>
-                      <a href="{{route('admin.offre.create')}}" class="btn btn-success btn-icon-split" >
-                        <span class="icon text-white-50">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <span class="text">Ajouter une offre</span>
-                    </a>
+                     
                   <hr>
                   @if (session('ok'))
                   <div class="alert alert-success ">
@@ -42,7 +37,6 @@
                                             <th>Ville</th>
                                             <th>Date d'expiration</th>
                                             <th>nombre de clics sur l'offre</th>
-                                            <th>Offres expirée</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -56,9 +50,7 @@
                                             <th>Pays</th>
                                             <th>Ville</th>
                                             <th>Date d'expiration</th>
-                                            
                                             <th>nombre de clics sur l'offre</th>
-                                            <th>Offres expirée</th>
 
                                             <th>Actions</th>
                                             
@@ -72,22 +64,20 @@
                                         <tr>
                                           
                                             <td>{{$offre->categorieoffre->nom}}</td>
-                                            <td>{{ substr($offre->titre,0,50) }}...</td>
+                                            <td>{{$offre->titre}}</td>
                                             {{-- <td>{!! substr($offre->description, 0, 50) !!}...</td> --}}
                                             <td>{{$offre->type_contrat}}</td>
                                             <td>{{$offre->pays}}</td>
                                             <td>{{$offre->ville}}</td>
                                             <td>@if($offre->date_expiration != null ) {{$offre->date_expiration->format('d/m/Y')}} @endif</td>
                                             <td>{{$offre->nb_clic}}</td>
-                                            <td>@if($offre->date_expiration != null && $offre->date_expiration->format('Y-m-d') < date('Y-m-d')  ) <span class="btn btn-danger">  OUI </span>  @else <span class="btn btn-success">  NON </span>  @endif </td>
 
                                             <td>    
-                                                <a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" title="Afficher cette offre" ><i class="fas fa-eye"></i></a>     
-                                                <a href="{{route('admin.offre.edit', $offre->slug)}}" class="btn btn-success btn-circle btn-sm  update" title="Modifier l'offre" ><i class="fas fa-edit"></i></a>     
+                                                <a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>     
+                                                <a href="{{route('admin.offre.edit', $offre->slug)}}" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
-                                                <a href="{{route('admin.offre.archiver', $offre->id)}}" class="btn btn-warning btn-circle btn-sm archiver" title="Archiver cette offre"><i class="fas fa-archive"></i></a>
-                                                <a href="{{route('admin.offre.delete', Crypt::encrypt($offre->id))}}" class="btn btn-danger btn-circle btn-sm supprimer" title="Supprimer cette offre" ><i class="fas fa-trash"></i></a>
-                                            </td>
+                                                <a href="{{route('admin.offre.delete', Crypt::encrypt($offre->id))}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td>
+                                            
                                         </tr>
                                         @endforeach
                                        
@@ -111,20 +101,20 @@
 <script>
 
 
-    // ######### archiver un offre
+    // ######### supprimer un offre
     $(function() {
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
         })
         $('[data-toggle="tooltip"]').tooltip()
-        $('body').on('click','a.archiver',function(e) {
+        $('body').on('click','a.supprimer',function(e) {
             let that = $(this)
             e.preventDefault()
            
            
            
             swal({
-                title: "Voulez-vous archiver cette offre ?",
+                title: "Voulez-vous supprimer cet offre ?",
                 // text: "Once deleted, you will not be able to recover this imaginary file!",
                 icon: "warning",
                 //     showCancelButton: true,
@@ -154,12 +144,12 @@
 
 
 
-                    swal("Le offre a été archivé !", {
+                    swal("Le offre a été supprimé !", {
                     icon: "success",
                     });
 
                 } else {
-                    swal("Archive annulée");
+                    swal("Suppression annulée");
                 }
                 });
 

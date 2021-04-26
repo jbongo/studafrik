@@ -220,6 +220,9 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/edit-offre/{offre_id}','OffreController@edit_admin')->name('admin.offre.edit');
     Route::post('admin/update-offre/{offre_id}','OffreController@update_admin')->name('admin.offre.update');
     Route::get('admin/delete-offre/{offre_id}','OffreController@destroy_admin')->name('admin.offre.delete');
+    Route::get('admin/archiver-offre/{offre_id}','OffreController@archiver_admin')->name('admin.offre.archiver');
+
+    Route::get('admin/offres/archives','OffreController@archives_admin')->name('admin.offres.archive');    
     
     // Commentaires
     

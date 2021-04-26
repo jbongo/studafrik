@@ -35,8 +35,8 @@ class CreateOffreTable extends Migration
             $table->string('candidater_lien')->default("Non");
             $table->string('url_candidature')->nullable();
             
-            
             $table->boolean('active')->default(true);
+            $table->boolean('archive')->default(false);
 
             $table->timestamps();
         });

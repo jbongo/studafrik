@@ -172,7 +172,7 @@
                         <div class="row" id="team-carousel">
                             <div class="col-lg-3">
                                 <div class="team">
-                                    <div class="team-img"><img src="{{asset('images/team/yeelen.jpeg')}}" width="121px" height="121px" alt="" /></div>
+                                    <div class="team-img"><img src="{{asset('images/team/yeelen.png')}}" width="121px" height="121px" alt="" /></div>
                                     <div class="team-detail">
                                         <h3><a href="#" title="">Yeelen </a></h3>
                                         <span>Co-fondatrice et Chargée des opérations</span>
@@ -183,7 +183,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="team">
-                                    <div class="team-img"><img src="{{asset('images/team/morgane.jpeg')}}" width="121px" height="121px" alt="" /></div>
+                                    <div class="team-img"><img src="{{asset('images/team/morgane.png')}}" width="121px" height="121px" alt="" /></div>
                                     <div class="team-detail">
                                         <h3><a href="#" title="">Morgane </a></h3>
                                         <span>Co-fondatrice et Chargée Communication</span>
@@ -207,7 +207,7 @@
                             
                             <div class="col-lg-3">
                                 <div class="team">
-                                    <div class="team-img"><img src="{{asset('images/team/anne-claire.jpeg')}}" width="121px" height="121px" alt="" /></div>
+                                    <div class="team-img"><img src="{{asset('images/team/anne-claire.png')}}" width="121px" height="121px" alt="" /></div>
                                     <div class="team-detail">
                                         <h3><a href="#" title="">Anne-Claire </a></h3>
                                         <span>SEO et Marketing Manager</span>

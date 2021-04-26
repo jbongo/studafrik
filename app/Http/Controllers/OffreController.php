@@ -48,6 +48,9 @@ class OffreController extends Controller
         return view('offre.index', compact('offres','nb_offres','nb_offres_actives','nb_candidatures'));
     }
 
+
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +59,7 @@ class OffreController extends Controller
     public function offres_emplois()
     {
         
-        $offres = Offre::orderBy('created_at','desc')->paginate(10);
+        $offres = Offre::where([['archive',false],['active',true]])->orderBy('created_at','desc')->paginate(10);
         $nb_offres = sizeof($offres) ;
         // dd($offres);
         $payss = Pays::all();
@@ -492,7 +495,7 @@ class OffreController extends Controller
      */
     public function index_admin()
     {
-        $offres = Offre::orderBy('created_at','desc')->get();
+        $offres = Offre::where('archive',false)->orderBy('created_at','desc')->get();
 
         return view('admin.offre.index', compact('offres'));
     }
@@ -653,6 +656,35 @@ class OffreController extends Controller
       return   $offre->delete();
         
     }
+
+    
+     /**
+     * archiver des offres
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function archiver_admin($offre_id)
+    {
+        $offre = Offre::where('id',$offre_id)->first();
+        $offre->archive = true;
+
+        $offre->update();
+        return redirect()->route('admin.offres.index')->with('ok', __("Votre offre a été archivée ")  );
+    }
+
+
+     /**
+     * Liste des offres archivées
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function archives_admin()
+    {
+        $offres = Offre::where('archive',true)->orderBy('created_at','desc')->get();
+
+        return view('admin.offre.archive', compact('offres'));
+    }
+
 
 
 
