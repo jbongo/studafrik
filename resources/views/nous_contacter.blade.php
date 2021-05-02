@@ -97,10 +97,7 @@
                                 </div>
                                  
                                  <div class="col-lg-12">
-                                     <button class="g-recaptcha" 
-                                     data-sitekey="6LcmAwETAAAAACZp3N0oT7VyNfaLbnQC8z9B9eqR" 
-                                     data-callback='onSubmit' 
-                                     data-action='submit' type="submit">Envoyer</button>
+                                     <button type="submit">Envoyer</button>
                                  </div>                     
                              </div>
                              <br><br>
