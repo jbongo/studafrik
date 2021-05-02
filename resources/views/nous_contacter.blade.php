@@ -37,7 +37,7 @@
 
                       
 
-                     <form action="{{route('contact.store')}}" method="POST">
+                     <form action="{{route('contact.store')}}" method="POST" id="demo-form">
                              <div class="row">
                             @csrf
 
@@ -89,12 +89,10 @@
                                         @endif
                                      </div>
                                  </div>
-                                 <div id="captcha" class="input-field col s12 center">
-                                    <div class="g-recaptcha" data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL"></div>
-                                    <div id="error" class="left red-text text-darken-2" style="display: none">
-                                        Veuillez cliquer sur le Captcha, merci.
-                                    </div>
-                                </div>
+                                 <button class="g-recaptcha" 
+                                 data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL" 
+                                 data-callback='onSubmit' 
+                                 data-action='submit'>Submit</button>
                                  <div class="col-lg-12">
                                      <button type="submit">Envoyer</button>
                                  </div>                     
@@ -131,4 +129,10 @@
 @include('layouts/footer')
 
 @section('js-content')
+
+<script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
 @endsection
