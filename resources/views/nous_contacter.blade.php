@@ -90,7 +90,7 @@
                                      </div>
                                  </div>
                                  <div id="captcha" class="input-field col s12 center">
-                                    <div class="g-recaptcha" data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL"></div>
+                                    <div class="g-recaptcha" data-sitekey="6LcmAwETAAAAACZp3N0oT7VyNfaLbnQC8z9B9eqR"></div>
                                     <div id="error" class="left red-text text-darken-2" style="display: none">
                                         Veuillez cliquer sur le Captcha, merci.
                                     </div>
@@ -98,7 +98,7 @@
                                  
                                  <div class="col-lg-12">
                                      <button class="g-recaptcha" 
-                                     data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL" 
+                                     data-sitekey="6LcmAwETAAAAACZp3N0oT7VyNfaLbnQC8z9B9eqR" 
                                      data-callback='onSubmit' 
                                      data-action='submit' type="submit">Envoyer</button>
                                  </div>                     
