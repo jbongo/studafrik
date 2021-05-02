@@ -27,7 +27,12 @@
 </div>
 @endif   
 
-
+@if ($errors->has('g-recaptcha-response'))
+<br>
+<div class="alert alert-warning ">
+    <strong>Le champs recaptacha est obligatoire</strong> 
+</div>
+@endif
 <section>
     <div class="block" style="margin-top: 50px">
         <div class="container">
