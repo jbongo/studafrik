@@ -89,12 +89,12 @@
                                         @endif
                                      </div>
                                  </div>
-                                 <button class="g-recaptcha" 
-                                 data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL" 
-                                 data-callback='onSubmit' 
-                                 data-action='submit'>Submit</button>
+                                 
                                  <div class="col-lg-12">
-                                     <button type="submit">Envoyer</button>
+                                     <button class="g-recaptcha" 
+                                     data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL" 
+                                     data-callback='onSubmit' 
+                                     data-action='submit' type="submit">Envoyer</button>
                                  </div>                     
                              </div>
                              <br><br>
