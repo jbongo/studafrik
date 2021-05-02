@@ -9,7 +9,7 @@ Se connecter
 @endcomponent
 
 Bien cordialement,<br>
-L'Équipe STUDAFRIK.
+L'Équipe STUD'AFRIK.
 <img src="{{asset('images/logo.png')}}" width="120px" height="100px" alt="logo">
 
 @endcomponent

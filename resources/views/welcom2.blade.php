@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Studafrik</title>
+	<title>Stud'afrik</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -58,7 +58,7 @@
 		</div>
 
 		<span class="s1-txt2 txt-center">
-			@ 2021 Studafrik
+			@ 2021 Stud'afrik
 		</span>
 
 	</div>

@@ -178,7 +178,7 @@
                                     <div class="col-lg-12">
                                         <span class="pf-title">Description de votre activité <span class="text-danger">*</span> </span>
                                         <div class="pf-field">
-                                            <textarea type="description" class="form-control" required name="description">{{ old('description') ? old('description') : Auth::user()->description  }}</textarea>
+                                            <textarea type="description" class="form-control"  name="description">{{ old('description') ? old('description') : Auth::user()->description  }}</textarea>
                                         </div>
                                     </div>
                                     

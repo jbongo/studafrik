@@ -11,6 +11,8 @@ use App\Models\Categorieoffre;
 use App\Models\Favoriscv;
 use App\Models\Offre;
 use App\Models\Pays;
+use App\Mail\BienvenueRecruteur;
+use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\Crypt;
 
@@ -217,9 +219,15 @@ if($request->hasFile('cv')){
                 $user->contact2 = $request->contact2 ;
                 $user->email_contact = $request->email_contact ;
 
-                $user->profile_complete = true ;
+                if($user->profile_complete == false){
+                    Mail::to($user->email)->send(new BienvenueRecruteur());
+                    $user->profile_complete = true ;
+
+                }
           
                 $user->update();
+
+
 
         }
        
