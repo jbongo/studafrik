@@ -95,9 +95,17 @@
                                         Veuillez cliquer sur le Captcha, merci.
                                     </div>
                                 </div>
-                                 
+                                @if ($errors->has('g-recaptcha-response'))
+                                <br>
+                                <div class="alert alert-warning ">
+                                    <strong>Le champs recaptacha est obligatoire</strong> 
+                                </div>
+                                @endif
                                  <div class="col-lg-12">
-                                     <button type="submit">Envoyer</button>
+                                     <button class="g-recaptcha" 
+                                     data-sitekey="6LcmAwETAAAAACZp3N0oT7VyNfaLbnQC8z9B9eqR" 
+                                     data-callback='onSubmit' 
+                                     data-action='submit' type="submit">Envoyer</button>
                                  </div>                     
                              </div>
                              <br><br>

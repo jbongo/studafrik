@@ -27,10 +27,11 @@ class ContactController extends Controller
             'email' => 'required|string',
             'sujet' => 'required|string',
             'message' => 'required|string',
-            // 'g-recaptcha-response'=>'required|recaptcha'
+            'g-recaptcha-response'=>'required|recaptcha'
 
           
         ]);
+        dd($request->all());
 
     
         // dd($request->all());
