@@ -31,7 +31,7 @@ class ContactController extends Controller
 
           
         ]);
-        dd($request->all());
+        // dd($request->all());
 
     
         // dd($request->all());
