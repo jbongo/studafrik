@@ -102,10 +102,7 @@
                                         </div>
                                     @endif
                                  <div class="col-lg-12">
-                                     <button class="g-recaptcha" 
-                                     data-sitekey="6LfJghMaAAAAAHYRX8fKJylBg_4BBxm_GhnoIOAL" 
-                                     
-                                      type="submit">Envoyer</button>
+                                     <button type="submit">Envoyer</button>
                                  </div>                     
                              </div>
                              <br><br>
