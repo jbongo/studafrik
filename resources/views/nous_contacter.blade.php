@@ -94,12 +94,12 @@
                                         @endif
                                      </div>
                                  </div>
-                                 <div id="captcha" class="input-field col s12 center">
-                                    <div class="g-recaptcha" data-sitekey="6LcmAwETAAAAACZp3N0oT7VyNfaLbnQC8z9B9eqR"></div>
+                                 {{-- <div id="captcha" class="input-field col s12 center">
+                                    <div class="g-recaptcha" data-sitekey="6Lfh6sgaAAAAAJHvDQVV-EQHhBYUB_DcnXe5vmoY"></div>
                                     <div id="error" class="left red-text text-darken-2" style="display: none">
                                         Veuillez cliquer sur le Captcha, merci.
                                     </div>
-                                </div>
+                                </div> --}}
                                     @if ($errors->has('g-recaptcha-response'))
                                         <br>
                                         <div class="alert alert-warning ">
@@ -107,7 +107,10 @@
                                         </div>
                                     @endif
                                  <div class="col-lg-12">
-                                     <button type="submit">Envoyer</button>
+                                     <button class="g-recaptcha" 
+                                     data-sitekey="6Lfh6sgaAAAAAJHvDQVV-EQHhBYUB_DcnXe5vmoY" 
+                                     data-callback='onSubmit' 
+                                     data-action='submit' type="submit">Envoyer</button>
                                  </div>                     
                              </div>
                              <br><br>
