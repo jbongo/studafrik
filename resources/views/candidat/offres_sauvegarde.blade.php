@@ -23,9 +23,11 @@
         <div class="container-fluid">
              <div class="row no-gape">
 
-                 @include('layouts.leftmenu')
+                <div class="col-3 column">
+                    @include('layouts.leftmenu')
+               </div>
 
-                 <div class="col-lg-9 column">
+                 <div class="col-9 column">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
                             <h3>Mes offres sauvegardées</h3>

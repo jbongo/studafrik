@@ -190,6 +190,8 @@
 <script src="{{asset('js/counter.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
 
+<!-- Custom scripts for all pages-->
+<script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NQ98TCKP3"></script>
 <script>

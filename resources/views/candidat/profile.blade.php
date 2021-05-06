@@ -21,10 +21,11 @@
 
 
 
-                    @include('layouts.leftmenu')
-
-
-                    <div class="col-lg-9 column">
+                    <div class="col-3 column">
+                        @include('layouts.leftmenu')
+                   </div>
+    
+                     <div class="col-9 column">
                         @if (session('ok'))
                         <div class="alert alert-success alert-dismissible fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

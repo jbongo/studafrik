@@ -19,12 +19,13 @@
 			<div class="container-fluid">
 				 <div class="row no-gape">
 
+                   <div class="col-3 column">
 
+                        @include('layouts.leftmenu')
+                    
+                   </div>
 
-                    @include('layouts.leftmenu')
-
-
-                    <div class="col-lg-9 col-md-9 column">
+                    <div class="col-9 column">
 
                         @if (session('ok'))
                         <div class="alert alert-success alert-dismissible fade in">

@@ -24,9 +24,11 @@
 
 
 
-                 @include('layouts.leftmenu')
+                <div class="col-3 column">
+                    @include('layouts.leftmenu')
+               </div>
 
-                 <div class="col-lg-9 column">
+                 <div class="col-9 column">
                      <div class="padding-left">
                          <div class="profile-title">
                              <h3>Modifier une compétence</h3>
