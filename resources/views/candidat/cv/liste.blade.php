@@ -24,11 +24,11 @@
 
 
 
-                <div class="col-3 column">
+                <div class="col-2 column">
                     @include('layouts.leftmenu')
                </div>
 
-                 <div class="col-9 column">
+                 <div class="col-10 column">
 
 <br>
                     <form action="{{ route('cv.liste') }}" method="get" >
@@ -45,9 +45,9 @@
                                 <div class="job-field">
                                     <select name="pays" class="chosen-city form-control">
                                         <option value="">Tous les pays</option>
-                                        <option>Gabon</option>
-                                        <option>Mali</option>
-                                        <option>Côte d'ivoire</option>
+                                        @foreach ($pays as $pay )
+                                            <option value="{{$pay->nom}}">{{$pay->nom}}</option>
+                                        @endforeach
                                         
                                     </select>
                                     <i class="la la-map-marker"></i>

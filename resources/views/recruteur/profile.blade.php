@@ -19,13 +19,13 @@
 			<div class="container-fluid">
 				 <div class="row no-gape">
 
-                   <div class="col-3 column">
+                   <div class="col-2 column">
 
                         @include('layouts.leftmenu')
                     
                    </div>
 
-                    <div class="col-9 column">
+                    <div class="col-10 column">
 
                         @if (session('ok'))
                         <div class="alert alert-success alert-dismissible fade in">
@@ -250,7 +250,6 @@
                                                    
                                                     @foreach ($pays as $pay )
                                                         <option value="{{$pay->nom}}">{{$pay->nom}}</option>
-                                                        
                                                     @endforeach
                                                    
                                                    

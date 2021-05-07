@@ -8,6 +8,7 @@ use App\Models\Cv_formation;
 use App\Models\Cv_experience;
 use App\Models\Cv_competence;
 use App\Models\User;
+use App\Models\Pays;
 use Illuminate\Support\Facades\Crypt;
 
 use Auth;
@@ -64,8 +65,9 @@ class CvController extends Controller
             $candidats = User::where('role', "candidat")->paginate(15);
         }
 
+        $pays = Pays::all();
 
-        return view('candidat.cv.liste',compact('candidats'));
+        return view('candidat.cv.liste',compact('candidats','pays'));
     }
 
     /**

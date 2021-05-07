@@ -23,11 +23,11 @@
         <div class="container-fluid">
              <div class="row no-gapex">
 
-                <div class="col-3 column">
+                <div class="col-2 column">
                     @include('layouts.leftmenu')
                </div>
 
-                 <div class="col-9 column">
+                 <div class="col-10 column">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
                             <h3>Gestion des offres d'emploi</h3>

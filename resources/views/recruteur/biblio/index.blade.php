@@ -70,15 +70,7 @@
                                         </div>
                                     </div>
                                 {{-- </form> --}}
-                                {{-- <div class="tags-bar">
-                                     <span>CDI<i class="close-tag">x</i></span>
-                                     <span>UX/UI Design<i class="close-tag">x</i></span>
-                                     <span>Gabon<i class="close-tag">x</i></span>
-                                     <div class="action-tags">
-                                         <a href="#" title=""><i class="la la-cloud-download"></i> Sauvegarder</a>
-                                         <a href="#" title=""><i class="la la-trash-o"></i> Supprimer</a>
-                                     </div>
-                                 </div> --}}
+                               
                             </div>
                         </div>
                     </div>

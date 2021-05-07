@@ -23,11 +23,11 @@
               <div class="row no-gape">
 
 
-                <div class="col-3 column">
+                <div class="col-2 column">
                     @include('layouts.leftmenu')
                </div>
 
-                 <div class="col-9 column">
+                 <div class="col-10 column">
                      <div class="padding-left">
                          <div class="profile-title">
                              <h3>Ajouter une formation</h3>

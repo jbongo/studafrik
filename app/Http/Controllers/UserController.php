@@ -251,10 +251,8 @@ if($request->hasFile('cv')){
     {
         
         $user = User::where('id',$id)->first();
-        
-
         return response()->download(storage_path('app/public/cv/'.$user->cv));
- 
+
     } 
     /**
      * Display the specified resource.
@@ -354,36 +352,10 @@ public function photoProfile(Request $request){
            
         }
 
-
         $user->photo_profile = $filename;
         $user->update();
     }
 
-
-
-
-
-    // if($request->hasFile('photo_profil')){
-    //     $avatar = $request->file('photo_profil');
-    //     $filename = time() . '.' . $avatar->getClientOriginalExtension();
-    //     $filename = $user->id.'_'.$filename;
-    //     Image::make($avatar)->save( public_path('\images\photo_profil\\' . $filename ) );
-        
-        
-    //     // on supprime l'ancienne photo si elle existe
-    //     if($user->photo_profile) {
-            
-    //         $img = public_path('images/photo_profil/'.$user->photo_profile);
-          
-    //         if(File::exists($img) ){
-    //            File::delete($img);
-    //        }
-           
-    //     }
-
-    //     $user->photo_profile_path = $filename;
-    //     $user->update();
-    // }
 
     return back()->with('ok', __("La photo a bien été enregistrée"));
 }

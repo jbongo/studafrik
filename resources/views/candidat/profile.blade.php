@@ -21,11 +21,11 @@
 
 
 
-                    <div class="col-3 column">
+                    <div class="col-2 column">
                         @include('layouts.leftmenu')
                    </div>
     
-                     <div class="col-9 column">
+                     <div class="col-10 column">
                         @if (session('ok'))
                         <div class="alert alert-success alert-dismissible fade in">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -186,8 +186,11 @@
                                             <span class="pf-title">Pays</span>
                                             <div class="pf-field">
                                                 <select data-placeholder="Please Select Specialism" class="chosen form-control" value="{{old('pays') ? old('pays') : Auth::user()->pays}}" name="pays">
-                                                   <option>Gabon</option>
-                                                   <option>Mali</option>
+                                                   @foreach ($pays as $pay )
+                                                   <option value="{{$pay->nom}}">{{$pay->nom}}</option>
+                                                   @endforeach
+                                                   
+                                                  
                                                </select>
                                                @if ($errors->has('pays'))
                                                     <br>
