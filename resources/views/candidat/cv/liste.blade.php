@@ -92,6 +92,7 @@
                            </ul> --}}
                        {{-- </div><!-- Pagination --> --}}
                     </div>
+                    <br>
                     {!!$candidats->links()!!}
                     
                </div>

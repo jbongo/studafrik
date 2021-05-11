@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="upload-img-bar">
-                                            <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
+                                            <img class="img-responsive" id="photodisplay" style="object-fit: cover;  width: 150px; height: 150px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
                                      
                                   
                                         <div class="upload-info">
