@@ -83,7 +83,6 @@
 
                         {{-- <div class="pagination"> --}}
 
-                            {!!$candidats->links()!!}
                            {{-- <ul>
                                <li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Précédent</a></li>
                                <li><a href="">1</a></li>
@@ -93,8 +92,10 @@
                            </ul> --}}
                        {{-- </div><!-- Pagination --> --}}
                     </div>
+                    
                </div>
 
+               {!!$candidats->links()!!}
 
   
 
