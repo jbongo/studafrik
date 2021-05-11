@@ -17,14 +17,14 @@
 	<section>
 		<div class="block remove-top">
 			<div class="container-fluid">
-				 <div class="row no-gape">
+				 <div class="row no-gapex">
 
                  
 
                         @include('layouts.leftmenu')
                     
                   
-
+<div class="row">
                     <div class="col-10 column">
 
                         @if (session('ok'))
@@ -296,6 +296,8 @@
 
                    
 				 </div>
+				 
+                </div>
 			</div>
 		</div>
 	</section>
@@ -445,7 +447,6 @@ $("#photobtn2").attr('type','file');
 
 <script src="https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script src='https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
 <script>
   tinymce.init({
     selector: 'textarea',
