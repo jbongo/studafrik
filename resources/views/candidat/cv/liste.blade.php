@@ -92,10 +92,10 @@
                            </ul> --}}
                        {{-- </div><!-- Pagination --> --}}
                     </div>
+                    {!!$candidats->links()!!}
                     
                </div>
 
-               {!!$candidats->links()!!}
 
   
 
