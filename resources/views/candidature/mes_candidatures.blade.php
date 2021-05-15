@@ -25,9 +25,9 @@
 
 
 
-                    <div class="col-2 column">
+                 
                         @include('layouts.leftmenu')
-                   </div>
+                 
     
                      <div class="col-10 column">
                     <div class="padding-left">

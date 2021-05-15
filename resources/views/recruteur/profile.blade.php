@@ -17,14 +17,14 @@
 	<section>
 		<div class="block remove-top">
 			<div class="container-fluid">
-				 <div class="row no-gape">
+				 <div class="row no-gapex">
 
-                   <div class="col-2 column">
+                 
 
                         @include('layouts.leftmenu')
                     
-                   </div>
-
+                  
+<div class="row">
                     <div class="col-10 column">
 
                         @if (session('ok'))
@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="upload-img-bar">
-                                            <img class="img-responsive" id="photodisplay" style="object-fit: cover; width: 225px; height: 225px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
+                                            <img class="img-responsive" id="photodisplay" style="object-fit: cover;  width: 150px; height: 150px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{(Auth::user()->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. Auth::user()->photo_profile) }}" alt="@lang('Photo de profil')">
                                      
                                   
                                         <div class="upload-info">
@@ -296,6 +296,8 @@
 
                    
 				 </div>
+				 
+                </div>
 			</div>
 		</div>
 	</section>
@@ -442,10 +444,9 @@ $("#photobtn2").attr('type','file');
     })
 </script>
 
+<script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script src="https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script src='https://cdn.tiny.cloud/1/t0hcdz1jd4wxffu3295e02d08y41e807gaxas0gefdz7kcb4/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
 <script>
   tinymce.init({
     selector: 'textarea',

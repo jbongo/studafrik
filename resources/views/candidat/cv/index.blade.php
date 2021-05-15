@@ -1,8 +1,8 @@
 
- @include('layouts.topmenuhome')
+ @include('layouts.topmenupage')
 
 
- <section class="overlape">
+ {{-- <section class="overlape">
      <div class="block no-padding">
          <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
          <div class="container fluid">
@@ -15,7 +15,7 @@
              </div>
          </div>
      </div>
- </section>
+ </section> --}}
 
  <section>
      <div class="block remove-top">
@@ -23,9 +23,9 @@
               <div class="row no-gape">
 
 
-                <div class="col-2 column">
+              
                     @include('layouts.leftmenu')
-               </div>
+           
 
                  <div class="col-10 column">
                     <div class="padding-left">
