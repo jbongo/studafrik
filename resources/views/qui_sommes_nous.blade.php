@@ -78,8 +78,8 @@
                                 <p>
                                     Rechercher une offre sur Stud’Afrik c’est avoir la possibilité de saisir une opportunité qui nous correspond même si on a peu d’expérience. 
                                 </p>
-                                    C’est aussi accéder à des articles conseils, des inspirations, des informations sur le code du travail...
                                 <p>
+                                    C’est aussi accéder à des articles conseils, des inspirations, des informations sur le code du travail...
 
                                 </p>
                              </div>

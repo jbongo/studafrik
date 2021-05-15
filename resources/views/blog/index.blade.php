@@ -36,7 +36,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div class="my-blog">
                                         <div class="blog-thumb">
-                                            <a href="#" title=""><img src="{{asset($article->image)}}" alt="" /></a>
+                                            <a href="{{ route('article.show', $article->slug) }}" title=""><img src="{{asset($article->image)}}" alt="" /></a>
                                             <div class="blog-metas">
                                                 <a href="{{ route('article.show', $article->slug) }}" title="">{{$article->created_at->format('d/m/Y')}}</a>
                                                 <a href="{{ route('article.show', $article->slug) }}" title=""> {{ sizeof($article->commentaires()) }} commentaires</a>

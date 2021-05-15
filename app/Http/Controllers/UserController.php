@@ -234,7 +234,7 @@ if($request->hasFile('cv')){
 
 
         
-        return redirect()->route('dashboard')->with('ok', __("Votre profile a été mis à jour ")  );
+        return redirect()->route('dashboard')->with('ok', __("Votre profil a été mis à jour ")  );
 
 
     }
