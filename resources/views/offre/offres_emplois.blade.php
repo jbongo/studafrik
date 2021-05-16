@@ -184,7 +184,16 @@
                                 <a href="{{route('mes_offres.show', $offre->slug )}}" title="">
                                 <div class="job-title-sec">
                                    
-                                <div class="c-logo" style=""> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+                                <div class="c-logo" style=""> 
+                                    @if($offre->photo_recruteur != null )
+                                    
+                                    <img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="110px" height="100px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+
+                                    @else 
+
+                                        <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+
+                                    @endif
                                         
                                 <div class="row">
                                     <div class="col-12" style="margin-bottom: 25px">

@@ -45,10 +45,16 @@
                    
 
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-6">
                             <span class="pf-title">Nom de l'entreprise</span>
                             <div class="pf-field">
                                 <input type="text"  name="nom_entreprise" class="form-control" placeholder=""required  />
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <span class="pf-title">Photo l'entreprise</span>
+                            <div class="pf-field">
+                                <input type="file"  name="photo_recruteur" class="form-control" accept="image/png, image/jpeg"  />
                             </div>
                         </div>
                         

@@ -45,12 +45,32 @@
                    
 
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-6">
                             <span class="pf-title">Nom de l'entreprise</span>
                             <div class="pf-field">
-                                <input type="text"  name="nom_entreprise" value="{{ old('nom_entreprise') ? old('nom_entreprise') : $offre->nom_entreprise }}" class="form-control" placeholder=""required  />
+                                <input type="text"  name="nom_entreprise" value="{{ old('nom_entreprise') ? old('nom_entreprise') : $offre->nom_entreprise }}" class="form-control" placeholder=""required  /> 
                             </div>
                         </div>
+
+
+                        <div class="col-6">
+                            <div class="upload-img-bar">
+                            <span class="pf-title">Photo de l'entreprise</span>
+
+                                @if($offre->photo_recruteur != null)
+                                <img class="img-responsive" id="photodisplay" style="object-fit: cover;  width: 100px; height: 100px; border: 5px solid #142f3c; border-style: solid; border-radius: 20px; padding: 3px;" src="{{asset('images/photo_recruteur/'. $offre->photo_recruteur) }}" >
+                               
+                               
+                                @endif
+
+
+                                <input type="file"  name="photo_recruteur"  class="form-control" placeholder="" id="photo_recruteur" accept="image/png, image/jpeg" />
+
+                      
+                            
+                        </div>
+
+                    </div>
                         
                     </div>
                     <br>

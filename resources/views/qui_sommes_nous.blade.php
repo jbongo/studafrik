@@ -60,7 +60,7 @@
                                  <br><br>
                                
                             </div>
-                             <div class="col-lg-6 col-md-6 col-sm-6">
+                             <div class="col-lg-6 col-md-6 col-sm-6" style="text-align:justify; ">
                                 <h3 style="color: #EE6E49; text-align:center; font-weight:bold">Stud’Afrik c’est…. </h3>
                                 <br><br>
                                 <br><br>
@@ -68,7 +68,7 @@
 
                                 <p>
                                 
-                                    …une plateforme de recherche d’emploi et stages permettant de mettre en relation des entreprises, de toutes tailles et tous secteurs confondus,
+                                    …Une plateforme de recherche d’emploi et stages permettant de mettre en relation des entreprises, de toutes tailles et tous secteurs confondus,
                                      et des étudiants ou jeunes diplômés en quête d’une opportunité professionnelle en Afrique francophone.
                                 </p>
                                 <p>
@@ -83,7 +83,7 @@
 
                                 </p>
                              </div>
-                             <div class="col-lg-6 col-md-6 col-sm-6">
+                             <div class="col-lg-6 col-md-6 col-sm-6" style="text-align:justify; ">
                                 <h3 style="color: #EE6E49; text-align:center; font-weight:bold">Notre mission  </h3> 
                                 <br><br>
                                 <br><br>
@@ -99,6 +99,18 @@
                                     donner aux chercheurs d’emploi l’offre qui leur correspond et permettre aux entreprises, startups et entrepreneurs de trouver le talent qui leur manquait.
                                     
                                 </p>
+
+                             </div>
+
+                          
+                         </div>
+
+                         <div class="row">
+                            
+<div class="col-lg-3 col-md-3 col-sm-3"></div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6" style="text-align:justify; ">
+
 
                         
                                 <h3 style="color: #EE6E49; text-align:center; font-weight:bold; margin-top:25px">Nos valeurs </h3> 
@@ -118,40 +130,10 @@
                                 </p>
                              </div>
 
-                          
+<div class="col-lg-3 col-md-3 col-sm-3"></div>
+
                          </div>
-
-                         {{-- <div class="row justify-content-center" style="margin-top: 55px; margin-bottom: 55px">
-
-                             <div class="col-lg-12 col-md-12 col-sm-12" >
-                               
-                        
-                             </div>
-                         </div> --}}
-
-                         {{-- <div class="row">
-
-                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <video controls autoplay height="500px" width="500px">
-                                    <source src="{{asset('videos/qui_somme_nous.mp4')}}"
-                                    type="video/mp4">
-                                    Your browser does not support the video tag.
-                                  </video>
-                                
-                             </div>
-
-                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <br><br>
-                                <img src="{{asset('images/qui_sommes_nous.jpeg')}}" alt="" height="300px" width="500px" />
-                            </div>
-
-
-                         </div> --}}
-                         {{-- <div class="tags-share">
-                             <div class="share-bar">
-                                 <a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="share-google"><i class="la la-google"></i></a><span>partage</span>
-                             </div>
-                         </div> --}}
+                         
                      </div>
                  </div>
              </div>

@@ -139,9 +139,15 @@
 									<div class="job-grid">
 										<div class="job-title-sec">
 											<a  href="{{route('mes_offres.show', $offre->slug )}}" title="">
-												<div class="c-logo"> <img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px" title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+												<div class="c-logo"> 
+												@if($offre->photo_recruteur != null )
+								
+												<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="115px" height="120px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+			
+												@else 
+												<img src="{{asset(($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" width="115px" height="120px" title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
 												
-												
+												@endif
 													<h3 style="color:#323232 ">{{ $offre->titre }}</h3>
 												
 												<h3><a href="{{route('mes_offres.show', $offre->slug )}}" >{{$offre->poste}}</a></h3>

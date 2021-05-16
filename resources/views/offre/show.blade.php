@@ -98,8 +98,14 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb" style="margin-bottom: 55px"> <img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
-			 				
+			 				<div class="job-thumb" style="margin-bottom: 55px"> 
+								@if($offre->photo_recruteur != null )
+                                    
+								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="124px" height="124px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+
+								@else 
+								<img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
+								@endif
 							 <h4> {{$offre->user->nom}}</h4> <br>
 							 @if($offre->user->site_web != null)
 							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>

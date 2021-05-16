@@ -134,7 +134,7 @@ class UserController extends Controller
 if($request->hasFile('cv')){
 
     $request->validate([
-        'cv' => 'mimes:pdf',
+        'cv' => 'mimes:pdf,doc,docx',
     ]);
 
     $avatar = $request->file('cv');
@@ -159,6 +159,7 @@ if($request->hasFile('cv')){
                
                 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
+                'pays_recherche' => 'required|string|max:255',
                 
              
              
@@ -173,6 +174,7 @@ if($request->hasFile('cv')){
                 $user->experience = $request->experience  ;
                 $user->date_naissance = $request->date_naissance  ;
                 $user->pays = $request->pays  ;
+                $user->pays_recherche = $request->pays_recherche  ;
                 $user->ville = $request->ville ;
                 $user->description = $request->description ;
                 $user->facebook = $request->facebook ;

@@ -94,7 +94,7 @@ class CategorieOffreController extends Controller
         if($categorie->nom != $request->nom){
             $request->validate([
             
-                'nom' => 'required|string|unique:categorie_offres',
+                'nom' => 'required|string|unique:categorieoffres',
               
             ]);
         }

@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->integer('nb_salarie')->nullable();
             $table->string('categorie')->nullable();
             $table->string('pays')->nullable();
+            $table->string('pays_recherche')->nullable();
             $table->string('ville')->nullable();
             $table->string('description')->nullable();
             $table->string('contact1')->nullable();

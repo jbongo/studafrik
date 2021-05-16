@@ -447,7 +447,11 @@ class OffreController extends Controller
                 'cv_fichier' => 'mimes:pdf,doc,docx',
             ]);
 
-            $filename = 'cv-'.$offre_id.'-'.Auth::user()->id.'.pdf';
+            $file = $request->file('cv_fichier');
+            $extension = $file->getClientOriginalExtension();
+
+            $filename = 'cv-'.$offre_id.'-'.Auth::user()->id."".$extension ;
+            ;
            
             // return response()->download(storage_path('app/pdf_compromis/pdf_compro.pdf'));
             $request->cv_fichier->storeAs('public/cv',$filename);
@@ -527,7 +531,33 @@ class OffreController extends Controller
     {
         
 
-    //    dd($request->all());
+        $file = "";
+        if($file = $request->file('photo_recruteur')){
+
+            $request->validate([
+                "photo_recruteur" => "
+                mimes:jpeg,png|max:5000",
+            ]);
+          
+            // dd('aa');
+
+
+                $name = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                
+        
+                // on sauvegarde la facture dans le repertoire du mandataire
+            
+                $path = public_path().'/images/photo_recruteur';
+
+        
+                if(!File::exists($path))
+                    File::makeDirectory($path, 0755, true);
+
+        }
+        
+        
+        // dd($request->all());
 
     $offre = Offre::create([
 
@@ -558,6 +588,18 @@ class OffreController extends Controller
         $slug = $slug."-".$offre->id;
 
         $offre->slug = $slug;
+
+
+        if($file != ""){
+
+            $filename = strtoupper($offre->nom_entreprise)."_".$offre->id ;
+         
+            $file->move($path,$filename.'.'.$extension);            
+            $path = $path.'/'.$filename.'.'.$extension;
+        
+            $offre->photo_recruteur = $filename.'.'.$extension;
+        }
+
         $offre->update();
         
         return redirect()->route('admin.offres.index')->with('ok', __("Nouvelle offre ajoutée")  );
@@ -633,6 +675,34 @@ class OffreController extends Controller
         $slug = $slug."-".$offre->id;
 
         $offre->slug = $slug;
+
+        if($file = $request->file('photo_recruteur')){
+
+            $request->validate([
+                "photo_recruteur" => "mimes:jpeg,png|max:5000",
+            ]);
+          
+            // dd('aa');
+
+                $extension = $file->getClientOriginalExtension();
+                
+        
+                // on sauvegarde la facture dans le repertoire du mandataire
+                // $path = storage_path('app/public/photo_recruteur/');
+                $path = public_path().'/images/photo_recruteur';
+
+               
+                if(!File::exists($path))
+                    File::makeDirectory($path, 0755, true);
+
+                $filename = strtoupper($offre->nom_entreprise)."_".$offre->id ;
+        
+                $file->move($path,$filename.'.'.$extension);            
+                $path = $path.'/'.$filename.'.'.$extension;
+            
+                $offre->photo_recruteur = $filename.'.'.$extension;
+
+        }
       
 
         $offre->update();
