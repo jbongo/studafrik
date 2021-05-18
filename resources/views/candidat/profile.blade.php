@@ -1,18 +1,3 @@
-{{-- 
-	<section class="overlape">
-		<div class="block no-padding">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-			<div class="container fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="inner-header">
-							<h3>Welcome Ali TUFAN</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> --}}
 
 	<section>
 		<div class="block remove-top">
@@ -99,9 +84,9 @@
 
                                     @csrf
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 ">
                                             <span class="pf-title">Nom</span>
-                                            <div class="pf-field">
+                                            <div class="form-group">
                                                 <input type="text" placeholder=" " name="nom" value="{{old('nom') ? old('nom') : Auth::user()->nom}}"  class="form-control" required/>
                                                 @if ($errors->has('nom'))
                                                     <br>
@@ -111,6 +96,17 @@
                                                 @endif
                                             </div>
                                         </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <div class="form-group div_agent_hors_reseau" >
+                                                <label class="col-lg-8 col-md-8 col-sm-8 " for="nom_agent">Nom de l'agence <span class="text-danger">*</span></label>
+                                                {{-- <div class="col-lg-6 col-md-6 col-sm-6"> --}}
+                                                
+                                                    <input class="form-control" type="text" value="{{old('nom_agent') ? old('nom_agent') : " " }}" id="nom_agent" name="nom_agent" required >
+                                                {{-- </div> --}}
+                                            </div>
+                                        </div>
+
                                         <div class="col-lg-6">
                                             <span class="pf-title">Prénom (s)</span>
                                             <div class="pf-field">

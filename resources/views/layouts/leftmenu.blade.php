@@ -6,7 +6,9 @@
     }
     .bg-gradient-studafrik{
         background-color:#323232;
-        background-image:linear-gradient(180deg,#EE6E49 1%,#323232 50%);
+        /* background-image:linear-gradient(180deg,#EE6E49 1%,#323232 50%); */
+
+        background: #EE6E49;
         background-size:cover}
 </style>
 {{-- 
