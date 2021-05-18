@@ -1,3 +1,7 @@
+@section('title') 
+Création de compte
+
+@endsection
 @include('layouts.topmenupage')
 
 

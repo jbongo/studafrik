@@ -1,4 +1,6 @@
-
+@section('title') 
+Stud'Afrik
+@endsection
 @include('layouts.topmenuhome')
 
 <style>
@@ -11,6 +13,8 @@
 	<img src="images/loader1.gif" alt="" />
 	<span>passer le chargement</span>
 </div>
+
+
 	<section>
 		<div class="block no-padding">
 			<div class="container fluid">

@@ -1,3 +1,7 @@
+@section('title') 
+Contact
+
+@endsection
 @include('layouts.topmenupage')
 
 

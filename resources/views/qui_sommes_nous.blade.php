@@ -1,3 +1,7 @@
+@section('title') 
+Qui sommes nous
+@endsection
+
 @include('layouts.topmenuhome')
 
 

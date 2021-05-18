@@ -1,3 +1,7 @@
+@section('title') 
+{{$article->titre}}
+@endsection
+
 @include('layouts.topmenupage')
 
 

@@ -1,3 +1,7 @@
+@section('title') 
+Nos articles
+
+@endsection
 @include('layouts.topmenupage')
 
 

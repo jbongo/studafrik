@@ -1,3 +1,7 @@
+@section('title') 
+Connexion
+
+@endsection
 @include('layouts.topmenupage')
 <section>
     <div class="block no-padding  gray">

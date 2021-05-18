@@ -1,4 +1,7 @@
 
+@section('title') 
+Découvrir les entreprises
+@endsection
  @include('layouts.topmenuhome')
 
  <section class="overlape" style="background: #323232">

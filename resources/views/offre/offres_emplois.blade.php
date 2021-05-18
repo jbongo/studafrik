@@ -1,4 +1,7 @@
+@section('title') 
+Offres d'emploi
 
+@endsection
  @include('layouts.topmenuhome')
 
 

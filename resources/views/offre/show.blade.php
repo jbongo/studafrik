@@ -1,3 +1,6 @@
+@section('title') 
+{{$offre->titre}}
+@endsection
 @include('layouts.topmenupage')
 
 	<section class="overlape">

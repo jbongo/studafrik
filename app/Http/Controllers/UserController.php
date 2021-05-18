@@ -392,7 +392,7 @@ public function photoProfile(Request $request){
         $pays = $request->pays;
         $categorie = $request->categorie;
 
-       $recruteurs = User::where([ ['role', 'recruteur'], ['profile_complete', 1], ['id','<>',8] ])
+       $recruteurs = User::where([ ['role', 'recruteur'], ['profile_complete', 1],  ])
        
        // trie avec la raison sociale
        ->where(function($query) use ($raison_sociale){
@@ -417,6 +417,8 @@ public function photoProfile(Request $request){
         }
     
     })
+
+    ->whereNotIn('id',[8,7])
        
        
        ->paginate(10);

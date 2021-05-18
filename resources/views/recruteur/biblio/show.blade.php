@@ -1,4 +1,6 @@
-
+@section('title') 
+{{$recruteur->nom}}
+@endsection
  @include('layouts.topmenupage')
 
  <section>
