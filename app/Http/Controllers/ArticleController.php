@@ -22,7 +22,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::where([['archive', false], ['actif', true]])->paginate(15);
+        $articles = Article::where([['archive', false], ['actif', true]])->orderBy('id', 'desc')->paginate(15);
 
 
         return view('blog.index', compact('articles'));
