@@ -431,13 +431,15 @@
                                                    
                                                   
                                                </select>
-                                               @if ($errors->has('pays_recherche'))
+                                               
+                                            </div>
+                                            
+                                            @if ($errors->has('pays_recherche'))
                                                     <br>
                                                     <div class="alert alert-warning ">
                                                         <strong>{{$errors->first('pays_recherche')}}</strong> 
                                                     </div>
                                                 @endif
-                                            </div>
                                         </div>
                                         
                                         <div class="col-lg-6">
