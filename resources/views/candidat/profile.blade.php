@@ -146,9 +146,9 @@
                                             <span class="pf-title">Expérience</span>
                                             <div class="form-group">
                                                 <select data-place holder="Allow In Search" class="chosen form-control" value="{{old('experience') ? old('experience') : Auth::user()->experience}}" name="experience">
-                                                   <option>0-2 ans</option>
-                                                   <option>2-4 ans</option>
-                                                   <option> Sup à 4 ans</option>
+                                                    <option value="<1">moins de 1 an </option>
+                                                    <option value="1-2">1 à 2 ans</option>
+                                                    <option value="2-3">2 à 3 ans</option>  
                                                </select>
 
                                                @if ($errors->has('experience'))
