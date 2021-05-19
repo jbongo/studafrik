@@ -128,7 +128,7 @@
                                             <span class="pf-title">Ajoutez votre CV</span>
                                             <div class="form-group">
                                             @if( Auth::user()->cv != null)
-                                            <a href="{{route('user.telecharger_cv', Auth::user()->id)}}" title="" class="btn btn-danger " id="telechargercv">Télécharger mon CV</a> 
+                                            <a href="{{route('user.telecharger_cv', Auth::user()->id)}}" title="" class="btn btn-danger " id="telechargercv">Voir mon CV</a> 
                                              <a title="" class="btn btn-success" id="modifcv">Modifier mon CV</a> 
                                             
                                             @endif
