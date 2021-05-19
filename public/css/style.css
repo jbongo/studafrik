@@ -476,8 +476,8 @@ Author:         Creative Layer
  input[type="password"],
  input[type="email"],
  textarea {
-     background: #e4e4e4 none repeat scroll 0 0;
-     border: medium none;
+     background: #fff none repeat scroll 0 0;
+     border: 1px solid block;
      float: left;
      font-size: 12px;
      font-weight: 400;
@@ -7490,9 +7490,8 @@ Author:         Creative Layer
  .upload-info>a {
      float: left;
      font-family: Open Sans;
-     font-size: 15px;     
+     font-size: 15px;
      background: #EE6E49;
-
      color: #ffffff;
      /* border: 2px solid #8b91dd; */
      -webkit-border-radius: 20px;
