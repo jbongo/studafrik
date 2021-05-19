@@ -417,7 +417,7 @@
                                         <div class="col-lg-6">
                                             <span class="pf-title">Pays de recherche d'emploi</span>
                                             <div class="form-group">
-                                                <select data-place holder="selectionnez un pays" class="chosen form-control" value="{{old('pays_recherche') ? old('pays_recherche') : Auth::user()->pays_recherche}}" name="pays_recherche" required>
+                                                <select data-place holder="selectionnez un pays" class="chosen form-control" value="{{old('pays_recherche') ? old('pays_recherche') : Auth::user()->pays_recherche}}" name="pays_recherche" >
                                                     @if(Auth::user()->pays_recherche != null)
                                                     <option value="{{Auth::user()->pays_recherche}}">{{Auth::user()->pays_recherche}}</option>
                                                     @else 
