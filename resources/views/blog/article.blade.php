@@ -5,12 +5,7 @@
 @include('layouts.topmenupage')
 
 
-    	    <style>
     	    
-    	    p {
-               color: #1e1e1e;
-    	    }
-    	    </style>
 <section>
     <div class="block no-padding  gray">
         <div class="container">
