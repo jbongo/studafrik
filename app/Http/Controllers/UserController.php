@@ -159,7 +159,7 @@ if($request->hasFile('cv')){
                
                 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
-                'pays_recherche' => 'string|max:255',
+               
                 
              
              
