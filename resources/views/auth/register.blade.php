@@ -4,7 +4,22 @@ Création de compte
 @endsection
 @include('layouts.topmenupage')
 
+<style>
+    input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    background: #e4e4e4 none repeat scroll 0 0;
 
+    border: medium none;
+    float: left;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding: 19px 28px;
+    width: 100%;
+}
+</style>
     
 <section>
     <div class="block no-padding  gray">

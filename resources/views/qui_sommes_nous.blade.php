@@ -214,6 +214,10 @@ Qui sommes nous
     </div>
 </section>
 
+@section('js-content')
 
 
-@include('layouts/footer')
+<script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="3ea6cfb5-fb67-4b6d-84c3-829d34fa625f";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
+@endsection
+
+@include('layouts.footer')
