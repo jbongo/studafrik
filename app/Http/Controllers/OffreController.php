@@ -105,7 +105,7 @@ class OffreController extends Controller
         $date_pub=  date('Y-m-d', strtotime($today. " - $date_publication days"));
 // dd($date_publication);
 
-            $offres = Offre::where([['active', true]])
+            $offres = Offre::where([['archive',false],['active', true]])
             
             // trie avec le poste
             ->where(function($query) use ($poste){
