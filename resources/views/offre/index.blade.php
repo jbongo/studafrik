@@ -18,10 +18,12 @@
  </section> --}}
 
 
+
+
  <section>
-    <div class="block no-padding">
+    <div class="block remove-top">
         <div class="container-fluid">
-             <div class="row no-gapex">
+             <div class="row no-gape">
 
         
                     @include('layouts.leftmenu')
@@ -109,6 +111,7 @@
 
 @extends('layouts.footer')
 
+
 @section('js-content')
 
 
@@ -146,9 +149,9 @@ $(document).ready(function() {
                 "last":       "Last",
                 "next":       "Suivant",
                 "previous":   "Précédent"
-    } });
-} );
-} );
+    } } });
+
+
      
 
 
@@ -212,6 +215,8 @@ $(document).ready(function() {
     })
         })
     })
+
+});
 </script>
 
 
