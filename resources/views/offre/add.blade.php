@@ -177,7 +177,7 @@
                                             <div class="col-6" id="div_url_candidature">
                                                 <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
                                                 <div class="pf-field">
-                                                   <input type="url" id="url_candidature" name="url_candidature" class="form-control" required />
+                                                   <input type="url" id="url_candidature" name="url_candidature" class="form-control"  />
                                                 </div>
                                             </div>
                                             
@@ -222,6 +222,7 @@ tinymce.init({
   
   <script>
 
+$('#div_url_candidature').hide();
    
 
     
@@ -234,6 +235,7 @@ tinymce.init({
 
     }else{
         $('#div_url_candidature').show();
+        $('#url_candidature').attr('required')
 
     }
    

@@ -398,6 +398,7 @@ class OffreController extends Controller
     {
         //
         $offre = Offre::where('id', Crypt::decrypt($id))->first();
+        // return 10;
 
       return   $offre->delete();
         

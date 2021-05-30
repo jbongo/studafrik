@@ -89,7 +89,7 @@
                                              <a href="#" title="" class="share-google"><i class="la la-google"></i></a><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
                                          </div>
                                          <div class="can-detail-s">
-                                             <div class="cst"><img class="img-responsive" id="photodisplay"  src="{{($candidat->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $candidat->photo_profile) }}" alt="@lang('Photo de profil')"></div>
+                                             <div class="cst"><img class="img-responsive" width="137px" height="137px" id="photodisplay"  src="{{($candidat->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $candidat->photo_profile) }}" alt="@lang('Photo de profil')"></div>
                                              <h3>{{$candidat->prenom}} {{$candidat->nom}}</h3>
                                              <span><i>{{$candidat->poste}}</i></span>
                                              <p>{{$candidat->email}}</p>

@@ -147,7 +147,8 @@ body.swal2-shown {
       -webkit-transition: background-color .1s;
       transition: background-color .1s; }
     .swal2-container.swal2-shown {
-      background-color: rgba(0, 0, 0, 0.4); }
+      /* background-color: rgba(0, 0, 0, 0.4); */
+     }
   
   .swal2-modal {
     -webkit-box-orient: vertical;
@@ -447,7 +448,7 @@ body.swal2-shown {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: #f8bb86;
       border-color: #facea8;
-      font-size: 60px;
+      /* font-size: 60px; */
       line-height: 80px;
       text-align: center; }
     .swal2-icon.swal2-info {

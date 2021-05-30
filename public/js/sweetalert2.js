@@ -2990,7 +2990,8 @@ if (typeof window !== 'undefined' && window.Sweetalert2) { window.swal = window.
     "  .swal2-container.swal2-fade {\n" +
     "    transition: background-color .1s; }\n" +
     "  .swal2-container.swal2-shown {\n" +
-    "    background-color: rgba(60, 0, 0, 0.44); }\n" +
+    // "    background-color: rgba(60, 0, 0, 0.44); }\n" +
+    "    }\n" +
     "\n" +
     ".swal2-popup {\n" +
     "  display: none;\n" +
@@ -2999,7 +3000,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) { window.swal = window.
     "  justify-content: center;\n" +
     "  width: 40em;\n" +
     "  max-width: 100%;\n" +
-    "  padding: 4.25em;\n" +
+    "  padding: 2.25em;\n" +
     "  border-radius: 3.3125em;\n" +
     "  background: rgb(226, 226, 226);\n" +
     "  font-family: inherit;\n" +

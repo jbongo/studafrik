@@ -2999,7 +2999,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2) { window.swal = window.
     "  justify-content: center;\n" +
     "  width: 40em;\n" +
     "  max-width: 100%;\n" +
-    "  padding: 4.25em;\n" +
+    "  padding: 2.25em;\n" +
     "  border-radius: 3.3125em;\n" +
     "  background: rgb(226, 226, 226);\n" +
     "  font-family: inherit;\n" +

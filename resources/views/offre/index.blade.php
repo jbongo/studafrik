@@ -27,9 +27,16 @@
 
         
                     @include('layouts.leftmenu')
-           
+            <div class="row">
 
                  <div class="col-10 column">
+                    @if (session('ok'))
+                    <div class="alert alert-success alert-dismissible ">
+                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                       <strong> {{ session('ok') }}</strong>
+                    </div>
+                    @endif
+
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
                             <h3>Gestion des offres d'emploi</h3>
@@ -82,6 +89,7 @@
                                             <ul class="action_job">
                                             <li><span>Voir l'offre</span><a href="{{route('mes_offres.show', $offre->slug )}}" title=""><i class="la la-eye"></i></a></li>
                                                 <li><span>Modifier</span><a href="{{route('mes_offres.edit', $offre->slug )}}" title=""><i class="la la-pencil"></i></a></li>
+                                                {{-- <li><span>Supprimer</span><a class="supprimer" href="#" title=""><i class="la la-trash-o"></i></a></li> --}}
                                                 <li><span>Supprimer</span><a class="supprimer" href="{{route('mes_offres.delete', Crypt::encrypt($offre->id) )}}" title=""><i class="la la-trash-o"></i></a></li>
                                             </ul>
                                         </td>
@@ -118,55 +126,32 @@
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> --}}
+
+{{-- <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/French.json"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/French.json"></script> --}}
 
 
 
 <script>
 
-$(document).ready(function() {
-    var table = $('#example').DataTable( {
-        fixedHeader: true,
-        "order": [],
-            "iDisplayLength": 50,
-            "language": {
-            "decimal":        "",
-            "emptyTable":     "Aucune donnée disponible dans le tableau",
-            "info":           "Affichage _START_ à _END_ sur _TOTAL_ lignes",
-            "infoEmpty":      "Affichage 0 à 0 sur 0 lignes",
-            "infoFiltered":   "(filtrés sur _MAX_ total lignes)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Voir _MENU_ lignes",
-        
-           
-            "search":         "Rechercher:",
-            "zeroRecords":    "Aucune donnée trouvée",
-            "paginate": {
-                "first":      "First",
-                "last":       "Last",
-                "next":       "Suivant",
-                "previous":   "Précédent"
-    } } });
-
-
-     
-
 
 
     // ######### supprimer une offre
     $(function() {
+
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
         })
-        $('[data-toggle="tooltip"]').tooltip()
+        // $('[data-toggle="tooltip"]').tooltip()
+        
         $('body').on('click','a.supprimer',function(e) {
             let that = $(this)
+            console.log(that.attr('href'));
             e.preventDefault()
+
             const swalWithBootstrapButtons = swal.mixin({
         confirmButtonClass: 'btn btn-success',
         cancelButtonClass: 'btn btn-danger',
@@ -182,12 +167,14 @@ $(document).ready(function() {
         
     }).then((result) => {
         if (result.value) {
-            $('[data-toggle="tooltip"]').tooltip('hide')
+            // $('[data-toggle="tooltip"]').tooltip('hide')
                 $.ajax({                        
                     url: that.attr('href'),
                     type: 'GET',
                     success: function(data){
-                   document.location.reload();
+                //    document.location.reload();
+                console.log(data);
+                
                  },
                  error : function(data){
                     console.log(data);
@@ -217,6 +204,44 @@ $(document).ready(function() {
     })
         })
     })
+
+
+
+
+
+
+
+$(document).ready(function() {
+
+    var table = $('#example').DataTable( {
+        fixedHeader: true,
+        "order": [],
+            "iDisplayLength": 50,
+            "language": {
+            "decimal":        "",
+            "emptyTable":     "Aucune donnée disponible dans le tableau",
+            "info":           "Affichage _START_ à _END_ sur _TOTAL_ lignes",
+            "infoEmpty":      "Affichage 0 à 0 sur 0 lignes",
+            "infoFiltered":   "(filtrés sur _MAX_ total lignes)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Voir _MENU_ lignes",
+        
+           
+            "search":         "Rechercher:",
+            "zeroRecords":    "Aucune donnée trouvée",
+            "paginate": {
+                "first":      "First",
+                "last":       "Last",
+                "next":       "Suivant",
+                "previous":   "Précédent"
+    } } });
+
+
+     
+
+
+
 
 });
 </script>
