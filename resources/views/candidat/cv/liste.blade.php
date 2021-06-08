@@ -33,6 +33,7 @@
 <br>
                     <form action="{{ route('cv.liste') }}" method="get" >
                         @csrf
+                        <div class="emply-resume-sec">
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="job-field">
@@ -57,6 +58,7 @@
                                 <button type="submit"><i class="la la-search"></i></button>
                             </div>
                         </div>
+                    </div>
                     </form>
 <hr>
 

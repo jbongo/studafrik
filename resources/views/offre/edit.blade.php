@@ -42,13 +42,13 @@
                                  <div class="row" style="margin-bottom: 100px">
                                      <div class="col-12">
                                          <span class="pf-title">Titre de l'offre <span class="text-danger">*</span> </span>
-                                         <div class="pf-field">
-                                             <input type="text" required  value="{{old('titre') ? old('titre') : $offre->titre}}" name="titre" placeholder="" />
+                                         <div class="form-group">
+                                             <input type="text" required  value="{{old('titre') ? old('titre') : $offre->titre}}" name="titre" class="form-control " placeholder="" />
                                          </div>
                                      </div>
                                      <div class="col-12">
                                         <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
-                                        <div class="pf-field">
+                                        <div class="form-group">
                                             <select data-placeholder="Please Select Specialism" required value="{{old('categorieoffre_id') ? old('categorieoffre_id') : $offre->categorieoffre_id}}" name="categorieoffre_id" class="form-control chosen">
                                               
                                                <option value="{{$offre->categorieoffre->id}}">{{$offre->categorieoffre->nom}}</option>   
@@ -63,13 +63,13 @@
 
                                      <div class="col-lg-12">
                                          <span class="pf-title">Description <span class="text-danger">*</span> </span>
-                                         <div class="pf-field">
+                                         <div class="form-group">
                                              <textarea  name="description" required >{{old('description') ? old('description') : $offre->description}}</textarea>
                                          </div>
                                      </div>
                                      <div class="col-lg-12">
                                          <span class="pf-title">Profil et compétences recherchés <span class="text-danger">*</span> </span>
-                                         <div class="pf-field">
+                                         <div class="form-group">
                                              <textarea  name="description_profil" required >{{old('description_profil') ? old('description_profil') : $offre->description_profil}}</textarea>
                                          </div>
                                      </div>
@@ -78,7 +78,7 @@
 
                                      <div class="col-lg-6">
                                         <span class="pf-title">Type de contrat <span class="text-danger">*</span> </span>
-                                        <div class="pf-field">
+                                        <div class="form-group">
                                             <select data-placeholder="Please Select Specialism" required  name="type_contrat" class="form-control chosen">
                                                 <option value="{{$offre->type_contrat}}">{{$offre->type_contrat}}</option>
                                                 <option value="CDI">CDI</option>
@@ -96,13 +96,13 @@
                                      
                                      <div class="col-lg-4">
                                          <span  htmlFor="customRange1" class="pf-title">Salaire </span>
-                                         <div class="pf-field">
-                                            <input type="number"  value="{{old('salaire') ? old('salaire') : $offre->salaire}}" name="salaire" class="custom-range" />
+                                         <div class="form-group">
+                                            <input type="number"  value="{{old('salaire') ? old('salaire') : $offre->salaire}}" name="salaire" class="form-control " />
                                          </div>
                                      </div>
                                      <div class="col-lg-2">
                                         <span  htmlFor="" class="pf-title">Devise du Salaire </span>
-                                        <div class="pf-field">
+                                        <div class="form-group">
                                             <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
                                                @if($offre->devise_salaire != null)
                                                 <option value="{{$offre->devise_salaire}}">{{$offre->devise_salaire}}</option>
@@ -122,14 +122,14 @@
                                      
                                      <div class="col-lg-6">
                                          <span class="pf-title">Date d'expiration de l'offre</span>
-                                         <div class="pf-field">
+                                         <div class="form-group">
                                              <input type="date"   value="{{old('date_expiration') ? old('date_expiration') : ($offre->date_expiration != null ? $offre->date_expiration->format('Y-m-d'): "" )  }}" name="date_expiration" class="form-control datepicker" />
                                          </div>
                                      </div>
 
                                      <div class="col-lg-6">
                                         <span class="pf-title"  htmlFor="customRange2">Expérience requise </span>
-                                        <div class="pf-field">
+                                        <div class="form-group">
                                             <select data-placeholder="experience" required  name="experience" class="form-control chosen">
                                                 @if($offre->experience != null)
                                                 <option value="{{$offre->experience}}">{{$offre->experience}} ans</option>
@@ -145,7 +145,7 @@
                                  
                                      <div class="col-lg-6">
                                          <span class="pf-title">Pays de l'offre</span>
-                                         <div class="pf-field">
+                                         <div class="form-group">
                                              <select data-placeholder="Please Select Specialism"  value="{{old('pays') ? old('pays') : $offre->pays}}" name="pays" class=" form-control chosen">
                                                 <option>Gabon</option>
                                                 <option>Benin</option>
@@ -155,14 +155,14 @@
                                      </div>
                                      <div class="col-lg-6">
                                          <span class="pf-title">Ville de l'offre</span>
-                                         <div class="pf-field">
-                                             <input type="text"  value="{{old('ville') ? old('ville') : $offre->ville}}" name="ville" placeholder="" />
+                                         <div class="form-group">
+                                             <input type="text"  value="{{old('ville') ? old('ville') : $offre->ville}}" class="form-control " name="ville" placeholder="" />
                                          </div>
                                      </div>
                                      
                                      <div class="col-6" id="div_candidater_lien">
                                         <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
-                                        <div class="pf-field">
+                                        <div class="form-group">
                                           
                                            <select data-placeholder="" required id="candidater_lien"  name="candidater_lien" class="form-control chosen">
                                             @if($offre->candidater_lien != null)
@@ -177,7 +177,7 @@
             
                                     <div class="col-6" id="div_url_candidature">
                                         <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
-                                        <div class="pf-field">
+                                        <div class="form-group">
                                            <input type="url" id="url_candidature" name="url_candidature" value="{{$offre->url_candidature}}" class="form-control"  />
                                         </div>
                                     </div>

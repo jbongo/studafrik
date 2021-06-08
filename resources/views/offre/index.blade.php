@@ -20,14 +20,15 @@
 
 
 
+
  <section>
     <div class="block remove-top">
         <div class="container-fluid">
-             <div class="row no-gape">
+             <div class="">
 
         
                     @include('layouts.leftmenu')
-            <div class="row">
+            
 
                  <div class="col-10 column">
                     @if (session('ok'))
