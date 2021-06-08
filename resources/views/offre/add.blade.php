@@ -42,13 +42,13 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <span class="pf-title">Titre de l'offre <span class="text-danger">*</span> </span>
-                                            <div class="pf-field">
-                                                <input type="text"  name="titre" placeholder="" required />
+                                            <div class="form-group">
+                                                <input type="text"  name="titre" placeholder="" class="form-control" required />
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
-                                            <div class="pf-field">
+                                            <div class="form-group">
                                                 <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
                                                    
                                                    
@@ -67,14 +67,14 @@
 
                                         <div class="col-lg-12">
                                             <span class="pf-title">Description <span class="text-danger">*</span> </span>
-                                            <div class="pf-field">
-                                                <textarea name="description"   ></textarea>
+                                            <div class="form-group">
+                                                <textarea name="description"  class="form-control"  ></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <span class="pf-title">Profil et compétences recherchés <span class="text-danger">*</span></span>
-                                            <div class="pf-field">
-                                                <textarea name="description_profil" ></textarea>
+                                            <div class="form-group">
+                                                <textarea name="description_profil" class="form-control" ></textarea>
                                             </div>
                                         </div>
 
@@ -99,8 +99,8 @@
                                         
                                         <div class="col-lg-4">
                                             <span  htmlFor="customRange1" class="pf-title">Salaire </span>
-                                            <div class="pf-field">
-                                               <input type="number"  name="salaire" class="custom-range" />
+                                            <div class="form-group">
+                                               <input type="number"  name="salaire" class="form-control"  />
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
@@ -122,7 +122,7 @@
                                         
                                         <div class="col-lg-6">
                                             <span class="pf-title">Date d'expiration de l'offre</span>
-                                            <div class="pf-field">
+                                            <div class="form-group">
                                                 <input type="date"   name="date_expiration" class="form-control datepicker" />
                                             </div>
                                         </div>
@@ -142,7 +142,7 @@
                                       
                                         <div class="col-lg-6">
                                             <span class="pf-title">Pays de l'offre</span>
-                                            <div class="pf-field">
+                                            <div class="form-group">
                                                 <select data-placeholder="Please Select Specialism"  name="pays" class=" form-control chosen">
                                                    
                                                     @foreach ($pays as $pay )
@@ -156,15 +156,15 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <span class="pf-title">Ville de l'offre</span>
-                                            <div class="pf-field">
-                                                <input type="text"  name="ville" placeholder="" />
+                                            <div class="form-group">
+                                                <input type="text"  name="ville" placeholder="" class="form-control" />
                                             </div>
                                         </div>
 
                                         {{-- <div class="row"> --}}
                                             <div class="col-6">
                                                 <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
-                                                <div class="pf-field">
+                                                <div class="form-group">
                                                   
                                                    <select data-placeholder="" id="candidater_lien" required  name="candidater_lien" class="form-control chosen">
                                                     <option value="Non">Non</option>
@@ -176,7 +176,7 @@
                     
                                             <div class="col-6" id="div_url_candidature">
                                                 <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
-                                                <div class="pf-field">
+                                                <div class="form-group">
                                                    <input type="url" id="url_candidature" name="url_candidature" class="form-control"  />
                                                 </div>
                                             </div>

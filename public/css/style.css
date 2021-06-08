@@ -1,4 +1,3 @@
- 
  /*------------------------------------------------------------------
 [Master Stylesheet]
 Project:        JOBHUNT
@@ -478,8 +477,8 @@ Author:         Creative Layer
  textarea {
      /* background: #e4e4e4 none repeat scroll 0 0; */
      background-color: #fff;
-background-clip: padding-box;
-border: 1px solid #d1d3e2;
+     background-clip: padding-box;
+     border: 1px solid #d1d3e2;
      /* border: medium none; */
      float: left;
      font-size: 12px;
@@ -7493,9 +7492,8 @@ border: 1px solid #d1d3e2;
  .upload-info>a {
      float: left;
      font-family: Open Sans;
-     font-size: 15px;     
+     font-size: 15px;
      background: #EE6E49;
-
      color: #ffffff;
      /* border: 2px solid #EE6E49; */
      -webkit-border-radius: 20px;
