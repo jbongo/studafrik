@@ -478,7 +478,7 @@ class OffreController extends Controller
 
         Mail::to($offre->user->email)->send(new CandidatureNotif($offre));
         // return Redirect::back()->withErrors(['ok', 'Votre  candidature a été envoyé au recruteur ']);
-        return redirect()->route('candidatures.index')->with('ok', __("Votre  candidature a été envoyé au recruteur")  );
+        return redirect()->route('candidatures.index_candidat')->with('ok', __("Votre  candidature a été envoyé au recruteur")  );
 
         // return view('mes_offres.show', compact('offre'))->with('ok', 'Votre  candidature a été envoyé au recruteur ');;
     }

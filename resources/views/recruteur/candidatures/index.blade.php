@@ -40,11 +40,10 @@
 
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
-                            <h3>Gestion des offres d'emploi</h3>
+                            <h3>Candidatures</h3>
                             <div class="extra-job-info" style="margin-bottom:25px">
-                                <span><i class="la la-clock-o"></i><strong>{{$nb_offres}}</strong> Offres</span>
-                                <span><i class="la la-file-text"></i><strong>{{$nb_candidatures}}</strong> Candidatures</span>
-                                <span><i class="la la-users"></i><strong>{{$nb_offres_actives}}</strong> Offres actives </span>
+                                <span><i class="la la-clock-o"></i><strong></strong> Offre: {{$offre->titre}}</span>
+                                <span><i class="la la-file-text"></i><strong>{{sizeof($candidatures)}}</strong> Candidatures</span>
                             </div>
 
                             
@@ -52,36 +51,36 @@
                                 
                                 <thead>
                                     <tr style="color: #EB586C; font-weigth:bold">
-                                        <td>Titre</td>
-                                        <td>Candidatures</td>
-                                        <td>Date de création et expiration</td>
-                                        <td>Statut</td>
+                                        <td>Candidat</td>
+                                        <td>Date de candidature</td>
+                                        <td>CV du candidat</td>
+                                        <td>Voir le profil du candidat</td>
                                         <td>Action</td>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {{-- {{dd($offres)}} --}}
-                                    @foreach ( $offres as $offre )
+                                    {{-- {{dd($candidatures)}} --}}
+                                    @foreach ( $candidatures as $candidature )
 
                                     
                                     <tr>
                                         <td>
                                             <div class="table-list-title">
-                                                <h3><a href="#" title="">{{$offre->titre}}</a></h3>
-                                                <span><i class="la la-map-marker"></i>{{$offre->ville}}, {{$offre->pays}}</span>
+                                                <h3><a href="#" title="">{{$candidature->titre}}</a></h3>
+                                                <span><i class="la la-map-marker"></i>{{$candidature->ville}}, {{$candidature->pays}}</span>
                                             </div>
                                         </td>
                                         <td>
-                                            <span style="font-size: 16px; font-weight:bold" class="applied-field">{{sizeof($offre->users)}}</span>&nbsp; <a href="{{route('candidatures.index_recruteur', $offre->slug )}}" data-toggle="tooltip" title="Voir les candidatures"><i class="la la-eye"></i></a>
+                                            <span style="font-size: 16px; font-weight:bold" class="applied-field"></span>&nbsp; <a href="" data-toggle="tooltip" title="Voir les candidatures"><i class="la la-eye"></i></a>
                                              
                                         </td>
                                         <td>
-                                            <span>{{$offre->created_at->format('d/m/Y')}} -- </span>
-                                            <span> @if($offre->date_expiration != null ) {{$offre->date_expiration->format('d/m/Y')}} @endif</span>
+                                            <span>{{$candidature->created_at->format('d/m/Y')}} -- </span>
+                                            <span> @if($candidature->date_expiration != null ) {{$candidature->date_expiration->format('d/m/Y')}} @endif</span>
                                         </td>
                                         <td>
-                                            @if($offre->active == true)
+                                            @if($candidature->active == true)
                                                 <span class="status active">Active</span>
                                             @else
                                                 <span class="status">inactive</span>
@@ -89,10 +88,9 @@
                                         </td>
                                         <td>
                                             <ul class="action_job">
-                                            <li><span>Voir l'offre</span><a href="{{route('mes_offres.show', $offre->slug )}}" title=""><i class="la la-eye"></i></a></li>
-                                                <li><span>Modifier</span><a href="{{route('mes_offres.edit', $offre->slug )}}" title=""><i class="la la-pencil"></i></a></li>
+                                            {{-- <li><span>Voir l'offre</span><a href="{{route('mes_offres.show', $candidature->slug )}}" title=""><i class="la la-eye"></i></a></li> --}}
                                                 {{-- <li><span>Supprimer</span><a class="supprimer" href="#" title=""><i class="la la-trash-o"></i></a></li> --}}
-                                                <li><span>Supprimer</span><a class="supprimer" href="{{route('mes_offres.delete', Crypt::encrypt($offre->id) )}}" title=""><i class="la la-trash-o"></i></a></li>
+                                                <li><span>Supprimer</span><a class="supprimer" href="{{route('mes_offres.delete', Crypt::encrypt($candidature->id) )}}" title=""><i class="la la-trash-o"></i></a></li>
                                             </ul>
                                         </td>
                                     </tr>

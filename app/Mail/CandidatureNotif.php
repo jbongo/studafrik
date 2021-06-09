@@ -30,6 +30,6 @@ class CandidatureNotif extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.candidature_notif');
+        return $this->subject('Un candidat a postulé à votre offre')->markdown('mail.candidature_notif');
     }
 }

@@ -34,14 +34,27 @@
                     <form action="{{ route('cv.liste') }}" method="get" >
                         @csrf
                         <div class="emply-resume-sec">
-                        <div class="row">
+                        <div class="row" style="background-color: #aec">
                             <div class="col-lg-5">
                                 <div class="job-field">
                                     <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
                                     <i class="la la-keyboard-o"></i>
                                 </div>
                             </div>
-                           
+
+                            <div class="col-lg-3">
+                                <div class="job-field">
+                                    <select name="pays" class="chosen-city form-control">
+                                        <option value="">Secteurs d'activités</option>
+                                        @foreach ($pays as $pay )
+                                            {{-- <option value="{{$pay->nom}}">{{$pay->nom}}</option> --}}
+                                        @endforeach
+                                        
+                                    </select>
+                                    <i class="la la-map-marker"></i>
+                                </div>
+                            </div>
+
                             <div class="col-lg-3">
                                 <div class="job-field">
                                     <select name="pays" class="chosen-city form-control">

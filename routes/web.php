@@ -95,7 +95,11 @@ Route::get('slug','OffreController@convert_to_slug')->name('convert_to_slug');
 Route::get('postuler/{offre_id}','OffreController@create_postuler')->name('postuler.create')->middleware('auth');
 Route::post('postuler/{offre_id}','OffreController@store_postuler')->name('postuler.store')->middleware('auth');
 
-Route::get('candidatures','CandidatureController@index')->name('candidatures.index')->middleware('auth');
+// Liste des candidatures du candidat #Profil candidat
+Route::get('candidatures/candidat','CandidatureController@index_candidat')->name('candidatures.index_candidat')->middleware('auth');
+
+// Liste des candidatures d'une offre  #Profil recruteur
+Route::get('candidatures/recruteur/{offre_slug}','CandidatureController@index_recruteur')->name('candidatures.index_recruteur')->middleware('auth');
 
 // CV
 
