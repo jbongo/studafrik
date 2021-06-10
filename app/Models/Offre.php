@@ -22,7 +22,7 @@ class Offre extends Model
     }
     public function users()
     {
-        return $this->belongsToMany(User::class,'offre_users')->withPivot('cv', 'lettre_motivation');
+        return $this->belongsToMany(User::class,'offre_users')->withPivot('cv', 'lettre_motivation','created_at');
     }
 
     public function candidatures(){
