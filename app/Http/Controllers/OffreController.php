@@ -423,7 +423,7 @@ class OffreController extends Controller
         
         $offre->update();
 
-        return view('candidature.postuler', compact('offre'));
+        return view('candidat.candidatures.postuler', compact('offre'));
     }
 
     
