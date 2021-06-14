@@ -191,7 +191,7 @@
 <script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('admin/js/sb-admin-2.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NQ98TCKP3"></script>
 <script>
@@ -201,6 +201,7 @@
 
   gtag('config', 'G-3NQ98TCKP3');
 </script>
+
 
 
 @yield('js-content')

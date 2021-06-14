@@ -30,7 +30,7 @@
                     @include('layouts.leftmenu')
             
 
-                 <div class="col-10 column">
+                 <div class="col-12 column">
                     @if (session('ok'))
                     <div class="alert alert-success alert-dismissible ">
                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
