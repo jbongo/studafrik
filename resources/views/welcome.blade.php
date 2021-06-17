@@ -251,20 +251,20 @@ Stud'Afrik
 						</div><!-- Heading -->
 						<div class="comp-sec" style="margin-top: 50px">
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/logo-total.png')}}" width="60%" height="80px" alt="total" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/societe.png')}}" width="60%" height="80px" alt="Société générale" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpg')}}" width="60%" height="80px" alt="perenco" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/orange.png')}}" width="80%" height="80px" alt="Orange" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/intelcia.jpg')}}" width="60%" height="80px" alt="intelcia" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/lapaire.jpg')}}" width="60%" height="80px" alt="Lapaire" /></a>
 							</div><!-- Client  -->
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/societe.png')}}" width="60%" height="80px" alt="societe" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/wave.jpg')}}" width="60%" height="80px" alt="Wave" /></a>
 							</div><!-- Client  -->
 							
 							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/canal.jpg')}}" width="60%" height="80px" alt="canal-plus" /></a>
+								<a href="#" title=""><img src="{{asset('images/entreprise/gozem.jpg')}}" width="60%" height="80px" alt="Gozem" /></a>
 							</div><!-- Clientx  -->
 						</div>
 					</div>
