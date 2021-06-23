@@ -129,7 +129,7 @@ Route::middleware('auth')->group(function () {
 
     // ##Recruteur 
 
-    Route::get('cv/liste/{mot_cle?}/{pays?}','CvController@liste')->name('cv.liste');
+    Route::get('cv/liste/{mot_cle?}/{pays?}/{secteur?}','CvController@liste')->name('cv.liste');
 
     // Favoris
     Route::get('favoris/cv/{recruteur_id}/{candidat_id}','FavoriscvController@store')->name('favoris.cv');

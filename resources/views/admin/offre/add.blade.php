@@ -291,9 +291,6 @@
 
 <script>
 
-   
-
-    
     $('#candidater_lien').on('change',function(){
 
     var val = $('#candidater_lien').val();
@@ -309,6 +306,7 @@
 
     })
 
-
 </script>
+
+
 @endsection

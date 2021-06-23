@@ -35,7 +35,6 @@
                                 <div class="padding-left">
                                     <div class="profile-title">
                                         {{-- <h3>Ajouter une offre</h3> --}}
-                                
                                     </div>
                                     <div class="profile-form-edit">
            
@@ -43,13 +42,13 @@
                                     <form method="POST" action="{{route('mes_offres.store')}}" >
                                         @csrf
                                             <div class="row">
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-9 col-md-9">
                                                     <span class="pf-title">Titre de l'offre <span class="text-danger">*</span> </span>
                                                     <div class="form-group">
                                                         <input type="text"  name="titre" placeholder="" class="form-control" required />
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-9 col-md-9">
                                                     <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
                                                     <div class="form-group">
                                                         <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
@@ -188,7 +187,7 @@
                                                 <div class="col-lg-12">
                                                     <br>
                                                     <br>
-                                                    <button type="submit" class="btn  btn-lg" style="background-color: #EE6E49; color: white " >Ajouter</button>
+                                                    <button type="submit" class="btn  btn-lg" style="background-color: #EE6E49; color: white; margin-top: 50px " >Ajouter</button>
                                                 </div>
                                                 
                                             </div>
@@ -208,83 +207,7 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <!-- Button trigger modal -->
-
   
-  <!-- Ajout d'une pays -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Ajouter une nouvelle Pays</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form method="POST" action="{{route('admin.pays.store')}}">
-
-                @csrf
-                <div class="form-group">
-                  <label for="nom" class="col-form-label">Pays :</label>
-                  <input type="text" name="nom" class="form-control" id="nom" required>
-                  @if ($errors->has('nom'))
-                  <br>
-                  <div class="alert alert-warning ">
-                     <strong>{{$errors->first('nom')}}</strong> 
-                  </div>
-                  @endif
-                </div>
-               
-              
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-          <input type="submit" class="btn btn-primary" value="Ajouter">
-        </div>
-    </form>
-      </div>
-    </div>
-  </div>
-  {{-- fin modal --}}
-
-
-    <!-- Modification d'un pays -->
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle2">Modifier la Pays</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST" id="formupdate" action="">
-    
-                    @csrf
-                    <div class="form-group">
-                      <label for="nomupdate" class="col-form-label">Pays :</label>
-                      <input type="text" name="nom" class="form-control" id="nomupdate" required>
-                      @if ($errors->has('nom'))
-                      <br>
-                      <div class="alert alert-warning ">
-                         <strong>{{$errors->first('nom')}}</strong> 
-                      </div>
-                      @endif
-                    </div>
-                   
-                  
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              <input type="submit" class="btn btn-primary" id="modifier" value="Modifier">
-            </div>
-        </form>
-          </div>
-        </div>
-      </div>
-      {{-- fin modal --}}
 
     @extends('admin.layout.footer')
 
@@ -301,8 +224,25 @@ tinymce.init({
     toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
     menubar: false
   });
-  </script>
+</script>
   
-  
+
+<script>
+
+    $('#candidater_lien').on('change',function(){
+
+    var val = $('#candidater_lien').val();
+    
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+
+    }else{
+        $('#div_url_candidature').show();
+
+    }
+   
+    })
+
+</script>
 
 @endsection

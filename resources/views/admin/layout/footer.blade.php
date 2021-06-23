@@ -61,6 +61,7 @@ aria-hidden="true">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
 
+
 <script>
 
     $(document).ready(function() {

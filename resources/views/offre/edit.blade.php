@@ -1,37 +1,39 @@
-
- @include('layouts.topmenupage')
-
-
- {{-- <section class="overlape">
-     <div class="block no-padding">
-         <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-         <div class="container fluid">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <div class="inner-header">
-                     <h3>{{Auth::user()->nom }} </h3>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section> --}}
-
- <section>
-     <div class="block remove-top">
-         <div class="container-fluid">
-              <div class="row no-gape">
-
-
+@include('layouts.topmenu_bo')
 
               
-                    @include('layouts.leftmenu')
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Modifiez votre offre</h1>
+                  <hr>
+                  
+                  @if (session('ok'))
+                  <div class="alert alert-success ">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     <strong> {{ session('ok') }}</strong>
+                  </div>
+                  @endif 
+
+                  
+                  @if ($errors->has('nom'))
+                  <br>
+                  <div class="alert alert-warning ">
+                     <strong>{{$errors->first('nom')}}</strong> 
+                  </div>
+                  @endif
+                  <br>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            {{-- <h6 class="m-0 font-weight-bold text-primary">Liste des pays</h6> --}}
+                        </div>
+                        <div class="card-body">
              
 
-                 <div class="col-9 column">
+                 <div class="col-12 column">
                      <div class="padding-left">
                          <div class="profile-title">
-                             <h3>Modifiez votre offre</h3>
                      
                          </div>
                          <div class="profile-form-edit">
@@ -40,13 +42,13 @@
                          <form method="POST" action="{{route('mes_offres.update', Crypt::encrypt($offre->id) )}}" >
                              @csrf
                                  <div class="row" style="margin-bottom: 100px">
-                                     <div class="col-12">
+                                     <div class="col-lg-9 col-md-9">
                                          <span class="pf-title">Titre de l'offre <span class="text-danger">*</span> </span>
                                          <div class="form-group">
                                              <input type="text" required  value="{{old('titre') ? old('titre') : $offre->titre}}" name="titre" class="form-control " placeholder="" />
                                          </div>
                                      </div>
-                                     <div class="col-12">
+                                     <div class="col-lg-9 col-md-9">
                                         <span class="pf-title">Catégorie de l'emploi <span class="text-danger">*</span> </span>
                                         <div class="form-group">
                                             <select data-placeholder="Please Select Specialism" required value="{{old('categorieoffre_id') ? old('categorieoffre_id') : $offre->categorieoffre_id}}" name="categorieoffre_id" class="form-control chosen">
@@ -183,7 +185,7 @@
                                     </div>
 
                                      <div class="col-lg-12">
-                                         <button type="submit" >Modifier</button>
+                                         <button type="submit" class="btn  btn-lg" style="background-color: #EE6E49; color: white; margin-top: 50px " >Modifier</button>
                                      </div>
                                      
 
@@ -197,17 +199,25 @@
 
   
 
-                
-              </div>
-         </div>
-     </div>
- </section>
+                  </div>
+               
+                                </div>
+                           </div>
 
- 
 
-</div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+  
+
+    @extends('admin.layout.footer')
+
+    
 @section('js-content')
-
 <script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
 
@@ -219,18 +229,9 @@ tinymce.init({
     toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
     menubar: false
   });
-  </script>
+</script>
   
-  
-
 <script>
-
-    var lien_cand = "{{$offre->candidater_lien}}";
-    if(lien_cand == "Non"){
-    $('#div_url_candidature').hide();
-
-    }
-
 
     
     $('#candidater_lien').on('change',function(){
@@ -247,8 +248,6 @@ tinymce.init({
    
 
     })
-
-
 </script>
+
 @endsection
-@include('layouts.footer')
