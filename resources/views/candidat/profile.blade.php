@@ -1,15 +1,37 @@
+@include('layouts.topmenu_bo')
 
-	<section>
-		<div class="block remove-top">
-			<div class="container-fluid">
-				 <div class="row no-gape">
+              
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Mon profil</h1>
+                  <hr>
+                  
+                  @if (session('ok'))
+                  <div class="alert alert-success ">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     <strong> {{ session('ok') }}</strong>
+                  </div>
+                  @endif 
 
+                  
+                  @if ($errors->has('nom'))
+                  <br>
+                  <div class="alert alert-warning ">
+                     <strong>{{$errors->first('nom')}}</strong> 
+                  </div>
+                  @endif
+                  <br>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            {{-- <h6 class="m-0 font-weight-bold text-primary">Liste des pays</h6> --}}
+                        </div>
+                        <div class="card-body">
+                           
 
-                
-                        @include('layouts.leftmenu')
-                
-                     <div class="col-10 column">
+                            <div class="col-12 column">
                       
                         <div class="padding-left">
                             @if (session('ok'))
@@ -545,56 +567,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12"  style="margin-top:50px">
                                             <button type="submit">Enregistrer</button>
                                         </div>
                                     </div>
                                 
                             </div>
                         </form>
-                            {{-- <div class="contact-edit" id="pi">
-                                <h3>Changement du mot de passe</h3>
-                                <form>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <span class="pf-title">Ancien mot de passe</span>
-                                                <div class="pf-field">
-                                                    <input type="password" class="form-control"/>
-                                                     @if ($errors->has('xxxxxx'))
-                                                        <br>
-                                                        <div class="alert alert-warning ">
-                                                            <strong>{{$errors->first('xxxxxx')}}</strong> 
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <span class="pf-title">Nouveau mot de passe</span>
-                                                <div class="pf-field">
-                                                    <input type="password" class="form-control"/>
-                                                     @if ($errors->has('xxxxxx'))
-                                                        <br>
-                                                        <div class="alert alert-warning ">
-                                                            <strong>{{$errors->first('xxxxxx')}}</strong> 
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <span class="pf-title">Confirmez le mot de passe</span>
-                                                <div class="pf-field">
-                                                    <input type="password" class="form-control"/>
-                                                     @if ($errors->has('xxxxxx'))
-                                                        <br>
-                                                        <div class="alert alert-warning ">
-                                                            <strong>{{$errors->first('xxxxxx')}}</strong> 
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <button type="submit">Modifier</button>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <i class="la la-key big-icon"></i>
-                                            </div>
-                                        </div>
-                                    </form>
-                            </div> --}}
+          
                         </div>
                    </div>
 
@@ -604,11 +584,18 @@
 		</div>
 	</section>
 
-	
 
 </div>
 
+
+
+@extends('admin.layout.footer')
+
 @section('js-content')
+
+
+
+
 
 <script>
     function readURL(input) {
@@ -634,29 +621,7 @@
   
   
 
-      // $.ajaxSetup({
-      //     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
-      // })
 
-      
-
-  // $('#valider').click(function(e){
-  //     e.preventDefault()
-
-  //    datda = _token:'{{csrf_token()}}',
-  //             $.ajax({                        
-  //                 url: 'user/photo_profil',
-  //                 type: 'POST',
-  //                 data: 
-  //                 success: function(data){
-  //                document.location.reload();
-  //              },
-  //              error : function(data){
-  //                 console.log(data);
-  //              }
-  //             })
-  // })
- 
 
 
 

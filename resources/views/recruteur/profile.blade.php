@@ -450,81 +450,7 @@
 
                 <!-- Button trigger modal -->
 
-  
-  <!-- Ajout d'une pays -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Ajouter une nouvelle Pays</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form method="POST" action="{{route('admin.pays.store')}}">
 
-                @csrf
-                <div class="form-group">
-                  <label for="nom" class="col-form-label">Pays :</label>
-                  <input type="text" name="nom" class="form-control" id="nom" required>
-                  @if ($errors->has('nom'))
-                  <br>
-                  <div class="alert alert-warning ">
-                     <strong>{{$errors->first('nom')}}</strong> 
-                  </div>
-                  @endif
-                </div>
-               
-              
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-          <input type="submit" class="btn btn-primary" value="Ajouter">
-        </div>
-    </form>
-      </div>
-    </div>
-  </div>
-  {{-- fin modal --}}
-
-
-    <!-- Modification d'un pays -->
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle2">Modifier la Pays</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST" id="formupdate" action="">
-    
-                    @csrf
-                    <div class="form-group">
-                      <label for="nomupdate" class="col-form-label">Pays :</label>
-                      <input type="text" name="nom" class="form-control" id="nomupdate" required>
-                      @if ($errors->has('nom'))
-                      <br>
-                      <div class="alert alert-warning ">
-                         <strong>{{$errors->first('nom')}}</strong> 
-                      </div>
-                      @endif
-                    </div>
-                   
-                  
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              <input type="submit" class="btn btn-primary" id="modifier" value="Modifier">
-            </div>
-        </form>
-          </div>
-        </div>
-      </div>
-      {{-- fin modal --}}
 
     @extends('admin.layout.footer')
 
@@ -554,29 +480,7 @@
    
    
    
-   
-       // $.ajaxSetup({
-       //     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
-       // })
-   
-       
-   
-   // $('#valider').click(function(e){
-   //     e.preventDefault()
-   
-   //    datda = _token:'{{csrf_token()}}',
-   //             $.ajax({                        
-   //                 url: 'user/photo_profil',
-   //                 type: 'POST',
-   //                 data: 
-   //                 success: function(data){
-   //                document.location.reload();
-   //              },
-   //              error : function(data){
-   //                 console.log(data);
-   //              }
-   //             })
-   // })
+
    
 </script>
 <script>
@@ -599,67 +503,7 @@
      $('#valider2').attr('type','submit');
    });
 </script>
-<script>
-   // ######### supprimer une offre
-   $(function() {
-       $.ajaxSetup({
-           headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
-       })
-       $('[data-toggle="tooltip"]').tooltip()
-       $('body').on('click','a.supprimer',function(e) {
-           let that = $(this)
-           e.preventDefault()
-           const swalWithBootstrapButtons = swal.mixin({
-       confirmButtonClass: 'btn btn-success',
-       cancelButtonClass: 'btn btn-danger',
-       buttonsStyling: false,
-   })
-   swalWithBootstrapButtons({
-       title: 'Confirmez-vous la suppression de cette offre ?',
-       type: 'warning',
-       showCancelButton: true,
-       confirmButtonColor: '#DD6B55',
-       confirmButtonText: '@lang('Oui')',
-       cancelButtonText: '@lang('Non')',
-       
-   }).then((result) => {
-       if (result.value) {
-           $('[data-toggle="tooltip"]').tooltip('hide')
-               $.ajax({                        
-                   url: that.attr('href'),
-                   type: 'GET',
-                   success: function(data){
-                  document.location.reload();
-                },
-                error : function(data){
-                   console.log(data);
-                }
-               })
-               .done(function () {
-                       that.parents('tr').remove()
-               })
-           swalWithBootstrapButtons(
-           'Supprimée!',
-           'L\'offre a bien été supprimée.',
-           'success'
-           )
-           
-           
-       } else if (
-           // Read more about handling dismissals
-           result.dismiss === swal.DismissReason.cancel
-       ) {
-           swalWithBootstrapButtons(
-           'Annulé',
-           'L\'offre n\'a pas été supprimée.',
-         
-           'error'
-           )
-       }
-   })
-       })
-   })
-</script>
+
 <script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
    tinymce.init({
