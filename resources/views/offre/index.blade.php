@@ -1,6 +1,11 @@
 @include('layouts.topmenu_bo')
 
-              
+<style>
+    .btn-link:hover {
+       color:white;
+       text-decoration: none;
+    }
+</style>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -61,7 +66,7 @@
                                     <tr>
                                         <td>
                                             <div class="table-list-title">
-                                                <h5><a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" title="">{{$offre->titre}}</a></h5>
+                                                <h6><a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" title="" style="color:#EE6E49">{{$offre->titre}}</a></h6>
                                                 <span><i class="la la-map-marker"></i>{{$offre->ville}}, {{$offre->pays}}</span>
                                             </div>
                                         </td>

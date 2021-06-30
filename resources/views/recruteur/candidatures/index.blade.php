@@ -5,7 +5,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Modifiez votre offre</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Candidatures</h1>
                   <hr>
                   
                   @if (session('ok'))
@@ -41,7 +41,7 @@
 
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
-                            <h3>Candidatures</h3>
+                            <h3></h3>
                             <div class="extra-job-info" style="margin-bottom:25px">
                                 <span style="font-weigth:bold"><i class="la la-clock-o"></i><strong></strong> Offre: {{$offre->titre}}</span>
                                 <span><i class="la la-file-text"></i><strong>{{sizeof($candidatures)}}</strong> Candidatures</span>
@@ -68,14 +68,14 @@
                                     <tr>
                                         <td>
                                             <div class="table-list-title">
-                                                <h3><a href="{{route('user.telecharger_cv', $candidature->id )}}" title="Voir le profil">{{$candidature->nom}} {{$candidature->prenom}}</a></h3>
+                                                <h6><a href="{{route('user.show_profil', Crypt::encrypt($candidature->id) )}}" target="_blank" style="color:#EE6E49" title="Voir le profil">{{$candidature->nom}} {{$candidature->prenom}}</a></h6>
                                             </div>
                                         </td>
                                         <td>
                                             {{$candidature->pivot->created_at->format('d/m/Y')}} 
                                         </td>
                                         <td>
-                                            <span> @if($candidature->pivot->cv != null ) <a href="{{route('user.telecharger_cv', $candidature->id )}}" title="" class="btn btn-danger " id="telechargercv">Télécharger le CV</a> @else <span style="color: #EB586C; font-weigth:bold"> Pas de CV </span> @endif</span>
+                                            <span> @if($candidature->pivot->cv != null ) <a href="{{route('user.telecharger_cv', $candidature->id )}}" title="" class="btn btn-warning " style="background: #EE6E49" id="telechargercv">Télécharger le CV</a> @else <span style="color: #EB586C; font-weigth:bold"> Pas de CV </span> @endif</span>
                                         </td>
                                         <td>
                                             

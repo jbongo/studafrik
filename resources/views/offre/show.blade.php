@@ -60,8 +60,10 @@
 								<br>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
-				 					<li><i class="la la-money"></i> Salaire : <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li>
-									 <li><i class="la la-calendar-o"></i> Posté le : {{$offre->created_at->format('d/m/Y')}} </li>
+								@if($offre->experience != null)	<li><i class="la la-money"></i> Expérience requise: <span> {{$offre->experience}} ans</span></li> @endif
+				 				@if($offre->salaire != null)	<li><i class="la la-money"></i> Salaire: <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li> @endif
+									 <li><i class="la la-calendar-o"></i> Posté le {{$offre->created_at->format('d/m/Y')}} </li>
+								@if($offre->date_expiration != null)	 <li><i class="la la-calendar-o"></i> date d'expiration: {{$offre->date_expiration->format('d/m/Y')}} </li> @endif
 									 
 				 				</ul>
 				 				{{-- <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span> --}}
@@ -104,12 +106,12 @@
 			 				<div class="job-thumb" style="margin-bottom: 55px"> 
 								@if($offre->photo_recruteur != null )
                                     
-								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="124px" height="124px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="250px" height="250px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
 
 								@else 
-								<img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
+								<img height="250px" width="250px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 								@endif
-							 <h4> {{$offre->user->nom}}</h4> <br>
+							 <h4> @if($offre->nom_entreprise != null) {{$offre->nom_entreprise}} @else {{$offre->user->nom}} @endif</h4> <br>
 							 @if($offre->user->site_web != null)
 							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
 							 @endif

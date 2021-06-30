@@ -28,7 +28,7 @@ class BienvenueRecruteur extends Mailable
      */
     public function build()
     {
-        return $this->subject("Félicitation - Stud'Afrik")->markdown('mail.bienvenu_recruteur');
+        return $this->subject("Bienvenue sur Stud’Afrik")->markdown('mail.bienvenu_recruteur');
 
     }
 }

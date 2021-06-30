@@ -26,6 +26,12 @@
 
                  @include('layouts.leftmenu') --}}
            
+                 <style>
+                     .btn-link:hover {
+                        color:white;
+                        text-decoration: none;
+                     }
+                 </style>
                  <section class="overlape">
                     <div class="block no-padding">
                         <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -49,9 +55,9 @@
                                                         @if($est_recruteur == true)
                                                             @if($est_favoris == false)
 
-                                                            <a class="btn btn-success" href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
+                                                            <a class="btn btn-link " style="background: #EE6E49" href="{{route('favoris.cv',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-paper-plane"></i>Sauvegarder le profil</a>
                                                             @else 
-                                                            <a class="btn btn-danger" href="#" style="color:rgb(232, 243, 241); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
+                                                            <a class="btn btn-link" style="background: #EE6E49" href="#" style="color:rgb(232, 243, 241); font-size:17px" title=""><i class="la la-check"></i>Profil sauvegardé</a>
                                                             @endif
                                                         @endif
                                                     </div>

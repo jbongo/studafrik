@@ -1,5 +1,10 @@
 @include('layouts.topmenu_bo')
-
+<style>
+    .btn-link:hover {
+       color:white;
+       text-decoration: none;
+    }
+</style>
               
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -46,7 +51,7 @@
                             </div>
                             @endif 
                             
-                            <table class="table table-striped table-bordered dt-responsive " style="width:100%; margin-top:25px">
+                            <table id="example" class="table table-striped table-bordered dt-responsive " style="width:100%; margin-top:25px">
                                 <thead>
                                     <tr>
                                         <td>Nom</td>
@@ -62,7 +67,7 @@
                                         <td>
                                             <div class="table-list-title">
                                                 {{-- <h3><a href="#" title="">{{$candidat->nom}}</a></h3> --}}
-                                                <span><i class="la la-user"></i>{{$candidat->prenom}}, {{$candidat->nom}}</span>
+                                                <a href="{{route('user.show_profil', Crypt::encrypt($candidat->id) )}}" style="color: #EE6E49;" target="_blank"><i class="la la-user"></i>{{$candidat->prenom}}, {{$candidat->nom}}</a>
                                             </div>
                                         </td>
                                         <td>
@@ -78,8 +83,8 @@
                                         </td>
                                         <td>
                                             <ul class="action_job">
-                                            <li><span>Voir le profil</span><a href="{{route('user.show_profil', Crypt::encrypt($candidat->id) )}}" title=""><i class="la la-eye"></i></a></li>
-                                            <li><span>Supprimer comme favoris</span><a class="supprimerxx" href="{{route('favoris.cv.delete',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-trash-o"></i></a></li>
+                                            <a class="btn btn-link" style="background: #EE6E49; color:white" href="{{route('user.show_profil', Crypt::encrypt($candidat->id) )}}" title=""><i class="la la-eye"></i>Voir le profil</a>
+                                            <a class="supprimerxx btn btn-link" style="background: #EE6E49; color:white" href="{{route('favoris.cv.delete',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-trash-o"></i>Supprimer des favoris</a>
                                             </ul>
                                         </td>
                                     </tr>

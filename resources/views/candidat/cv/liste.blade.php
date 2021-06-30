@@ -1,3 +1,7 @@
+@section('css-content')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+@endsection
+
 @include('layouts.topmenu_bo')
 
               
@@ -5,7 +9,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Mes profils sauvegardés</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Liste des profils</h1>
                   <hr>
                   
                   @if (session('ok'))
@@ -37,7 +41,7 @@
                         <div class="emply-resume-sec">
                         <div class="row" >
                             <div class="col-lg-5">
-                                <div class="job-field">
+                                <div class="job-fieldx">
                                     <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
                                     {{-- <i class="la la-keyboard-o"></i> --}}
                                 </div>
@@ -76,12 +80,13 @@
                     </form>
 <hr>
 
+
                     <div class="emply-resume-sec">
                       
                        @foreach ($candidats as $candidat )
                             <div class="emply-resume-list square col-lg-9" style="margin-top:100px">
                                 <div class="emply-resume-thumb">
-                                    <img width="150px" src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" alt="" />
+                                    <img width="150px" src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil.png'))}}" alt="" />
                                 </div>
                                 <div class="emply-resume-info">
                                     <h3><a href="#" title="">{{$candidat->prenom}} {{$candidat->nom}}</a></h3>
@@ -89,7 +94,7 @@
                                     <p><i class="la la-map-marker"></i>{{$candidat->ville}}- {{$candidat->pays}}</p>
                                 </div>
                                 <div class="shortlists">
-                                    <a class="btn btn-danger" href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" title="">Voir profil <i class="la la-plus"></i></a>
+                                    <a class="btn btn-warning" style="background: #EE6E49; color:#fff" target="_blank" href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" title="">Voir profil <i class="la la-plus"></i></a>
                                 </div>
                             </div><!-- Emply List -->
                        @endforeach

@@ -26,8 +26,7 @@
     <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert2.css')}}" />
-
-	<link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert2.css')}}" />
+    @yield('css-content')
 
 </head>
 
@@ -143,8 +142,10 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('/images/menu_bas.png')}}">Menu
+                                <button id="sidebarToggleTop" class="btn btn-link  " >
+                                    <i class="fa fa-bars" style="color:#EE6E49"></i>
+                                </button>
+                            
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
