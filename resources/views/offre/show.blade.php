@@ -103,7 +103,7 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb" style="margin-bottom: 55px"> 
+			 				<div class="job-thumb" style="margin-bottom: 35px"> 
 								@if($offre->photo_recruteur != null )
                                     
 								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="250px" height="250px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
