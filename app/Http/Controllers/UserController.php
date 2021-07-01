@@ -421,7 +421,7 @@ public function photoProfile(Request $request){
     ->whereNotIn('id',[8,7])
        
        
-       ->paginate(10);
+       ->paginate(10)->withQueryString();
 
     //    dd($categorie);
       
@@ -445,7 +445,7 @@ public function photoProfile(Request $request){
     {
     
         $recruteur = User::where('id', Crypt::decrypt($recruteur_id) )->first();
-        $offres = Offre::where('user_id', Crypt::decrypt($recruteur_id))->paginate(10);
+        $offres = Offre::where('user_id', Crypt::decrypt($recruteur_id))->paginate(10)->withQueryString();
 
 
 
