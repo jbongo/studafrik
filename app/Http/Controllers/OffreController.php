@@ -155,7 +155,7 @@ class OffreController extends Controller
                 }
             })
             ->orderBy('created_at','desc')
-            ->paginate(10);
+            ->paginate(10)->withQueryString();
 
 
 
