@@ -247,7 +247,8 @@ Stud'Afrik
 		}
 		
 		.company-img :hover {
-		  transform: scale(0.9); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+		  transform: scale(0.9);
+		   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 		}
 		</style> 
 	<section style="margin-top: 100px">
@@ -259,26 +260,24 @@ Stud'Afrik
 							<h2>Ils recrutent</h2>
 							{{-- <span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span> --}}
 						</div><!-- Heading -->
-						<div class="comp-sec" style="margin-top: 50px">
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/societe.jpg')}}" width="250px" height="250px" alt="Société générale"  style="margin-top:15px"/></a>
-							</div><!-- Client  -->
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/orange.png')}}" width="250px" height="250px" alt="Orange"  style="margin-top:15px"/></a>
-							</div><!-- Client  -->
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/lapaire.jpg')}}" width="250px" height="250px" alt="Lapaire" style="margin-top:15px" /></a>
-							</div><!-- Client  -->
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/wave.jpg')}}" width="250px" height="250px" alt="Wave" style="margin-top:15px" /></a>
+						<div class="comp-sec" style="margin-top: 50px;  margin: auto; width:100%">
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/societe.jpg')}}" width="200px" height="200px" alt="Société générale"  style="margin-top:15px"/>
 							</div><!-- Client  -->
 							
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/gozem.jpg')}}" width="250px" height="250px" alt="Gozem" style="margin-top:15px" /></a>
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/lapaire.jpg')}}" width="200px" height="200px" alt="Lapaire" style="margin-top:15px" />
+							</div><!-- Client  -->
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/wave.jpg')}}" width="200px" height="200px" alt="Wave" style="margin-top:15px" />
+							</div><!-- Client  -->
+							
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/gozem.jpg')}}" width="200px" height="200px" alt="Gozem" style="margin-top:15px" />
 							</div><!-- Clientx  -->
 
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/cofina.jpg')}}" width="250px" height="250px" alt="Cofina" style="margin-top:15px" /></a>
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/cofina.jpg')}}" width="200px" height="200px" alt="Cofina" style="margin-top:15px" />
 							</div><!-- Clientx  -->
 						</div>
 					</div>

@@ -4,6 +4,8 @@
 
 @include('layouts.topmenu_bo')
 
+
+
               
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -81,38 +83,59 @@
 <hr>
 
 
-                    <div class="emply-resume-sec">
-                      
-                       @foreach ($candidats as $candidat )
-                            <div class="emply-resume-list square col-lg-9" style="margin-top:100px">
-                                <div class="emply-resume-thumb">
-                                    <img width="150px" src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil.png'))}}" alt="" />
-                                </div>
-                                <div class="emply-resume-info">
-                                    <h3><a href="#" title="">{{$candidat->prenom}} {{$candidat->nom}}</a></h3>
-                                    <span><i>{{$candidat->poste}}</i> </span>
-                                    <p><i class="la la-map-marker"></i>{{$candidat->ville}}- {{$candidat->pays}}</p>
-                                </div>
-                                <div class="shortlists">
-                                    <a class="btn btn-warning" style="background: #EE6E49; color:#fff" target="_blank" href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" title="">Voir profil <i class="la la-plus"></i></a>
-                                </div>
-                            </div><!-- Emply List -->
-                       @endforeach
+
+<section>
+    <div class="block gray">
+        <div class="container">
+            <br>
+                            <br>
+                            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                   
+                    <div class="job-grid-sec">
+                        <div class="row">
+                        @foreach ($candidats as $candidat )
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+                                <div class="job-grid">
+                                    <div class="job-title-sec">
+                                        <a  href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" target="_blank" title="">
+                                            <div class="c-logo"> 
+                                          
+                            
+                                            <img src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil.png'))}}" width="115px" height="120px"  title="{{$candidat->nom}}"  alt="{{$candidat->nom}}" /> </div>
+        
+                                           
+                                                <h3 style="color:#323232 ">{{$candidat->prenom}} {{$candidat->nom}}</h3>
+                                            
+                                            <h3><a href="" style="color: #EE6E49" >{{$candidat->poste}}</a></h3>
+                                            {{-- <span class="fav-job"><i class="la la-heart-o"></i></span> --}}
+                                        </a>
+                                    </div>
+                                    <span class="job-lctn"><a  href="" title="">{{$candidat->ville}}, {{$candidat->pays}}</a></span>
+                                <a  href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" target="_blank" title="">Voir profil</a>
+                                </div><!-- JOB Grid -->
+                            </div>
+                        @endforeach
+                            
+                            
+                            
                         
-                      
-                       
-
-                        {{-- <div class="pagination"> --}}
-
-                           {{-- <ul>
-                               <li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Précédent</a></li>
-                               <li><a href="">1</a></li>
-                               <li class="active"><a href="">2</a></li>
-                               <li><a href="">3</a></li>
-                           <li class="next"><a href="">Suivant <i class="la la-long-arrow-right"></i></a></li>
-                           </ul> --}}
-                       {{-- </div><!-- Pagination --> --}}
+                        </div>
                     </div>
+                </div>
+               
+            </div>
+            
+            <br>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</section>
+
+
                     <br>
                     {!!$candidats->links()!!}
                  
