@@ -35,7 +35,7 @@
                             {{-- <h6 class="m-0 font-weight-bold text-primary">Liste des pays</h6> --}}
                         </div>
                         <div class="card-body">
-                 <div class="col-10 column">
+                 <div class="col-12 column">
 
 <br>
                     <form action="{{ route('cv.liste') }}" method="get" >
@@ -85,18 +85,16 @@
 
 
 <section>
-    <div class="block gray">
-        <div class="container">
+   
             <br>
                             <br>
                             <br>
-            <div class="row">
-                <div class="col-lg-12">
+            
                    
                     <div class="job-grid-sec">
                         <div class="row">
                         @foreach ($candidats as $candidat )
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-11">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="background: #f3f1f0">
                                 <div class="job-grid">
                                     <div class="job-title-sec">
                                         <a  href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" target="_blank" title="">
@@ -123,16 +121,12 @@
                         
                         </div>
                     </div>
-                </div>
-               
-            </div>
+             
             
             <br>
             <br>
             <br>
 
-        </div>
-    </div>
 </section>
 
 
