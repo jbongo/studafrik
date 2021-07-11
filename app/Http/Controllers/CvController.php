@@ -57,31 +57,31 @@ class CvController extends Controller
         // dd($secteur);
         
         if($poste == null && $pays != null && $secteur == null){
-            $candidats = User::where([['role', "candidat"], ['pays', $pays]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['pays', $pays], ['profile_complete',true] ])->paginate(15)->withQueryString();
         
         }
         elseif($poste != null && $pays == null && $secteur == null){
-            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"], ['profile_complete',true] ])->paginate(15)->withQueryString();
           
         }
         elseif($poste != null && $pays != null && $secteur == null){
-            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays], ['profile_complete',true] ])->paginate(15)->withQueryString();
         }
         elseif($poste != null && $pays != null && $secteur =! null){
-            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays],['categorie', $secteur]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['pays', $pays],['categorie', $secteur], ['profile_complete',true] ])->paginate(15)->withQueryString();
         }
         elseif($poste == null && $pays != null && $secteur =! null){
-            $candidats = User::where([['role', "candidat"],['pays', $pays],['categorie', $secteur]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"],['pays', $pays],['categorie', $secteur], ['profile_complete',true] ])->paginate(15)->withQueryString();
         }
         elseif($poste != null && $pays == null && $secteur =! null){
-            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['categorie', $secteur]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['poste','LIKE', "%$poste%"],['categorie', $secteur], ['profile_complete',true] ])->paginate(15)->withQueryString();
         }
         elseif($poste == null && $pays == null && $secteur == null){
-            $candidats = User::where([['role', "candidat"], ['categorie', $secteur]])->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['categorie', $secteur], ['profile_complete',true] ])->paginate(15)->withQueryString();
         }
 
         else{
-            $candidats = User::where('role', "candidat")->paginate(15)->withQueryString();
+            $candidats = User::where([['role', "candidat"], ['profile_complete',true]])->paginate(15)->withQueryString();
         }
 
         $pays = Pays::all();
