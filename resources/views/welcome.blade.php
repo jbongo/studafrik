@@ -1,7 +1,7 @@
 @section('title') 
 Stud'Afrik
 @endsection
-@include('layouts.topmenuhome')
+@include('layouts.topmenuaccueil')
 
 <style>
 	h2 {
@@ -325,8 +325,8 @@ Stud'Afrik
 					<div class="col-lg-12">
 						<div class="social-links">
 							<br><br>
-							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-colorx"><i class="fa fa-facebook"></i> Facebook</a>
-							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-colorx"><i class="fa fa-twitter"></i> Twitter</a>
+							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-colorx"><i class="la la-facebook"></i> Facebook</a>
+							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-colorx"><i class="la la-twitter"></i> Twitter</a>
 							<a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="in-colorx"><i class="la la-instagram"></i> Instagram</a>
 							<a href="https://www.linkedin.com/company/stud-afrik/" title="" class="lk-colorx"><i class="la la-linkedin"></i> Linkedin</a>
 <br><br>
@@ -343,6 +343,6 @@ Stud'Afrik
 
 <script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="3ea6cfb5-fb67-4b6d-84c3-829d34fa625f";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
 @endsection
-@include('layouts/footer')
+@include('layouts/footeraccueil')
 
 

@@ -92,7 +92,10 @@
                                     <div class="cand-single-user">
                                       
                                         <div class="share-bar circle">
-                                             <a href="#" title="" class="share-google"><i class="la la-google"></i></a><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
+                                             @if($candidat->linkedin != null) <a href="{{$candidat->linkedin}}" target="_blank" title="linkedin" class="share-linkedin"><i class="la la-linkedin"></i></a>@endif
+                                             @if($candidat->facebook != null) <a href="{{$candidat->facebook}}" target="_blank" title="facebook" class="share-fb"><i class="la la-facebook"></i></a>@endif
+                                             @if($candidat->twitter != null) <a href="{{$candidat->twitter}}" target="_blank" title="twitter" class="share-twitter"><i class="la la-twitter"></i></a>@endif
+                                             @if($candidat->instagram != null) <a href="{{$candidat->instagram}}" target="_blank" title="instagram" class="share-instagram"><i class="la la-instagram"></i></a>@endif
                                          </div>
                                          <div class="can-detail-s">
                                              <div class="cst"><img class="img-responsive" width="137px" height="137px" id="photodisplay"  src="{{($candidat->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $candidat->photo_profile) }}" alt="@lang('Photo de profil')"></div>
