@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pays;
+use App\Models\Metier;
 use Illuminate\Support\Facades\Crypt;
 
-
-class PaysController extends Controller
+class MetierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,10 @@ class PaysController extends Controller
      */
     public function index()
     {
-        $pays = Pays::all();
+        $metiers = Metier::all();
 
 
-        return view('admin.configuration.pays.index',compact('pays'));
+        return view('admin.configuration.metier.index',compact('metiers'));
 
     }
 
@@ -44,16 +43,16 @@ class PaysController extends Controller
 
         $request->validate([
             
-            'nom' => 'required|string|unique:pays',
+            'nom' => 'required|string|unique:metiers',
           
         ]);
 
-        Pays::create([
+        Metier::create([
             "nom"=>$request->nom
         ]);
 
         // return redirect::back()->with('_ok', "");
-        return redirect()->route('admin.pays.index')->with('ok', __("Nouveau Pays ajouté")  );
+        return redirect()->route('admin.metier.index')->with('ok', __("Nouveau metier ajouté")  );
 
     }
 
@@ -86,23 +85,23 @@ class PaysController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $pays)
+    public function update(Request $request, $metier)
     {
-        $pays = Pays::where('id',Crypt::decrypt($pays))->first();
+        $metier = Metier::where('id',Crypt::decrypt($metier))->first();
 
-        if($pays->nom != $request->nom){
+        if($metier->nom != $request->nom){
             $request->validate([
             
-                'nom' => 'required|string|unique:pays',
+                'nom' => 'required|string|unique:metiers',
               
             ]);
         }
 
-        $pays->nom = $request->nom ;
+        $metier->nom = $request->nom ;
 
-        $pays->update();
+        $metier->update();
 
-        return redirect()->route('admin.pays.index')->with('ok', "Nom du Pays modifié");
+        return redirect()->route('admin.metier.index')->with('ok', "Nom du metier modifié");
     }
 
     /**
@@ -111,12 +110,12 @@ class PaysController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($pays)
+    public function delete($metier)
     {
 
 
-        Pays::destroy(Crypt::decrypt($pays));
+        Metier::destroy(Crypt::decrypt($metier));
 
-        return redirect()->route('admin.pays.index')->with('ok','pays supprimé');
+        return redirect()->route('admin.metier.index')->with('ok','métier supprimé');
     }
 }

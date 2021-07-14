@@ -200,7 +200,13 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/pays','PaysController@index')->name('admin.pays.index');
     Route::post('admin/pays/store','PaysController@store')->name('admin.pays.store');
     Route::post('admin/pays/update/{offre}','PaysController@update')->name('admin.pays.update');
-    Route::post('admin/pays/delete/{offre}','PaysController@delete')->name('admin.pays.delete');
+    Route::get('admin/pays/delete/{offre}','PaysController@delete')->name('admin.pays.delete');
+
+      // Métier
+      Route::get('admin/metier','MetierController@index')->name('admin.metier.index');
+      Route::post('admin/metier/store','MetierController@store')->name('admin.metier.store');
+      Route::post('admin/metier/update/{metier_id}','MetierController@update')->name('admin.metier.update');
+      Route::get('admin/metier/delete/{metier_id}','MetierController@delete')->name('admin.metier.delete');
 
 
     // Blog -> articles

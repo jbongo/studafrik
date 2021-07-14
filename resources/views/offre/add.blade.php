@@ -229,19 +229,26 @@ tinymce.init({
 
 <script>
 
-    $('#candidater_lien').on('change',function(){
+   
+$('#div_url_candidature').hide();
+
+$('#candidater_lien').on('change',function(){
 
     var val = $('#candidater_lien').val();
-    
+
     if(val == "Non"){
         $('#div_url_candidature').hide();
+        $('#url_candidature').removeAttr('required')
 
     }else{
         $('#div_url_candidature').show();
 
+        $('#url_candidature').attr('required',true);
+
     }
-   
-    })
+
+
+})
 
 </script>
 
