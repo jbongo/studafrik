@@ -295,7 +295,10 @@ select {
    
 }
 
-.job-field select{border: none;}
+.job-field select{
+    border: none;
+    height: 61px;
+}
 
 .job-search .job-field {
     margin: 0 0 15px 0;
