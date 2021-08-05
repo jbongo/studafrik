@@ -161,7 +161,7 @@ Stud'Afrik
 											</a>
 										</div>
 										<span class="job-lctn"><a  href="{{route('mes_offres.show', $offre->slug )}}" title="">{{$offre->ville}}, {{$offre->pays}}</a></span>
-									<a  href="{{route('postuler.create', $offre->slug)}}" title="">POSTULER</a>
+									<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 							@endforeach

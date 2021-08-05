@@ -310,6 +310,7 @@ class OffreController extends Controller
         if(Auth::check() && Auth::user()->role == "candidat"){
 
             $offres = Auth::user()->offres;
+         
             foreach ($offres as $off) {
             
                 if($off->id == $offre->id){

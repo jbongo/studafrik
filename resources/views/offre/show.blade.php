@@ -103,7 +103,7 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb" style="margin-bottom: 35px"> 
+			 				<div class="job-thumbx" style="margin-bottom: 35px"> 
 								@if($offre->photo_recruteur != null )
                                     
 								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="250px" height="250px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
@@ -116,7 +116,7 @@
 							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
 							 @endif
 						
-								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
+								@if($offre->date_expiration != null && $offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
 								
 											@if($deja_postuler == true )
 												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
@@ -160,7 +160,7 @@
 										<a   href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" style="background: #323232; width: 190px"  class="viewall-jobs"><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
 
 										@else 
-										<a class=" btn btn-warning"  href="#" style="color:rgb(58, 3, 3); font-size:17px; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
+										<a style="background: #EE6E49; width: 190px"  class="viewall-jobs" href="#"  title=""><i class="la la-check"></i> Offre sauvegardée</a>
 										@endif
 									@endif
 								 {{-- </p> --}}
