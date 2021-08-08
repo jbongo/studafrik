@@ -821,8 +821,8 @@ Author:         Creative Layer
  /* Checkbox */
  
  input[type="checkbox"]+label::after {
-     content: "\2714";
-     color: #2c3e50;
+     content: "\2713";
+     color: #fb236a;
      line-height: 1.5;
      text-align: center;
      border: none !important;

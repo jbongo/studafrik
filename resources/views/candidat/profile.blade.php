@@ -16,12 +16,15 @@
                   @endif 
 
                   
-                  @if ($errors->has('nom'))
-                  <br>
-                  <div class="alert alert-warning ">
-                     <strong>{{$errors->first('nom')}}</strong> 
-                  </div>
-                  @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                   <br>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -107,7 +110,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-6 ">
-                                            <span class="pf-title">Nom</span>
+                                            <span class="pf-title">Nom <span>*</span> </span>
                                             <div class="form-group">
                                                 <input type="text" placeholder=" " name="nom" value="{{old('nom') ? old('nom') : Auth::user()->nom}}"  class="form-control" required/>
                                                 @if ($errors->has('nom'))
@@ -122,7 +125,7 @@
                                       
 
                                         <div class="col-lg-6">
-                                            <span class="pf-title">Prénom (s)</span>
+                                            <span class="pf-title">Prénom (s) <span>*</span> </span>
                                             <div class="form-group">
                                                 <input type="text"  placeholder="" name="prenom" value="{{old('prenom') ? old('prenom') : Auth::user()->prenom}}"  class="form-control" required/>
                                                 @if ($errors->has('prenom'))
@@ -134,7 +137,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <span class="pf-title">Poste</span>
+                                            <span class="pf-title">Poste recherché <span>*</span></span>
                                             <div class="form-group">
                                                 <input type="text"  placeholder="UX / UI Designer" value="{{old('poste') ? old('poste') : Auth::user()->poste}}" name="poste"class="form-control" required/>
                                                 @if ($errors->has('poste'))
@@ -147,7 +150,7 @@
                                         </div>
                                         
                                         <div class="col-lg-6">
-                                            <span class="pf-title">Ajoutez votre CV</span>
+                                            <span class="pf-title">Ajoutez votre CV <span>*</span> </span>
                                             <div class="form-group">
                                             @if( Auth::user()->cv != null)
                                             <a href="{{route('user.telecharger_cv', Auth::user()->id)}}" title="" class="btn btn-danger " id="telechargercv">Voir mon CV</a> 
@@ -171,6 +174,7 @@
                                                     <option value="<1">moins de 1 an </option>
                                                     <option value="1-2">1 à 2 ans</option>
                                                     <option value="2-3">2 à 3 ans</option>  
+                                                    <option value="3>">plus de 3 ans</option>  
                                                </select>
 
                                                @if ($errors->has('experience'))
@@ -197,7 +201,7 @@
                                     
                                 
                                         <div class="col-lg-6">
-                                            <span class="pf-title">Pays</span>
+                                            <span class="pf-title">Pays <span>*</span> </span>
                                             <div class="form-group">
                                                 <select data-place holder="selectionnez un pays" class="chosen form-control" value="{{old('pays') ? old('pays') : Auth::user()->pays}}" name="pays" required>
                                                     @if(Auth::user()->pays != null)
@@ -545,7 +549,7 @@
                                         <div class="col-lg-4">
                                             <span class="pf-title">Numéro de téléphone</span>
                                             <div class="form-group">
-                                                <input type="text"  placeholder="+290 538 963 " value="{{old('contact1') ? old('contact1') : Auth::user()->contact1}}" name="contact1" class="form-control"/>
+                                                <input type="text"  placeholder="+2907538963 " value="{{old('contact1') ? old('contact1') : Auth::user()->contact1}}" name="contact1" class="form-control"/>
                                                 @if ($errors->has('contact1'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -557,7 +561,7 @@
                                         <div class="col-lg-4">
                                             <span class="pf-title">Email</span>
                                             <div class="form-group">
-                                                <input type="text"  placeholder="" value="{{old('email') ? old('email') : Auth::user()->email}}" name="email" class="form-control"/>
+                                                <input type="email"  placeholder="" value="{{old('email') ? old('email') : Auth::user()->email}}" name="email" class="form-control"/>
                                                 @if ($errors->has('email'))
                                                     <br>
                                                     <div class="alert alert-warning ">
@@ -568,7 +572,7 @@
                                         </div>
 
                                         <div class="col-lg-12"  style="margin-top:50px">
-                                            <button type="submit">Enregistrer</button>
+                                            <button style="background: #EE6E49; color:white; width: 190px"  class="form-control"  type="submit">Enregistrer</button>
                                         </div>
                                     </div>
                                 

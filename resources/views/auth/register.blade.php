@@ -47,7 +47,7 @@ textarea {
 						<div class="account-popup-area signup-popup-box static">
 							<div class="account-popup">
                                 <h3></h3>
-                                @if ($errors->any())
+                            @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
@@ -83,13 +83,15 @@ textarea {
 										<input type="password" placeholder="Confirmer Mot de passe" id="password_confirmation" name="password_confirmation" required />
 										<i class="la la-key"></i>
 									</div>
+                                  
+
 									  <div class="flex items-center justify-end mt-4">
                                           <p>Déjà inscrit ?</p>
                                         <a  style="color: blue" class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                                             Connectez-vous !
                                         </a>              
                                      </div>
-									
+                                    
 									<button  type="submit">S'inscrire</button>
 								</form>
 								{{-- <div class="extra-login" >

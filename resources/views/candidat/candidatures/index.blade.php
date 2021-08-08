@@ -1,35 +1,16 @@
+@section('css-content')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+@endsection
 
-@include('layouts.topmenupage')
-
-
-{{-- 
-	<section class="overlape">
-		<div class="block no-padding">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-			<div class="container fluid">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="inner-header">
-							<h3>Welcome Ali TUFAN</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> --}}
+@include('layouts.topmenu_bo')
 
 	<section>
-		<div class="block remove-top">
+		
 			<div class="container-fluid">
-				 <div class="row no-gape">
-
-
-
-                 
-                        @include('layouts.leftmenu')
+				 
                  
     
-                     <div class="col-10 column">
+                     <div class="col-12 column">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
                             <h3>Mes candidatures</h3>
@@ -63,7 +44,7 @@
                                             </td>
                                             <td>
                                                 <ul class="action_job">
-                                                    <li><span>Voir</span><a href="{{route('mes_offres.show',Crypt::encrypt($offre->id))}}" title=""><i class="la la-eye"></i></a></li>
+                                                    <li><span>Voir</span><a href="{{route('mes_offres.show',$offre->slug)}}" title=""><i class="la la-eye"></i></a></li>
                                                     {{-- <li><span>Supprimer</span><a href="#" title=""><i class="la la-trash-o"></i></a></li> --}}
                                                 </ul>
                                             </td>
@@ -81,15 +62,15 @@
 
                    
 				 </div>
-			</div>
-		</div>
+	
 	</section>
 
 	
 
 
 
-@include('layouts.footer')
+    @extends('admin.layout.footer')
+
 
 
 @section('js-content')
