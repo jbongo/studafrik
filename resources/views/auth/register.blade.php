@@ -91,7 +91,10 @@ textarea {
                                             Connectez-vous !
                                         </a>              
                                      </div>
-                                    
+                                     <div class="cfieldx">
+										<input type="checkbox"  id="check_conditions" name="check_conditions" required /> 
+                                        <label for="check_conditions"> J'ai lu et j'accepte les CGU et la politique de confidentialité.</label>
+									</div>
 									<button  type="submit">S'inscrire</button>
 								</form>
 								{{-- <div class="extra-login" >
