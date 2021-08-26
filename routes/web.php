@@ -176,7 +176,15 @@ Route::get('/nous-contacter', function () {
 })->name('nous_contacter');
 Route::post('/nous-contacter','ContactController@store')->name('contact.store');
 
+// Politique de confidentialité
+Route::get('/politique-confidentialite', function () {
+    return view('politique_confidentialite');
+})->name('politique_confidentialite');
 
+// Conditions d'utilisation
+Route::get('/conditions-utilisation', function () {
+    return view('condition_dutilisation');
+})->name('conditions_utilisation');
 
 // ############################# ROUTES ADMIN ##################################
 
@@ -261,6 +269,6 @@ Route::middleware([Admin::class])->group(function () {
 
     
 
-    
+   
     
 });
