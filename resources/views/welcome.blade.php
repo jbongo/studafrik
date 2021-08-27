@@ -299,11 +299,26 @@ Stud'Afrik
 								
 								<div class="col-lg-6">
 									<h3>Souscrivez à notre Newsletter</h3>
-									<span>Laissez nous votre adresse mail</span>
+									<span >Laissez nous votre adresse mail</span>
 								</div>
 								<div class="col-lg-6">
-									<form>
-										<input type="text" placeholder="Entrez votre email" />
+									@if (session('ok'))
+									<div class="alert alert-success ">
+									   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									   <strong> {{ session('ok') }}</strong>
+									</div>
+									@endif 
+
+									<form action="{{route('newsletter.store')}}" method="POST">
+
+										@csrf
+										@if ($errors->has('email'))
+                                                    <br>
+                                                    <div class="alert alert-warning ">
+                                                        <strong>{{$errors->first('email')}}</strong> 
+                                                    </div>
+                                        @endif
+										<input type="text" name="email" placeholder="Entrez votre email" />
 										<button type="submit"><i class="la la-paper-plane"></i></button>
 									</form>
 								</div>

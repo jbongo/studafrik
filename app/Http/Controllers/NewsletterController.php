@@ -15,6 +15,8 @@ class NewsletterController extends Controller
     public function index()
     {
         //
+        $newsletters = Newsletter::all();
+        return view('admin.newsletter.index', compact('newsletters'));
     }
 
     /**
@@ -44,7 +46,7 @@ class NewsletterController extends Controller
         "email"=> $request->email
         ]);
         
-        return "ok";
+        return redirect()->route('welcome_newsletter')->with('ok', "Félicitation vous êtes enregistré dans notre newsletter");
     }
 
     /**

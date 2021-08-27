@@ -68,6 +68,12 @@
 
 
     <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.newsletter.index')}}">
+            <i class="fas fa-fw fa-envelope-square"></i>
+            <span>Newsletters</span></a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{route('admin.article.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Blog</span></a>

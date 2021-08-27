@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/','HomeController@index')->name('welcome');
+Route::get('/#newsletter','HomeController@index')->name('welcome_newsletter');
 
 
 
@@ -186,6 +187,14 @@ Route::get('/conditions-utilisation', function () {
     return view('condition_dutilisation');
 })->name('conditions_utilisation');
 
+
+// Newsletter
+
+Route::post('newsletter/store','NewsletterController@store')->name('newsletter.store');
+
+
+
+
 // ############################# ROUTES ADMIN ##################################
 
 Route::get('adminlog/','UserController@admin_login')->name('admin.login');
@@ -267,7 +276,9 @@ Route::middleware([Admin::class])->group(function () {
     Route::post('admin/recruteur/update/{candidat_id}','UserController@update_recruteur')->name('admin.recruteur.update');    
     Route::post('admin/recruteur/delete/{recruteur_id}','UserController@delete_recruteur')->name('admin.recruteur.delete');    
 
-    
+    // Newsletter
+
+    Route::get('admin/newsletters','NewsletterController@index')->name('admin.newsletter.index');
 
    
     

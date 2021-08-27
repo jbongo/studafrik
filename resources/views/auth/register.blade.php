@@ -95,7 +95,7 @@ textarea {
 										<input type="checkbox"  id="check_conditions" name="check_conditions" required /> 
                                         <label for="check_conditions"> J'ai lu et j'accepte les <a href="{{route('conditions_utilisation')}}" target="_blank">CGU</a>  et <a href="{{route('politique_confidentialite')}}" target="_blank">la politique de confidentialité.</a> </label>
 									</div>
-									<button  type="submit">S'inscrire</button>
+									<button   type="submit">S'inscrire</button>
 								</form>
 								{{-- <div class="extra-login" >
 									<span>S'inscrire avec :</span>
@@ -158,4 +158,23 @@ textarea {
     </x-jet-authentication-card>
 </x-guest-layout> --}}
 
-@include('layouts/footer')
+
+
+@section('js-content')
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LepfCocAAAAAOHDdRy88HoYjGzcE3HiY0tH81gz"></script>
+
+<script>
+   
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6LepfCocAAAAAOHDdRy88HoYjGzcE3HiY0tH81gz', {action: 'submit'}).then(function(token) {
+            // Add your logic to submit to your backend server here.
+        });
+      });
+    }
+</script>
+@endsection
+
+@include('layouts.footer')
