@@ -2,28 +2,67 @@
 Nos articles
 
 @endsection
-@include('layouts.topmenupage')
+@include('layouts.topmenuhome')
 
 
-    	    
 
-<section>
-    <div class="block no-padding  gray">
-        <div class="container">
+<section class="overlape">
+    <div class="block no-padding">
+        <div data-velocity="-.1" style="" class="parallax scrolly-invisible no-parallax" ></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container fluid gra">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="inner2" style="text-align: center; margin:-25px">
-                        <div class="inner-title2">
-                            <h3>Nos articles</h3>
+                    <div class="inner-header wform">
+                        <div class="job-search-sec">
+                            <div class="job-search">
+                                <h4>Nos articles</h4>
+                                <form action="{{ route('article.rechercher') }}" method="get" >
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <div class="job-field">
+                                                <input type="text" name="mot_cle" class="form-control" placeholder="recherche par mot clé" value="{{isset($_GET['mot_cle']) ? $_GET['mot_cle'] :""}}" />
+                                                <i class="la la-keyboard-o"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="job-field">
+                                                <select name="categorie" class="chosen-city form-control">
+                                                    @if($cat != null)
+                                                        <option value="{{$cat->id}}">{{$cat->nom}}</option>
+                                                        <option value="">Toutes les catégories</option>
+
+
+                                                    @else 
+                                                    <option value="">Toutes les catégories</option>
+
+                                                    @endif
+
+                                                    @foreach ($categories as $categorie )
+                                                        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+                                                    @endforeach
+                                                    
+                                                    
+                                                    
+                                                </select>
+                                                <i class="la la-briefcase"></i>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-lg-1">
+                                            <button type="submit"><i class="la la-search"></i></button>
+                                        </div>
+                                    </div>
+                                {{-- </form> --}}
+                               
+                            </div>
                         </div>
-         
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 
 

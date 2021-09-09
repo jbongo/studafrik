@@ -152,6 +152,8 @@ Route::get('article/{article_id}','ArticleController@article_show')->name('artic
 
 Route::get('article-slug','ArticleController@convert_to_slug')->name('article.convert_to_slug');
 
+Route::get('article/rechercher/mot_cle','ArticleController@rechercher_article')->name('article.rechercher');
+
 
 
 // Commentaires
@@ -206,11 +208,18 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/dashboard','HomeController@admin_dashboard')->name('admin.dashboard');
 
 
-    // Catégories
+    // Catégories des offres
     Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
     Route::post('admin/categorie-offre/store','CategorieOffreController@store')->name('admin.categorie_offre.store');
     Route::post('admin/categorie-offre/update/{offre}','CategorieOffreController@update')->name('admin.categorie_offre.update');
     Route::post('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
+
+
+    // Catégories des article
+    Route::get('admin/categorie-article','CategorieArticleController@index')->name('admin.categorie_article.index');
+    Route::post('admin/categorie-article/store','CategorieArticleController@store')->name('admin.categorie_article.store');
+    Route::post('admin/categorie-article/update/{article}','CategorieArticleController@update')->name('admin.categorie_article.update');
+    Route::get('admin/categorie-article/delete/{article}','CategorieArticleController@delete')->name('admin.categorie_article.delete');
 
     
     // Pays
@@ -220,10 +229,10 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/pays/delete/{offre}','PaysController@delete')->name('admin.pays.delete');
 
       // Métier
-      Route::get('admin/metier','MetierController@index')->name('admin.metier.index');
-      Route::post('admin/metier/store','MetierController@store')->name('admin.metier.store');
-      Route::post('admin/metier/update/{metier_id}','MetierController@update')->name('admin.metier.update');
-      Route::get('admin/metier/delete/{metier_id}','MetierController@delete')->name('admin.metier.delete');
+    Route::get('admin/metier','MetierController@index')->name('admin.metier.index');
+    Route::post('admin/metier/store','MetierController@store')->name('admin.metier.store');
+    Route::post('admin/metier/update/{metier_id}','MetierController@update')->name('admin.metier.update');
+    Route::get('admin/metier/delete/{metier_id}','MetierController@delete')->name('admin.metier.delete');
 
 
     // Blog -> articles

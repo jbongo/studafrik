@@ -53,10 +53,7 @@
                                                     <div class="form-group">
                                                         <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
                                                            
-                                                           
-                                                            {{-- @if(Auth::user()->categorie != null)
-                                                                <option value="{{Auth::user()->categorie}}">{{Auth::user()->categorie}}</option>
-                                                            @endif --}}
+
            
                                                             @foreach ($categories as $categorie )
                                                                 <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   

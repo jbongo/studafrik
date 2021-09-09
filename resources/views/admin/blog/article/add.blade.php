@@ -57,7 +57,25 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="col-lg-6">
+
+
+                        <div class="col-lg-3 ">
+                            <span class="pf-title">Catégorie de l'article <span class="text-danger">*</span> </span>
+                            <div class="form-group">
+                                <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
+                            
+                                    @foreach ($categories as $categorie )
+                                        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
+                                    @endforeach
+                                
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        
+                        
+
+                        <div class="col-lg-3">
                             <span class="pf-title">Image couverture</span>
                             <div class="pf-field">
                                 <input type="file"  value="{{ old('image') ? old('image') : Auth::user()->image  }}" name="image" required class="form-control"/>
