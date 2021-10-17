@@ -16,7 +16,7 @@ Nos articles
                         <div class="job-search-sec">
                             <div class="job-search">
                                 <h4>Nos articles</h4>
-                                <form action="{{ route('article.rechercher') }}" method="get" >
+                                {{-- <form action="{{ route('article.rechercher') }}" method="get" >
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-5">
@@ -52,7 +52,7 @@ Nos articles
                                         <div class="col-lg-1">
                                             <button type="submit"><i class="la la-search"></i></button>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 {{-- </form> --}}
                                
                             </div>

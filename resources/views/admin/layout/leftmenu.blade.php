@@ -103,6 +103,19 @@
     </li>
 
    
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.scrap_offre.index')}}">
+            <i class="fas fa-fw fa-database"></i>
+            <span>Offre Scrap</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('test')}}">
+            <i class="fas fa-fw fa-car"></i>
+            <span>Lancer le SCRAP</span></a>
+    </li>
+
+    
 
 
     <!-- Divider -->

@@ -195,6 +195,14 @@ Route::get('/conditions-utilisation', function () {
 Route::post('newsletter/store','NewsletterController@store')->name('newsletter.store');
 
 
+// test 
+Route::get('/test','TestController@index')->name('test');
+Route::get('/scrap/emploissenegal','TestController@emploissenegal_com')->name('scrap.emploissenegal');
+Route::get('/scrap/emploisgabon','TestController@emploisgabon')->name('scrap.emploisgabon');
+Route::get('/scrap/emploisci','TestController@emploisci')->name('scrap.emploisci');
+Route::get('/scrap/emploiscg','TestController@emploiscg')->name('scrap.emploiscg');
+Route::get('/scrap/emploiscm','TestController@emploiscm')->name('scrap.emploiscm');
+
 
 
 // ############################# ROUTES ADMIN ##################################
@@ -251,8 +259,8 @@ Route::middleware([Admin::class])->group(function () {
     // offres
 
     Route::get('admin/offres','OffreController@index_admin')->name('admin.offres.index');    
-    Route::get('admin/ajout-offre','OffreController@create_admin')->name('admin.offre.create');
-    Route::post('admin/ajout-offre','OffreController@store_admin')->name('admin.offre.store');
+    Route::get('admin/ajout-offre/{offrescrap_id?}','OffreController@create_admin')->name('admin.offre.create');
+    Route::post('admin/ajout-offre/{offrescrap_id?}','OffreController@store_admin')->name('admin.offre.store');
     Route::get('admin/edit-offre/{offre_id}','OffreController@edit_admin')->name('admin.offre.edit');
     Route::post('admin/update-offre/{offre_id}','OffreController@update_admin')->name('admin.offre.update');
     Route::get('admin/delete-offre/{offre_id}','OffreController@destroy_admin')->name('admin.offre.delete');
@@ -289,6 +297,12 @@ Route::middleware([Admin::class])->group(function () {
 
     Route::get('admin/newsletters','NewsletterController@index')->name('admin.newsletter.index');
 
+    // Offres scrappées
+
+
+    Route::get('admin/scrap_offre','ScrapoffreController@index')->name('admin.scrap_offre.index');
+    Route::get('admin/scrap_offre/{offre_id}','ScrapoffreController@show')->name('admin.scrap_offre.show');
+    Route::get('admin/scrap_offre/delete/{offre_id}','ScrapoffreController@delete')->name('admin.scrap_offre.delete');
    
     
 });

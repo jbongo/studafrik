@@ -1,6 +1,64 @@
 @section('title') 
 {{$offre->titre}}
 @endsection
+
+
+@section('jobposting') 
+
+
+
+
+<script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
+      "@type" : "JobPosting",
+      "title" : "{{$offre->titre}}",
+      
+      "experienceRequirements" : {
+        "@type" : "OccupationalExperienceRequirements",
+        "monthsOfExperience" : "36"
+      },
+      "description" : "{{$offre->description}}",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "{{$offre->nom_entreprise}}",
+        "value": "{{$offre->id}}"
+      },
+      "datePosted" : "{{$offre->created_at->format('Y-m-d')}}",
+      "validThrough" : @if($offre->date_expiration != null) "{{$offre->date_expiration->format('Y-m-d')}}" @else  "" @endif,
+      "employmentType" : "{{$offre->type_contrat}}",
+      "hiringOrganization" : {
+        "@type" : "Organization",
+        "name" : "{{$offre->nom_entreprise}}",
+        "sameAs" : "studafrik.com",
+        "logo" : "http://www.example.com/images/logo.png"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+        "@type": "PostalAddress",
+        {{-- "streetAddress": "", --}}
+        "addressLocality": ", {{$offre->ville}}",
+        {{-- "addressRegion": "",
+        "postalCode": "", --}}
+        "addressCountry": "{{$offre->pays}}"
+        }
+      },
+     "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "{{$offre->devise_salaire}}",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": {{$offre->salaire}},
+          "unitText": "MONTH"
+        }
+      }
+    }
+    </script>
+@endsection
+
+
+
 @include('layouts.topmenupage')
 
 	<section class="overlape">
