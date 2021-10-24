@@ -251,7 +251,7 @@ Author:         Creative Layer
  }
  
  p {
-     color: #666666;
+     color: #000;
      font-size: 16px;
      margin-bottom: 30px;
      line-height: 29px;
@@ -440,7 +440,7 @@ Author:         Creative Layer
  }
  
  ul li {
-     color: #1e1e1e;
+     color: #000;
      margin-bottom: 15px;
      position: relative;
  }
@@ -2323,7 +2323,7 @@ Author:         Creative Layer
      float: left;
      font-family: Open Sans;
      font-size: 13px;
-     color: #8a99b3;
+     color: #fff;
      line-height: 30px;
  }
  
@@ -2355,7 +2355,7 @@ Author:         Creative Layer
      position: relative;
      font-family: Open Sans;
      font-size: 13px;
-     color: #8a99b3;
+     color: #fff;
      margin-bottom: 12px;
      padding-left: 24px;
  }
@@ -5896,6 +5896,7 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      padding-top: 20px;
+     color: #000;
  }
  
  .job-details h3 {
@@ -5913,7 +5914,7 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      font-size: 13px;
-     color: #888888;
+     /* color: #888888; */
      line-height: 24px;
      margin: 0;
      margin-bottom: 19px;
@@ -6306,6 +6307,7 @@ Author:         Creative Layer
      font-size: 13px;
      color: #888888;
      margin-right: 30px;
+     font-weight: bold;
  }
  
  .tags-jobs>li i {
