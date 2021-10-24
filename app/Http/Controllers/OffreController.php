@@ -332,7 +332,7 @@ class OffreController extends Controller
 
         // offres de la même catégorie
 
-        $offrescategories = Offre::where([['archive',false],['active',true], ['pays', $offre->pays] ] )->orderBy('created_at','desc')->get();
+        $offrescategories = Offre::where([['archive',false],['active',true], ['pays', $offre->pays] ] )->orderBy('created_at','desc')->limit(10)->get();
     
 
 
