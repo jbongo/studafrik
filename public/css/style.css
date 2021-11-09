@@ -5936,7 +5936,7 @@ Author:         Creative Layer
      line-height: 21px;
      margin-bottom: 10px;
      font-size: 13px;
-     color: #888888;
+     /* color: #888888; */
  }
  
  .job-details>ul li::before {
@@ -6181,7 +6181,7 @@ Author:         Creative Layer
      float: left;
      width: 100%;
      font-size: 13px;
-     color: #888888;
+     /* color: #888888; */
      margin-top: 7px;
  }
  
