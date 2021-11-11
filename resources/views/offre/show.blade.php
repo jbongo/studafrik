@@ -156,62 +156,8 @@
 				 			</div>
 
 
-						 <div class="recent-jobs">
-							<h3 style="color:#EE6E49">Offres du même pays</h3>
-							<div class="job-list-modern">
-
-								@foreach ($offrescategories as $offrecat)
-
-								<div class="job-listings-sec no-border">
-								   <div class="job-listing wtabs">
-									   <div class="job-title-sec">
-										   <div class="c-logo"> 
-											@if($offrecat->photo_recruteur != null )
-												
-												<img  src="{{ asset('images/photo_recruteur/'.$offrecat->photo_recruteur) }}" width="110px" height="100px"  title="{{$offrecat->slug}}"  alt="{{$offrecat->slug}}" /> </div>
-										
-												@else 
-										
-													<img src="{{ ($offrecat->user->photo_profile != null) ? asset('images/photo_profil/'.$offrecat->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  title="{{$offrecat->slug}}"  alt="{{$offrecat->slug}}" /> </div>
-										
-												@endif
-
-											<h3><a href="{{route('mes_offres.show', $offrecat->slug )}}" title="">{{$offrecat->titre}}</a></h3>
-										   
-										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offrecat->ville }}, {{ $offrecat->pays }}</div>
-									   </div>
-									   <div class="job-style-bx">
-										   
-										   <span class="job-is ft">{{ $offrecat->type_contrat }}</span>
-										  
-											   @php 
-												$duree = date_diff(date_create(date('Y-m-d')) ,date_create($offrecat->created_at->format('Y-m-d')) ); 
-											@endphp 
-									
-									
-											@if($duree->days == 0)
-												<i>Publiée Aujourd'hui </i>
-											@elseif($duree->days == 1)
-												<i>Publiée Hier </i>
-											@else 
-												<i>Publiée Il y'a {{$duree->days}} jours</i>
-									
-											@endif
-
-									   </div>
-								   </div>
 							</div>
-								   @endforeach
-							
-							   </div>
-							</div>
-						</div>
-
-
-
-
-					 </div>
-					 
+					</div>					 
 
 
 				 	<div class="col-lg-4 column">
@@ -283,10 +229,93 @@
 
 							@if($offre->user->role == "recruteur")
 			 				 <br> <a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #323232; width: 190px"  class="viewall-jobs">Découvrir l'entreprise</a> <br>
-							 
-						@endif
-			 			</div><!-- Job Head -->
+							@endif
+						
+			 		</div><!-- Job Head -->
+
+
+
+
 				 	</div>
+
+
+
+					 <div class="row">
+						 <div class="col-lg-8">*
+							 
+						 <div class="recent-jobs">
+							
+
+
+
+							<div class="job-details">
+								<h2 style="color:#EE6E49">Offres du même pays</h2>
+								
+							  
+							</div>
+
+
+
+
+
+							<div class="job-list-modern">
+
+								@foreach ($offrescategories as $offrecat)
+
+								<div class="job-listings-sec no-border">
+								   <div class="job-listing wtabs">
+									   <div class="job-title-sec">
+										   <div class="c-logo"> 
+											@if($offrecat->photo_recruteur != null )
+												
+												<img  src="{{ asset('images/photo_recruteur/'.$offrecat->photo_recruteur) }}" width="110px" height="100px"  title="{{$offrecat->slug}}"  alt="{{$offrecat->slug}}" /> </div>
+										
+												@else 
+										
+													<img src="{{ ($offrecat->user->photo_profile != null) ? asset('images/photo_profil/'.$offrecat->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  title="{{$offrecat->slug}}"  alt="{{$offrecat->slug}}" /> </div>
+										
+												@endif
+
+											<h3><a href="{{route('mes_offres.show', $offrecat->slug )}}" title="">{{$offrecat->titre}}</a></h3>
+										   
+										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offrecat->ville }}, {{ $offrecat->pays }}</div>
+									   </div>
+									   <div class="job-style-bx">
+										   
+										   <span class="job-is ft">{{ $offrecat->type_contrat }}</span>
+										  
+											   @php 
+												$duree = date_diff(date_create(date('Y-m-d')) ,date_create($offrecat->created_at->format('Y-m-d')) ); 
+											@endphp 
+									
+									
+											@if($duree->days == 0)
+												<i>Publiée Aujourd'hui </i>
+											@elseif($duree->days == 1)
+												<i>Publiée Hier </i>
+											@else 
+												<i>Publiée Il y'a {{$duree->days}} jours</i>
+									
+											@endif
+
+									   </div>
+								   </div>
+							</div>
+								   @endforeach
+							
+							   </div>
+						 </div>
+					 </div>
+
+
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 		</div>
