@@ -7,6 +7,7 @@ Use App\Models\Offre;
 Use App\Models\Article;
 Use App\Models\Categorieoffre;
 Use App\Models\Pays;
+Use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -105,7 +106,17 @@ class HomeController extends Controller
      */
     public function admin_dashboard()
     {
-       return view('admin.dashboard');
+
+    
+        $nb_offres_actives = Offre::where('archive', false)->count();
+        $nb_candidats = User::where('role','candidat')->count();
+        $nb_recruteurs = User::where('role','recruteur')->count();
+        $nb_articles = Article::count();
+
+        $candidatures = Offre::candidatures();
+        $nb_candidatures = sizeof($candidatures);
+
+       return view('admin.dashboard', compact('nb_offres_actives','nb_candidats','nb_recruteurs','candidatures','nb_candidatures','nb_articles'));
     }
 
 
