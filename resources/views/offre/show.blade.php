@@ -69,7 +69,7 @@
 						<div class="col-lg-12">
 							<div class="inner2" style="text-align: center; ">
 								<div class="inner-title2">
-									<h3>Postulez à cette offre</h3> <br><br>
+									<h4 style="color:#EE6E49; font-weight:bold">Postulez à cette offre</h4> <br><br>
 								</div>
 							
 							</div>
@@ -100,7 +100,7 @@
 								 
 								 <div class="row">
 									 <div class="col-12">
-										<h3>{{$offre->titre}}</h3>
+										<h4>{{$offre->titre}}</h4>
 									 
 									 </div>
 									 
@@ -138,11 +138,11 @@
 
 
 				 			<div class="job-details">
-				 				<h2 style="color:#EE6E49">Description de l'offre</h2>
+				 				<h3 style="color:#EE6E49">Description de l'offre</h3>
 								 
 								<p>{!! $offre->description !!}</p>
 								
-								 <h2 style="color:#EE6E49">Profil et compétences recherchés</h2>
+								 <h3 style="color:#EE6E49">Profil et compétences recherchés</h3>
 				 					<p>{!! $offre->description_profil!!}</p>
 								 
 
@@ -170,7 +170,7 @@
 								@else 
 								<img height="250px" width="250px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 								@endif
-							 <h4> @if($offre->nom_entreprise != null) {{$offre->nom_entreprise}} @else {{$offre->user->nom}} @endif</h4> <br>
+							 <h5> @if($offre->nom_entreprise != null) {{$offre->nom_entreprise}} @else {{$offre->user->nom}} @endif</h5> <br>
 							 @if($offre->user->site_web != null)
 							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
 							 @endif
@@ -178,26 +178,26 @@
 								@if($offre->date_expiration != null && $offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
 								
 											@if($deja_postuler == true )
-												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
+												<span style="color:#d60004; font-size:16px;">Vous avez déjà postulé à cette offre</span> <br>
 											@endif
 											
 											
-									<br> <span style="color:#d60004; font-size:18px;">L'offre a expiré</span> <br>
+									<br> <span style="color:#d60004; font-size:16px;">L'offre a expiré</span> <br>
 								@else 
 									@if(Auth::check())
 										@if(Auth::user()->role == "candidat") 
 											@if($deja_postuler == false )
 										
-													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 150px;" class="apply-job-btn">Postuler</a>
 											
 											
 											@elseif($deja_postuler == true )
-												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
+												<span style="color:#d60004; font-size:16px;">Vous avez déjà postulé à cette offre</span> <br>
 											@endif
 
 										@endif
 									@else 
-												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 150px;" class="apply-job-btn">Postuler</a>
 									
 									@endif
 
@@ -249,7 +249,7 @@
 
 
 							<div class="job-details">
-								<h2 style="color:#EE6E49">Offres du même pays</h2>
+								<h3 style="color:#EE6E49">Offres du même pays</h3>
 								
 							  
 							</div>

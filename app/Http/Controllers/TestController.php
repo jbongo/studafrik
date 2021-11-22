@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Goutte;
 use App\Models\Scrapoffre;
 
+use Illuminate\Support\Facades\Hash;
 
 class TestController extends Controller
 {
@@ -15,6 +16,7 @@ class TestController extends Controller
 
     public function index(){
 
+        dd(Hash::make("Stud@fr!k2021!"));
         $nb_offres = 0;
 
         $nb_offres += $this->emploissenegal_com();
