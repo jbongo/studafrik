@@ -44,6 +44,7 @@
         "addressCountry": "{{$offre->pays}}"
         }
       },
+@if($offre->salaire!= null && $offre->devise_salaire!= null)
      "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "{{$offre->devise_salaire}}",
@@ -53,6 +54,7 @@
           "unitText": "MONTH"
         }
       }
+@endif
     }
     </script>
 @endsection

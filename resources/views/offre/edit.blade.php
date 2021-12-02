@@ -63,13 +63,13 @@
                                         </div>
                                     </div>
 
-                                     <div class="col-lg-12">
+                                     <div class="col-lg-9">
                                          <span class="pf-title">Description <span class="text-danger">*</span> </span>
                                          <div class="form-group">
                                              <textarea  name="description" required >{{old('description') ? old('description') : $offre->description}}</textarea>
                                          </div>
                                      </div>
-                                     <div class="col-lg-12">
+                                     <div class="col-lg-9">
                                          <span class="pf-title">Profil et compétences recherchés <span class="text-danger">*</span> </span>
                                          <div class="form-group">
                                              <textarea  name="description_profil" required >{{old('description_profil') ? old('description_profil') : $offre->description_profil}}</textarea>
@@ -102,7 +102,7 @@
                                             <input type="number"  value="{{old('salaire') ? old('salaire') : $offre->salaire}}" name="salaire" class="form-control " />
                                          </div>
                                      </div>
-                                     <div class="col-lg-2">
+                                     <div class="col-lg-4">
                                         <span  htmlFor="" class="pf-title">Devise du Salaire </span>
                                         <div class="form-group">
                                             <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">

@@ -13,20 +13,6 @@
                     <h1 class="h3 mb-2 text-gray-800">Mes profils sauvegardés</h1>
                   <hr>
                   
-                  @if (session('ok'))
-                  <div class="alert alert-success ">
-                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                     <strong> {{ session('ok') }}</strong>
-                  </div>
-                  @endif 
-
-                  
-                  @if ($errors->has('nom'))
-                  <br>
-                  <div class="alert alert-warning ">
-                     <strong>{{$errors->first('nom')}}</strong> 
-                  </div>
-                  @endif
                   <br>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -35,7 +21,7 @@
                         </div>
                         <div class="card-body">
                            
-                 <div class="col-10 column">
+                 <div class="col-12 column">
                     <div class="padding-left">
                         <div class="manage-jobs-sec">
                             <h3></h3>
@@ -83,9 +69,13 @@
                                         </td>
                                         <td>
                                             <ul class="action_job">
-                                            <a class="btn btn-link" style="background: #EE6E49; color:white" href="{{route('user.show_profil', Crypt::encrypt($candidat->id) )}}" title=""><i class="la la-eye"></i>Voir le profil</a>
-                                            <a class="supprimerxx btn btn-link" style="background: #EE6E49; color:white" href="{{route('favoris.cv.delete',[Auth::user()->id, $candidat->id])}}" title=""><i class="la la-trash-o"></i>Supprimer des favoris</a>
-                                            </ul>
+
+                                            <a href="{{route('user.show_profil', Crypt::encrypt($candidat->id) )}}" target="_blank" title="Voir le profil" data-toogle="tooltip" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>      
+                                            <a href="{{route('favoris.cv.delete',[Auth::user()->id, $candidat->id])}}" title="Supprimer des favoris" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a>  
+                                               
+                                        
+                                        
+                                        </ul>
                                         </td>
                                     </tr>
                                    

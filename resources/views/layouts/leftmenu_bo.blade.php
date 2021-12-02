@@ -29,10 +29,10 @@
  <ul class="navbar-nav bg-gradient-studafrik sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="{{route('welcome')}}">
-        <div class="sidebar-brand-icon rotate-n-15">
+    <a class="sidebar-brand d-flex align-items-center justify-content-centerx" target="_blank" href="{{route('welcome')}}">
+        {{-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
-        </div>
+        </div> --}}
         <div class="sidebar-brand-text mx-3">Stud'Afrik</div>
     </a>
 

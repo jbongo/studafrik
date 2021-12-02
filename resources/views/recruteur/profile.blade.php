@@ -90,7 +90,7 @@
 
 
 
-                                <div class="col-lg-3">
+                                <div class="col-lg-3 col-md-6">
                                  <span class="pf-title">Nombre de salariés <span class="text-danger">*</span> </span>
                                  <div class="form-group">
                                      <input type="number" placeholder=" " name="nb_salarie" value="{{old('nb_salarie') ? old('nb_salarie') : Auth::user()->nb_salarie}}"  class="form-control" required/>
@@ -109,7 +109,7 @@
                                  
                                  
                                  
-                                 <div class="col-lg-3">
+                                 <div class="col-lg-3 col-md-6">
                                     <span class="pf-title">Secteur d'activité <span class="text-danger">*</span> </span>
                                     <div class="form-group">
                                       
@@ -133,7 +133,7 @@
                                  
                                  
                                  
-                                 <div class="col-lg-12">
+                                 <div class="col-lg-9 ">
                                     <span class="pf-title">Description de votre activité <span class="text-danger">*</span> </span>
                                     <div class="form-group">
                                        <textarea type="description" class="form-control"  name="description">{{ old('description') ? old('description') : Auth::user()->description  }}</textarea>
@@ -159,7 +159,7 @@
                               <div class="row">
                               
                               
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title"><i class="la la-facebook"></i> Facebook</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="www.facebook.com/SG" value="{{ old('facebook') ? old('facebook') : Auth::user()->facebook  }}" name="facebook" class="form-control"/>
@@ -167,7 +167,7 @@
                                     </div>
                                  </div>
                                  
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title"><i class="la la-twitter"></i>  Twitter</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="www.twitter.com/SG" value="{{ old('twitter') ? old('twitter') : Auth::user()->twitter  }}" name="twitter" class="form-control"/>
@@ -175,7 +175,7 @@
                                     </div>
                                  </div>
                                  
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title"> <i class="la la-instagram"></i> Instagram</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="www.insta.com/SG" value="{{ old('instagram') ? old('instagram') : Auth::user()->instagram  }}" name="instagram" class="form-control"/>
@@ -183,7 +183,7 @@
                                     </div>
                                  </div>
                                  
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title"> <i class="la la-linkedin"></i> Linkedin</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="www.Linkedin.com/SG" value="{{ old('linkedin') ? old('linkedin') : Auth::user()->linkedin  }}" name="linkedin" class="form-control"/>
@@ -199,25 +199,25 @@
                            <div class="profile-form-edit" style="margin-left: 10px; margin-top:100px">
                               <h3 style="color:#202020; font-size:20px; font-weight:bold">Contact</h3>
                               <div class="row">
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title">Numéro de téléphone</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="" value="{{ old('contact1') ? old('contact1') : Auth::user()->contact1  }}" name="contact1" class="form-control"/>
                                     </div>
                                  </div>
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title">Email</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="" value="{{ old('contact2') ? old('contact2') : Auth::user()->contact2  }}" name="contact2" class="form-control"/>
                                     </div>
                                  </div>
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title">Site web</span>
                                     <div class="form-group">
                                        <input type="text" placeholder="www.total.com" class="form-control" value="{{ old('site_web') ? old('site_web') : Auth::user()->site_web  }}" name="site_web"/>
                                     </div>
                                  </div>
-                                 <div class="col-lg-6">
+                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <span class="pf-title">Pays</span>
                                     <div class="form-group">
                                        <select data-placeholder="" class="chosen form-control" value="{{ old('pays') ? old('pays') : Auth::user()->pays  }}" name="pays">
@@ -432,7 +432,7 @@
                                     </div>
                                  </div>
                                  <div class="col-lg-12" style="margin-top:50px">
-                                    <button type="submit" class="btn ">Enregistrer</button>
+                                    <button type="submit" class="btn " style="background-color: #EE6E49; color: white ">Enregistrer</button>
                                     <br><br>
                                  </div>
                               </div>
