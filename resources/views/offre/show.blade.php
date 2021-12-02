@@ -33,7 +33,17 @@
         "sameAs" : "studafrik.com",
         "logo" : "http://www.example.com/images/logo.png"
       },
-
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+        "@type": "PostalAddress",
+        {{-- "streetAddress": "", --}}
+        "addressLocality": "{{$offre->ville}}",
+        {{-- "addressRegion": "",
+        "postalCode": "", --}}
+        "addressCountry": "{{$offre->pays}}"
+        }
+      }
 @if($offre->salaire!= null && $offre->devise_salaire!= null)
      "baseSalary": {
         "@type": "MonetaryAmount",
