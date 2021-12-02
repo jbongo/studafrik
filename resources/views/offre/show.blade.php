@@ -37,10 +37,9 @@
         "@type": "Place",
         "address": {
         "@type": "PostalAddress",
-        {{-- "streetAddress": "", --}}
+        
         "addressLocality": "{{$offre->ville}}",
-        {{-- "addressRegion": "",
-        "postalCode": "", --}}
+        
         "addressCountry": "{{$offre->pays}}"
         }
       },
