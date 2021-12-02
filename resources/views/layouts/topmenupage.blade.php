@@ -57,10 +57,10 @@
 			<a href="{{ route('welcome')}}" title=""><img src="{{ asset('images/logo1.png') }}" width="150px" alt="" /></a>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
-					<img src="images/icon.png" alt="" /> Menu
+					<img src="/images/icon.png" alt="" /> Menu
 				</div>
 				<div class="res-closemenu">
-					<img src="images/icon2.png" alt="" /> Fermer
+					<img src="/images/icon2.png" alt="" /> Fermer
 				</div>
 			</div>
 		</div>
