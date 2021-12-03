@@ -45,7 +45,8 @@
         }
       }
 @if($offre->salaire!= null && $offre->devise_salaire!= null)
-     "baseSalary": {
+     ,
+"baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "{{$offre->devise_salaire}}",
         "value": {
