@@ -87,7 +87,17 @@ class CvController extends Controller
         $pays = Pays::all();
         $categories = Categorieoffre::all();
 
-        return view('candidat.cv.liste',compact('candidats','pays','categories'));
+       
+        $comps = Cv_competence::get('libelle');
+        $competences = array();
+        
+        foreach ($comps as $comp) {
+           array_push($competences, $comp['libelle']);
+        }
+        
+
+
+        return view('candidat.cv.liste',compact('candidats','pays','categories','competences'));
     }
 
     /**
