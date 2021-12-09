@@ -303,6 +303,10 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/scrap_offre','ScrapoffreController@index')->name('admin.scrap_offre.index');
     Route::get('admin/scrap_offre/{offre_id}','ScrapoffreController@show')->name('admin.scrap_offre.show');
     Route::get('admin/scrap_offre/delete/{offre_id}','ScrapoffreController@delete')->name('admin.scrap_offre.delete');
-   
+
+    
+    // Historique
+
+    Route::get('admin/historique','HistoriqueController@index')->name('admin.historique.index');    
     
 });

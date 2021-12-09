@@ -55,8 +55,8 @@
                                
                                     {{-- <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" /> --}}
                                     {{-- <i class="la la-keyboard-o"></i> --}}
-                                    <label for="">Chercher par coméptences</label>
-                                    <select class="selectpicker col-lg-6"    data-live-search="true" multiple>
+                                    <label for="">Chercher par compétences</label>
+                                    <select class="selectpicker col-lg-6" id="competences"   data-live-search="true" multiple>
                                       @foreach ($competences as $competence)
                                           <option value="{{$competence}}">{{$competence}}</option>
                                       @endforeach
@@ -188,6 +188,9 @@
 </script>
 
 <script>
+$(function () {
+	$('#competences').selectpicker();
+});
 
     $('#candidater_lien').on('change',function(){
 

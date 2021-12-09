@@ -110,6 +110,12 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.historique.index')}}">
+            <i class="fas fa-fw fa-history"></i>
+            <span>Historique</span></a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{route('test')}}">
             <i class="fas fa-fw fa-car"></i>
             <span>Lancer le SCRAP</span></a>
