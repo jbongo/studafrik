@@ -97,6 +97,7 @@
                 <a class="collapse-item" href="{{route('admin.categorie_offre.index')}}">Catégories offres</a>
                 <a class="collapse-item" href="{{route('admin.categorie_article.index')}}">Catégories articles</a>
                 <a class="collapse-item" href="{{route('admin.metier.index')}}">Métiers</a>
+                <a class="collapse-item" href="{{route('admin.competence.index')}}">Compétences CV</a>
                 <a class="collapse-item" href="{{route('admin.pays.index')}}">Pays offres</a>
             </div>
         </div>

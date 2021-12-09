@@ -194,6 +194,9 @@ Route::get('/conditions-utilisation', function () {
 
 Route::post('newsletter/store','NewsletterController@store')->name('newsletter.store');
 
+Route::get('validation/email/{id}','NewsletterController@validation')->name('newsletter.validation');
+Route::get('newsletter/message','NewsletterController@message')->name('newsletter.message');
+
 
 // test 
 Route::get('/test','TestController@index')->name('test');
@@ -243,6 +246,13 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/metier/delete/{metier_id}','MetierController@delete')->name('admin.metier.delete');
 
 
+    // Compétence
+    Route::get('admin/competence','CompetenceController@index')->name('admin.competence.index');
+    Route::post('admin/competence/store','CompetenceController@store')->name('admin.competence.store');
+    Route::post('admin/competence/update/{competence_id}','CompetenceController@update')->name('admin.competence.update');
+    Route::get('admin/competence/delete/{competence_id}','CompetenceController@delete')->name('admin.competence.delete');
+    
+    
     // Blog -> articles
 
     Route::get('admin/articles','ArticleController@index_admin')->name('admin.article.index');
@@ -297,6 +307,8 @@ Route::middleware([Admin::class])->group(function () {
 
     Route::get('admin/newsletters','NewsletterController@index')->name('admin.newsletter.index');
 
+
+    
     // Offres scrappées
 
 

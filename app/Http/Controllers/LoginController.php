@@ -32,5 +32,13 @@ class LoginController extends Controller
         ]);
 
        
+    //    Dans illuminate\Auth\Middelware\Authenticate
+  /** 
+  
+* use \App\Models\Historique;
+*use Illuminate\Support\Facades\Auth as Authen;
+ 
+* Historique::createHistorique(Authen::user()->id, Authen::user()->id,"connexion","s'est connecté" );
+ */
      }
 }
