@@ -19,7 +19,7 @@ class NewsletterController extends Controller
     public function index()
     {
         //
-        $newsletters = Newsletter::all();
+        $newsletters = Newsletter::where('valide', true)->get();
         return view('admin.newsletter.index', compact('newsletters'));
     }
 
@@ -53,7 +53,7 @@ class NewsletterController extends Controller
         Mail::to($newsletter->email)->send(new ValidationNewsletter( Crypt::encrypt($newsletter->id)));
         
         
-        return redirect()->route('welcome_newsletter')->with('ok', "Un mail de validation vous a été envoyé à l'adresse {$newsletter->email} !");
+        return redirect()->route('newsletter.message')->with('ok', "Un mail de validation vous a été envoyé à l'adresse {$newsletter->email} !");
     }
 
     /**
