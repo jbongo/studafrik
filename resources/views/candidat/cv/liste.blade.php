@@ -49,21 +49,21 @@
                         
                            
                               
-{{--                             
+                            
                             <div class="col-lg-5 col-md-5">
-                                <div class="job-fieldx"> --}}
+                                <div class="job-fieldx">
                                
                                     {{-- <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" /> --}}
                                     {{-- <i class="la la-keyboard-o"></i> --}}
-                                    {{-- <label for="">Chercher par compétences</label>
-                                    <select class="selectpicker col-lg-6" id="competences"   data-live-search="true" multiple>
+                                    <label for="">Chercher par compétences</label>
+                                    <select class="selectpicker col-lg-6" id="competences" name="competences"  data-live-search="true" multiple>
                                       @foreach ($competences as $competence)
                                           <option value="{{$competence}}">{{$competence}}</option>
                                       @endforeach
                                       </select>
                                 </div>
                             </div>
-                             --}}
+                            
                             
 
                             <div class="col-lg-3 col-md-3">

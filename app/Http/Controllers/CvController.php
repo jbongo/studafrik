@@ -9,6 +9,7 @@ use App\Models\Cv_experience;
 use App\Models\Cv_competence;
 use App\Models\User;
 use App\Models\Pays;
+use App\Models\Competence;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Categorieoffre;
 
@@ -127,7 +128,8 @@ class CvController extends Controller
      */
     public function create_competence()
     {
-        return view('candidat.cv.add_competence');
+        $competences = Competence::all();
+        return view('candidat.cv.add_competence', compact('competences'));
     }
 
     /**
