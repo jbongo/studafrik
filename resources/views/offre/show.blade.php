@@ -51,7 +51,7 @@
         "currency": "{{$offre->devise_salaire != null ? $offre->devise_salaire : 'unavailable' }}",
         "value": {
           "@type": "QuantitativeValue",
-          "value": {{$offre->salaire != null ? $offre->salaire : 'unavailable' }},
+          "value": "{{$offre->salaire != null ? $offre->salaire : 'unavailable' }}",
           "unitText": "MONTH"
         }
       }
