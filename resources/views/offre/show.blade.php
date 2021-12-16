@@ -40,22 +40,22 @@
         "streetAddress": "{{$offre->ville}}", 
         "addressLocality": "{{$offre->ville}}",
         "addressRegion": "{{$offre->ville}}",
-        "postalCode": "", 
+        "postalCode": "unavailable", 
         "addressCountry": "{{$offre->pays}}"
         }
       }
-@if($offre->salaire!= null && $offre->devise_salaire!= null)
+
      ,
 "baseSalary": {
         "@type": "MonetaryAmount",
-        "currency": "{{$offre->devise_salaire}}",
+        "currency": "{{$offre->devise_salaire != null ? $offre->devise_salaire : 'non défini' }}",
         "value": {
           "@type": "QuantitativeValue",
-          "value": {{$offre->salaire}},
+          "value": {{$offre->salaire != null ? $offre->salaire : 'non défini' }},
           "unitText": "MONTH"
         }
       }
-@endif
+
     }
     </script>
 @endsection
