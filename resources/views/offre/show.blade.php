@@ -16,7 +16,7 @@
       
       "experienceRequirements" : {
         "@type" : "OccupationalExperienceRequirements",
-        "monthsOfExperience" : "36"
+        "monthsOfExperience" : "unavailable"
       },
       "description" : "{{$offre->description}}",
       "identifier": {
@@ -25,7 +25,7 @@
         "value": "{{$offre->id}}"
       },
       "datePosted" : "{{$offre->created_at->format('Y-m-d')}}",
-      "validThrough" : @if($offre->date_expiration != null) "{{$offre->date_expiration->format('Y-m-d')}}" @else  "" @endif,
+      "validThrough" : @if($offre->date_expiration != null) "{{$offre->date_expiration->format('Y-m-d')}}" @else  "unavailable" @endif,
       "employmentType" : "{{$offre->type_contrat}}",
       "hiringOrganization" : {
         "@type" : "Organization",
@@ -48,10 +48,10 @@
      ,
 "baseSalary": {
         "@type": "MonetaryAmount",
-        "currency": "{{$offre->devise_salaire != null ? $offre->devise_salaire : 'non défini' }}",
+        "currency": "{{$offre->devise_salaire != null ? $offre->devise_salaire : 'unavailable' }}",
         "value": {
           "@type": "QuantitativeValue",
-          "value": {{$offre->salaire != null ? $offre->salaire : 'non défini' }},
+          "value": {{$offre->salaire != null ? $offre->salaire : 'unavailable' }},
           "unitText": "MONTH"
         }
       }
