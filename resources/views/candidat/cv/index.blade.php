@@ -79,7 +79,7 @@
                                             
                                         </div>
                                         <ul class="action_job">
-                                            <li><span>Modifier</span><a href="{{route('cv.competence.edit', Crypt::encrypt($competence->id))}}" title=""><i class="la la-pencil"></i></a></li>
+                                            {{-- <li><span>Modifier</span><a href="{{route('cv.competence.edit', Crypt::encrypt($competence->id))}}" title=""><i class="la la-pencil"></i></a></li> --}}
                                             <li><span>Supprimer</span><a href="{{route('cv.competence.delete', Crypt::encrypt($competence->id))}}" title=""><i class="la la-trash-o"></i></a></li>
                                         </ul>
                                     </div>

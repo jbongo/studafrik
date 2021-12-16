@@ -196,18 +196,27 @@ class CvController extends Controller
      */
     public function store_competence(Request $request)
     {
-            //  dd($request->all());
-             $request->validate([
-                "libelle" => 'string|required',
-               
-            ]);
-            Cv_competence::create([
-                "user_id"=> Auth::user()->id,
-                "libelle" => $request->libelle,
+             
+            $libelles = $request->libelle;
+            foreach ($libelles as $key => $libelle) {
+                // $request->validate([
+                //     "libelle" => 'string|required',
+                   
+                // ]);
+                $competence = Cv_competence::where([["user_id",Auth::user()->id],["libelle" , $libelle]])->first();
+                    
+                if($competence == null){
+                    Cv_competence::create([
+                        "user_id"=> Auth::user()->id,
+                        "libelle" => $libelle,
+                            
+                    ]);
+                }
                 
-            ]);
+             }
+           
     
-            return redirect()->route('cv.index')->with('ok','Compétence ajoutée');
+            return redirect()->route('cv.index')->with('ok','Compétence(s) ajoutée');
     }
 
 
