@@ -31,16 +31,16 @@
         "@type" : "Organization",
         "name" : "{{$offre->nom_entreprise}}",
         "sameAs" : "studafrik.com",
-        "logo" : "http://www.example.com/images/logo.png"
+        "logo" : "{{asset('images/logo1.png')}}"
       },
       "jobLocation": {
         "@type": "Place",
         "address": {
         "@type": "PostalAddress",
-        {{-- "streetAddress": "", --}}
+        "streetAddress": "{{$offre->ville}}", 
         "addressLocality": "{{$offre->ville}}",
-        {{-- "addressRegion": "",
-        "postalCode": "", --}}
+        "addressRegion": "{{$offre->ville}}",
+        "postalCode": "", 
         "addressCountry": "{{$offre->pays}}"
         }
       }
