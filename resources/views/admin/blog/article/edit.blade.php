@@ -64,9 +64,13 @@
                             <div class="form-group">
                                 <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
                                     
-                                    <option value="{{$article->categoriearticle()->id}}">{{$article->categoriearticle()->nom}}</option>   
+                                   @if($article->categoriearticle() != null) <option value="{{$article->categoriearticle()->id}}">{{$article->categoriearticle()->nom}}</option> 
+                                   
+                                   @else  
+                                   <option value=""></option>
+                                   @endif
                             
-                                    @foreach ($categories as $categorie )
+                                    @foreach ($categories as $categorie)
                                         <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
                                     @endforeach
                                 
