@@ -223,7 +223,7 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
     Route::post('admin/categorie-offre/store','CategorieOffreController@store')->name('admin.categorie_offre.store');
     Route::post('admin/categorie-offre/update/{offre}','CategorieOffreController@update')->name('admin.categorie_offre.update');
-    Route::post('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
+    Route::get('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
 
 
     // Catégories des article

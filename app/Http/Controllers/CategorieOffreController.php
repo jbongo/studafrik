@@ -118,7 +118,6 @@ class CategorieOffreController extends Controller
 
         Categorieoffre::destroy(Crypt::decrypt($offre));
 
-        return "ok";
-        // return redirectroute('admin.categorie_offre.index')->with('ok', "Catégorie supprimée");
+        return redirect()->route('admin.categorie_offre.index')->with('ok', "Catégorie supprimée");
     }
 }

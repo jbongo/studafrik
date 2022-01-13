@@ -16,44 +16,48 @@ Nos articles
                         <div class="job-search-sec">
                             <div class="job-search">
                                 <h4>Nos articles</h4>
-                                {{-- <form action="{{ route('article.rechercher') }}" method="get" >.
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-lg-5">
-                                            <div class="job-field">
-                                                <input type="text" name="mot_cle" class="form-control" placeholder="recherche par mot clé" value="{{isset($_GET['mot_cle']) ? $_GET['mot_cle'] :""}}" />
-                                                <i class="la la-keyboard-o"></i>
+                                <div style="margin:auto; width:80%">
+                                
+                                
+                                    <form action="{{ route('article.rechercher') }}" method="get" >.
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <div class="job-field">
+                                                    <input type="text" name="mot_cle" class="form-control" placeholder="recherche par mot clé" value="{{isset($_GET['mot_cle']) ? $_GET['mot_cle'] :""}}" />
+                                                    <i class="la la-keyboard-o"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="job-field">
-                                                <select name="categorie" class="chosen-city form-control">
-                                                    @if($cat != null)
-                                                        <option value="{{$cat->id}}">{{$cat->nom}}</option>
+                                            <div class="col-lg-5">
+                                                <div class="job-field">
+                                                    <select name="categorie" class="chosen-city form-control">
+                                                        @if($cat != null)
+                                                            <option value="{{$cat->id}}">{{$cat->nom}}</option>
+                                                            <option value="">Toutes les catégories</option>
+    
+    
+                                                        @else 
                                                         <option value="">Toutes les catégories</option>
-
-
-                                                    @else 
-                                                    <option value="">Toutes les catégories</option>
-
-                                                    @endif
-
-                                                    @foreach ($categories as $categorie )
-                                                        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
-                                                    @endforeach
-                                                    
-                                                    
-                                                    
-                                                </select>
-                                                <i class="la la-briefcase"></i>
+    
+                                                        @endif
+    
+                                                        @foreach ($categories as $categorie )
+                                                            <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+                                                        @endforeach
+                                                        
+                                                        
+                                                        
+                                                    </select>
+                                                    <i class="la la-briefcase"></i>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="col-lg-2">
+                                                <button type="submit"><i class="la la-search"></i></button>
                                             </div>
                                         </div>
-                                       
-                                        <div class="col-lg-1">
-                                            <button type="submit"><i class="la la-search"></i></button>
-                                        </div>
-                                    </div> --}}
-                                {{-- </form> --}}
+                                   </form>
+                                </div>
                                
                             </div>
                         </div>
