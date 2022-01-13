@@ -66,7 +66,7 @@
                                 <div class="col-lg-6">
                                     <a href="{{route('nous_contacter')}}" title="">Contact </a>
                                     {{-- <a href="#" title="">Termes du contrat</a> --}}
-                                    <a href="{{route('user.bibliotheque.index')}}" title="">Entreprises </a>
+                                    {{-- <a href="{{route('user.bibliotheque.index')}}" title="">Entreprises </a> --}}
                                     <a href="{{route('conditions_utilisation')}}" title="">Nos conditions générales d'utilisation </a>
 
 

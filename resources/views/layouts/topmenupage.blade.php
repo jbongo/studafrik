@@ -95,9 +95,9 @@
 						<li class="menu-item">
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
-						<li class="menu-item">
+						{{-- <li class="menu-item">
 							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
-						</li>
+						</li> --}}
 					
 					</ul>
 			</div>
@@ -139,9 +139,9 @@
 						<li class="menu-item">
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
-						<li class="menu-item">
+						{{-- <li class="menu-item">
 							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
-						</li>
+						</li> --}}
 						
 					</ul>
 				</nav><!-- Menus -->

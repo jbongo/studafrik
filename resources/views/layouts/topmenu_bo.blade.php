@@ -164,7 +164,7 @@
                                 <a class="dropdown-item" href="{{ route('blog.index') }}" target="_blank" title="">   <i class="fas fa-plus fa-sm fa-fw mr-2 text-gray-400"></i> Articles</a>
                            
                          
-                                <a class="dropdown-item" href="{{ route('user.bibliotheque.index') }}" target="_blank" title="">   <i class="fas fa-plus fa-sm fa-fw mr-2 text-gray-400"></i> Entreprises</a>
+                                {{-- <a class="dropdown-item" href="{{ route('user.bibliotheque.index') }}" target="_blank" title="">   <i class="fas fa-plus fa-sm fa-fw mr-2 text-gray-400"></i> Entreprises</a> --}}
                                 {{-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
