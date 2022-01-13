@@ -71,7 +71,7 @@
                                         @foreach ($offres as $offre )
                                         <tr>
                                           
-                                            <td>{{$offre->categorieoffre->nom}}</td>
+                                            <td> @if($offre->categorieoffre != null ) {{$offre->categorieoffre->nom}} @endif</td>
                                             <td>{{ substr($offre->titre,0,50) }}...</td>
                                             {{-- <td>{!! substr($offre->description, 0, 50) !!}...</td> --}}
                                             <td>{{$offre->type_contrat}}</td>
