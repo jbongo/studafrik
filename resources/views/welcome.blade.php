@@ -78,8 +78,8 @@ Stud'Afrik
 												<div class="quick-select">
 													<a href="/recherche-emplois?&poste=&categorie=17" title="">
 														<i class="la la-bullhorn"></i>
-														<span>   Publicité / Marketing / Agence  </span>
-														<p>({{$nb_offre_pub}} offres)</p>
+														<span> Marketing / Communication  </span>
+														<p>({{$nb_offre_marketing}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
@@ -87,26 +87,26 @@ Stud'Afrik
 												<div class="quick-select">
 													<a href="/recherche-emplois?&poste=&categorie=9" title="">
 														<i class="la la-graduation-cap"></i>
-														<span>   Education / Formation / Recrutement  </span>
-														<p>({{$nb_offre_education}} offres)</p>
+														<span>  Informatique / Développement Web  </span>
+														<p>({{$nb_offre_informatique}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
 													<a href="/recherche-emplois?&poste=&categorie=5" title="">
-														<i class="la la-line-chart "></i>
-														<span>   Banques / Assurances / Finance </span>
-														<p>({{$nb_offre_banque}} offres)</p>
+														<i class="la la-users "></i>
+														<span>   Commercial / Vente  </span>
+														<p>({{$nb_offre_commercial}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
 													<a href="/recherche-emplois?&poste=&categorie=13" title="">
-														<i class="la la-users"></i>
-														<span>Industrie</span>
-														<p>({{$nb_offre_industrie}} offres)</p>
+														<i class="la la-line-chart"></i>
+														<span>Banque / Assurance / Finance</span>
+														<p>({{$nb_offre_banque}} offres)</p>
 													</a>
 												</div><!-- Quick Select -->
 											</div>

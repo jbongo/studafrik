@@ -23,13 +23,13 @@ class HomeController extends Controller
         $categories = Categorieoffre::all();
         $pays = Pays::all();
 
-        $nb_offre_industrie =  Offre::where([['categorieoffre_id', 13], ['archive',false],['active',true]])->count();
-        $nb_offre_banque =  Offre::where([['categorieoffre_id', 5], ['archive',false],['active',true]])->count();
-        $nb_offre_education =  Offre::where([['categorieoffre_id', 9], ['archive',false],['active',true]])->count();
-        $nb_offre_pub =  Offre::where([['categorieoffre_id', 17], ['archive',false],['active',true]])->count();
+        $nb_offre_banque =  Offre::where([['categorieoffre_id', 22], ['archive',false],['active',true]])->count();
+        $nb_offre_commercial =  Offre::where([['categorieoffre_id', 35], ['archive',false],['active',true]])->count();
+        $nb_offre_informatique =  Offre::where([['categorieoffre_id', 31], ['archive',false],['active',true]])->count();
+        $nb_offre_marketing =  Offre::where([['categorieoffre_id', 34], ['archive',false],['active',true]])->count();
 
         // dd($offres);
-        return view('welcome', compact('offres','articles', 'categories', 'pays','nb_offre_industrie','nb_offre_banque','nb_offre_pub','nb_offre_education',));
+        return view('welcome', compact('offres','articles', 'categories', 'pays','nb_offre_banque','nb_offre_commercial','nb_offre_marketing','nb_offre_informatique',));
     }
 
     /**

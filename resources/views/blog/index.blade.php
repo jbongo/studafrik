@@ -78,31 +78,39 @@ Nos articles
                      <div class="blog-sec">
                         <div class="row" id="masonry">
 
-                            @foreach ($articles as $article )
+                            @if(sizeof($articles) > 0)
+                          
+                                @foreach ($articles as $article )
 
-                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="my-blog">
-                                        <div class="blog-thumb">
-                                            <a href="{{ route('article.show', $article->slug) }}" title=""><img src="{{asset($article->image)}}" alt="" /></a>
-                                            <div class="blog-metas">
-                                                <a href="{{ route('article.show', $article->slug) }}" title="">{{$article->created_at->format('d/m/Y')}}</a>
-                                                <a href="{{ route('article.show', $article->slug) }}" title=""> {{ sizeof($article->commentaires()) }} commentaires</a>
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="my-blog">
+                                            <div class="blog-thumb">
+                                                <a href="{{ route('article.show', $article->slug) }}" title=""><img src="{{asset($article->image)}}" alt="" /></a>
+                                                <div class="blog-metas">
+                                                    <a href="{{ route('article.show', $article->slug) }}" title="">{{$article->created_at->format('d/m/Y')}}</a>
+                                                    <a href="{{ route('article.show', $article->slug) }}" title=""> {{ sizeof($article->commentaires()) }} commentaires</a>
+                                                </div>
+                                            </div>
+                                            @php  
+                                            $description = strip_tags($article->description) ;
+                                            @endphp
+                                            <div class="blog-details">
+                                                <h3><a href="{{ route('article.show', $article->slug) }}" title="">{{$article->titre}}</a></h3>
+                                                <p> {!! substr($description, 0, 250) !!} ... </p>
+                                                <a href="{{ route('article.show', $article->slug) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
                                             </div>
                                         </div>
-                                        @php  
-										$description = strip_tags($article->description) ;
-									    @endphp
-                                        <div class="blog-details">
-                                            <h3><a href="{{ route('article.show', $article->slug) }}" title="">{{$article->titre}}</a></h3>
-                                            <p> {!! substr($description, 0, 250) !!} ... </p>
-                                            <a href="{{ route('article.show', $article->slug) }}" title="">Lire la suite <i class="la la-long-arrow-right"></i></a>
-                                        </div>
                                     </div>
-                                </div>
 
-                            @endforeach
+                                @endforeach
 
-           
+                            @else 
+                            <div class="blog-details" style="font-weight: bold">
+                                <h3><i> Aucun article trouvé !!!</i> </h3>
+                                
+                            </div>
+
+                            @endif
                         </div>
                     </div>
 
