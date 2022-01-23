@@ -384,7 +384,7 @@ class ArticleController extends Controller
             ->where(function($query) use ($cat){
                 if($cat != null){
 
-                    $query->where('categorie_id', $cat->id);
+                    $query->where('categoriearticle_id', $cat->id);
                 }
             }) 
         
