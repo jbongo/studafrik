@@ -26,10 +26,11 @@ class ArticleController extends Controller
         $articles = Article::where([['archive', false], ['actif', true]])->orderBy('id', 'desc')->paginate(15);
 
         $categories = Categoriearticle::all();
+        $posts = Article::orderBy('id', 'desc')->paginate(4);
 
         $cat = null ;
 
-        return view('blog.index', compact('articles','categories','cat'));
+        return view('blog.index', compact('articles','categories','cat', 'posts'));
     }
 
    
