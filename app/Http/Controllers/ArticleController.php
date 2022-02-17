@@ -393,8 +393,10 @@ class ArticleController extends Controller
 
         $categories = Categoriearticle::all();
 
+        $posts = Article::orderBy('id', 'desc')->paginate(4);
 
-        return view('blog.index', compact('articles','categories','cat'));
+
+        return view('blog.index', compact('articles','categories','cat','posts'));
     }
 
 }
