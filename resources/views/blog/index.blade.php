@@ -171,7 +171,7 @@ Nos articles
                                 <div class="carousel-item">
                                     <img class="d-block w-100 carousel_img" src="{{asset($article->image)}}" alt="Second slide">
                                     <div class="carousel-caption d-none d-md-block">
-                                        <h3>{!! substr($article->titre, 0, 250) !!}</h3>
+                                        <h3>{{$article->titre}}</h3>
                                         {{-- <span style="color: white">{!! substr($article->description, 0, 150) !!}</span> --}}
                                     </div>
                                 </div>
