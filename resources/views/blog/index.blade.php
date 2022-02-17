@@ -39,7 +39,13 @@ Nos articles
     .job-search>h4{
         margin-top:-20px;
         margin-bottom:-90px;
-    } 
+    }
+    .menu-sec nav>ul>li>a {
+   
+    font-size: 14px;
+   
+    padding: 5px 5px;
+} 
     
    
 
@@ -154,10 +160,10 @@ Nos articles
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100 carousel_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" alt="First slide">
+                                <img class="d-block w-100 carousel_img" src="{{asset($articles[4]->image)}}" alt="Second slide">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Titre de l'article</h5>
-                                    <p>Mini description</p>
+                                    <h3>{!! substr($articles[4]->titre, 0, 250) !!}</h3>
+                                    {{-- <span style="color: white">{!! substr($articles[4]->description, 0, 150) !!}</span> --}}
                                 </div>
                             </div>
                             @foreach ($articles as $article )
@@ -165,8 +171,8 @@ Nos articles
                                 <div class="carousel-item">
                                     <img class="d-block w-100 carousel_img" src="{{asset($article->image)}}" alt="Second slide">
                                     <div class="carousel-caption d-none d-md-block">
-                                        <h5>Titre de l'article</h5>
-                                        <p>Mini description</p>
+                                        <h3>{!! substr($article->titre, 0, 250) !!}</h3>
+                                        {{-- <span style="color: white">{!! substr($article->description, 0, 150) !!}</span> --}}
                                     </div>
                                 </div>
 
