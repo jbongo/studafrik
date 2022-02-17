@@ -76,7 +76,7 @@ Stud'Afrik
 										<div class="row">
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="/recherche-emplois?&poste=&categorie=17" title="">
+													<a href="/recherche-emplois?&poste=&categorie=34" title="">
 														<i class="la la-bullhorn"></i>
 														<span> Marketing / Communication  </span>
 														<p>({{$nb_offre_marketing}} offres)</p>
@@ -85,7 +85,7 @@ Stud'Afrik
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="/recherche-emplois?&poste=&categorie=9" title="">
+													<a href="/recherche-emplois?&poste=&categorie=31" title="">
 														<i class="la la-graduation-cap"></i>
 														<span>  Informatique / Développement Web  </span>
 														<p>({{$nb_offre_informatique}} offres)</p>
@@ -94,7 +94,7 @@ Stud'Afrik
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="/recherche-emplois?&poste=&categorie=5" title="">
+													<a href="/recherche-emplois?&poste=&categorie=35" title="">
 														<i class="la la-users "></i>
 														<span>   Commercial / Vente  </span>
 														<p>({{$nb_offre_commercial}} offres)</p>
@@ -103,7 +103,7 @@ Stud'Afrik
 											</div>
 											<div class="col-lg-3 col-md-3 col-sm-3">
 												<div class="quick-select">
-													<a href="/recherche-emplois?&poste=&categorie=13" title="">
+													<a href="/recherche-emplois?&poste=&categorie=22" title="">
 														<i class="la la-line-chart"></i>
 														<span>Banque / Assurance / Finance</span>
 														<p>({{$nb_offre_banque}} offres)</p>
