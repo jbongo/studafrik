@@ -2,8 +2,6 @@
 Qui sommes nous
 @endsection
 
-@include('layouts.topmenuhome')
-
 <style>
 
     .lien_btn{
@@ -14,22 +12,70 @@ Qui sommes nous
          text-align:center;
        
     }
-     .lien_btn>span{
+     .lien_btn>a>span{
      
          color:white;
-         font-size:20px
+         font-size:30px
+    }
+    
+    .lien_btn>a>span:hover {
+        color: #d2dee8;
     }
 
    
-    @media (max-width: 520px){
-        .main-featured-sec {
-            height: unset;
-            background-color:red;
+   
+    
+    .titre_recruter{
+        text-align: center;
+        margin-top:40px;
+        margin-bottom:50px;
+        color:#EE6E49;
+        font-size:40px;
+    }
+    .motif_recruter{      
+        font-size:20px;
+    }
+    .img_header{
+        height: 500px;
+        width: 1900px;
+    }
+    
+    @media (max-width: 800px){
+        .titre_recruter{
+        
+            margin-top:20px;
+            margin-bottom:30px;
+          
+            font-size:30px;
+        }
+        .img_header{
+            /* height: 350px; */
+            width: 1200px;
+            
+        }
+       
+        
+        .motif_recruter{      
+            font-size:12px;
+        }
+        
+        
+        .lien_btn>a>span{
+
+             font-size:20px
         }
     }
-        
+
+
+    @media (max-width: 520px){
+        .main-featured-sec {
+            height: 10vh;
+        }
+    }
 
 </style>
+@include('layouts.topmenuhome')
+
 	<section>
 		<div class="block no-padding">
 			<div class="container fluid">
@@ -37,21 +83,19 @@ Qui sommes nous
 					<div class="col-lg-12">
 						<div class="main-featured-sec style2">
 							<ul class="main-slider-sec style2 text-arrows">
-								<li class="slideDashboard"><img src="{{asset('images/header/header9.png')}}" height="500px" width="1900px" alt="" /></li>
+								<li class="slideDashboard"><img class="img_header" src="{{asset('images/header/header9.png')}}"  width="1900px" alt="" /></li>
 								{{-- <li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li>
 								<li class="slideDashboard"><img src="http://placehold.it/1920x800" alt="" /></li> --}}
 							</ul>
                    
 							<div class="job-search-sec" >
-								<div class="job-search style2">
-									<h3>Pourquoi recruter avec Stud’Afrik ?</h3>	
-                         
+								<div class="job-search style2">             
 
-                                    
+                                   
                                       
                                         <div class="lien_btn" >
-                                            <span class="btn" style="background: #ee6e4900; border: 2px solid #EE6E49;">Publier une offre</span>
-                                            <span class="btn" style="background: #ee6e4900; border: 2px solid #EE6E49; margin-left:15px">Inscrivez-vous</span>
+                                            <a href="{{route('mes_offres.create')}}"><span class="btn" style="background: #ee6e4900; border: 2px solid #EE6E49;">Publier une offre </span> </a>
+                                            <a href="{{route('register')}}"><span class="btn"  style="background: #ee6e4900; border: 2px solid #EE6E49; margin-left:15px">Inscrivez-vous</span></a>
                                             
                                         </div>
                                 
@@ -95,37 +139,32 @@ Qui sommes nous
                  <div class="col-lg-12">
                      <div class="about-us">
                          <div class="row">
-                             <div class="col-12">
-                                 <br><br>
-                               <div class="job-search-sec" style="margin-bottom: ">							
-							
-							
-							</div>
+                             <div class="col-12 titre_recruter" style="">                              
+                                 <span>Pourquoi recruter avec Stud’Afrik ?</span>	
                             </div>
                              <div class="col-lg-6 col-md-6 col-sm-6" style="text-align:justify; ">
                           
-                                <br><br>
-                                <br><br>
+                      
+                           
 
 
-                                <p style="font-size:16px">                                
-                                  <i style="color: #EE6E49; text-align:center; font-weight:bold" class="fas fa-check-circle fa-lg"></i> Augmentez la visibilité de vos annonces de recrutement
+                                <p >                                
+                                  <i style="color: #EE6E49; text-align:center; font-weight:bold" class="fas fa-check-circle fa-lg"></i> <span  class="motif_recruter"> Augmentez la visibilité de vos annonces de recrutement</span>
                                 </p>
-                                <p style="font-size:16px">
-                                   <i style="color: #EE6E49; text-align:center; font-weight:bold;" class="fas fa-check-circle fa-lg"></i> Trouvez des profils qualifiés sur un job board spécialisé
+                                <p class="motif_recruter" >
+                                   <i style="color: #EE6E49; text-align:center; font-weight:bold;" class="fas fa-check-circle fa-lg"></i> <span  class="motif_recruter"> Trouvez des profils qualifiés sur un job board spécialisé</span>
                                 </p>
                                 
                              </div>
                              <div class="col-lg-6 col-md-6 col-sm-6" style="text-align:justify;">
                                
-                                <br><br>
-                                <br><br>
-                                <p style="font-size:16px">  
-                                   <i style="color: #EE6E49; text-align:center; font-weight:bold " class="fas fa-check-circle fa-lg"></i> Constituez un vivier de talents                                    
+                            
+                                <p class="motif_recruter" >  
+                                   <i style="color: #EE6E49; text-align:center; font-weight:bold " class="fas fa-check-circle fa-lg"></i> <span  class="motif_recruter"> Constituez un vivier de talents   </span>                                 
                                 </p>
 
-                                <p style="font-size:16px">
-                                   <i style="color: #EE6E49; text-align:center; font-weight:bold  margin-top:55px;" class="fas fa-check-circle fa-lg"></i> Valorisez l'image de votre société et votre marque employeur                                    
+                                <p class="motif_recruter" >
+                                   <i style="color: #EE6E49; text-align:center; font-weight:bold  margin-top:55px;" class="fas fa-check-circle fa-lg"></i> <span  class="motif_recruter"> Valorisez l'image de votre société et votre marque employeur </span>                                   
                                 </p>
 
                              </div>
@@ -133,15 +172,6 @@ Qui sommes nous
                           
                          </div>
 
-                         <div class="row">
-                            
-<div class="col-lg-3 col-md-3 col-sm-3" ></div>
-
-                          
-
-<div class="col-lg-3 col-md-3 col-sm-3"></div>
-
-                         </div>
                          
                      </div>
                  </div>
@@ -152,7 +182,7 @@ Qui sommes nous
 
 
 
-<section style="margin-top: 75px;" >
+<section  style="margin-top: 50px;" >
     <div class="block grays" >
         <div class="container">
             <div class="row">

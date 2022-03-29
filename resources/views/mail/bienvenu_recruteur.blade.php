@@ -383,7 +383,7 @@
                                                                                         <tr class="mceButton">
                                                                                             <td style="background-color: #ee6e49; border-radius: 50px; text-align: center;" valign="top">
                                                                                                 <a
-                                                                                                    href=""
+                                                                                                    href="{{route('info_recruteur')}}"
                                                                                                     target="_blank"
                                                                                                     style="
                                                                                                         background-color: #ee6e49;
@@ -570,7 +570,7 @@
                                                                                                                                         width: 100%;
                                                                                                                                     "
                                                                                                                                 >
-                                                                                                                                    <p><em>Copyright (C) 2021 *STUD'AFRIK*. Tous droits reservés.</em></p>
+                                                                                                                                    <p><em>Copyright (C) {{date('Y')}} *STUD'AFRIK*. Tous droits reservés.</em></p>
                                                                                                                                     <p></p>
                                                                                                                                     <p></p>
                                                                                                                                    
