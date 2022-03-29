@@ -166,6 +166,13 @@ Route::get('/qui-sommes-nous', function () {
     return view('qui_sommes_nous');
 })->name('qui_sommes_nous');
 
+
+// Info recruteur
+
+Route::get('/info-recruteur', function () {
+    return view('infos_recruteur');
+})->name('info_recruteur');
+
 // FAQ
 
 Route::get('/faq', function () {
