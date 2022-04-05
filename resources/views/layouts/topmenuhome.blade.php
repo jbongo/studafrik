@@ -102,6 +102,9 @@
 						<li class="menu-item">
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
 						</li>
+						<li class="menu-item">
+							<a href="{{ route('info_recruteur') }}" title="">Recruteurs</a>
+						</li>
 						{{-- <li class="menu-item">
 							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
 						</li> --}}
@@ -151,6 +154,9 @@
 						</li>
 						<li class="menu-item">
 							<a href="{{ route('blog.index') }}" title="">Articles</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{ route('info_recruteur') }}" title="">Recruteurs</a>
 						</li>
 						{{-- <li class="menu-item">
 							<a href="{{ route('user.bibliotheque.index') }}" title="">Entreprises</a>
