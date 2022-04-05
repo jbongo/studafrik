@@ -14,12 +14,14 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.5",
+        "josiasmontag/laravel-recaptchav3": "^0.6.0",
         "laravel-lang/lang": "^7.0",
         "laravel/framework": "^8.0",
         "laravel/jetstream": "^1.4",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "weidner/goutte": "^2.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

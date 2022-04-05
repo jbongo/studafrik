@@ -1,53 +1,52 @@
+@include('layouts.topmenu_bo')
 
- @include('layouts.topmenupage')
+<style>
+    .btn-link:hover {
+       color:white;
+       text-decoration: none;
+    }
+</style>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Gestion des offres d'emploi</h1>
+                  <hr>
+                  
+                  @if (session('ok'))
+                  <div class="alert alert-success ">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     <strong> {{ session('ok') }}</strong>
+                  </div>
+                  @endif 
 
- {{-- <section class="overlape">
-     <div class="block no-padding">
-         <div data-velocity="-.1" style="" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-         <div class="container fluid">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <div class="inner-header">
-                     <h3>{{Auth::user()->nom }} </h3>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section> --}}
+                  
+                  @if ($errors->has('nom'))
+                  <br>
+                  <div class="alert alert-warning ">
+                     <strong>{{$errors->first('nom')}}</strong> 
+                  </div>
+                  @endif
+                  <br>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            {{-- <h6 class="m-0 font-weight-bold text-primary">Liste des pays</h6> --}}
+                        </div>
+                        <div class="card-body">
+                           
 
-
-
-
- <section>
-    <div class="block remove-top">
-        <div class="container-fluid">
-             <div class="row no-gape">
-
-        
-                    @include('layouts.leftmenu')
-            <div class="row">
-
-                 <div class="col-10 column">
-                    @if (session('ok'))
-                    <div class="alert alert-success alert-dismissible ">
-                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                       <strong> {{ session('ok') }}</strong>
-                    </div>
-                    @endif
-
-                    <div class="padding-left">
-                        <div class="manage-jobs-sec">
-                            <h3>Gestion des offres d'emploi</h3>
+                            <div class="col-12 column">
+                             
                             <div class="extra-job-info" style="margin-bottom:25px">
-                                <span><i class="la la-clock-o"></i><strong>{{$nb_offres}}</strong> Offres</span>
-                                <span><i class="la la-file-text"></i><strong>{{$nb_candidatures}}</strong> Candidatures</span>
-                                <span><i class="la la-users"></i><strong>{{$nb_offres_actives}}</strong> Offres actives </span>
+                                <span><i class="fas fa-clipboard-list"></i> &nbsp <strong>{{$nb_offres}}</strong> Offres</span>&nbsp &nbsp
+                                <span><i class="fas fa-clipboard-list" style="color:#EE6E49"></i> &nbsp <strong>{{$nb_offres_actives}}</strong> Offres actives </span>&nbsp &nbsp
+                                <span><i class="fas fa-list" style="color:#323232" ></i> &nbsp <strong>{{$nb_candidatures}}</strong> Candidatures</span>&nbsp &nbsp
                             </div>
-
-                            
-                            <table id="example" class="table table-striped table-bordered dt-responsive " style="width:100%; margin-top:25px">
+                      
+                        
+                        
+                        <table id="example" class="table table-striped table-bordered dt-responsive " style="width:100%; margin-top:25px">
                                 
                                 <thead>
                                     <tr style="color: #EB586C; font-weigth:bold">
@@ -67,12 +66,13 @@
                                     <tr>
                                         <td>
                                             <div class="table-list-title">
-                                                <h3><a href="#" title="">{{$offre->titre}}</a></h3>
+                                                <h6><a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" title="" style="color:#EE6E49">{{$offre->titre}}</a></h6>
                                                 <span><i class="la la-map-marker"></i>{{$offre->ville}}, {{$offre->pays}}</span>
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="applied-field">{{sizeof($offre->users)}}</span>
+                                            <span style="font-size: 16px; font-weight:bold" class="applied-field">{{sizeof($offre->users)}}</span>&nbsp; <a href="{{route('candidatures.index_recruteur', $offre->slug )}}"  target="_blank" data-toggle="tooltip" title="Voir les candidatures"><i class="la la-eye"></i></a>
+                                             
                                         </td>
                                         <td>
                                             <span>{{$offre->created_at->format('d/m/Y')}} -- </span>
@@ -87,10 +87,10 @@
                                         </td>
                                         <td>
                                             <ul class="action_job">
-                                            <li><span>Voir l'offre</span><a href="{{route('mes_offres.show', $offre->slug )}}" title=""><i class="la la-eye"></i></a></li>
-                                                <li><span>Modifier</span><a href="{{route('mes_offres.edit', $offre->slug )}}" title=""><i class="la la-pencil"></i></a></li>
-                                                {{-- <li><span>Supprimer</span><a class="supprimer" href="#" title=""><i class="la la-trash-o"></i></a></li> --}}
-                                                <li><span>Supprimer</span><a class="supprimer" href="{{route('mes_offres.delete', Crypt::encrypt($offre->id) )}}" title=""><i class="la la-trash-o"></i></a></li>
+                                                <a href="{{route('mes_offres.show', $offre->slug)}}" target="_blank" title="Voir l'offre" data-toogle="tooltip" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>      
+                                                <a href="{{route('mes_offres.edit', $offre->slug )}}" title="Modifier l'offre" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
+                                                <a href="{{route('mes_offres.delete', Crypt::encrypt($offre->id) )}}" title="Supprimer l'offre" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a>  
+                                               
                                             </ul>
                                         </td>
                                     </tr>
@@ -102,36 +102,24 @@
                             </table>
 
 
+      
+                           </div>
 
 
 
                         </div>
                     </div>
-               </div>
-               
-                
-				 </div>
-			</div>
-		</div>
-	</section>
- 
+
+                </div>
+                <!-- /.container-fluid -->
+
+
+  
+
+    @extends('admin.layout.footer')
+
     
-
-</div>
-
-@extends('layouts.footer')
-
-
 @section('js-content')
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-{{-- <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script> --}}
-
-{{-- <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/plug-ins/1.10.24/i18n/French.json"></script> --}}
 
 
 
@@ -205,48 +193,7 @@
         })
     })
 
-
-
-
-
-
-
-$(document).ready(function() {
-
-    var table = $('#example').DataTable( {
-        fixedHeader: true,
-        "order": [],
-            "iDisplayLength": 50,
-            "language": {
-            "decimal":        "",
-            "emptyTable":     "Aucune donnée disponible dans le tableau",
-            "info":           "Affichage _START_ à _END_ sur _TOTAL_ lignes",
-            "infoEmpty":      "Affichage 0 à 0 sur 0 lignes",
-            "infoFiltered":   "(filtrés sur _MAX_ total lignes)",
-            "infoPostFix":    "",
-            "thousands":      ",",
-            "lengthMenu":     "Voir _MENU_ lignes",
-        
-           
-            "search":         "Rechercher:",
-            "zeroRecords":    "Aucune donnée trouvée",
-            "paginate": {
-                "first":      "First",
-                "last":       "Last",
-                "next":       "Suivant",
-                "previous":   "Précédent"
-    } } });
-
-
-     
-
-
-
-
-});
 </script>
-
-
 
 
 @endsection

@@ -39,7 +39,7 @@ return [
             'host' => env('MAIL_HOST', 'smtp.ionos.fr'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'from' => ['address' => 'contact@studafrik.com', 'name' => 'Formulaire de contact'],
+            'from' => ['address' => 'contact@studafrik.com', 'name' => 'Stud’Afrik'],
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,

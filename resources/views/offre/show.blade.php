@@ -1,6 +1,64 @@
 @section('title') 
 {{$offre->titre}}
 @endsection
+
+
+@section('jobposting') 
+
+
+
+
+<script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
+      "@type" : "JobPosting",
+      "title" : "{{$offre->titre}}",
+      
+      "experienceRequirements" : {
+        "@type" : "OccupationalExperienceRequirements",
+        "monthsOfExperience" : "36"
+      },
+      "description" : "{{$offre->description}}",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "{{$offre->nom_entreprise}}",
+        "value": "{{$offre->id}}"
+      },
+      "datePosted" : "{{$offre->created_at->format('Y-m-d')}}",
+      "validThrough" : @if($offre->date_expiration != null) "{{$offre->date_expiration->format('Y-m-d')}}" @else  "" @endif,
+      "employmentType" : "{{$offre->type_contrat}}",
+      "hiringOrganization" : {
+        "@type" : "Organization",
+        "name" : "{{$offre->nom_entreprise}}",
+        "sameAs" : "studafrik.com",
+        "logo" : "http://www.example.com/images/logo.png"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+        "@type": "PostalAddress",
+        {{-- "streetAddress": "", --}}
+        "addressLocality": ", {{$offre->ville}}",
+        {{-- "addressRegion": "",
+        "postalCode": "", --}}
+        "addressCountry": "{{$offre->pays}}"
+        }
+      },
+     "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "{{$offre->devise_salaire}}",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": {{$offre->salaire}},
+          "unitText": "MONTH"
+        }
+      }
+    }
+    </script>
+@endsection
+
+
+
 @include('layouts.topmenupage')
 
 	<section class="overlape">
@@ -60,8 +118,10 @@
 								<br>
 				 				<ul class="tags-jobs">
 				 					<li><i class="la la-map-marker"></i> {{$offre->ville}}, {{$offre->pays}}</li>
-				 					<li><i class="la la-money"></i> Salaire : <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li>
-									 <li><i class="la la-calendar-o"></i> Posté le : {{$offre->created_at->format('d/m/Y')}} </li>
+								@if($offre->experience != null)	<li><i class="la la-money"></i> Expérience requise: <span> {{$offre->experience}} ans</span></li> @endif
+				 				@if($offre->salaire != null)	<li><i class="la la-money"></i> Salaire: <span>{{$offre->salaire}} - {{$offre->devise_salaire}}</span></li> @endif
+									 <li><i class="la la-calendar-o"></i> Posté le {{$offre->created_at->format('d/m/Y')}} </li>
+								@if($offre->date_expiration != null)	 <li><i class="la la-calendar-o"></i> date d'expiration: {{$offre->date_expiration->format('d/m/Y')}} </li> @endif
 									 
 				 				</ul>
 				 				{{-- <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span> --}}
@@ -101,20 +161,20 @@
 
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb" style="margin-bottom: 55px"> 
+			 				<div class="job-thumbx" style="margin-bottom: 35px"> 
 								@if($offre->photo_recruteur != null )
                                     
-								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="124px" height="124px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
+								<img src="{{ asset('images/photo_recruteur/'.$offre->photo_recruteur) }}" width="250px" height="250px"  title="{{$offre->slug}}"  alt="{{$offre->slug}}" /> </div>
 
 								@else 
-								<img height="124px" width="124px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
+								<img height="250px" width="250px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 								@endif
-							 <h4> {{$offre->user->nom}}</h4> <br>
+							 <h4> @if($offre->nom_entreprise != null) {{$offre->nom_entreprise}} @else {{$offre->user->nom}} @endif</h4> <br>
 							 @if($offre->user->site_web != null)
 							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
 							 @endif
 						
-								@if($offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
+								@if($offre->date_expiration != null && $offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
 								
 											@if($deja_postuler == true )
 												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
@@ -158,7 +218,7 @@
 										<a   href="{{route('favoris.offre',[Auth::user()->id, $offre->id])}}" style="background: #323232; width: 190px"  class="viewall-jobs"><i class="la la-paper-plane"></i> Sauvegarder cette offre</a>
 
 										@else 
-										<a class=" btn btn-warning"  href="#" style="color:rgb(58, 3, 3); font-size:17px; width: 190px" title=""><i class="la la-check"></i> Offre sauvegardée</a>
+										<a style="background: #EE6E49; width: 190px"  class="viewall-jobs" href="#"  title=""><i class="la la-check"></i> Offre sauvegardée</a>
 										@endif
 									@endif
 								 {{-- </p> --}}

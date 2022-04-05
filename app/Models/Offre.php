@@ -17,12 +17,14 @@ class Offre extends Model
         return $this->belongsTo(User::class);
     }
 
+    
     public function  categorieoffre(){
         return $this->belongsTo(Categorieoffre::class);
     }
+
     public function users()
     {
-        return $this->belongsToMany(User::class,'offre_users')->withPivot('cv', 'lettre_motivation');
+        return $this->belongsToMany(User::class,'offre_users')->withPivot('cv', 'lettre_motivation','created_at');
     }
 
     public function candidatures(){

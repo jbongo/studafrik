@@ -1,30 +1,12 @@
+@section('css-content')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+@endsection
 
- @include('layouts.topmenupage')
-
-
- {{-- <section class="overlape">
-     <div class="block no-padding">
-         <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-         <div class="container fluid">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <div class="inner-header">
-                     <h3>compétence</h3>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section> --}}
+@include('layouts.topmenu_bo')
 
  <section>
-     <div class="block remove-top">
+    
          <div class="container-fluid">
-              <div class="row no-gape">
-
-
-
-                    @include('layouts.leftmenu')
             
 
                  <div class="col-10 column">
@@ -39,7 +21,7 @@
                          <form method="POST" action="{{route('cv.competence.update',Crypt::encrypt($competence->id))}}" >
                              @csrf
                                  <div class="row">
-                                     <div class="col-lg-12">
+                                     <div class="col-lg-7">
                                          <span class="pf-title">Modifier votre compétence</span> <span class="text-danger">*</span>
                                          <div class="pf-field">
                                              <input type="text"  name="libelle" value="{{old('libelle') ? old('libelle') : $competence->libelle }}" placeholder="" required  />
@@ -53,17 +35,7 @@
                                             @endif
                                      </div>
 
-                           
-
-                                     
-                                     
-                                    
-                                  
-                                     
-                                     
-                                    
-                                    
-                                     <div class="col-lg-12">
+                                     <div class="col-lg-6">
                                          <button type="submit" >Modifier</button>
                                      </div>
                                      
@@ -76,13 +48,9 @@
                      </div>
                 </div>
 
-
   
-
-                
               </div>
-         </div>
-     </div>
+        
  </section>
 
  
@@ -93,5 +61,4 @@
 @section('js-content')
 
 @endsection
-@include('layouts.footer')
-
+@extends('admin.layout.footer')

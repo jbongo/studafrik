@@ -46,8 +46,9 @@ class FavorisoffreController extends Controller
             "user_id"=>$user_id,
             "offre_id"=>$offre_id,
         ]);
+        $offre = Offre::where('id', $offre_id)->first();
        
-        return redirect()->route("mes_offres.show", Crypt::encrypt($offre_id))->with('ok','Offre sauvegardée dans vos favoris');
+        return redirect()->route("mes_offres.show", $offre->slug)->with('ok','Offre sauvegardée dans vos favoris');
     }
 
 

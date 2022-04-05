@@ -1,30 +1,13 @@
+@section('css-content')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+@endsection
 
- @include('layouts.topmenupage')
-
-{{-- 
- <section class="overlape">
-     <div class="block no-padding">
-         <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-         <div class="container fluid">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <div class="inner-header">
-                     <h3>Formation </h3>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section> --}}
+@include('layouts.topmenu_bo')
 
  <section>
-     <div class="block remove-top">
+    
          <div class="container-fluid">
-              <div class="row no-gape">
-
-
-            
-                    @include('layouts.leftmenu')
+   
            
 
                  <div class="col-10 column">
@@ -130,9 +113,6 @@
 
   
 
-                
-              </div>
-         </div>
      </div>
  </section>
 
@@ -144,5 +124,5 @@
 @section('js-content')
 
 @endsection
-@include('layouts.footer')
+@extends('admin.layout.footer')
 

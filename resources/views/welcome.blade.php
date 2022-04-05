@@ -1,7 +1,7 @@
 @section('title') 
 Stud'Afrik
 @endsection
-@include('layouts.topmenuhome')
+@include('layouts.topmenuaccueil')
 
 <style>
 	h2 {
@@ -161,7 +161,7 @@ Stud'Afrik
 											</a>
 										</div>
 										<span class="job-lctn"><a  href="{{route('mes_offres.show', $offre->slug )}}" title="">{{$offre->ville}}, {{$offre->pays}}</a></span>
-									<a  href="{{route('postuler.create', $offre->slug)}}" title="">POSTULER</a>
+									<a  href="{{route('postuler.create', Crypt::encrypt($offre->id))}}" title="">POSTULER</a>
 									</div><!-- JOB Grid -->
 								</div>
 							@endforeach
@@ -239,7 +239,18 @@ Stud'Afrik
 	</section>
 
 
+	<style>
+		.company-img  {
 	
+		  transition: transform .1s; /* Animation */
+		
+		}
+		
+		.company-img :hover {
+		  transform: scale(0.9);
+		   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+		}
+		</style> 
 	<section style="margin-top: 100px">
 		<div class="block">
 			<div class="container">
@@ -249,22 +260,24 @@ Stud'Afrik
 							<h2>Ils recrutent</h2>
 							{{-- <span>Certaines des entreprises que nous avons aidé à recruter d'excellents candidats.</span> --}}
 						</div><!-- Heading -->
-						<div class="comp-sec" style="margin-top: 50px">
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/logo-total.png')}}" width="60%" height="80px" alt="total" /></a>
-							</div><!-- Client  -->
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/perenco.jpg')}}" width="60%" height="80px" alt="perenco" /></a>
-							</div><!-- Client  -->
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/intelcia.jpg')}}" width="60%" height="80px" alt="intelcia" /></a>
-							</div><!-- Client  -->
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/societe.png')}}" width="60%" height="80px" alt="societe" /></a>
+						<div class="comp-sec" style="margin-top: 50px;  margin: auto; width:100%">
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/societe.jpg')}}" width="200px" height="200px" alt="Société générale"  style="margin-top:15px"/>
 							</div><!-- Client  -->
 							
-							<div class="company-img col-lg-3 col-sm-12 col-xs-12">
-								<a href="#" title=""><img src="{{asset('images/entreprise/canal.jpg')}}" width="60%" height="80px" alt="canal-plus" /></a>
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/lapaire.jpg')}}" width="200px" height="200px" alt="Lapaire" style="margin-top:15px" />
+							</div><!-- Client  -->
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/wave.jpg')}}" width="200px" height="200px" alt="Wave" style="margin-top:15px" />
+							</div><!-- Client  -->
+							
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/gozem.jpg')}}" width="200px" height="200px" alt="Gozem" style="margin-top:15px" />
+							</div><!-- Clientx  -->
+
+							<div class="company-img col-lg-2 col-sm-4 col-xs-12">
+								<img src="{{asset('images/entreprise/cofina.jpg')}}" width="200px" height="200px" alt="Cofina" style="margin-top:15px" />
 							</div><!-- Clientx  -->
 						</div>
 					</div>
@@ -286,11 +299,26 @@ Stud'Afrik
 								
 								<div class="col-lg-6">
 									<h3>Souscrivez à notre Newsletter</h3>
-									<span>Laissez nous votre adresse mail</span>
+									<span >Laissez nous votre adresse mail</span>
 								</div>
 								<div class="col-lg-6">
-									<form>
-										<input type="text" placeholder="Entrez votre email" />
+									@if (session('ok'))
+									<div class="alert alert-success ">
+									   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									   <strong> {{ session('ok') }}</strong>
+									</div>
+									@endif 
+
+									<form action="{{route('newsletter.store')}}" method="POST">
+
+										@csrf
+										@if ($errors->has('email'))
+                                                    <br>
+                                                    <div class="alert alert-warning ">
+                                                        <strong>{{$errors->first('email')}}</strong> 
+                                                    </div>
+                                        @endif
+										<input type="text" name="email" placeholder="Entrez votre email" />
 										<button type="submit"><i class="la la-paper-plane"></i></button>
 									</form>
 								</div>
@@ -312,8 +340,8 @@ Stud'Afrik
 					<div class="col-lg-12">
 						<div class="social-links">
 							<br><br>
-							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-colorx"><i class="fa fa-facebook"></i> Facebook</a>
-							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-colorx"><i class="fa fa-twitter"></i> Twitter</a>
+							<a href="https://www.facebook.com/Studafrik/" title="" class="fb-colorx"><i class="la la-facebook"></i> Facebook</a>
+							<a href="https://twitter.com/studafrik?lang=fr" title="" class="tw-colorx"><i class="la la-twitter"></i> Twitter</a>
 							<a href="https://www.instagram.com/studafrik/?hl=fr" title="" class="in-colorx"><i class="la la-instagram"></i> Instagram</a>
 							<a href="https://www.linkedin.com/company/stud-afrik/" title="" class="lk-colorx"><i class="la la-linkedin"></i> Linkedin</a>
 <br><br>
@@ -330,6 +358,6 @@ Stud'Afrik
 
 <script type="text/javascript"> window.$crisp=[];window.CRISP_WEBSITE_ID="3ea6cfb5-fb67-4b6d-84c3-829d34fa625f";(function(){ d=document;s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})(); </script>
 @endsection
-@include('layouts/footer')
+@include('layouts/footeraccueil')
 
 

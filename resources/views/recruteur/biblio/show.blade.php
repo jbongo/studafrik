@@ -129,7 +129,7 @@
 
                                                         @foreach ( $offres as $offre )
                                                         <div class="job-listing wtabs">
-                                                            <a href="{{route('mes_offres.show', Crypt::encrypt($offre->id) )}}" title="">
+                                                            <a href="{{route('mes_offres.show',$offre->slug )}}" title="">
                                                             <div class="job-title-sec">
                                                                
                                                             <div class="c-logo" style="margin-right: 25px"> <img src="{{ ($offre->user->photo_profile != null) ? asset('images/photo_profil/'.$offre->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" alt="" /> </div>

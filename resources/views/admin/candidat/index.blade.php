@@ -111,12 +111,6 @@
     
 @section('js-content')
 
->
-
-
-
-
-
 
 <script>
 

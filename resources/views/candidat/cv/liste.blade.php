@@ -1,52 +1,67 @@
+@section('css-content')
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+@endsection
 
- @include('layouts.topmenupage')
-
-{{-- 
- <section class="overlape">
-     <div class="block no-padding">
-         <div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-         <div class="container fluid">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <div class="inner-header">
-                     <h3> Rechercher des candidats </h3>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section> --}}
-
- <section>
-     <div class="block remove-top">
-         <div class="container-fluid">
-              <div class="row no-gape">
+@include('layouts.topmenu_bo')
 
 
 
-            
-                    @include('layouts.leftmenu')
-            
+              
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                 <div class="col-10 column">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Liste des profils</h1>
+                  <hr>
+                  
+                  @if (session('ok'))
+                  <div class="alert alert-success ">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     <strong> {{ session('ok') }}</strong>
+                  </div>
+                  @endif 
+
+                  
+                  @if ($errors->has('nom'))
+                  <br>
+                  <div class="alert alert-warning ">
+                     <strong>{{$errors->first('nom')}}</strong> 
+                  </div>
+                  @endif
+                  <br>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            {{-- <h6 class="m-0 font-weight-bold text-primary">Liste des pays</h6> --}}
+                        </div>
+                        <div class="card-body">
+                 <div class="col-12 column">
 
 <br>
                     <form action="{{ route('cv.liste') }}" method="get" >
                         @csrf
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="job-field">
+                        <div class="emply-resume-sec">
+                        <div class="row" >
+                            <div class="col-lg-5">
+                                <div class="job-fieldx">
                                     <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
-                                    <i class="la la-keyboard-o"></i>
+                                    {{-- <i class="la la-keyboard-o"></i> --}}
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+
+                            <div class="col-lg-3">
                                 <div class="job-field">
-                                    <input type="text" name="competence" class="form-control" placeholder="Rechercher une compétence" value="{{isset($_GET['competence']) ? $_GET['competence'] :""}}" />
-                                    <i class="la la-keyboard-o"></i>
+                                    <select name="secteur" class="chosen-city form-control">
+                                        <option value="">Secteurs d'activités</option>
+                                        @foreach ($categories as $categorie )
+                                            <option value="{{$categorie->nom}}">{{$categorie->nom}}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                    {{-- <i class="la la-map-marker"></i> --}}
                                 </div>
                             </div>
-                           
+
                             <div class="col-lg-3">
                                 <div class="job-field">
                                     <select name="pays" class="chosen-city form-control">
@@ -56,81 +71,117 @@
                                         @endforeach
                                         
                                     </select>
-                                    <i class="la la-map-marker"></i>
+                                    {{-- <i class="la la-map-marker"></i> --}}
                                 </div>
                             </div>
                             <div class="col-lg-1">
-                                <button type="submit"><i class="la la-search"></i></button>
+                                <button type="submit" class="btn btn-danger" style="background-color:#EE6E49"><i class="la la-search"></i></button>
                             </div>
                         </div>
+                    </div>
                     </form>
 <hr>
 
-                    <div class="emply-resume-sec">
-                      
-                       @foreach ($candidats as $candidat )
-                            <div class="emply-resume-list square col-lg-9">
-                                <div class="emply-resume-thumb">
-                                    <img src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil_entreprise.png'))}}" alt="" />
-                                </div>
-                                <div class="emply-resume-info">
-                                    <h3><a href="#" title="">{{$candidat->prenom}} {{$candidat->nom}}</a></h3>
-                                    <span><i>{{$candidat->poste}}</i> </span>
-                                    <p><i class="la la-map-marker"></i>{{$candidat->ville}}- {{$candidat->pays}}</p>
-                                </div>
-                                <div class="shortlists">
-                                    <a href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" title="">Voir profil <i class="la la-plus"></i></a>
-                                </div>
-                            </div><!-- Emply List -->
-                       @endforeach
+
+
+<section style="margin-bottom: 100px">
+   
+            <br>
+                            <br>
+                            <br>
+            
+                   
+                    <div class="job-grid-sec">
+                        <div class="row">
+                        @foreach ($candidats as $candidat )
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="background: #f3f1f0">
+                                <div class="job-grid">
+                                    <div class="job-title-sec">
+                                        <a  href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" target="_blank" title="">
+                                            <div class="c-logo"> 
+                                          
+                            
+                                            <img src="{{asset(($candidat->photo_profile != null) ? asset('images/photo_profil/'.$candidat->photo_profile) : asset('images/profil/profil.png'))}}" width="115px" height="120px"  title="{{$candidat->nom}}"  alt="{{$candidat->nom}}" /> </div>
+        
+                                           
+                                                <h3 style="color:#323232 ">{{$candidat->prenom}} {{$candidat->nom}}</h3>
+                                            
+                                            <h3><a href="" style="color: #EE6E49" >{{$candidat->poste}}</a></h3>
+                                            {{-- <span class="fav-job"><i class="la la-heart-o"></i></span> --}}
+                                        </a>
+                                    </div>
+                                    <span class="job-lctn"><a  href="" title="">{{$candidat->ville}}, {{$candidat->pays}}</a></span>
+                                <a  href="{{route('user.show_profil', Crypt::encrypt($candidat->id))}}" target="_blank" title="">Voir profil</a>
+                                </div><!-- JOB Grid -->
+                            </div>
+                        @endforeach
+                            
+                            
+                            
                         
-                      
-                       
-
-                        {{-- <div class="pagination"> --}}
-
-                           {{-- <ul>
-                               <li class="prev"><a href=""><i class="la la-long-arrow-left"></i> Précédent</a></li>
-                               <li><a href="">1</a></li>
-                               <li class="active"><a href="">2</a></li>
-                               <li><a href="">3</a></li>
-                           <li class="next"><a href="">Suivant <i class="la la-long-arrow-right"></i></a></li>
-                           </ul> --}}
-                       {{-- </div><!-- Pagination --> --}}
+                        </div>
                     </div>
+             
+            
+            <br>
+            <br>
+            <br>
+
+</section>
+
+
                     <br>
                     {!!$candidats->links()!!}
-                    
-               </div>
-
-
-  
-
-                
-              </div>
-         </div>
-     </div>
- </section>
-
- 
+                 
+                  </div>
+    </div>
 
 </div>
+<!-- /.container-fluid -->
+
+
+
+
+@extends('admin.layout.footer')
 
 
 @section('js-content')
 
 <script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks fullscreen',
+    'insertdatetime media table paste help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | ' +
+  'bold italic backcolor | alignleft aligncenter ' +
+  'alignright alignjustify | bullist numlist outdent indent | ' +
+  'removeformat | help',
+  });
+</script>
+
 <script>
 
+    $('#candidater_lien').on('change',function(){
 
-tinymce.init({
- selector: 'textarea',
- skin: 'bootstrap',
- plugins: 'lists, link, image, media',
- toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
- menubar: false
-});
+    var val = $('#candidater_lien').val();
+    
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+
+    }else{
+        $('#div_url_candidature').show();
+
+    }
+   
+
+    })
+
 </script>
-@endsection
-@include('layouts.footer')
 
+
+@endsection

@@ -15,7 +15,7 @@
 </x-app-layout> --}}
 {{-- {{ dd(Auth::user()->role) }} --}}
 
-@include('layouts.topmenupage')
+{{-- @include('layouts.topmenupage') --}}
 
 @if(Auth::user()->role == "candidat")
 
@@ -24,4 +24,4 @@
     @include('recruteur.profile')
 @endif
 
-@include('layouts.footer')
+{{-- @include('layouts.footer') --}}

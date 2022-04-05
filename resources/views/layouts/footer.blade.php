@@ -50,7 +50,7 @@
                         </div><!-- About Widget -->
                     </div>
                 </div>
-                <div class="col-lg-4 column">
+                <div class="col-lg-6 column">
                     <div class="widget">
                         <br><br>
                         <h3 class="footer-title">A propos</h3>
@@ -60,11 +60,15 @@
                                     <a href="{{route('qui_sommes_nous')}}" title="">Qui sommes-nous ?</a>
                                     <a href="{{route('faq')}}" title="">FAQ </a>
                                     <a href="{{route('offres_emplois')}}" title="">Offres d'emploi </a>
+                                    <a href="{{route('politique_confidentialite')}}" title="">Politique de confidentialité </a>
+
                                 </div>
                                 <div class="col-lg-6">
                                     <a href="{{route('nous_contacter')}}" title="">Contact </a>
                                     {{-- <a href="#" title="">Termes du contrat</a> --}}
                                     <a href="{{route('user.bibliotheque.index')}}" title="">Entreprises </a>
+                                    <a href="{{route('conditions_utilisation')}}" title="">Nos conditions générales d'utilisation </a>
+
 
                                     {{-- <a href="#" title="">For Employers </a>
                                     <a href="#" title="">Underwriting </a>
@@ -191,7 +195,7 @@
 <script src="{{asset('js/sweetalert2.js')}}" type="text/javascript"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('admin/js/sb-admin-2.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NQ98TCKP3"></script>
 <script>
@@ -201,6 +205,7 @@
 
   gtag('config', 'G-3NQ98TCKP3');
 </script>
+
 
 
 @yield('js-content')

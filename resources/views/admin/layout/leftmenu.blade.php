@@ -68,6 +68,12 @@
 
 
     <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.newsletter.index')}}">
+            <i class="fas fa-fw fa-envelope-square"></i>
+            <span>Newsletters</span></a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{route('admin.article.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Blog</span></a>
@@ -89,12 +95,27 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header"></h6>
                 <a class="collapse-item" href="{{route('admin.categorie_offre.index')}}">Catégories offres</a>
+                <a class="collapse-item" href="{{route('admin.categorie_article.index')}}">Catégories articles</a>
+                <a class="collapse-item" href="{{route('admin.metier.index')}}">Métiers</a>
                 <a class="collapse-item" href="{{route('admin.pays.index')}}">Pays offres</a>
             </div>
         </div>
     </li>
 
    
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.scrap_offre.index')}}">
+            <i class="fas fa-fw fa-database"></i>
+            <span>Offre Scrap</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('test')}}">
+            <i class="fas fa-fw fa-car"></i>
+            <span>Lancer le SCRAP</span></a>
+    </li>
+
+    
 
 
     <!-- Divider -->

@@ -97,7 +97,7 @@
     
             
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('candidatures.index') }}"><i class="fas fa-fw fa-list"></i><span>Mes candidatures</span></a>
+        <a class="nav-link" href="{{ route('candidatures.index_candidat') }}"><i class="fas fa-fw fa-list"></i><span>Mes candidatures</span></a>
     </li>
     
 

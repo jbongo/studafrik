@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class PaysController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -117,6 +117,6 @@ class PaysController extends Controller
 
         Pays::destroy(Crypt::decrypt($pays));
 
-        return "ok";
+        return redirect()->route('admin.pays.index')->with('ok','pays supprimé');
     }
 }

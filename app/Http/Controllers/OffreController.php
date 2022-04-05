@@ -12,6 +12,7 @@ use App\Models\Favorisoffre;
 use App\Models\Pays;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Categorieoffre;
+use App\Models\Scrapoffre;
 
 
 use Illuminate\Support\Facades\Crypt;
@@ -155,7 +156,7 @@ class OffreController extends Controller
                 }
             })
             ->orderBy('created_at','desc')
-            ->paginate(10);
+            ->paginate(10)->withQueryString();
 
 
 
@@ -189,6 +190,10 @@ class OffreController extends Controller
         return view('offre.add', compact('pays','categories'));
         
     }
+
+   
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -310,6 +315,7 @@ class OffreController extends Controller
         if(Auth::check() && Auth::user()->role == "candidat"){
 
             $offres = Auth::user()->offres;
+         
             foreach ($offres as $off) {
             
                 if($off->id == $offre->id){
@@ -423,7 +429,7 @@ class OffreController extends Controller
         
         $offre->update();
 
-        return view('candidature.postuler', compact('offre'));
+        return view('candidat.candidatures.postuler', compact('offre'));
     }
 
     
@@ -478,7 +484,7 @@ class OffreController extends Controller
 
         Mail::to($offre->user->email)->send(new CandidatureNotif($offre));
         // return Redirect::back()->withErrors(['ok', 'Votre  candidature a été envoyé au recruteur ']);
-        return redirect()->route('candidatures.index')->with('ok', __("Votre  candidature a été envoyé au recruteur")  );
+        return redirect()->route('candidatures.index_candidat')->with('ok', __("Votre  candidature a été envoyé au recruteur")  );
 
         // return view('mes_offres.show', compact('offre'))->with('ok', 'Votre  candidature a été envoyé au recruteur ');;
     }
@@ -512,15 +518,28 @@ class OffreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create_admin()
+    public function create_admin($offrescrap_id = null)
     {
+
 
         $pays = Pays::all();
         $categories = Categorieoffre::all();
 
-        return view('admin.offre.add', compact('pays','categories'));
+
+        $offrescrapp = Scrapoffre::where('id', $offrescrap_id)->first();
+
+        if( $offrescrapp != null ){
+            $offre = Offre::where('titre', $offrescrapp->titre)->first();
+        }else{
+            $offre = null;
+        }
+
+
+        return view('admin.offre.add', compact('pays','categories','offre','offrescrapp'));
         
     }
+
+     
 
     /**
      * Store a newly created resource in storage.
@@ -528,9 +547,20 @@ class OffreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_admin(Request $request)
+    public function store_admin(Request $request, $offrescrap_id = null)
     {
         
+
+        // Si loffre a déjà été scrappé
+        if($offrescrap_id != null){
+            $offrescrap = Scrapoffre::where('id', $offrescrap_id)->first();
+
+            if($offrescrap->statut > 0 ){
+                return redirect()->route("admin.scrap_offre.index")->with('ok', "$offrescrap->titre a déjà été ajoutée");
+            }
+
+        }
+
 
         $file = "";
         if($file = $request->file('photo_recruteur')){
@@ -602,6 +632,17 @@ class OffreController extends Controller
         }
 
         $offre->update();
+
+        // Si l'offre a été scrappée, on la retire de la liste des offres scrappées
+
+        if($offrescrap_id != null){
+            $offrescrap = Scrapoffre::where('id', $offrescrap_id)->first();
+
+            $offrescrap->statut = 1;
+
+            $offrescrap->update();
+
+        }
         
         return redirect()->route('admin.offres.index')->with('ok', __("Nouvelle offre ajoutée")  );
 

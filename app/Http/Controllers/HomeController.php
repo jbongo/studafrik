@@ -22,10 +22,10 @@ class HomeController extends Controller
         $categories = Categorieoffre::all();
         $pays = Pays::all();
 
-        $nb_offre_industrie =  Offre::where('categorieoffre_id', 13)->count();
-        $nb_offre_banque =  Offre::where('categorieoffre_id', 5)->count();
-        $nb_offre_education =  Offre::where('categorieoffre_id', 9)->count();
-        $nb_offre_pub =  Offre::where('categorieoffre_id', 17)->count();
+        $nb_offre_industrie =  Offre::where([['categorieoffre_id', 13], ['archive',false],['active',true]])->count();
+        $nb_offre_banque =  Offre::where([['categorieoffre_id', 5], ['archive',false],['active',true]])->count();
+        $nb_offre_education =  Offre::where([['categorieoffre_id', 9], ['archive',false],['active',true]])->count();
+        $nb_offre_pub =  Offre::where([['categorieoffre_id', 17], ['archive',false],['active',true]])->count();
 
         // dd($offres);
         return view('welcome', compact('offres','articles', 'categories', 'pays','nb_offre_industrie','nb_offre_banque','nb_offre_pub','nb_offre_education',));

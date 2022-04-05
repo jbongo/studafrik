@@ -8,12 +8,24 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Offre</h1>
   <hr>
-      <a href="{{route('admin.offres.index')}}" class="btn btn-warning btn-icon-split" >
-        <span class="icon text-white-50">
-            <i class="fas fa-arrow-left"></i>
-        </span>
-        <span class="text">Liste des offres</span>
-    </a>
+
+    @if($offrescrapp != null)
+        <a href="{{route('admin.scrap_offre.index')}}" class="btn btn-warning btn-icon-split" >
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Retour</span>
+        </a>
+    @else
+        <a href="{{route('admin.offres.index')}}" class="btn btn-warning btn-icon-split" >
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Liste des offres</span>
+        </a>
+    @endif
+    
+
   <hr>
   @if (session('ok'))
   <div class="alert alert-success ">
@@ -39,7 +51,7 @@
             
 
 
-        <form method="POST"  action="{{route('admin.offre.store')}}" enctype="multipart/form-data">
+        <form method="POST"   action="  @if($offrescrapp!= null) {{route('admin.offre.store', $offrescrapp->id)}}" @else {{route('admin.offre.store')}}" @endif enctype="multipart/form-data">
                     
                     @csrf
                    
@@ -48,7 +60,7 @@
                         <div class="col-6">
                             <span class="pf-title">Nom de l'entreprise</span>
                             <div class="pf-field">
-                                <input type="text"  name="nom_entreprise" class="form-control" placeholder=""required  />
+                                <input type="text"  name="nom_entreprise" class="form-control" placeholder=""required @if($offrescrapp!= null) value="{{$offrescrapp->nom_entreprise}}" @endif  />
                             </div>
                         </div>
                         <div class="col-6">
@@ -65,7 +77,7 @@
                         <div class="col-9">
                             <span class="pf-title">Titre de l'offre</span>
                             <div class="pf-field">
-                                <input type="text"  name="titre" class="form-control" placeholder=""required  />
+                                <input type="text"  name="titre" class="form-control" @if($offrescrapp!= null) value="{{$offrescrapp->titre}}" @endif  placeholder="" required  />
                             </div>
                         </div>
                         
@@ -77,7 +89,7 @@
                         <div class="col-9">
                             <span class="pf-title">Description de l'offre</span>
                             <div class="pf-field">
-                                <textarea name="description"  ></textarea>
+                                <textarea name="description" rows="40"  > @if($offrescrapp!= null) {{$offrescrapp->annonce}} @endif </textarea>
                             </div>
                         </div>
                         
@@ -88,7 +100,7 @@
                         <div class="col-9">
                             <span class="pf-title">Profil et compétences recherchés</span>
                             <div class="pf-field">
-                                <textarea name="description_profil" ></textarea>
+                                <textarea name="description_profil" rows="20"></textarea>
                             </div>
                         </div>
                     </div>
@@ -193,6 +205,10 @@
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="pays" class=" form-control chosen">
                                    
+                                    @if($offrescrapp!= null )
+                                        <option value="{{$offrescrapp->pays}}">{{$offrescrapp->pays}}</option>
+
+                                    @endif
                                     @foreach ($pays as $pay )
                                         <option value="{{$pay->nom}}">{{$pay->nom}}</option>
                                         
@@ -205,7 +221,7 @@
                         <div class="col-4">
                             <span class="pf-title">Ville de l'offre</span>
                             <div class="pf-field">
-                                <input type="text"  name="ville" class="form-control" placeholder="" required  />
+                                <input type="text"  name="ville" class="form-control" placeholder=""   />
                             </div>
                         </div>
 
@@ -231,6 +247,10 @@
                             <div class="pf-field">
                               
                                <select data-placeholder="" id="candidater_lien" required  name="candidater_lien" class="form-control chosen">
+                                @if($offrescrapp != null)
+                                    <option value="Oui">Oui</option>
+                                @endif
+                                
                                 <option value="Non">Non</option>
                                 <option value="Oui">Oui</option>
                                 
@@ -241,7 +261,7 @@
                         <div class="col-6" id="div_url_candidature">
                             <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
                             <div class="pf-field">
-                               <input type="url" id="url_candidature" name="url_candidature" class="form-control"  />
+                               <input type="url" id="url_candidature" name="url_candidature" @if($offrescrapp != null)  value="{{$offrescrapp->url}}" @endif class="form-control"  />
                             </div>
                         </div>
                         
@@ -291,29 +311,30 @@
 
 <script>
 
-$('#div_url_candidature').hide();
-   
+    @if($offrescrapp == null)
 
+        $('#div_url_candidature').hide();
+
+    @endif  
+
+    $('#candidater_lien').on('change',function(){
+
+    var val = $('#candidater_lien').val();
     
-   $('#candidater_lien').on('change',function(){
-
-       var val = $('#candidater_lien').val();
-       
-       if(val == "Non"){
-           $('#div_url_candidature').hide();
-           $('#url_candidature').attr('required',false);
+    if(val == "Non"){
+        $('#div_url_candidature').hide();
+        $('#url_candidature').removeAttr('required')
 
 
-       }else{
-           $('#div_url_candidature').show();
-           $('#url_candidature').attr('required',true);
+        $('#url_candidature').attr('required',true);
 
-       }
-  
+        
 
-   });
-
+    }
+   
 
 
 </script>
+
+
 @endsection

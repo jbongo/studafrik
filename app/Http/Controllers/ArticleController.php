@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Commentaire;
+use App\Models\Categoriearticle;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image as InterventionImage;
@@ -24,8 +25,11 @@ class ArticleController extends Controller
     {
         $articles = Article::where([['archive', false], ['actif', true]])->orderBy('id', 'desc')->paginate(15);
 
+        $categories = Categoriearticle::all();
 
-        return view('blog.index', compact('articles'));
+        $cat = null ;
+
+        return view('blog.index', compact('articles','categories','cat'));
     }
 
    
@@ -104,6 +108,7 @@ class ArticleController extends Controller
         $articles = Article::all();
 
 
+
         return view('admin.blog.article.index', compact('articles'));
     }
 
@@ -114,7 +119,9 @@ class ArticleController extends Controller
      */
     public function create_admin()
     {
-        return view('admin.blog.article.add');
+        $categories = Categoriearticle::all();
+
+        return view('admin.blog.article.add', compact('categories'));
     }
 
     /**
@@ -129,7 +136,7 @@ class ArticleController extends Controller
 
     
         $request->validate([
-                
+
             'titre' => 'required|string|unique:articles',
             'description' => 'required',
             "image" => "required|image|max:5000",
@@ -139,6 +146,7 @@ class ArticleController extends Controller
 
         $article = Article::create([
             "titre"=> $request->titre,
+            "categoriearticle_id"=> $request->categorie,
             "description"=> $request->description,
         ]);
 
@@ -183,8 +191,7 @@ class ArticleController extends Controller
         
         $article = Article::where('slug',$slug)->first();
         $num = $id;
-
-
+        
         return view('blog.article',compact('article','num'));
     }
 
@@ -199,8 +206,10 @@ class ArticleController extends Controller
         $article = Article::where('slug',$slug)->first();
       
 
+        // dd($article->categoriearticle()->nom);
+        $categories = Categoriearticle::all();
 
-        return view('admin.blog.article.edit',compact('article'));
+        return view('admin.blog.article.edit',compact('article','categories'));
     }
 
     /**
@@ -228,6 +237,7 @@ class ArticleController extends Controller
 
       
             $article->titre = $request->titre;
+            $article->categoriearticle_id = $request->categorie;
             $article->description = $request->description;
      
 
@@ -324,7 +334,7 @@ class ArticleController extends Controller
     }
     
     
-      /**
+    /**
      * Convertir une chaine de caractère en slug.
      *
      * @param  String $slug
@@ -346,8 +356,44 @@ class ArticleController extends Controller
 
        }
 
+    }
+
+    
+    
+    /**
+     * Convertir une chaine de caractère en slug.
+     *
+     * @param  String $slug
+     * @return String 
+     */
+    public function rechercher_article(Request $request)
+    {
+
+        
+        $mot_cle = $request->mot_cle;
+        $cat = $request->categorie != null ? Categoriearticle::where('id', $request->categorie )->first() : null ;
 
 
+        $articles = Article::where([['archive', false], ['actif', true]])
+
+            ->where(function($query) use ($mot_cle){
+                $query->where('titre', 'like', '%'.$mot_cle.'%')
+                ->orWhere('description', 'like', '%'.$mot_cle.'%');
+            })       
+
+            ->where(function($query) use ($cat){
+                if($cat != null){
+
+                    $query->where('categorie_id', $cat->id);
+                }
+            }) 
+        
+        ->orderBy('id', 'desc')->paginate(15);
+
+        $categories = Categoriearticle::all();
+
+
+        return view('blog.index', compact('articles','categories','cat'));
     }
 
 }

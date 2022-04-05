@@ -17,5 +17,15 @@ class Article extends Model
         return $commentaires->where('valide',1)->get();
     }
 
+    public function  categoriearticle(){
+
+        $categorie = Categoriearticle::where('id', $this->categoriearticle_id)->first();
+
+
+        return $categorie;
+
+
+        // return $this->belongsTo(Categoriearticle::class);
+    }
 
 }

@@ -45,6 +45,7 @@
                    
 
                     <div class="row">
+
                         <div class="col-lg-6">
                             <span class="pf-title">Titre de l'article</span>
                             <div class="pf-field">
@@ -57,7 +58,24 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="col-lg-6">
+
+                        <div class="col-lg-3 ">
+                            <span class="pf-title">Catégorie de l'article <span class="text-danger">*</span> </span>
+                            <div class="form-group">
+                                <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
+                                    
+                                    <option value="{{$article->categoriearticle()->id}}">{{$article->categoriearticle()->nom}}</option>   
+                            
+                                    @foreach ($categories as $categorie )
+                                        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
+                                    @endforeach
+                                
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3">
                             <span class="pf-title">Image couverture</span>
                             <div class="pf-field" id="div_inputimage">
                                 <input type="file"  value="{{ old('image') ? old('image') : Auth::user()->image  }}" name="image"  class="form-control"/>
@@ -70,6 +88,7 @@
                                     <span class="text">Modifier l'image</span>
                                 </a>
                             </div>
+
                             @if ($errors->has('image'))
                                 <br>
                                 <div class="alert alert-warning ">

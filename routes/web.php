@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/','HomeController@index')->name('welcome');
+Route::get('/#newsletter','HomeController@index')->name('welcome_newsletter');
 
 
 
@@ -95,7 +96,11 @@ Route::get('slug','OffreController@convert_to_slug')->name('convert_to_slug');
 Route::get('postuler/{offre_id}','OffreController@create_postuler')->name('postuler.create')->middleware('auth');
 Route::post('postuler/{offre_id}','OffreController@store_postuler')->name('postuler.store')->middleware('auth');
 
-Route::get('candidatures','CandidatureController@index')->name('candidatures.index')->middleware('auth');
+// Liste des candidatures du candidat #Profil candidat
+Route::get('candidatures/candidat','CandidatureController@index_candidat')->name('candidatures.index_candidat')->middleware('auth');
+
+// Liste des candidatures d'une offre  #Profil recruteur
+Route::get('candidatures/recruteur/{offre_slug}','CandidatureController@index_recruteur')->name('candidatures.index_recruteur')->middleware('auth');
 
 // CV
 
@@ -125,7 +130,7 @@ Route::middleware('auth')->group(function () {
 
     // ##Recruteur 
 
-    Route::get('cv/liste/{mot_cle?}/{pays?}','CvController@liste')->name('cv.liste');
+    Route::get('cv/liste/{mot_cle?}/{pays?}/{secteur?}','CvController@liste')->name('cv.liste');
 
     // Favoris
     Route::get('favoris/cv/{recruteur_id}/{candidat_id}','FavoriscvController@store')->name('favoris.cv');
@@ -146,6 +151,8 @@ Route::get('blog','ArticleController@index')->name('blog.index');
 Route::get('article/{article_id}','ArticleController@article_show')->name('article.show');
 
 Route::get('article-slug','ArticleController@convert_to_slug')->name('article.convert_to_slug');
+
+Route::get('article/rechercher/mot_cle','ArticleController@rechercher_article')->name('article.rechercher');
 
 
 
@@ -172,6 +179,30 @@ Route::get('/nous-contacter', function () {
 })->name('nous_contacter');
 Route::post('/nous-contacter','ContactController@store')->name('contact.store');
 
+// Politique de confidentialité
+Route::get('/politique-confidentialite', function () {
+    return view('politique_confidentialite');
+})->name('politique_confidentialite');
+
+// Conditions d'utilisation
+Route::get('/conditions-utilisation', function () {
+    return view('condition_dutilisation');
+})->name('conditions_utilisation');
+
+
+// Newsletter
+
+Route::post('newsletter/store','NewsletterController@store')->name('newsletter.store');
+
+
+// test 
+Route::get('/test','TestController@index')->name('test');
+Route::get('/scrap/emploissenegal','TestController@emploissenegal_com')->name('scrap.emploissenegal');
+Route::get('/scrap/emploisgabon','TestController@emploisgabon')->name('scrap.emploisgabon');
+Route::get('/scrap/emploisci','TestController@emploisci')->name('scrap.emploisci');
+Route::get('/scrap/emploiscg','TestController@emploiscg')->name('scrap.emploiscg');
+Route::get('/scrap/emploiscm','TestController@emploiscm')->name('scrap.emploiscm');
+
 
 
 // ############################# ROUTES ADMIN ##################################
@@ -185,18 +216,31 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/dashboard','HomeController@admin_dashboard')->name('admin.dashboard');
 
 
-    // Catégories
+    // Catégories des offres
     Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
     Route::post('admin/categorie-offre/store','CategorieOffreController@store')->name('admin.categorie_offre.store');
     Route::post('admin/categorie-offre/update/{offre}','CategorieOffreController@update')->name('admin.categorie_offre.update');
     Route::post('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
+
+
+    // Catégories des article
+    Route::get('admin/categorie-article','CategorieArticleController@index')->name('admin.categorie_article.index');
+    Route::post('admin/categorie-article/store','CategorieArticleController@store')->name('admin.categorie_article.store');
+    Route::post('admin/categorie-article/update/{article}','CategorieArticleController@update')->name('admin.categorie_article.update');
+    Route::get('admin/categorie-article/delete/{article}','CategorieArticleController@delete')->name('admin.categorie_article.delete');
 
     
     // Pays
     Route::get('admin/pays','PaysController@index')->name('admin.pays.index');
     Route::post('admin/pays/store','PaysController@store')->name('admin.pays.store');
     Route::post('admin/pays/update/{offre}','PaysController@update')->name('admin.pays.update');
-    Route::post('admin/pays/delete/{offre}','PaysController@delete')->name('admin.pays.delete');
+    Route::get('admin/pays/delete/{offre}','PaysController@delete')->name('admin.pays.delete');
+
+      // Métier
+    Route::get('admin/metier','MetierController@index')->name('admin.metier.index');
+    Route::post('admin/metier/store','MetierController@store')->name('admin.metier.store');
+    Route::post('admin/metier/update/{metier_id}','MetierController@update')->name('admin.metier.update');
+    Route::get('admin/metier/delete/{metier_id}','MetierController@delete')->name('admin.metier.delete');
 
 
     // Blog -> articles
@@ -215,8 +259,8 @@ Route::middleware([Admin::class])->group(function () {
     // offres
 
     Route::get('admin/offres','OffreController@index_admin')->name('admin.offres.index');    
-    Route::get('admin/ajout-offre','OffreController@create_admin')->name('admin.offre.create');
-    Route::post('admin/ajout-offre','OffreController@store_admin')->name('admin.offre.store');
+    Route::get('admin/ajout-offre/{offrescrap_id?}','OffreController@create_admin')->name('admin.offre.create');
+    Route::post('admin/ajout-offre/{offrescrap_id?}','OffreController@store_admin')->name('admin.offre.store');
     Route::get('admin/edit-offre/{offre_id}','OffreController@edit_admin')->name('admin.offre.edit');
     Route::post('admin/update-offre/{offre_id}','OffreController@update_admin')->name('admin.offre.update');
     Route::get('admin/delete-offre/{offre_id}','OffreController@destroy_admin')->name('admin.offre.delete');
@@ -249,8 +293,16 @@ Route::middleware([Admin::class])->group(function () {
     Route::post('admin/recruteur/update/{candidat_id}','UserController@update_recruteur')->name('admin.recruteur.update');    
     Route::post('admin/recruteur/delete/{recruteur_id}','UserController@delete_recruteur')->name('admin.recruteur.delete');    
 
-    
+    // Newsletter
 
-    
+    Route::get('admin/newsletters','NewsletterController@index')->name('admin.newsletter.index');
+
+    // Offres scrappées
+
+
+    Route::get('admin/scrap_offre','ScrapoffreController@index')->name('admin.scrap_offre.index');
+    Route::get('admin/scrap_offre/{offre_id}','ScrapoffreController@show')->name('admin.scrap_offre.show');
+    Route::get('admin/scrap_offre/delete/{offre_id}','ScrapoffreController@delete')->name('admin.scrap_offre.delete');
+   
     
 });

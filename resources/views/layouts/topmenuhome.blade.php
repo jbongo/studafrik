@@ -12,7 +12,7 @@
 
 	<meta name="description" content="une plateforme de recherche d’emploi et stages permettant de mettre en relation des entreprises, de toutes tailles et tous secteurs confondus, et des étudiants ou jeunes diplômés en quête d’une opportunité professionnelle en Afrique francophone." />
 
-
+ 
 
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-grid.css')}}" />
