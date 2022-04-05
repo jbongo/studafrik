@@ -330,9 +330,13 @@ class OffreController extends Controller
 
         $est_favoris = $favoris != null ? true : false ;
 
-        
+        // offres de la même catégorie
 
-        return view('offre.show', compact('offre','deja_postuler','est_candidat','est_favoris'));
+        $offrescategories = Offre::where([['archive',false],['active',true], ['pays', $offre->pays] ] )->orderBy('created_at','desc')->limit(10)->get();
+    
+
+
+        return view('offre.show', compact('offre','deja_postuler','est_candidat','est_favoris','offrescategories'));
     }
 
     /**

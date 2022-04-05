@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Historique;
 
 class LoginController extends Controller
 {
     /**
-     * Handle an authentication attempt.
+     * Connexion au BO admin
      *
      * @param  \Illuminate\Http\Request $request
      *
@@ -21,6 +22,8 @@ class LoginController extends Controller
  
          if (Auth::attempt($credentials)) {
              // Authentication passed...
+       
+             Historique::createHistorique(Auth::user()->id, Auth::user()->id,"connexion","s'est connecté" );
              return redirect()->intended('admin/dashboard');
          }
 
@@ -29,5 +32,13 @@ class LoginController extends Controller
         ]);
 
        
+    //    Dans illuminate\Auth\Middelware\Authenticate
+  /** 
+  
+* use \App\Models\Historique;
+*use Illuminate\Support\Facades\Auth as Authen;
+ 
+* Historique::createHistorique(Authen::user()->id, Authen::user()->id,"connexion","s'est connecté" );
+ */
      }
 }

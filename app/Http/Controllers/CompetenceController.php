@@ -3,23 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\Categorieoffre;
+use App\Models\Competence;
 use Illuminate\Support\Facades\Crypt;
-class CategorieOffreController extends Controller
+
+class CompetenceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Liste des compétences
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $categories = Categorieoffre::all();
+        $competences = Competence::all();
 
-
-        return view('admin.configuration.categorie_offre.index',compact('categories'));
-
+        return view('admin.configuration.competence.index',compact('competences'));
     }
 
     /**
@@ -40,22 +38,17 @@ class CategorieOffreController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             
-            'nom' => 'required|string|unique:categorieoffres',
+            'nom' => 'required|string|unique:competences',
           
         ]);
 
-    
-
-        Categorieoffre::create([
+        Competence::create([
             "nom"=>$request->nom
         ]);
 
-        // return redirect::back()->with('_ok', "");
-        return redirect()->route('admin.categorie_offre.index')->with('ok', __("Nouvelle catégorie ajoutée ")  );
-
+        return redirect()->route('admin.competence.index')->with('ok', __("Nouvelle compétence ajoutée")  );
     }
 
     /**
@@ -81,29 +74,29 @@ class CategorieOffreController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     *Modification d'une compétence
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $offre)
+    public function update(Request $request, $competence_id)
     {
-        $categorie = Categorieoffre::where('id',Crypt::decrypt($offre))->first();
+        $competence = Competence::where('id',Crypt::decrypt($competence_id))->first();
 
-        if($categorie->nom != $request->nom){
+        if($competence->nom != $request->nom){
             $request->validate([
             
-                'nom' => 'required|string|unique:categorieoffres',
+                'nom' => 'required|string|unique:competences',
               
             ]);
         }
 
-        $categorie->nom = $request->nom ;
+        $competence->nom = $request->nom ;
 
-        $categorie->update();
+        $competence->update();
 
-        return redirect()->route('admin.categorie_offre.index')->with('ok', "Catégorie modifiée");
+        return redirect()->route('admin.competence.index')->with('ok', "compétence modifiée");
     }
 
     /**
@@ -112,12 +105,11 @@ class CategorieOffreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($offre)
+    public function delete($competence_id)
     {
+        
+        Competence::destroy(Crypt::decrypt($competence_id));
 
-
-        Categorieoffre::destroy(Crypt::decrypt($offre));
-
-        return redirect()->route('admin.categorie_offre.index')->with('ok', "Catégorie supprimée");
+        return redirect()->route('admin.competence.index')->with('ok','compétence supprimée');
     }
 }

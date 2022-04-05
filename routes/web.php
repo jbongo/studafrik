@@ -166,6 +166,13 @@ Route::get('/qui-sommes-nous', function () {
     return view('qui_sommes_nous');
 })->name('qui_sommes_nous');
 
+
+// Info recruteur
+
+Route::get('/info-recruteur', function () {
+    return view('infos_recruteur');
+})->name('info_recruteur');
+
 // FAQ
 
 Route::get('/faq', function () {
@@ -194,6 +201,9 @@ Route::get('/conditions-utilisation', function () {
 
 Route::post('newsletter/store','NewsletterController@store')->name('newsletter.store');
 
+Route::get('validation/email/{id}','NewsletterController@validation')->name('newsletter.validation');
+Route::get('newsletter/message','NewsletterController@message')->name('newsletter.message');
+
 
 // test 
 Route::get('/test','TestController@index')->name('test');
@@ -220,7 +230,7 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/categorie-offre','CategorieOffreController@index')->name('admin.categorie_offre.index');
     Route::post('admin/categorie-offre/store','CategorieOffreController@store')->name('admin.categorie_offre.store');
     Route::post('admin/categorie-offre/update/{offre}','CategorieOffreController@update')->name('admin.categorie_offre.update');
-    Route::post('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
+    Route::get('admin/categorie-offre/delete/{offre}','CategorieOffreController@delete')->name('admin.categorie_offre.delete');
 
 
     // Catégories des article
@@ -243,6 +253,13 @@ Route::middleware([Admin::class])->group(function () {
     Route::get('admin/metier/delete/{metier_id}','MetierController@delete')->name('admin.metier.delete');
 
 
+    // Compétence
+    Route::get('admin/competence','CompetenceController@index')->name('admin.competence.index');
+    Route::post('admin/competence/store','CompetenceController@store')->name('admin.competence.store');
+    Route::post('admin/competence/update/{competence_id}','CompetenceController@update')->name('admin.competence.update');
+    Route::get('admin/competence/delete/{competence_id}','CompetenceController@delete')->name('admin.competence.delete');
+    
+    
     // Blog -> articles
 
     Route::get('admin/articles','ArticleController@index_admin')->name('admin.article.index');
@@ -297,12 +314,18 @@ Route::middleware([Admin::class])->group(function () {
 
     Route::get('admin/newsletters','NewsletterController@index')->name('admin.newsletter.index');
 
+
+    
     // Offres scrappées
 
 
     Route::get('admin/scrap_offre','ScrapoffreController@index')->name('admin.scrap_offre.index');
     Route::get('admin/scrap_offre/{offre_id}','ScrapoffreController@show')->name('admin.scrap_offre.show');
     Route::get('admin/scrap_offre/delete/{offre_id}','ScrapoffreController@delete')->name('admin.scrap_offre.delete');
-   
+
+    
+    // Historique
+
+    Route::get('admin/historique','HistoriqueController@index')->name('admin.historique.index');    
     
 });

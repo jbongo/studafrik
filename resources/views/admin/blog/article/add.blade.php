@@ -62,7 +62,7 @@
                         <div class="col-lg-3 ">
                             <span class="pf-title">Catégorie de l'article <span class="text-danger">*</span> </span>
                             <div class="form-group">
-                                <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
+                                <select data-placeholder="Please Select Specialism" required  name="categoriearticle_id" class="form-control chosen">
                             
                                     @foreach ($categories as $categorie )
                                         <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   

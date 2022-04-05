@@ -57,13 +57,14 @@
                    
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Nom de l'entreprise</span>
                             <div class="pf-field">
                                 <input type="text"  name="nom_entreprise" class="form-control" placeholder=""required @if($offrescrapp!= null) value="{{$offrescrapp->nom_entreprise}}" @endif  />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <br>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Photo l'entreprise</span>
                             <div class="pf-field">
                                 <input type="file"  name="photo_recruteur" class="form-control" accept="image/png, image/jpeg"  />
@@ -71,10 +72,10 @@
                         </div>
                         
                     </div>
-                    <br>
+                    
                     <br>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Titre de l'offre</span>
                             <div class="pf-field">
                                 <input type="text"  name="titre" class="form-control" @if($offrescrapp!= null) value="{{$offrescrapp->titre}}" @endif  placeholder="" required  />
@@ -83,13 +84,12 @@
                         
                     </div>
                     <br>
-                    <br>
                     
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Description de l'offre</span>
                             <div class="pf-field">
-                                <textarea name="description" rows="40"  > @if($offrescrapp!= null) {{$offrescrapp->annonce}} @endif </textarea>
+                                <textarea name="description" rows="20"  > @if($offrescrapp!= null) {{$offrescrapp->annonce}} @endif </textarea>
                             </div>
                         </div>
                         
@@ -97,7 +97,7 @@
                     <br>
                     <br>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Profil et compétences recherchés</span>
                             <div class="pf-field">
                                 <textarea name="description_profil" rows="20"></textarea>
@@ -117,11 +117,10 @@
                         </div>
                     </div> --}}
                     
-                    <br><br>
-                    
+                    <br>                    
                     
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Catégorie de l'emploi</span>
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="categorieoffre_id" class="form-control chosen">
@@ -134,7 +133,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Type de contrat</span>
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="type_contrat" class="form-control chosen">
@@ -153,16 +152,16 @@
                         
                     </div>
                     
-                    <br><br>
+                    <br>
                     
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span  htmlFor="customRange1" class="pf-title">Salaire </span>
                             <div class="pf-field">
                                <input type="number"  name="salaire" class="form-control" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span  htmlFor="customRange1" class="pf-title">Devise du Salaire  </span>
                             <div class="pf-field">
                               
@@ -174,11 +173,11 @@
                             </div>
                         </div>
                     </div>
-                    <br><br>
+                    <br>
                     
                     <div class="row">
                        
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title"  htmlFor="customRange2">Expérience requise </span>
                             <div class="pf-field">
                                 <select data-placeholder="experience" required  name="experience" class="form-control chosen">
@@ -191,16 +190,16 @@
                         </div>
             
                     </div>
-                        <br><br>
+                        <br>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <span class="pf-title">Date d'expiration de l'offre</span>
                             <div class="pf-field">
                                 <input type="date"   name="date_expiration" class="form-control datepicker" required />
                             </div>
                         </div>
                        
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <span class="pf-title">Pays de l'offre</span>
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="pays" class=" form-control chosen">
@@ -218,7 +217,7 @@
                                </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <span class="pf-title">Ville de l'offre</span>
                             <div class="pf-field">
                                 <input type="text"  name="ville" class="form-control" placeholder=""   />
@@ -227,11 +226,10 @@
 
                     </div>
                         
-                        
-                    <br>
+                    
                     <br>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span style="background-color:#aeec; color:red" class="pf-title">Message aux candidats postuler</span>
                             <div class="pf-field">
                                 <textarea  name="message_candidature" ></textarea>
@@ -239,10 +237,10 @@
                         </div>
                     </div>
 
-                    <br><br>
+                    <br>
                     
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
                             <div class="pf-field">
                               
@@ -258,7 +256,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6" id="div_url_candidature">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="div_url_candidature">
                             <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
                             <div class="pf-field">
                                <input type="url" id="url_candidature" name="url_candidature" @if($offrescrapp != null)  value="{{$offrescrapp->url}}" @endif class="form-control"  />

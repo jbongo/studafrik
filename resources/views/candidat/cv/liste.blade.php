@@ -1,5 +1,7 @@
 @section('css-content')
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    
 @endsection
 
 @include('layouts.topmenu_bo')
@@ -42,14 +44,29 @@
                         @csrf
                         <div class="emply-resume-sec">
                         <div class="row" >
-                            <div class="col-lg-5">
+                        
+                        
+                        
+                           
+                              
+                            
+                            <div class="col-lg-5 col-md-5">
                                 <div class="job-fieldx">
-                                    <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
+                               
+                                    {{-- <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" /> --}}
                                     {{-- <i class="la la-keyboard-o"></i> --}}
+                                    <label for="">Chercher par compétences</label>
+                                    <select class="selectpicker col-lg-6" id="competences" name="competences"  data-live-search="true" multiple>
+                                      @foreach ($competences as $competence)
+                                          <option value="{{$competence}}">{{$competence}}</option>
+                                      @endforeach
+                                      </select>
                                 </div>
                             </div>
+                            
+                            
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-md-3">
                                 <div class="job-field">
                                     <select name="secteur" class="chosen-city form-control">
                                         <option value="">Secteurs d'activités</option>
@@ -62,7 +79,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-md-3">
                                 <div class="job-field">
                                     <select name="pays" class="chosen-city form-control">
                                         <option value="">Tous les pays</option>
@@ -80,7 +97,7 @@
                         </div>
                     </div>
                     </form>
-<hr>
+
 
 
 
@@ -146,6 +163,12 @@
 
 
 @section('js-content')
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-fr_FR.min.js"></script>
+
 
 <script src="https://cdn.tiny.cloud/1/ieugu2pgq0vkrn7vrhnp69zprqpp5xfwh9iewe7v24gtdj8f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -165,6 +188,9 @@
 </script>
 
 <script>
+$(function () {
+	$('#competences').selectpicker();
+});
 
     $('#candidater_lien').on('change',function(){
 

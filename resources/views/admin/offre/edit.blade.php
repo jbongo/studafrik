@@ -45,7 +45,7 @@
                    
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Nom de l'entreprise</span>
                             <div class="pf-field">
                                 <input type="text"  name="nom_entreprise" value="{{ old('nom_entreprise') ? old('nom_entreprise') : $offre->nom_entreprise }}" class="form-control" placeholder=""required  /> 
@@ -53,7 +53,7 @@
                         </div>
 
 
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="upload-img-bar">
                             <span class="pf-title">Photo de l'entreprise</span>
 
@@ -73,10 +73,10 @@
                     </div>
                         
                     </div>
-                    <br>
+                    
                     <br>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Titre de l'offre</span>
                             <div class="pf-field">
                                 <input type="text"  name="titre" value="{{ old('titre') ? old('titre') : $offre->titre }}" class="form-control" placeholder=""required  />
@@ -85,10 +85,10 @@
                         
                     </div>
                     <br>
-                    <br>
+                    
                     
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Description de l'offre</span>
                             <div class="pf-field">
                                 <textarea name="description"  >{{ old('description') ? old('description') : $offre->description }}</textarea>
@@ -99,7 +99,7 @@
                     <br>
                     <br>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Description du profil recherché</span>
                             <div class="pf-field">
                                 <textarea name="description_profil" >{{ old('description_profil') ? old('description_profil') : $offre->description_profil }}</textarea>
@@ -107,11 +107,11 @@
                         </div>
                     </div>
                     <br>
-                    <br>
+                    
                     
                     <div class="row">
                     
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span class="pf-title">Compétences réquises</span>
                             <div class="pf-field">
                                 <textarea name="competence_requise" id="" cols="30" rows="5">{{ old('comptence_requise') ? old('comptence_requise') : $offre->comptence_requise }}</textarea>
@@ -119,11 +119,11 @@
                         </div>
                     </div>
                     
-                    <br><br>
+                    <br>
                     
                     
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Catégorie de l'emploi</span>
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="categorieoffre_id" class="form-control chosen">
@@ -140,7 +140,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title">Type de contrat</span>
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="type_contrat" class="form-control chosen">
@@ -164,16 +164,16 @@
                         
                     </div>
                     
-                    <br><br>
+                    <br>
                     
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span  htmlFor="customRange1" class="pf-title">Salaire </span>
                             <div class="pf-field">
-                               <input type="number"  name="salaire" value="{{ old('salaire') ? old('salaire') : $offre->salaire }}" class="form-control custom-range" />
+                               <input type="number"  name="salaire" value="{{ old('salaire') ? old('salaire') : $offre->salaire }}" class="form-control " />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span  htmlFor="" class="pf-title">Devise du Salaire </span>
                             <div class="pf-field">
                                 <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">
@@ -185,10 +185,10 @@
                             </div>
                         </div>
                     </div>
-                    <br><br>
+                    <br>
                     
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <span class="pf-title"  htmlFor="customRange2">Expérience requise</span>
                             <div class="pf-field">
                                <select data-placeholder="experience" required  name="experience" class="form-control chosen">
@@ -203,16 +203,16 @@
                        
             
                     </div>
-                        <br><br>
+                        <br>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <span class="pf-title">Date d'expiration de l'offre</span>
                             <div class="pf-field">
-                                <input type="date"   name="date_expiration" value="{{ old('date_expiration') ? old('date_expiration') : $offre->date_expiration->format('Y-m-d') }}" class="form-control datepicker" required />
+                                <input type="date"   name="date_expiration" value="{{ old('date_expiration') ? old('date_expiration') : ($offre->date_expiration != null ? $offre->date_expiration->format('Y-m-d') : null ) }}" class="form-control datepicker" required />
                             </div>
                         </div>
                        
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <span class="pf-title">Pays de l'offre</span>
                             <div class="pf-field">
                                 <select data-placeholder="Please Select Specialism"  name="pays" class=" form-control chosen">
@@ -230,7 +230,7 @@
                                </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <span class="pf-title">Ville de l'offre</span>
                             <div class="pf-field">
                                 <input type="text"  name="ville" class="form-control" value="{{ old('ville') ? old('ville') : $offre->ville }}" placeholder="" required  />
@@ -240,11 +240,11 @@
                     </div>
                         
                         
-                    <br>
+                    
                     <br>
                     
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                             <span style="background-color:#aeec; color:red" class="pf-title">Message aux candidats postuler</span>
                             <div class="pf-field">
                                 <textarea  name="message_candidature" >{{ old('message_candidature') ? old('message_candidature') : $offre->message_candidature}}</textarea>
@@ -253,10 +253,10 @@
                     </div>
 
            
-                    <br><br>
+                    <br>
                     
                     <div class="row">
-                        <div class="col-6" id="div_candidater_lien">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="div_candidater_lien">
                             <span  htmlFor="customRange1" class="pf-title">Candidater par lien ? </span>
                             <div class="pf-field">
                               
@@ -271,7 +271,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6" id="div_url_candidature">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="div_url_candidature">
                             <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
                             <div class="pf-field">
                                <input type="url" id="url_candidature" name="url_candidature" value="{{$offre->url_candidature}}" class="form-control"  />

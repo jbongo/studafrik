@@ -62,11 +62,15 @@
                         <div class="col-lg-3 ">
                             <span class="pf-title">Catégorie de l'article <span class="text-danger">*</span> </span>
                             <div class="form-group">
-                                <select data-placeholder="Please Select Specialism" required  name="categorieoffre_id" class="form-control chosen">
+                                <select data-placeholder="Please Select Specialism" required  name="categoriearticle_id" class="form-control chosen">
                                     
-                                    <option value="{{$article->categoriearticle()->id}}">{{$article->categoriearticle()->nom}}</option>   
+                                   @if($article->categoriearticle() != null) <option value="{{$article->categoriearticle()->id}}">{{$article->categoriearticle()->nom}}</option> 
+                                   
+                                   @else  
+                                   <option value=""></option>
+                                   @endif
                             
-                                    @foreach ($categories as $categorie )
+                                    @foreach ($categories as $categorie)
                                         <option value="{{$categorie->id}}">{{$categorie->nom}}</option>   
                                     @endforeach
                                 

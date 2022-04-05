@@ -9,6 +9,7 @@ use App\Models\Cv_experience;
 use App\Models\Cv_competence;
 use App\Models\User;
 use App\Models\Pays;
+use App\Models\Competence;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Categorieoffre;
 
@@ -87,7 +88,17 @@ class CvController extends Controller
         $pays = Pays::all();
         $categories = Categorieoffre::all();
 
-        return view('candidat.cv.liste',compact('candidats','pays','categories'));
+       
+        $comps = Cv_competence::get('libelle');
+        $competences = array();
+        
+        foreach ($comps as $comp) {
+           array_push($competences, $comp['libelle']);
+        }
+        
+
+
+        return view('candidat.cv.liste',compact('candidats','pays','categories','competences'));
     }
 
     /**
@@ -117,7 +128,8 @@ class CvController extends Controller
      */
     public function create_competence()
     {
-        return view('candidat.cv.add_competence');
+        $competences = Competence::all();
+        return view('candidat.cv.add_competence', compact('competences'));
     }
 
     /**
@@ -184,18 +196,27 @@ class CvController extends Controller
      */
     public function store_competence(Request $request)
     {
-            //  dd($request->all());
-             $request->validate([
-                "libelle" => 'string|required',
-               
-            ]);
-            Cv_competence::create([
-                "user_id"=> Auth::user()->id,
-                "libelle" => $request->libelle,
+             
+            $libelles = $request->libelle;
+            foreach ($libelles as $key => $libelle) {
+                // $request->validate([
+                //     "libelle" => 'string|required',
+                   
+                // ]);
+                $competence = Cv_competence::where([["user_id",Auth::user()->id],["libelle" , $libelle]])->first();
+                    
+                if($competence == null){
+                    Cv_competence::create([
+                        "user_id"=> Auth::user()->id,
+                        "libelle" => $libelle,
+                            
+                    ]);
+                }
                 
-            ]);
+             }
+           
     
-            return redirect()->route('cv.index')->with('ok','Compétence ajoutée');
+            return redirect()->route('cv.index')->with('ok','Compétence(s) ajoutée');
     }
 
 

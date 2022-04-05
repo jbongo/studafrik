@@ -26,10 +26,11 @@ class ArticleController extends Controller
         $articles = Article::where([['archive', false], ['actif', true]])->orderBy('id', 'desc')->paginate(15);
 
         $categories = Categoriearticle::all();
+        $posts = Article::orderBy('id', 'desc')->paginate(4);
 
         $cat = null ;
 
-        return view('blog.index', compact('articles','categories','cat'));
+        return view('blog.index', compact('articles','categories','cat', 'posts'));
     }
 
    
@@ -146,7 +147,7 @@ class ArticleController extends Controller
 
         $article = Article::create([
             "titre"=> $request->titre,
-            "categoriearticle_id"=> $request->categorie,
+            "categoriearticle_id"=> $request->categoriearticle_id,
             "description"=> $request->description,
         ]);
 
@@ -237,7 +238,7 @@ class ArticleController extends Controller
 
       
             $article->titre = $request->titre;
-            $article->categoriearticle_id = $request->categorie;
+            $article->categoriearticle_id = $request->categoriearticle_id;
             $article->description = $request->description;
      
 
@@ -384,7 +385,7 @@ class ArticleController extends Controller
             ->where(function($query) use ($cat){
                 if($cat != null){
 
-                    $query->where('categorie_id', $cat->id);
+                    $query->where('categoriearticle_id', $cat->id);
                 }
             }) 
         
@@ -392,8 +393,10 @@ class ArticleController extends Controller
 
         $categories = Categoriearticle::all();
 
+        $posts = Article::orderBy('id', 'desc')->paginate(4);
 
-        return view('blog.index', compact('articles','categories','cat'));
+
+        return view('blog.index', compact('articles','categories','cat','posts'));
     }
 
 }

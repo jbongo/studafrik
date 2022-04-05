@@ -27,8 +27,11 @@ class Offre extends Model
         return $this->belongsToMany(User::class,'offre_users')->withPivot('cv', 'lettre_motivation','created_at');
     }
 
-    public function candidatures(){
+    // retourne Toutes les candidatures
+    public static function candidatures($date_deb = null, $date_fin = null){
 
+        $candidatures = OffreUser::all();        
+        return $candidatures;
         
     }
 }

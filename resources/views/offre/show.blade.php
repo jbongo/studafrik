@@ -16,7 +16,7 @@
       
       "experienceRequirements" : {
         "@type" : "OccupationalExperienceRequirements",
-        "monthsOfExperience" : "36"
+        "monthsOfExperience" : "unavailable"
       },
       "description" : "{{$offre->description}}",
       "identifier": {
@@ -25,34 +25,37 @@
         "value": "{{$offre->id}}"
       },
       "datePosted" : "{{$offre->created_at->format('Y-m-d')}}",
-      "validThrough" : @if($offre->date_expiration != null) "{{$offre->date_expiration->format('Y-m-d')}}" @else  "" @endif,
+      "validThrough" : @if($offre->date_expiration != null) "{{$offre->date_expiration->format('Y-m-d')}}" @else  "unavailable" @endif,
       "employmentType" : "{{$offre->type_contrat}}",
       "hiringOrganization" : {
         "@type" : "Organization",
         "name" : "{{$offre->nom_entreprise}}",
         "sameAs" : "studafrik.com",
-        "logo" : "http://www.example.com/images/logo.png"
+        "logo" : "{{asset('images/logo1.png')}}"
       },
       "jobLocation": {
         "@type": "Place",
         "address": {
         "@type": "PostalAddress",
-        {{-- "streetAddress": "", --}}
-        "addressLocality": ", {{$offre->ville}}",
-        {{-- "addressRegion": "",
-        "postalCode": "", --}}
+        "streetAddress": "{{$offre->ville}}", 
+        "addressLocality": "{{$offre->ville}}",
+        "addressRegion": "{{$offre->ville}}",
+        "postalCode": "unavailable", 
         "addressCountry": "{{$offre->pays}}"
         }
-      },
-     "baseSalary": {
+      }
+
+     ,
+"baseSalary": {
         "@type": "MonetaryAmount",
-        "currency": "{{$offre->devise_salaire}}",
+        "currency": "{{$offre->devise_salaire != null ? $offre->devise_salaire : 'unavailable' }}",
         "value": {
           "@type": "QuantitativeValue",
-          "value": {{$offre->salaire}},
+          "value": "{{$offre->salaire != null ? $offre->salaire : 'unavailable' }}",
           "unitText": "MONTH"
         }
       }
+
     }
     </script>
 @endsection
@@ -69,7 +72,7 @@
 						<div class="col-lg-12">
 							<div class="inner2" style="text-align: center; ">
 								<div class="inner-title2">
-									<h3>Postulez à cette offre</h3> <br><br>
+									<h4 style="color:#EE6E49; font-weight:bold">Postulez à cette offre</h4> <br><br>
 								</div>
 							
 							</div>
@@ -100,7 +103,7 @@
 								 
 								 <div class="row">
 									 <div class="col-12">
-										<h3>{{$offre->titre}}</h3>
+										<h4>{{$offre->titre}}</h4>
 									 
 									 </div>
 									 
@@ -138,11 +141,11 @@
 
 
 				 			<div class="job-details">
-				 				<h3>Description de l'offre</h3>
+				 				<h3 style="color:#EE6E49">Description de l'offre</h3>
 								 
 								<p>{!! $offre->description !!}</p>
 								
-								 <h3>Profil et compétences recherchés</h3>
+								 <h3 style="color:#EE6E49">Profil et compétences recherchés</h3>
 				 					<p>{!! $offre->description_profil!!}</p>
 								 
 
@@ -154,9 +157,10 @@
 				 			<div class="share-bar">
 				 				{{-- <span>Partager</span><a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a> --}}
 				 			</div>
-				 		</div>
-					 </div>
-					 
+
+
+							</div>
+					</div>					 
 
 
 				 	<div class="col-lg-4 column">
@@ -169,7 +173,7 @@
 								@else 
 								<img height="250px" width="250px" src="{{($offre->user->photo_profile == null ) ? asset('images/profil/profil.png') :asset('images/photo_profil/'. $offre->user->photo_profile) }}" alt="@lang('Photo de profil')" /> </div>
 								@endif
-							 <h4> @if($offre->nom_entreprise != null) {{$offre->nom_entreprise}} @else {{$offre->user->nom}} @endif</h4> <br>
+							 <h5> @if($offre->nom_entreprise != null) {{$offre->nom_entreprise}} @else {{$offre->user->nom}} @endif</h5> <br>
 							 @if($offre->user->site_web != null)
 							 <p><i class="la la-unlink"></i>{{$offre->user->site_web}}</p>
 							 @endif
@@ -177,26 +181,26 @@
 								@if($offre->date_expiration != null && $offre->date_expiration->format('Y-m-d') < date("Y-m-d"))
 								
 											@if($deja_postuler == true )
-												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
+												<span style="color:#d60004; font-size:16px;">Vous avez déjà postulé à cette offre</span> <br>
 											@endif
 											
 											
-									<br> <span style="color:#d60004; font-size:18px;">L'offre a expiré</span> <br>
+									<br> <span style="color:#d60004; font-size:16px;">L'offre a expiré</span> <br>
 								@else 
 									@if(Auth::check())
 										@if(Auth::user()->role == "candidat") 
 											@if($deja_postuler == false )
 										
-													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+													<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 150px;" class="apply-job-btn">Postuler</a>
 											
 											
 											@elseif($deja_postuler == true )
-												<span style="color:#d60004; font-size:18px;">Vous avez déjà postulé à cette offre</span> <br>
+												<span style="color:#d60004; font-size:16px;">Vous avez déjà postulé à cette offre</span> <br>
 											@endif
 
 										@endif
 									@else 
-												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 190px;" class="apply-job-btn">Postuler</a>
+												<a href="{{ route('postuler.create', Crypt::encrypt($offre->id)) }}" title="" style="width: 150px;" class="apply-job-btn">Postuler</a>
 									
 									@endif
 
@@ -228,10 +232,93 @@
 
 							@if($offre->user->role == "recruteur")
 			 				 <br> <a href="{{ route('user.bibliotheque.show',Crypt::encrypt($offre->user->id) ) }}" title="" style="background: #323232; width: 190px"  class="viewall-jobs">Découvrir l'entreprise</a> <br>
-							 
-						@endif
-			 			</div><!-- Job Head -->
+							@endif
+						
+			 		</div><!-- Job Head -->
+
+
+
+
 				 	</div>
+
+
+
+					 <div class="row">
+						 <div class="col-lg-8">
+							 
+						 <div class="recent-jobs">
+							
+
+
+
+							<div class="job-details">
+								<h3 style="color:#EE6E49">Offres du même pays</h3>
+								
+							  
+							</div>
+
+
+
+
+
+							<div class="job-list-modern">
+
+								@foreach ($offrescategories as $offrecat)
+
+								<div class="job-listings-sec no-border">
+								   <div class="job-listing wtabs">
+									   <div class="job-title-sec">
+										   <div class="c-logo"> 
+											@if($offrecat->photo_recruteur != null )
+												
+												<img  src="{{ asset('images/photo_recruteur/'.$offrecat->photo_recruteur) }}" width="110px" height="100px"  title="{{$offrecat->slug}}"  alt="{{$offrecat->slug}}" /> </div>
+										
+												@else 
+										
+													<img src="{{ ($offrecat->user->photo_profile != null) ? asset('images/photo_profil/'.$offrecat->user->photo_profile) : asset('images/profil/profil_entreprise.png') }}" width="110px" height="100px"  title="{{$offrecat->slug}}"  alt="{{$offrecat->slug}}" /> </div>
+										
+												@endif
+
+											<h3><a href="{{route('mes_offres.show', $offrecat->slug )}}" title="">{{$offrecat->titre}}</a></h3>
+										   
+										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ $offrecat->ville }}, {{ $offrecat->pays }}</div>
+									   </div>
+									   <div class="job-style-bx">
+										   
+										   <span class="job-is ft">{{ $offrecat->type_contrat }}</span>
+										  
+											   @php 
+												$duree = date_diff(date_create(date('Y-m-d')) ,date_create($offrecat->created_at->format('Y-m-d')) ); 
+											@endphp 
+									
+									
+											@if($duree->days == 0)
+												<i>Publiée Aujourd'hui </i>
+											@elseif($duree->days == 1)
+												<i>Publiée Hier </i>
+											@else 
+												<i>Publiée Il y'a {{$duree->days}} jours</i>
+									
+											@endif
+
+									   </div>
+								   </div>
+							</div>
+								   @endforeach
+							
+							   </div>
+						 </div>
+					 </div>
+
+
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 		</div>

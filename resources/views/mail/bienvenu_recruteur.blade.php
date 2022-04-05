@@ -383,7 +383,7 @@
                                                                                         <tr class="mceButton">
                                                                                             <td style="background-color: #ee6e49; border-radius: 50px; text-align: center;" valign="top">
                                                                                                 <a
-                                                                                                    href=""
+                                                                                                    href="{{route('info_recruteur')}}"
                                                                                                     target="_blank"
                                                                                                     style="
                                                                                                         background-color: #ee6e49;
@@ -570,7 +570,7 @@
                                                                                                                                         width: 100%;
                                                                                                                                     "
                                                                                                                                 >
-                                                                                                                                    <p><em>Copyright (C) 2021 *STUD'AFRIK*. Tous droits reservés.</em></p>
+                                                                                                                                    <p><em>Copyright (C) {{date('Y')}} *STUD'AFRIK*. Tous droits reservés.</em></p>
                                                                                                                                     <p></p>
                                                                                                                                     <p></p>
                                                                                                                                    
@@ -606,7 +606,7 @@
                 </table>
             </center>
         </body>
-        <script type="text/javascript">
+        {{-- <script type="text/javascript">
             (function (i, s, o, g, r, a, m) {
                 i["GoogleAnalyticsObject"] = r;
                 (i[r] =
@@ -623,7 +623,8 @@
             ga("create", "UA-329148-88", { allowLinker: true });
             ga("set", "hostname", ".campaign-archive.com");
             ga("send", "pageview");
-        </script>
+        </script> --}}
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {

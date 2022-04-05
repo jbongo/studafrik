@@ -64,13 +64,13 @@
                                                     </div>
                                                 </div>
            
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-9">
                                                     <span class="pf-title">Description <span class="text-danger">*</span> </span>
                                                     <div class="form-group">
                                                         <textarea name="description"  class="form-control"  ></textarea>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12">
+                                                <div class="col-lg-9">
                                                     <span class="pf-title">Profil et compétences recherchés <span class="text-danger">*</span></span>
                                                     <div class="form-group">
                                                         <textarea name="description_profil" class="form-control" ></textarea>
@@ -102,7 +102,7 @@
                                                        <input type="number"  name="salaire" class="form-control"  />
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2">
+                                                <div class="col-lg-4">
                                                     <span  htmlFor="" class="pf-title">Devise du Salaire </span>
                                                     <div class="pf-field">
                                                         <select data-placeholder="" required  name="devise_salaire" class="form-control chosen">

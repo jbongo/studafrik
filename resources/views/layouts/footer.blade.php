@@ -66,7 +66,7 @@
                                 <div class="col-lg-6">
                                     <a href="{{route('nous_contacter')}}" title="">Contact </a>
                                     {{-- <a href="#" title="">Termes du contrat</a> --}}
-                                    <a href="{{route('user.bibliotheque.index')}}" title="">Entreprises </a>
+                                    {{-- <a href="{{route('user.bibliotheque.index')}}" title="">Entreprises </a> --}}
                                     <a href="{{route('conditions_utilisation')}}" title="">Nos conditions générales d'utilisation </a>
 
 
@@ -197,7 +197,7 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('admin/js/sb-admin-2.js')}}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3NQ98TCKP3"></script>
+{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NQ98TCKP3"></script> --}}
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

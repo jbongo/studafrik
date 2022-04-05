@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewslettersTable extends Migration
+class CreateHistoriquesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateNewslettersTable extends Migration
      */
     public function up()
     {
-        Schema::create('newsletters', function (Blueprint $table) {
+        Schema::create('historiques', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();            
-            $table->boolean('valide')->default(false);            
+            $table->integer('user_id')->nullable();
+            $table->integer('ressource_id')->nullable();
+            $table->enum('ressource',['connexion','autre'])->default('connexion');
+            $table->string('action')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateNewslettersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('newsletters');
+        Schema::dropIfExists('historiques');
     }
 }

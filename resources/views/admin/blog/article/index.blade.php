@@ -40,6 +40,7 @@
                                     <thead>
                                         <tr>
                                             <th>Image</th>
+                                            <th>Catégorie</th>
                                             <th>Titre</th>
                                             <th>Contenu</th>
                                             <th>Actions</th>
@@ -49,6 +50,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>Image</th>
+                                            <th>Catégorie</th>
                                             <th>Titre</th>
                                             <th>Contenu</th>
                                             <th>Actions</th>
@@ -62,6 +64,7 @@
                                         @foreach ($articles as $article )
                                         <tr>
                                             <td><img src="{{asset($article->image)}}" width="150px" height="150px" alt=""></td>
+                                            <td>@if($article->categoriearticle() != null) {{$article->categoriearticle()->nom}} @endif</td>
                                             <td>{{$article->titre}}</td>
                                             <td>{!!$article->description!!}</td>
                                             <td>    
