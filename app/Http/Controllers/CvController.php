@@ -38,7 +38,7 @@ class CvController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function liste($poste = null, $pays = null)
+    public function liste($poste = null, $competence= null, $pays = null)
     {
         //
         // dd($_GET['pays']);
@@ -47,6 +47,9 @@ class CvController extends Controller
         
         if(isset($_GET['poste']) )
         $poste= $_GET['poste'];
+
+        if(isset($_GET['competence']) )
+        $competence= $_GET['competence'];
         
         // dd($pays);
         

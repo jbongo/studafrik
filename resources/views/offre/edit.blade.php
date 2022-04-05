@@ -239,9 +239,12 @@ tinymce.init({
     
     if(val == "Non"){
         $('#div_url_candidature').hide();
+        $('#url_candidature').attr('required',false);
+
 
     }else{
         $('#div_url_candidature').show();
+        $('#url_candidature').attr('required',true);
 
     }
    

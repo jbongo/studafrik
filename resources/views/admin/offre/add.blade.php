@@ -241,7 +241,7 @@
                         <div class="col-6" id="div_url_candidature">
                             <span  htmlFor="customRange1" class="pf-title">Lien de candidature  </span>
                             <div class="pf-field">
-                               <input type="url" id="url_candidature" name="url_candidature" class="form-control" required />
+                               <input type="url" id="url_candidature" name="url_candidature" class="form-control"  />
                             </div>
                         </div>
                         
@@ -291,23 +291,28 @@
 
 <script>
 
+$('#div_url_candidature').hide();
    
 
     
-    $('#candidater_lien').on('change',function(){
+   $('#candidater_lien').on('change',function(){
 
-    var val = $('#candidater_lien').val();
-    
-    if(val == "Non"){
-        $('#div_url_candidature').hide();
+       var val = $('#candidater_lien').val();
+       
+       if(val == "Non"){
+           $('#div_url_candidature').hide();
+           $('#url_candidature').attr('required',false);
 
-    }else{
-        $('#div_url_candidature').show();
 
-    }
-   
+       }else{
+           $('#div_url_candidature').show();
+           $('#url_candidature').attr('required',true);
 
-    })
+       }
+  
+
+   });
+
 
 
 </script>

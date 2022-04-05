@@ -34,9 +34,15 @@
                     <form action="{{ route('cv.liste') }}" method="get" >
                         @csrf
                         <div class="row">
-                            <div class="col-lg-5">
+                            <div class="col-lg-4">
                                 <div class="job-field">
                                     <input type="text" name="poste" class="form-control" placeholder="Entrez un mot clé" value="{{isset($_GET['poste']) ? $_GET['poste'] :""}}" />
+                                    <i class="la la-keyboard-o"></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="job-field">
+                                    <input type="text" name="competence" class="form-control" placeholder="Rechercher une compétence" value="{{isset($_GET['competence']) ? $_GET['competence'] :""}}" />
                                     <i class="la la-keyboard-o"></i>
                                 </div>
                             </div>

@@ -325,7 +325,7 @@
 
 <script>
 
-    var lien_cand = "{{$offre->candidater_lien}}";
+var lien_cand = "{{$offre->candidater_lien}}";
     if(lien_cand == "Non"){
     $('#div_url_candidature').hide();
 
@@ -339,15 +339,17 @@
     
     if(val == "Non"){
         $('#div_url_candidature').hide();
+        $('#url_candidature').attr('required',false);
+
 
     }else{
         $('#div_url_candidature').show();
+        $('#url_candidature').attr('required',true);
 
     }
    
 
     })
-
 
 </script>
 
