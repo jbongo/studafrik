@@ -323,8 +323,6 @@
         $('#div_url_candidature').hide();
         $('#url_candidature').removeAttr('required')
 
-    }else{
-        $('#div_url_candidature').show();
 
         $('#url_candidature').attr('required',true);
 
@@ -333,7 +331,6 @@
     }
    
 
-    })
 
 </script>
 
