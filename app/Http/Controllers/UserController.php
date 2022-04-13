@@ -138,7 +138,7 @@ if($request->hasFile('cv')){
     ]);
 
     $avatar = $request->file('cv');
-    $filename =time() . '.' . $avatar->getClientOriginalExtension() ;
+    $filename = time() . '.' . $avatar->getClientOriginalExtension() ;
      $filename = $user->id."_".$filename;
     $user->cv = $filename;
     // return response()->download(storage_path('app/pdf_compromis/pdf_compro.pdf'));
@@ -160,10 +160,7 @@ if($request->hasFile('cv')){
                 'date_naissance' => 'required|date|max:255',
                 'pays' => 'required|string|max:255',
                
-                
-             
-             
-              
+
             ]);
 
    

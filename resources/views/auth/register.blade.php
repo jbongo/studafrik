@@ -94,6 +94,8 @@ textarea {
                                      <div class="cfieldx">
 										<input type="checkbox"  id="check_conditions" name="check_conditions" required /> 
                                         <label for="check_conditions"> J'ai lu et j'accepte les <a href="{{route('conditions_utilisation')}}" target="_blank">CGU</a>  et <a href="{{route('politique_confidentialite')}}" target="_blank">la politique de confidentialité.</a> </label>
+										<input type="checkbox"  id="accept_newletter" name="accept_newsletter"  /> 
+                                        <label for="accept_newletter"> En cochant cette case, j'accepte de recevoir des mails venant de Stud'Afrik</label>
 									</div>
 									<button   type="submit">S'inscrire</button>
 								</form>
