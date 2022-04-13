@@ -557,7 +557,10 @@ public function photoProfile(Request $request){
     public function delete_recruteur($recruteur_id)
     {
 
-        return view('admin.login');
+         
+        $recruteur =  User::where([['role','recruteur'], ['id', $recruteur_id]])->first();
+
+        return $recruteur->delete();
     }
 
 }

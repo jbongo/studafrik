@@ -87,7 +87,7 @@
                                               {{-- <a href="{{route('mes_recruteurs.show', $recruteur->slug)}}" target="_blank" class="btn btn-primary btn-circle btn-sm  update" ><i class="fas fa-eye"></i></a>      --}}
                                                 <a href="" class="btn btn-success btn-circle btn-sm  update" ><i class="fas fa-edit"></i></a>     
 
-                                                <a href="" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td> 
+                                                <a data-href="{{route('admin.recruteur.delete', $recruteur->id)}}" class="btn btn-danger btn-circle btn-sm supprimer"><i class="fas fa-trash"></i></a></td> 
                                             
                                         </tr>
                                         @endforeach
@@ -110,72 +110,91 @@
     
 @section('js-content')
 
->
 
-
-
-
-
+// ######### supprimer un recruteur
 
 <script>
-
-
-    // ######### supprimer un recruteur
     $(function() {
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
         })
-        $('[data-toggle="tooltip"]').tooltip()
+       
+        
         $('body').on('click','a.supprimer',function(e) {
             let that = $(this)
             e.preventDefault()
-           
-           
-           
-            swal({
-                title: "Voulez-vous supprimer cet recruteur ?",
-                // text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                //     showCancelButton: true,
-            //     confirmButtonColor: '#DD6B55',
-            //     confirmButtonText: '@lang('Oui')',
-            //     cancelButtonText: '@lang('Non')',
-                buttons: true,
-                cancel:'true',
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({                        
-                            url: that.attr('href'),
-                            type: 'POST',
-                            data: {"_token": "{{ csrf_token() }}"},
-                            success: function(data){
-                        document.location.reload();
-                        },
-                        error : function(data){
-                            console.log(data);
-                        }
-                        })
-                        .done(function () {
+            const swalWithBootstrapButtons = swal.mixin({   
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false,
+                 })
+            swalWithBootstrapButtons({
+                title: '@lang('Voulez-vous supprimer ce recruteur ?')',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: '@lang('Oui')',
+                cancelButtonText: '@lang('Non')',
+                
+            }).then((result) => {
+                if (result.value) {
+                    
+                        
+        
+                    $.ajax({
+                        type: "POST",                       
+                        url: that.attr('data-href'),
+                        data: {"_token": "{{ csrf_token() }}"},
+                       
+                        // data: data,
+                        success: function(data) {
+                            
+                            swal(
+                                    'Supprimé',
+                                    'Le recruteur a été supprimé \n ',
+                                    'success'
+                                )
+                                
                                 that.parents('tr').remove()
-                        })
-
-
-
-                    swal("Le recruteur a été supprimé !", {
-                    icon: "success",
-                    });
-
-                } else {
-                    swal("Suppression annulée");
+                            
+                              
+                        },
+                        error: function(data) {
+                            console.log(data);
+                            
+                            swal(
+                                'Echec',
+                                'Le recruteur n\'a pas été supprimé :)',
+                                'error'
+                            );
+                        }
+                    })
+                    .done(function () {
+                               that.parents('tr').remove()
+                            })
+                    ;
+                    
+                  
+                    
+                    
+                } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons(
+                    'Annulé',
+                    'Le recruteur n\'a pas été supprimé :)',
+                    'error'
+                    )
                 }
-                });
-
-
-                })
             })
+         })
+    })
 </script>
+
+
+
+   
 
 
 @endsection
