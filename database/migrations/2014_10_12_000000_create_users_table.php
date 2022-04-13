@@ -45,6 +45,7 @@ class CreateUsersTable extends Migration
             $table->string('photo_profile')->nullable();
             $table->string('photo_couverture')->nullable();
             $table->boolean('profile_complete')->default(false);
+            $table->boolean('accept_newsletter')->default(false);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();

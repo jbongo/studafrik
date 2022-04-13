@@ -22,6 +22,7 @@ class CreateNewUser implements CreatesNewUsers
     {
 
 
+        // dd($input);
        
     //    if( !in_array($input['role'], ['candidat','recruteur']) ){
     //       dd('La valeur du type ne doit être modifiée');
@@ -32,10 +33,10 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        // dd($input);
         return User::create([
             'role' => $input['role'],
             'email' => $input['email'],
+            'accept_newsletter' => array_key_exists('accept_newsletter', $input),
             'password' => Hash::make($input['password']),
         ]);
     }
