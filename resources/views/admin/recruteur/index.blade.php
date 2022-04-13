@@ -111,9 +111,9 @@
 @section('js-content')
 
 
-// ######### supprimer un recruteur
 
 <script>
+    // ######### supprimer un recruteur
     $(function() {
         $.ajaxSetup({
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
