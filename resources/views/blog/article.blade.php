@@ -2,6 +2,13 @@
 {{$article->titre}}
 @endsection
 
+@section('meta') 
+<meta property="og:title" content="{{$article->titre}}" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{asset($article->image)}}" />
+<meta property="og:url" content="{{route("article.show", $article->slug)}}"/>
+{{-- <meta property="og:description" content="{!! substr($article->description, 0,250) !!}" /> --}}
+@endsection
 @include('layouts.topmenupage')
 
 
